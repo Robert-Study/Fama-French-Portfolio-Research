@@ -1,0 +1,44 @@
+[
+  {
+    "file": "fund_master.csv",
+    "sha256": "c680a57cb3a04f8b400fc91ba7932a4849f8593a5a189d03ba58097cfe3cd5a3",
+    "bytes": 4709,
+    "source": "V4 workbook holdings / V5 saved model as explicitly labelled; not a fresh provider download",
+    "extracted": "2026-09-22"
+  },
+  {
+    "file": "fundamentals.csv",
+    "sha256": "4430b4bbbcb041b08a35954ee847a76ea1edbf588b268a6f600e1a08b93348e3",
+    "bytes": 95,
+    "source": "V4 workbook holdings / V5 saved model as explicitly labelled; not a fresh provider download",
+    "extracted": "2026-09-22"
+  },
+  {
+    "file": "holdings.csv",
+    "sha256": "fdd18f052394f5e82e819d9eb9bb0f8f2e7c0fb00064feac4c13f2c08907a35c",
+    "bytes": 2068796,
+    "source": "V4 workbook holdings / V5 saved model as explicitly labelled; not a fresh provider download",
+    "extracted": "2026-09-22"
+  },
+  {
+    "file": "legacy_factor_priors.csv",
+    "sha256": "5130cf32227c61691bcf03fc71088e365f35451d30bc6125e41ac68e8c6fa43a",
+    "bytes": 2120,
+    "source": "V4 workbook holdings / V5 saved model as explicitly labelled; not a fresh provider download",
+    "extracted": "2026-09-22"
+  },
+  {
+    "file": "monthly_returns.csv",
+    "sha256": "eec466316c21c1c3b44f702026c5157c30ce8e020956ce8d55a99ea3184ef2ce",
+    "bytes": 222022,
+    "source": "V4 workbook holdings / V5 saved model as explicitly labelled; not a fresh provider download",
+    "extracted": "2026-09-22"
+  },
+  {
+    "file": "securities.csv",
+    "sha256": "a13a58b0f36f56a8904294129c62bbaa276591c9201066da5729544faa2bb579",
+    "bytes": 1620780,
+    "source": "V4 workbook holdings / V5 saved model as explicitly labelled; not a fresh provider download",
+    "extracted": "2026-09-22"
+  }
+]
