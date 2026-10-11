@@ -4,7 +4,17 @@ A Streamlit app for comparing ETF portfolios and inspecting a constrained effici
 
 V6 starts with the original V5 files. Those histories have unverified splices and currency treatment, so the bundled data is **demonstration data**. Company fundamentals are empty. Neither fitted holdings exposures nor the figures in the interview draft have been established by these files.
 
-The first release separates the portfolio maths from the input evidence. It includes a legacy-data explorer and a return-based FF5 calibration path for a documented input bundle. Holdings-based factor calibration remains a later stage.
+The first release includes:
+
+- A 101-point constrained frontier and a slider showing each solved portfolio.
+- Fund selection, fund weight limits, holdings/overlap diagnostics and volatility contributions.
+- Return-based FF5 ridge calibration with chronological validation, explicit GBP conversion and a fee-consistent forecast.
+- An optional 20-year buy-and-hold illustration with approximate P20/median/P80 bands.
+- Excel results and a diagnostic ZIP with assumptions, model/data IDs and the full frontier.
+
+The bundled legacy workflow works immediately. The FF5 path requires the documented input bundle described below. Holdings-characteristic calibration, country/industry limits in the UI, leveraged funds and income assets remain later work.
+
+[Methodology and limitations](docs/methodology.md) · [Research data contract](docs/data-contract.md) · [Deployment and first test](docs/deployment.md)
 
 ## Hosting
 
@@ -19,7 +29,7 @@ Deploy this private repository through Streamlit Community Cloud:
 | Secrets | None required |
 | App access | Private |
 
-The app runs on the host; using it does not require Python on a laptop. Development and data refreshes are separate from everyday use.
+Open [Streamlit Community Cloud](https://share.streamlit.io/) and choose **Create app → Yup, I have an app**. Use the settings above and keep access private. The app runs on the host; using it does not require Python on a laptop. Development and data refreshes are separate from everyday use.
 
 ## Development
 
