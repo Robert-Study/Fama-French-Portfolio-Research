@@ -23,7 +23,7 @@ def sample_bundle(change=None):
     factors["RF"] = 0.001
     cash = pd.DataFrame({"Month": months.astype(str), "GBP_RF": 0.001, "USD_GBP": 0.0})
     funds = pd.DataFrame({"ETF_ID": ["A", "B"], "Name": ["Test A", "Test B"], "ISIN": ["TEST_A", "TEST_B"],
-                          "AssetClass": "Equity", "Region": "Developed", "Hedged": False, "TER": 0.0024,
+                          "AssetClass": "Equity", "Region": "Developed", "Hedged": False, "Leverage": 1, "TER": 0.0024,
                           "ReturnKind": "actual_fund", "Source": "Synthetic test fixture"})
     manifest = {"schema_version": 1, "return_currency": "GBP", "return_type": "monthly_simple_net_total",
                 "factor_currency": "USD", "factor_region": "Developed", "units": "decimal",

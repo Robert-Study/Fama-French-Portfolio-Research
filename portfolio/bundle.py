@@ -61,7 +61,7 @@ def read_bundle(raw: bytes) -> ResearchData:
         raise DataError("Document sources for funds, returns, factors, GBP cash and FX.")
 
     funds = csv["funds.csv"]
-    columns = {"ETF_ID", "Name", "ISIN", "AssetClass", "Region", "Hedged", "TER", "ReturnKind", "Source"}
+    columns = {"ETF_ID", "Name", "ISIN", "AssetClass", "Region", "Hedged", "Leverage", "TER", "ReturnKind", "Source"}
     if not columns.issubset(funds.columns) or funds.empty or len(funds) > 50:
         raise DataError("funds.csv needs 1–50 funds and all required identity/source columns.")
     if funds[list(columns)].isna().any().any() or funds.ETF_ID.duplicated().any():
@@ -70,6 +70,8 @@ def read_bundle(raw: bytes) -> ResearchData:
         raise DataError("This calibration path currently supports developed-equity funds only.")
     if not funds.Hedged.astype(str).str.lower().isin(["false", "0"]).all():
         raise DataError("Hedged share classes need a separate factor/hedge model.")
+    if not pd.to_numeric(funds.Leverage, errors="coerce").eq(1).all():
+        raise DataError("Leveraged and inverse ETFs need a separate daily-reset model.")
     if not funds.ReturnKind.isin(["actual_fund", "documented_index_proxy"]).all():
         raise DataError("Identify each series as actual_fund or documented_index_proxy. Undocumented splices are not accepted.")
     try:

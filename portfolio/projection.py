@@ -10,7 +10,9 @@ def buy_and_hold_projection(weights, mean, covariance, investment=10000.0, years
         raise ValueError("Projection inputs have inconsistent dimensions.")
     if not all(np.isfinite(x).all() for x in (w, mu, cov)) or not np.isfinite(investment):
         raise ValueError("Projection inputs must be finite.")
-    if (w < 0).any() or not np.isclose(w.sum(), 1) or investment <= 0 or not 1 <= years <= 40:
+    if not np.allclose(cov, cov.T, atol=1e-12) or np.linalg.eigvalsh(cov).min() < -1e-10:
+        raise ValueError("Projection covariance must be symmetric and positive semidefinite.")
+    if (w < 0).any() or not np.isclose(w.sum(), 1) or investment <= 0 or not isinstance(years, int) or not 1 <= years <= 40:
         raise ValueError("Use long-only weights summing to 100%, a positive investment and 1–40 years.")
     keep = w > 0
     w, mu, cov = w[keep], mu[keep], cov[np.ix_(keep, keep)]
