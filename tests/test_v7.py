@@ -476,6 +476,47 @@ def test_derived_matrix_checkout_reproduces_risk_and_labels_approximation(model,
     assert scenarios.horizon_averages[:,3].std()==pytest.approx(.18,rel=.06)
 
 
+def test_committed_dashboard_without_raw_cache(tmp_path, monkeypatch):
+    """Exercise the actual shipped inputs, not the synthetic model fixture."""
+    import shutil
+    import streamlit as st
+    import portfolio.portable as portable
+    from portfolio.validation import age_days
+    monkeypatch.setattr(portable, 'age_days', lambda value: age_days(value, date(2026,10,12)))
+    for folder in ('portfolio', 'ui', 'docs'):
+        shutil.copytree(ROOT/folder, tmp_path/folder, ignore=shutil.ignore_patterns('__pycache__'))
+    shutil.copy(ROOT/'app.py', tmp_path/'app.py')
+    data = tmp_path/'data/research'
+    data.mkdir(parents=True)
+    for source in (ROOT/'data/research').iterdir():
+        if source.is_file():
+            shutil.copy(source, data/source.name)
+    assert not (data/'.cache').exists()
+    snapshot = load_snapshot(data)
+    assert snapshot.evidence['IWFV']['fee'] > 0
+    assert snapshot.status.loc['IWFV', 'Status'] == 'Calibration supplied; validation pending'
+    st.cache_data.clear()
+    app = AppTest.from_file(tmp_path/'app.py', default_timeout=60).run()
+    assert not app.exception
+    assert not app.error
+    assert len(app.metric) == 4
+    assert all(metric.value != 'Unavailable' for metric in app.metric[:3])
+    assert len(app.session_state['active_run_v7'].model.ids) == 4
+    st.cache_data.clear()
+    import portfolio.research as research
+    def fail_solve(*args, **kwargs):
+        raise RuntimeError('injected hosted solver failure')
+    monkeypatch.setattr(research, 'solve_run', fail_solve)
+    failed = AppTest.from_file(tmp_path/'app.py', default_timeout=60).run()
+    assert not failed.exception
+    assert 'solving the constrained frontier: RuntimeError: injected hosted solver failure' in failed.error[0].value
+    assert 'Prior result retained' not in failed.error[0].value
+    assert 'No portfolio has been calculated' in failed.error[0].value
+    status = load_snapshot(data).status
+    assert status.loc['SGLN', 'Reason'] == ''
+    st.cache_data.clear()
+
+
 def test_already_leveraged_net_funding_index_is_not_multiplied_or_financed_twice():
     terms=LeverageTerms(2,.00365,365,funding_embedded=True,input_kind='leveraged_index_net_funding')
     out=daily_leverage([.2,-.1],0,terms)

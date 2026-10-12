@@ -89,6 +89,14 @@ def load_snapshot(root, today=None):
             derived = json.loads(model_file.read_text())
             snapshot.manifest = {**derived['source_manifest'], 'derived_model_inputs': derived,
                                  'runtime_history_status': 'Derived matrices only; refresh to restore actual histories'}
+            # A clean hosted checkout has calibrated evidence but no raw-history
+            # cache. Show its supplied admission inventory even if a solver fails;
+            # do not describe absent local histories as absent source evidence.
+            from portfolio.portable import payload_frame
+            snapshot.evidence = derived['evidence']
+            snapshot.status = payload_frame(derived['status'])
+            calibrated = snapshot.status['Status'].str.startswith('Admitted')
+            snapshot.status.loc[calibrated, 'Status'] = 'Calibration supplied; validation pending'
             snapshot.fingerprint = snapshot_fingerprint(root)
     else:
         pointer = json.loads(current.read_text())
@@ -127,6 +135,8 @@ def load_snapshot(root, today=None):
     bank_evidence = snapshot.evidence.get('GBP_BANK_SAVINGS', {})
     if bank_evidence.get('provider') and bank_evidence.get('product'):
         snapshot.instruments.loc['GBP_BANK_SAVINGS', 'name'] = bank_evidence['provider'] + ' ' + bank_evidence['product']
+    if 'derived_model_inputs' in snapshot.manifest:
+        return snapshot
     rows = []
     for ident, row in instruments.iterrows():
         reasons = admission(row, snapshot.evidence.get(ident, {}), snapshot.returns, source_ids, today,

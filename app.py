@@ -109,17 +109,20 @@ if snapshot.manifest.get('provisional_policy'):
     bond_note = 'Gilt carry uses a cash-based prior.' if policy.get('bond_carry_assumed', True) else 'Dated issuer gilt carry/duration.'
     st.warning('Provisional calibration: US RF proxies SONIA. ' + bond_note + ' ' + currency_note + ' Details on Methods.')
 if apply or run is None or run.model.snapshot.fingerprint != snapshot.fingerprint:
+    stage = 'loading calibrated model inputs'
     try:
         model = fit(snapshot.fingerprint, __version__, snapshot)
+        stage = 'solving the constrained frontier'
         new_run = solve(snapshot.fingerprint, __version__, requested, model)
         st.session_state.active_run_v7 = new_run
         st.session_state.pop('v7_error', None)
         run = new_run
     except (ValueError, KeyError) as exc:
         st.session_state.v7_error = str(exc)
-    except Exception:
+    except Exception as exc:
         logging.exception('V7 calculation failed')
-        st.session_state.v7_error = 'Model calculation failed; see server diagnostics. Prior result retained.'
+        retained = ' Prior result retained.' if run is not None else ' No portfolio has been calculated.'
+        st.session_state.v7_error = f'Failed while {stage}: {type(exc).__name__}: {exc}.' + retained
 if st.session_state.get('v7_error'):
     st.error(st.session_state.v7_error)
     if run is not None:
