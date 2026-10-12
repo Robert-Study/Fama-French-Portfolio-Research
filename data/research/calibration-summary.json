@@ -1,0 +1,107 @@
+{
+  "model_version": "0.2.0",
+  "source_month": "2026-08",
+  "actual_gbp_history": true,
+  "bank_provider": "Charter Savings Bank",
+  "bank_aer": 0.0425,
+  "bond_ytm": 0.052000000000000005,
+  "bond_duration": 6.93642,
+  "bond_date": "2026-10-09",
+  "admitted": [
+    "GBP_BANK_SAVINGS",
+    "SGLN",
+    "IGLT",
+    "IWFV"
+  ],
+  "blocked": 46,
+  "fit_seconds": 0.40365918000043166,
+  "frontier_seconds": 0.11220355900059076,
+  "2000_5000_scenario_seconds": 0.06224978899990674,
+  "warm_slider_numeric_seconds": 0.12118758999986312,
+  "max_rss_mb": 392.3046875,
+  "solver_max_violation": 2.220446049250313e-16,
+  "convergence": {
+    "max_quantile_difference": 0.001162692819519029,
+    "threshold": 0.005,
+    "passed": true
+  },
+  "diagnostics": [
+    {
+      "instrument": "IWFV",
+      "specification": "ff5_ridge",
+      "ridge_penalty": 1.0,
+      "validation_rmse": 0.012784289918756134,
+      "holdout_rmse": 0.04525891313460788,
+      "holdout_start": "2025-09",
+      "fitted_net_alpha_monthly": 0.00029301574975254194,
+      "residual_annual_volatility": 0.05547575362510454,
+      "beta_change_l2": 0.48683760896815387,
+      "holdout_comparisons": {
+        "market": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.04147687307312003
+        },
+        "ff5_ols": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.04530147376568232
+        },
+        "ff5_ridge": {
+          "validation_selected_penalty": 1.0,
+          "holdout_rmse": 0.04525891313460788
+        }
+      },
+      "start": "2016-09",
+      "end": "2026-08",
+      "months": 120,
+      "candidates": [
+        {
+          "specification": "market",
+          "penalty": 0.0,
+          "validation_rmse": 0.022764255668969932
+        },
+        {
+          "specification": "ff5_ols",
+          "penalty": 0.0,
+          "validation_rmse": 0.012960245368046812
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.0,
+          "validation_rmse": 0.012960245368046812
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.1,
+          "validation_rmse": 0.012934787982968612
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 1.0,
+          "validation_rmse": 0.012784289918756134
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 10.0,
+          "validation_rmse": 0.014166426584319786
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 100.0,
+          "validation_rmse": 0.027493965776244047
+        }
+      ],
+      "factor_currency": "GBP converted",
+      "cash_reference": "Published US RF is a proxy for unavailable GBP SONIA; historical interest-rate differential is assumed zero",
+      "factor_vintage": "{\"Asia_Pacific_ex_Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Developed\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Emerging\": {\"end\": \"2026-08\", \"start\": \"1992-07\"}, \"Europe\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"North_America\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"US\": {\"end\": \"2026-08\", \"start\": \"1963-07\"}}",
+      "source_reconciliation": "Issuer performance-index/NAV divergence requires review; actual accumulating/no-income NAV is used, with no invented distributions or adjustments"
+    }
+  ],
+  "validation": {
+    "uv_tests_passed": 52,
+    "pip_tests_passed": 52,
+    "actual_app_pages": "passed",
+    "actual_export_solve_reproduction": "passed",
+    "matrix_only_checkout": "passed",
+    "legacy_hashes": "passed"
+  }
+}

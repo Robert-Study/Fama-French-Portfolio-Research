@@ -1,0 +1,90 @@
+{
+  "evidence": {
+    "provider": "Charter Savings Bank",
+    "product": "Easy Access (Issue 79)",
+    "facility_type": "uk_bank_deposit",
+    "aer": 0.0425,
+    "quote_date": "2026-10-12",
+    "minimum_balance": 1.0,
+    "maximum_balance": 1000000.0,
+    "instant_access": true,
+    "unlimited_withdrawals": true,
+    "introductory_bonus": false,
+    "linked_current_account_required": false,
+    "nominated_transfer_account_required": true,
+    "eligibility": "UK residents aged 18+, individual savings; nominated UK bank/building-society transfer account; subject to bank checks",
+    "withdrawal_timing": "No notice; transfers to nominated account subject to bank processing times",
+    "rate_policy": "Managed variable rate; no future-rate guarantee or introductory bonus",
+    "protection": "Eligible deposits subject to FSCS per-person banking-licence limit; no amount/headroom check in this app",
+    "terms_source": "bank:Charter",
+    "rate_source": "bank:Charter",
+    "selection_claim": "Highest successfully verified official no-bonus/unlimited-withdrawal quote among checked established banks; not a whole-market best-rate claim"
+  },
+  "sources": [
+    {
+      "url": "https://www.htb.co.uk/personal-savings/variable-rate-accounts/",
+      "sha256": "6b19ebd467c661e62dd758a6b5c784b7fdb5023b5ffe4350d27790268631824d",
+      "bytes": 542052,
+      "retrieved_utc": "2026-10-12T19:42:38.364513+00:00",
+      "licence": "Public factual rate/eligibility metadata; full page redistribution not established",
+      "redistribution": false,
+      "file": "6b19ebd467c661e62dd758a6b5c784b7fdb5023b5ffe4350d27790268631824d",
+      "id": "bank:HTB"
+    },
+    {
+      "url": "https://www.chartersavingsbank.co.uk/Products/EasyAccess",
+      "sha256": "3f71271522fd0dde78f525613b1f668c3eee775c8f5fe11f199658c4b843bfeb",
+      "bytes": 68943,
+      "retrieved_utc": "2026-10-12T19:42:38.799005+00:00",
+      "licence": "Public factual rate/eligibility metadata; full page redistribution not established",
+      "redistribution": false,
+      "file": "3f71271522fd0dde78f525613b1f668c3eee775c8f5fe11f199658c4b843bfeb",
+      "id": "bank:Charter"
+    }
+  ],
+  "checked_quotes": [
+    {
+      "provider": "Hampshire Trust Bank",
+      "product": "Easy Access Online Saver (Issue 36)",
+      "facility_type": "uk_bank_deposit",
+      "aer": 0.0418,
+      "quote_date": "2026-10-12",
+      "minimum_balance": 1.0,
+      "maximum_balance": 250000.0,
+      "instant_access": true,
+      "unlimited_withdrawals": true,
+      "introductory_bonus": false,
+      "linked_current_account_required": false,
+      "nominated_transfer_account_required": true,
+      "eligibility": "UK permanent residents aged 18+, no overseas tax reporting for this account; email/mobile and nominated UK bank account; subject to bank checks",
+      "withdrawal_timing": "Before 1pm working day: same day; later: next working day",
+      "rate_policy": "Variable; 14-day notice before reductions; no future-rate guarantee",
+      "protection": "Eligible deposits subject to FSCS per-person banking-licence limit; no amount/headroom check in this app",
+      "terms_source": "bank:HTB",
+      "rate_source": "bank:HTB",
+      "selection_claim": "Highest official no-bonus/unlimited-withdrawal quote successfully verified in the checked set; not a whole-market best-rate claim"
+    },
+    {
+      "provider": "Charter Savings Bank",
+      "product": "Easy Access (Issue 79)",
+      "facility_type": "uk_bank_deposit",
+      "aer": 0.0425,
+      "quote_date": "2026-10-12",
+      "minimum_balance": 1.0,
+      "maximum_balance": 1000000.0,
+      "instant_access": true,
+      "unlimited_withdrawals": true,
+      "introductory_bonus": false,
+      "linked_current_account_required": false,
+      "nominated_transfer_account_required": true,
+      "eligibility": "UK residents aged 18+, individual savings; nominated UK bank/building-society transfer account; subject to bank checks",
+      "withdrawal_timing": "No notice; transfers to nominated account subject to bank processing times",
+      "rate_policy": "Managed variable rate; no future-rate guarantee or introductory bonus",
+      "protection": "Eligible deposits subject to FSCS per-person banking-licence limit; no amount/headroom check in this app",
+      "terms_source": "bank:Charter",
+      "rate_source": "bank:Charter",
+      "selection_claim": "Highest successfully verified official no-bonus/unlimited-withdrawal quote among checked established banks; not a whole-market best-rate claim"
+    }
+  ],
+  "source_failures": []
+}

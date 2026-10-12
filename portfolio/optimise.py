@@ -18,7 +18,7 @@ class Frontier:
     max_violation: float
 
 
-def efficient_frontier(mean, covariance, cap=1.0, points=101, exposure=None, limits=None):
+def efficient_frontier(mean, covariance, cap=1.0, points=101, exposure=None, limits=None, targets_monthly=None):
     """Solve monthly mean/variance portfolios. Returns and volatilities stay monthly."""
     mu = np.asarray(mean, dtype=float)
     cov = np.asarray(covariance, dtype=float)
@@ -71,7 +71,8 @@ def efficient_frontier(mean, covariance, cap=1.0, points=101, exposure=None, lim
             raw = np.asarray(w.value).reshape(-1)
             if not np.isfinite(raw).all() or raw.min() < -TOL:
                 continue
-            cleaned = np.maximum(raw, 0)
+            # Declared solver dust tolerance. Recheck every constraint after cleanup.
+            cleaned = np.where(raw < 1e-10, 0.0, raw)
             cleaned /= cleaned.sum()
             violation = max(abs(cleaned.sum() - 1), float(np.max(cleaned - upper)),
                             float(required - annual_mu @ cleaned), 0.0)
@@ -82,10 +83,30 @@ def efficient_frontier(mean, covariance, cap=1.0, points=101, exposure=None, lim
         raise ValueError("The solver could not verify a portfolio at this target. Try less restrictive limits.")
 
     minimum, first_solver, first_error = solve(float(annual_mu.min()) - 1)
+    # All equal-variance minimisers differ only in the PSD quadratic's nullspace.
+    # Maximise return on that fibre, without adding variance to deterministic cash.
+    eigenvalues, eigenvectors = np.linalg.eigh(annual_cov)
+    active = eigenvalues > max(1e-14, float(eigenvalues.max()) * 1e-12)
+    basis = eigenvectors[:, active].T
+    tie = linprog(-annual_mu, A_ub=a if len(b) else None, b_ub=b if len(b) else None,
+                  A_eq=np.vstack([np.ones(n), basis]),
+                  b_eq=np.r_[1.0, basis @ minimum],
+                  bounds=list(zip(np.zeros(n), upper)), method="highs")
+    if tie.success and annual_mu @ tie.x >= annual_mu @ minimum - 1e-10:
+        minimum = tie.x
+        first_solver += "+HiGHS tie-break"
     start, end = float(annual_mu @ minimum), float(annual_mu @ endpoint.x)
     targets = np.array([start]) if end - start <= 1e-8 else np.linspace(start, end, points)
     weights, solvers, errors = [minimum], [first_solver], [first_error]
-    for required in targets[1:]:
+    if targets_monthly is not None:
+        targets = np.atleast_1d(np.asarray(targets_monthly, float)) * 12
+        if not 1 <= len(targets) <= 201 or not np.isfinite(targets).all() or (np.diff(targets) < 0).any() or targets.max() > end + TOL:
+            raise ValueError('Requested comparable return targets are invalid or infeasible.')
+        weights, solvers, errors = [], [], []
+        remaining = targets
+    else:
+        remaining = targets[1:]
+    for required in remaining:
         result, solver, error = solve(float(required))
         weights.append(result)
         solvers.append(solver)
