@@ -11,7 +11,7 @@
 | Repository | `Robert-Study/Fama-French-Portfolio-Research` |
 | Branch | `main` |
 | Main file | `app.py` |
-| Advanced settings → Python | `3.12` |
+| Advanced settings → Python | `3.14` (tested on `3.14.8`) |
 | Secrets | Leave blank |
 | App URL | Accept the generated URL, or choose an available name |
 
@@ -34,11 +34,11 @@ Report a problem with the page URL, what you changed, a screenshot and the diagn
 
 An error at `from sklearn.linear_model import Ridge` happens before portfolio calculation. The package is named `scikit-learn` in `requirements.txt`; `sklearn` is its Python import name. It is already a required dependency, so adding a package called `sklearn` is not the fix.
 
-All runtime pins are kept in the root `requirements.txt`. The deployment installs wheels rather than compiling packages. An unavailable wheel will produce an installation error instead of a long source build. `requirements-dev.txt` adds test tools only.
+All runtime pins are kept in the root `requirements.txt`. Release 0.1.2 targets Python 3.14.8 and uses pandas 2.3.3, CVXPY 1.8.2 and OSQP 1.1.3, with HiGHS included as a CVXPY dependency. The release version distinguishes results produced with the updated numerical dependencies. The deployment installs wheels rather than compiling packages. An unavailable wheel will produce an installation error instead of a long source build. `requirements-dev.txt` adds test tools only.
 
-After a requirements update, allow Streamlit to finish rebuilding. If the dependency error remains, use **Manage app → ⋮ → Reboot app** once. If it fails again, share the Cloud log's Python version, dependency-file selection, installation errors and final `ModuleNotFoundError` line. Those distinguish a failed installation from a deployment using the wrong branch or environment. Repeated reboots without reading the log will not diagnose the cause.
+The previous Python 3.14 installation failed because pandas 2.2.3 had no compatible wheel. The updated requirements provide wheels for the full dependency set on Python 3.14.8; the existing deployment can keep that interpreter. After a requirements update, allow Streamlit to finish rebuilding. If the dependency error remains, use **Manage app → ⋮ → Reboot app** once. If it fails again, share the Cloud log's Python version, dependency-file selection, installation errors and final `ModuleNotFoundError` line. Those distinguish a failed installation from a deployment using the wrong branch or environment. Repeated reboots without reading the log will not diagnose the cause.
 
-Check that the deployment uses `main`, `app.py` and Python **3.12**. Changing the Python version of an existing Community Cloud app requires redeployment; a reboot alone does not change it. Keep app access private. Account controls and private Cloud logs cannot be accessed through the GitHub connector, so the user needs to perform this hosting step or share the relevant log excerpt.
+Check that the deployment uses `main`, `app.py` and Python **3.14**. Changing the Python version of an existing Community Cloud app requires redeployment; a reboot alone does not change it. Keep app access private. Account controls and private Cloud logs cannot be accessed through the GitHub connector, so the user needs to perform this hosting step or share the relevant log excerpt.
 
 ## Updates and responsibilities
 

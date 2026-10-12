@@ -8,4 +8,5 @@
 - Recheck the upstream branch before committing. Do not overwrite unrelated changes.
 - Bump `portfolio.__version__` when model behaviour or the data contract changes so cached runs remain identifiable.
 - Keep the app and repository private unless the user asks otherwise. Never commit credentials.
-- The hosting target is Streamlit Community Cloud with Python 3.12. The user tests the app; do not require local developer tooling for normal use.
+- The hosting target is Streamlit Community Cloud with Python 3.14 (tested on 3.14.8). The user tests the app; do not require local developer tooling for normal use.
+- Use service plugins for remote work. Do not access the cloud browser; the user handles Streamlit account controls that are unavailable through plugins.

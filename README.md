@@ -25,7 +25,7 @@ Deploy this private repository through Streamlit Community Cloud:
 | Repository | `Robert-Study/Fama-French-Portfolio-Research` |
 | Branch | `main` |
 | Main file | `app.py` |
-| Python | `3.12` |
+| Python | `3.14` (tested on `3.14.8`) |
 | Secrets | None required |
 | App access | Private |
 

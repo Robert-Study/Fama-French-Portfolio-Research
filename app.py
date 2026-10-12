@@ -13,7 +13,7 @@ if missing:
     st.error("The app's Python environment is incomplete. Missing packages: " + ", ".join(missing) + ".")
     st.write("Open Manage app → ⋮ → Reboot app to rebuild the environment. "
              "If this message returns, share the installation section of the Cloud log so the failed install can be checked.")
-    st.caption(f"Running Python {platform.python_version()}. The deployment target is Python 3.12, branch main, file app.py.")
+    st.caption(f"Running Python {platform.python_version()}. The deployment target is Python 3.14, branch main, file app.py.")
     st.stop()
 
 import numpy as np
