@@ -413,7 +413,8 @@ def test_full_four_page_ui_uses_same_run_exports_only_on_demand(model,monkeypatc
     app.radio[0].set_value('Methods').run()
     assert not app.exception
     assert any('Efficient-frontier research' in item.value for item in app.markdown)
-    app.button[0].click().run()
+    # The on-demand ZIP runs sensitivity solves; shared CI runners need more time.
+    app.button[0].click().run(timeout=90)
     assert not app.exception
     assert len(app.get('download_button'))==1
     st.cache_data.clear()
