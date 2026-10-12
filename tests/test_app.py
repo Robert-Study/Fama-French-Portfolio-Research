@@ -19,7 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def test_missing_sklearn_explains_deployment_failure_before_calculating():
     with patch("portfolio.deployment.find_spec", side_effect=lambda name: None if name == "sklearn" else find_spec(name)):
-        app = AppTest.from_file(ROOT / "app.py", default_timeout=30).run()
+        app = AppTest.from_file(ROOT / "ui/legacy_app.py", default_timeout=30).run()
     assert not app.exception
     assert "scikit-learn" in app.error[0].value
     assert any("Reboot app" in item.value for item in app.markdown)
@@ -28,7 +28,7 @@ def test_missing_sklearn_explains_deployment_failure_before_calculating():
 
 
 def test_slider_uses_solved_weights_without_rebuilding_and_failure_keeps_last_run():
-    app = AppTest.from_file(ROOT / "app.py", default_timeout=30).run()
+    app = AppTest.from_file(ROOT / "ui/legacy_app.py", default_timeout=30).run()
     assert not app.exception
     assert "Legacy demonstration" in app.warning[0].value
     first = app.session_state["active_run"]
@@ -45,7 +45,7 @@ def test_slider_uses_solved_weights_without_rebuilding_and_failure_keeps_last_ru
 
 
 def test_single_fund_and_missing_research_bundle_are_handled():
-    app = AppTest.from_file(ROOT / "app.py", default_timeout=30).run()
+    app = AppTest.from_file(ROOT / "ui/legacy_app.py", default_timeout=30).run()
     app.sidebar.multiselect[0].set_value(["ACWI"])
     app.sidebar.button[0].click().run()
     assert not app.exception
@@ -75,7 +75,7 @@ def test_ff5_workflow_and_export_preserve_selected_portfolio_and_assumptions():
 
 def test_research_interface_accepts_a_bundle_and_runs_premium_sensitivity():
     raw, _ = sample_bundle()
-    app = AppTest.from_file(ROOT / "app.py", default_timeout=30).run()
+    app = AppTest.from_file(ROOT / "ui/legacy_app.py", default_timeout=30).run()
     with patch("streamlit.delta_generator.DeltaGenerator.file_uploader", return_value=BytesIO(raw)):
         app.sidebar.radio[0].set_value("Return-based FF5").run()
         assert not app.exception

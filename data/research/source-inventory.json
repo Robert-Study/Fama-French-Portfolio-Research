@@ -1,0 +1,151 @@
+{
+  "checked_on": "2026-10-12",
+  "factor_sources": [
+    {
+      "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_5_Factors_2x3_CSV.zip",
+      "sha256": "36756c5c2559648519ac4b22913d860c6afd865cfebce920e3e8927f8e2d10b7",
+      "bytes": 11964,
+      "retrieved_utc": "2026-10-12T18:47:43.649634+00:00",
+      "licence": "Kenneth French public research data; review redistribution terms",
+      "redistribution": false,
+      "file": "36756c5c2559648519ac4b22913d860c6afd865cfebce920e3e8927f8e2d10b7",
+      "id": "french:US"
+    },
+    {
+      "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/Developed_5_Factors_CSV.zip",
+      "sha256": "11c299a69b299ada4bd2e68d4c6393347a70e3bf474c967fe96bff469baa5e2e",
+      "bytes": 6802,
+      "retrieved_utc": "2026-10-12T18:47:44.172500+00:00",
+      "licence": "Kenneth French public research data; review redistribution terms",
+      "redistribution": false,
+      "file": "11c299a69b299ada4bd2e68d4c6393347a70e3bf474c967fe96bff469baa5e2e",
+      "id": "french:Developed"
+    },
+    {
+      "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/North_America_5_Factors_CSV.zip",
+      "sha256": "165290e829c5cb1ffa3d90551ad2f097e42a510b4e5120fe70ba9912bb1a4654",
+      "bytes": 6924,
+      "retrieved_utc": "2026-10-12T18:47:44.400136+00:00",
+      "licence": "Kenneth French public research data; review redistribution terms",
+      "redistribution": false,
+      "file": "165290e829c5cb1ffa3d90551ad2f097e42a510b4e5120fe70ba9912bb1a4654",
+      "id": "french:North_America"
+    },
+    {
+      "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/Europe_5_Factors_CSV.zip",
+      "sha256": "cc0aa7c9f1a60eec96f5cb7749ee9abed61063b1318fbc913a2514831a9746f2",
+      "bytes": 6799,
+      "retrieved_utc": "2026-10-12T18:47:44.728471+00:00",
+      "licence": "Kenneth French public research data; review redistribution terms",
+      "redistribution": false,
+      "file": "cc0aa7c9f1a60eec96f5cb7749ee9abed61063b1318fbc913a2514831a9746f2",
+      "id": "french:Europe"
+    },
+    {
+      "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/Japan_5_Factors_CSV.zip",
+      "sha256": "8eeae8609febc2dfb8bac1ffcd8d0a8ac4f6e620c747b6586b2719697908dd64",
+      "bytes": 6959,
+      "retrieved_utc": "2026-10-12T18:47:44.913714+00:00",
+      "licence": "Kenneth French public research data; review redistribution terms",
+      "redistribution": false,
+      "file": "8eeae8609febc2dfb8bac1ffcd8d0a8ac4f6e620c747b6586b2719697908dd64",
+      "id": "french:Japan"
+    },
+    {
+      "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/Asia_Pacific_ex_Japan_5_Factors_CSV.zip",
+      "sha256": "f1810afbbe4b90679a940e6bb54509752bc2a1eae233e7bf757b3e498a3ff91a",
+      "bytes": 6964,
+      "retrieved_utc": "2026-10-12T18:47:45.091668+00:00",
+      "licence": "Kenneth French public research data; review redistribution terms",
+      "redistribution": false,
+      "file": "f1810afbbe4b90679a940e6bb54509752bc2a1eae233e7bf757b3e498a3ff91a",
+      "id": "french:Asia_Pacific_ex_Japan"
+    },
+    {
+      "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/Emerging_5_Factors_CSV.zip",
+      "sha256": "303b5afb42232683f48f80178206a5cb99b1b755e4dc0493f9ec9b26dd74d103",
+      "bytes": 6978,
+      "retrieved_utc": "2026-10-12T18:47:45.251742+00:00",
+      "licence": "Kenneth French public research data; review redistribution terms",
+      "redistribution": false,
+      "file": "303b5afb42232683f48f80178206a5cb99b1b755e4dc0493f9ec9b26dd74d103",
+      "id": "french:Emerging"
+    }
+  ],
+  "pilot_evidence": [
+    {
+      "instrument": "IWFV",
+      "url": "https://www.ishares.com/uk/individual/en/products/270048/ishares-msci-world-value-factor-ucits-etf",
+      "admitted": false,
+      "isin": "IE00BP3QZB59",
+      "native_currency": "USD",
+      "inception": "2014-10-03",
+      "use_of_income": "Accumulating",
+      "structure": "Physical",
+      "ucits": true,
+      "ongoing_charge": 0.0025,
+      "history_start": "2014-10-06",
+      "history_end": "2026-10-09",
+      "history_type": "Issuer native-currency performance index; GBP conversion and convention reconciliation pending",
+      "parsed_months": 143,
+      "remaining_gate": "Actual GBP cash/FX alignment; issuer total-return conventions and split/distribution reconciliation; dated holdings/bond evidence where relevant"
+    },
+    {
+      "instrument": "IGLT",
+      "url": "https://www.ishares.com/uk/individual/en/products/251806/ishares-uk-gilts-ucits-etf",
+      "admitted": false,
+      "isin": "IE00B1FZSB30",
+      "native_currency": "GBP",
+      "inception": "2006-12-01",
+      "use_of_income": "Distributing",
+      "structure": "Physical",
+      "ucits": true,
+      "ongoing_charge": 0.0007000000000000001,
+      "history_start": "2006-12-01",
+      "history_end": "2026-10-09",
+      "history_type": "Issuer native-currency performance index; GBP conversion and convention reconciliation pending",
+      "parsed_months": 237,
+      "remaining_gate": "Actual GBP cash/FX alignment; issuer total-return conventions and split/distribution reconciliation; dated holdings/bond evidence where relevant"
+    },
+    {
+      "instrument": "SGLN",
+      "url": "https://www.ishares.com/uk/individual/en/products/258441/ishares-physical-gold-etc-fund",
+      "admitted": false,
+      "isin": "IE00B4ND3602",
+      "native_currency": "USD",
+      "inception": "2011-04-08",
+      "use_of_income": "No Income",
+      "structure": "Physical metal",
+      "ucits": false,
+      "ongoing_charge": 0.0012,
+      "history_start": "2011-04-08",
+      "history_end": "2026-10-09",
+      "history_type": "Issuer native-currency performance index; GBP conversion and convention reconciliation pending",
+      "parsed_months": 185,
+      "remaining_gate": "Actual GBP cash/FX alignment; issuer total-return conventions and split/distribution reconciliation; dated holdings/bond evidence where relevant"
+    },
+    {
+      "instrument": "VWRP",
+      "url": "https://www.vanguard.co.uk/uk-fund-directory/product/etf/equity/9679/ftse-all-world-ucits-etf-usd-accumulating",
+      "admitted": false,
+      "remaining_gate": "Issuer page retained; reconciled share-class daily/monthly total returns and GBP FX evidence required"
+    },
+    {
+      "instrument": "XS2D",
+      "url": "https://etf.dws.com/en-fi/LU0411078552-s-p-500-2x-leveraged-daily-swap-ucits-etf-1c/",
+      "admitted": false,
+      "remaining_gate": "Issuer site supplies a client-rendered shell; exact funding/reset/termination terms, native underlying and actual daily overlap required"
+    },
+    {
+      "instrument": "T212_GBP_CASH",
+      "url": "https://helpcentre.trading212.com/hc/en-us/articles/15475153380637-What-is-interest-on-cash",
+      "admitted": false,
+      "remaining_gate": "Public terms retained; applicable Invest account AER, quote date and eligibility/bonus terms required"
+    }
+  ],
+  "bank_of_england_access": {
+    "url": "https://www.bankofengland.co.uk/boeapps/database/_iadb-fromshowcolumns.asp?csv.x=yes&Datefrom=01%2FJan%2F1997&Dateto=31%2FAug%2F2026&SeriesCodes=IUDERB6%2CIUDSOIA&CSVF=TN&UsingCodes=Y&VPD=Y&VFD=N",
+    "status": "Unavailable",
+    "reason": "403 Client Error: Forbidden for url: https://www.bankofengland.co.uk/boeapps/database/_iadb-fromshowcolumns.asp?csv.x=yes&Datefrom=01%2FJan%2F1997&Dateto=31%2FAug%2F2026&SeriesCodes=IUDERB6%2CIUDSOIA&CSVF=TN&UsingCodes=Y&VPD=Y&VFD=N"
+  }
+}

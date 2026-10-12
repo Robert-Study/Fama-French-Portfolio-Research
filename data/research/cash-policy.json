@@ -1,0 +1,9 @@
+{
+  "id": "GBP_BANK_SAVINGS",
+  "name": "UK bank instant-access savings \u2014 highest verified standard public quote",
+  "scope": "Separate UK bank savings account outside Trading 212 Invest",
+  "selection": "Highest verified standard variable AER among checked established UK banks; unlimited withdrawals, no introductory bonus, no linked current account requirement",
+  "user_override_date": "2026-10-12",
+  "approximate_user_quote": "3.8% mentioned as uncertain; never used as a production estimate",
+  "status": "Dated quote in bank-quote.json; variable rate and eligibility conditional"
+}

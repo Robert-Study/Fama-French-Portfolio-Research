@@ -1,5 +1,6 @@
 # Project conventions
 
+- Maintain changes directly on `main`; do not create feature branches or PRs unless the user asks. Retain Git history for the private Streamlit GitHub connection.
 - Use small, focused commits and plain commit messages. Comments should explain assumptions or non-obvious choices.
 - Preserve `data/legacy` byte for byte. A source hash verifies identity, not financial validity.
 - Keep legacy demonstration results separate from return-based FF5 research and from the future holdings-characteristic model.
