@@ -30,6 +30,16 @@ The repository already contains the code, V5 inputs and Python requirements. You
 
 Report a problem with the page URL, what you changed, a screenshot and the diagnostic ZIP if one is available. For a startup failure, the Streamlit build log is more useful than a diagnostic ZIP. Do not send passwords or account tokens.
 
+## If startup fails
+
+An error at `from sklearn.linear_model import Ridge` happens before portfolio calculation. The package is named `scikit-learn` in `requirements.txt`; `sklearn` is its Python import name. It is already a required dependency, so adding a package called `sklearn` is not the fix.
+
+All runtime pins are kept in the root `requirements.txt`. The deployment installs wheels rather than compiling packages. An unavailable wheel will produce an installation error instead of a long source build. `requirements-dev.txt` adds test tools only.
+
+After a requirements update, allow Streamlit to finish rebuilding. If the dependency error remains, use **Manage app → ⋮ → Reboot app** once. If it fails again, share the Cloud log's Python version, dependency-file selection, installation errors and final `ModuleNotFoundError` line. Those distinguish a failed installation from a deployment using the wrong branch or environment. Repeated reboots without reading the log will not diagnose the cause.
+
+Check that the deployment uses `main`, `app.py` and Python **3.12**. Changing the Python version of an existing Community Cloud app requires redeployment; a reboot alone does not change it. Keep app access private. Account controls and private Cloud logs cannot be accessed through the GitHub connector, so the user needs to perform this hosting step or share the relevant log excerpt.
+
 ## Updates and responsibilities
 
 Code changes and data preparation can be handled through subsequent authorised project sessions. GitHub commits are the source of the deployed app. The user tests the result and completes account sign-ins, access grants or provider exports that require their own credentials.

@@ -1,9 +1,23 @@
 from pathlib import Path
 import logging
+import platform
+
+import streamlit as st
+
+from portfolio.deployment import missing_dependencies
+
+
+st.set_page_config(page_title="Fama–French Portfolio Research", page_icon="📊", layout="wide")
+missing = missing_dependencies()
+if missing:
+    st.error("The app's Python environment is incomplete. Missing packages: " + ", ".join(missing) + ".")
+    st.write("Open Manage app → ⋮ → Reboot app to rebuild the environment. "
+             "If this message returns, share the installation section of the Cloud log so the failed install can be checked.")
+    st.caption(f"Running Python {platform.python_version()}. The deployment target is Python 3.12, branch main, file app.py.")
+    st.stop()
 
 import numpy as np
 import pandas as pd
-import streamlit as st
 
 from portfolio import __version__
 from portfolio.bundle import FACTORS, read_bundle
@@ -18,7 +32,6 @@ from portfolio.risk import portfolio_metrics
 
 
 ROOT = Path(__file__).resolve().parent
-st.set_page_config(page_title="Fama–French Portfolio Research", page_icon="📊", layout="wide")
 
 
 @st.cache_data(show_spinner=False, max_entries=2)

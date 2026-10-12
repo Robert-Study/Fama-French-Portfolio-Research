@@ -1,5 +1,6 @@
 from io import BytesIO
 from pathlib import Path
+from importlib.util import find_spec
 from unittest.mock import patch
 
 import numpy as np
@@ -14,6 +15,16 @@ from test_calibration import sample_bundle
 
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def test_missing_sklearn_explains_deployment_failure_before_calculating():
+    with patch("portfolio.deployment.find_spec", side_effect=lambda name: None if name == "sklearn" else find_spec(name)):
+        app = AppTest.from_file(ROOT / "app.py", default_timeout=30).run()
+    assert not app.exception
+    assert "scikit-learn" in app.error[0].value
+    assert any("Reboot app" in item.value for item in app.markdown)
+    assert not app.metric
+    assert "active_run" not in app.session_state
 
 
 def test_slider_uses_solved_weights_without_rebuilding_and_failure_keeps_last_run():
