@@ -1,13 +1,13 @@
-# Python 3.12 deployment. Keep runtime pins here so Cloud sees every dependency change.
+# Python 3.14 deployment (tested on 3.14.8). Keep runtime pins here so Cloud sees every dependency change.
 # Wheels avoid compiling scientific packages during a hosted build.
 --only-binary=:all:
 streamlit==1.50.0
 numpy==2.3.5
-pandas==2.2.3
+pandas==2.3.3
 scipy==1.17.0
 scikit-learn==1.8.0
-cvxpy==1.7.3
-osqp==1.0.4
+cvxpy==1.8.2
+osqp==1.1.3
 plotly==6.3.1
 openpyxl==3.1.5
 
@@ -24,6 +24,7 @@ click==8.5.0
 et-xmlfile==2.0.0
 gitdb==4.0.12
 gitpython==3.2.0
+highspy==1.15.1
 idna==3.19
 jinja2==3.1.6
 joblib==1.5.3
