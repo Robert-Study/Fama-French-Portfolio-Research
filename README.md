@@ -16,6 +16,10 @@ The bundled legacy workflow works immediately. The FF5 path requires the documen
 
 [Methodology and limitations](docs/methodology.md) · [Research data contract](docs/data-contract.md) · [Deployment and first test](docs/deployment.md)
 
+[V7 build plan](docs/v7-build-plan.md) · [Dashboard concept](docs/v7-dashboard-concept.png)
+
+The V7 plan covers verified fund data, asset-specific models and a redesigned dashboard. It is a planning handover; the deployed application remains V6.
+
 ## Hosting
 
 Deploy this private repository through Streamlit Community Cloud:
