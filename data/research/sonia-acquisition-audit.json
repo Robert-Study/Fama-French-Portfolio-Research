@@ -1,0 +1,12 @@
+{
+  "observations": 7523,
+  "first": "1997-01-02",
+  "last": "2026-10-09",
+  "fred_overlap": 970,
+  "fred_mismatches": [],
+  "monthly_compounding_executed": false,
+  "boe_sha256": "41d3ca95419e115ac8a27797ff39dcbe83d45342a1de9e40cc7aa34f634e017e",
+  "licence": "Bank of England database delayed SONIA reproduction: UK Open Government Licence, per SONIA key features Access section",
+  "attribution": "Source: Bank of England. Contains public sector information licensed under the Open Government Licence v3.0.",
+  "policy_url": "https://www.bankofengland.co.uk/markets/sonia-benchmark/sonia-key-features-and-policies"
+}
