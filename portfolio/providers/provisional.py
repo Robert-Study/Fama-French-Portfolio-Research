@@ -164,4 +164,7 @@ def build_provisional(root):
 if __name__=='__main__':
     import argparse
     parser=argparse.ArgumentParser();parser.add_argument('--root',default='data/research')
-    print(json.dumps(build_provisional(parser.parse_args().root),indent=2))
+    # Backwards-compatible CLI used by saved environment setup instructions.
+    # It must refresh the integrated universe rather than downgrade to pilots.
+    from portfolio.providers.universe import build_universe
+    print(json.dumps(build_universe(parser.parse_args().root),indent=2))

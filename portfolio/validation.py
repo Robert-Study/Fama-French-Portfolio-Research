@@ -28,6 +28,8 @@ def age_days(value, today=None):
 
 def admission(row, evidence, returns, source_ids, today=None, provisional=False):
     reasons = []
+    if evidence.get('forward_model_blocker'):
+        reasons.append(evidence['forward_model_blocker'])
     category = row.category
     cash = category == CATEGORIES[0]
     required = ['legal_structure', 'currency', 'price_unit', 'inception', 'hedge', 'fee', 'fee_source', 'identity_source']

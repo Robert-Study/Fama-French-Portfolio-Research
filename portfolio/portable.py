@@ -32,6 +32,7 @@ def save_derived_model(model, root):
            'premiums':frame_payload(model.premiums),'stress':frame_payload(model.stress),
            'bootstrap_mean_draws':None if model.mean_draws is None else model.mean_draws.tolist(),
            'source_month':model.source_month,'limitations':model.limitations,
+           'historical_references':model.historical_references,
            'evidence':model.snapshot.evidence,'source_manifest':model.snapshot.manifest,
            'status':frame_payload(model.snapshot.status),
            'portability_policy':'Derived calibrated matrices/coefficient/mean-draw statistics only; raw price/return histories are not redistributed. Historical replay requires refreshed source cache. Matrix-only horizon paths use an explicitly labelled IID Gaussian joint-risk approximation.'}
@@ -73,4 +74,4 @@ def load_derived_model(snapshot):
     limitations=value['limitations']+[value['portability_policy']]
     return Model(ids,mu,cov,pd.DataFrame(columns=ids),fees,financing,gross,payload_frame(value['factor_betas']),
                  payload_frame(value['diagnostics']),payload_frame(value['premiums']),snapshot,draws,limitations,
-                 payload_frame(value['stress']),source_month=value['source_month'])
+                 payload_frame(value['stress']),source_month=value['source_month'],historical_references=value.get('historical_references',{}))

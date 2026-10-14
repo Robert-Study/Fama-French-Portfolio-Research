@@ -7,6 +7,47 @@ from portfolio.data import DataError
 BASE = 'https://www.bankofengland.co.uk/boeapps/database/_iadb-fromshowcolumns.asp'
 
 
+def sonia_html_url(end=None):
+    from datetime import date
+    from urllib.parse import urlencode
+    end = date.today() if end is None else end
+    return 'https://www.bankofengland.co.uk/boeapps/database/fromshowcolumns.asp?' + urlencode({
+        'CSVF':'TT','DAT':'RNG','FD':1,'FM':'Jan','FY':1997,'SeriesCodes':'IUDSOIA',
+        'TD':end.day,'TM':end.strftime('%b'),'TY':end.year,'UsingCodes':'Y','html.x':66,'html.y':26})
+
+
+def parse_sonia_html(raw):
+    from html.parser import HTMLParser
+    import re
+    class Cells(HTMLParser):
+        def __init__(self):
+            super().__init__(); self.rows=[]; self.row=[]; self.cell=None
+        def handle_starttag(self, tag, attrs):
+            if tag=='tr': self.row=[]
+            if tag in ('td','th'): self.cell=''
+        def handle_data(self, data):
+            if self.cell is not None: self.cell+=data
+        def handle_endtag(self, tag):
+            if tag in ('td','th') and self.cell is not None:
+                self.row.append(self.cell.strip()); self.cell=None
+            if tag=='tr': self.rows.append(self.row)
+    parser=Cells(); parser.feed(raw.decode('utf-8'))
+    rows=[]
+    for cells in parser.rows:
+        if len(cells)>=2 and re.fullmatch(r'\d{1,2} [A-Za-z]{3} \d{2,4}', cells[0]):
+            rows.append((pd.to_datetime(cells[0],dayfirst=True),float(cells[1].replace(',',''))))
+    if not rows:
+        raise DataError('BoE HTML has no dated SONIA observations.')
+    result=pd.Series(dict(rows),name='SONIA_annual_percent',dtype=float).sort_index()
+    if len(result)!=len(rows) or not np.isfinite(result).all() or (result.index.dayofweek>=5).any() or (result < -100).any():
+        raise DataError('Duplicate/nonfinite/invalid SONIA observations.')
+    return result
+
+
+def sonia_months(rates):
+    return _monthly_accrual(pd.DataFrame({'SONIA_annual_percent':rates})).rename('GBP_RF')
+
+
 def csv_url(start='01/Jan/1997', end='now'):
     from urllib.parse import urlencode
     return BASE + '?' + urlencode({'csv.x':'yes','Datefrom':start,'Dateto':end,'SeriesCodes':'IUDERB6,IUDSOIA','CSVF':'TN','UsingCodes':'Y','VPD':'Y','VFD':'N'})
@@ -27,7 +68,7 @@ def parse_boe(raw):
     return result
 
 
-def cash_fx_months(daily):
+def _monthly_accrual(daily):
     """Explicit calendar accrual and complete month-end FX levels.
 
     SONIA accrues to the next observation date at actual/365. Month boundaries
@@ -41,16 +82,22 @@ def cash_fx_months(daily):
         if count < 1 or count > 7:
             raise DataError('Unexpected SONIA observation gap; verify calendar coverage.')
         rate = daily.iloc[i].SONIA_annual_percent / 100
-        # A single rate for n actual days accrues 1 + rate*n/365, not
-        # (1 + rate/365)**n. Allocate geometrically across calendar boundaries.
-        accrual = np.expm1(np.log1p(rate * count / 365) / count)
-        for day in pd.date_range(start, periods=count, freq='D'):
-            dates.append(day); rates.append(accrual)
+        # Split by the ratio of accrued levels. The simple ACT/365 accrual
+        # from the observation date telescopes exactly across month boundaries.
+        for offset, day in enumerate(pd.date_range(start, periods=count, freq='D')):
+            increment = (1 + rate * (offset+1) / 365) / (1 + rate * offset / 365) - 1
+            dates.append(day); rates.append(increment)
     accrual = pd.Series(rates,index=pd.DatetimeIndex(dates))
     months = accrual.index.to_period('M')
     cash = (1+accrual).groupby(months).prod()-1
     coverage = accrual.groupby(months).size()
     cash = cash.loc[[m for m in cash.index if coverage[m] == m.days_in_month]]
+    return cash
+
+
+def cash_fx_months(daily):
+    """Complete actual SONIA months and observed month-end GBP/USD returns."""
+    cash = _monthly_accrual(daily)
     fx_levels = daily.GBP_per_USD.groupby(daily.index.to_period('M')).last()
     fx = fx_levels.pct_change(fill_method=None)
     common = cash.index.intersection(fx.dropna().index)

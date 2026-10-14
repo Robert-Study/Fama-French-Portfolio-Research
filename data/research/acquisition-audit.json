@@ -1,0 +1,2509 @@
+[
+  {
+    "ticker": "3LUS",
+    "history": "Acquired",
+    "native_currency": "USD",
+    "first_complete_month": "2013-01",
+    "last_complete_month": "2026-08",
+    "months": 164,
+    "missing_months": [],
+    "reconciliation": "Pending",
+    "details": {
+      "reconciliation_passed": false,
+      "series_basis": "Rounded native NAV; currency and corporate-action audit pending"
+    },
+    "error": "Daily funding/reset, corporate-action and stressed overlap validation pending; actual history acquired"
+  },
+  {
+    "ticker": "3QQQ",
+    "history": "Unavailable",
+    "error": "DataError: Full actual history endpoint remains unresolved for 3QQQ"
+  },
+  {
+    "ticker": "AIGA",
+    "history": "Acquired",
+    "native_currency": "USD",
+    "first_complete_month": "2006-10",
+    "last_complete_month": "2026-08",
+    "months": 239,
+    "missing_months": [],
+    "reconciliation": "Pending",
+    "details": {
+      "reconciliation_passed": false,
+      "series_basis": "Rounded native NAV; currency and corporate-action audit pending"
+    },
+    "error": "Futures index/roll/collateral and separate swap charge reconciliation pending"
+  },
+  {
+    "ticker": "CMOP",
+    "history": "Acquired",
+    "native_currency": "USD",
+    "first_complete_month": "2017-02",
+    "last_complete_month": "2026-08",
+    "months": 115,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "reconciliation_passed": true,
+      "series_basis": "Issuer actual share-class growth; annual return/income audit pending"
+    },
+    "error": "Futures index/roll/collateral and separate swap charge reconciliation pending"
+  },
+  {
+    "ticker": "COPA",
+    "history": "Acquired",
+    "native_currency": "USD",
+    "first_complete_month": "2006-10",
+    "last_complete_month": "2026-08",
+    "months": 239,
+    "missing_months": [],
+    "reconciliation": "Pending",
+    "details": {
+      "reconciliation_passed": false,
+      "series_basis": "Rounded native NAV; currency and corporate-action audit pending"
+    },
+    "error": "Futures index/roll/collateral and separate swap charge reconciliation pending"
+  },
+  {
+    "ticker": "CRUD",
+    "history": "Acquired",
+    "native_currency": "USD",
+    "first_complete_month": "2006-10",
+    "last_complete_month": "2026-08",
+    "months": 239,
+    "missing_months": [],
+    "reconciliation": "Pending",
+    "details": {
+      "reconciliation_passed": false,
+      "series_basis": "Rounded native NAV; currency and corporate-action audit pending"
+    },
+    "error": "Futures index/roll/collateral and separate swap charge reconciliation pending"
+  },
+  {
+    "ticker": "EMIM",
+    "history": "Acquired",
+    "native_currency": "USD",
+    "first_complete_month": "2014-06",
+    "last_complete_month": "2026-08",
+    "months": 147,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "annual_errors": [
+        {
+          "year": 2018,
+          "issuer_return": -0.1482599,
+          "computed_return": -0.1482598992979507,
+          "error_bp": 7.020493075771128e-06
+        },
+        {
+          "year": 2021,
+          "issuer_return": -0.00237721,
+          "computed_return": -0.0023772054249264762,
+          "error_bp": 4.575073523586243e-05
+        },
+        {
+          "year": 2022,
+          "issuer_return": -0.19790693999999998,
+          "computed_return": -0.1979069353297328,
+          "error_bp": 4.67026717299035e-05
+        },
+        {
+          "year": 2017,
+          "issuer_return": 0.36977878,
+          "computed_return": 0.3697787830042254,
+          "error_bp": 3.004225423985929e-05
+        },
+        {
+          "year": 2025,
+          "issuer_return": 0.31577524,
+          "computed_return": 0.3157752362417514,
+          "error_bp": -3.7582486012155414e-05
+        },
+        {
+          "year": 2019,
+          "issuer_return": 0.17453902,
+          "computed_return": 0.17453902306895586,
+          "error_bp": 3.068955867213674e-05
+        },
+        {
+          "year": 2020,
+          "issuer_return": 0.18350428000000002,
+          "computed_return": 0.18350427549034065,
+          "error_bp": -4.5096593681570596e-05
+        },
+        {
+          "year": 2016,
+          "issuer_return": 0.09608143999999999,
+          "computed_return": 0.09608144016434217,
+          "error_bp": 1.643421787544952e-06
+        },
+        {
+          "year": 2023,
+          "issuer_return": 0.11577235,
+          "computed_return": 0.1157723478090058,
+          "error_bp": -2.190994191630935e-05
+        },
+        {
+          "year": 2024,
+          "issuer_return": 0.07212804,
+          "computed_return": 0.07212804347939983,
+          "error_bp": 3.4793998238136226e-05
+        }
+      ],
+      "annual_max_error_bp": 4.67026717299035e-05,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null,
+      "series_basis": "Accumulating/no-income NAV",
+      "holdings_acquisition": {
+        "url": "https://www.ishares.com/uk/individual/en/products/264659/ishares-core-msci-em-imi-ucits-etf/latest-holdings.csv",
+        "rows": 2957,
+        "company_mapping": "Unavailable",
+        "as_of": "2026-10-12"
+      }
+    },
+    "error": ""
+  },
+  {
+    "ticker": "EMVL",
+    "history": "Acquired",
+    "native_currency": "USD",
+    "first_complete_month": "2019-01",
+    "last_complete_month": "2026-08",
+    "months": 92,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "annual_errors": [
+        {
+          "year": 2021,
+          "issuer_return": 0.058902029999999994,
+          "computed_return": 0.058902026477533065,
+          "error_bp": -3.522466929251067e-05
+        },
+        {
+          "year": 2022,
+          "issuer_return": -0.16600457999999998,
+          "computed_return": -0.16600458410096952,
+          "error_bp": -4.100969536180443e-05
+        },
+        {
+          "year": 2025,
+          "issuer_return": 0.42744498999999997,
+          "computed_return": 0.4274449923168313,
+          "error_bp": 2.3168313378896244e-05
+        },
+        {
+          "year": 2019,
+          "issuer_return": 0.16510829000000002,
+          "computed_return": 0.16510829426719287,
+          "error_bp": 4.267192849072288e-05
+        },
+        {
+          "year": 2020,
+          "issuer_return": 0.07572144,
+          "computed_return": 0.07572144088937915,
+          "error_bp": 8.89379153656833e-06
+        },
+        {
+          "year": 2023,
+          "issuer_return": 0.19076515,
+          "computed_return": 0.1907651488737787,
+          "error_bp": -1.1262212828988538e-05
+        },
+        {
+          "year": 2024,
+          "issuer_return": 0.14197601,
+          "computed_return": 0.14197600608041738,
+          "error_bp": -3.919582630684815e-05
+        }
+      ],
+      "annual_max_error_bp": 4.267192849072288e-05,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null,
+      "series_basis": "Accumulating/no-income NAV",
+      "holdings_acquisition": {
+        "url": "https://www.ishares.com/uk/individual/en/products/297452/ishares-edge-msci-em-value-factor-ucits-etf/latest-holdings.csv",
+        "rows": 151,
+        "company_mapping": "Unavailable",
+        "as_of": "2026-10-12"
+      }
+    },
+    "error": ""
+  },
+  {
+    "ticker": "EQQQ",
+    "history": "Acquired",
+    "native_currency": "USD",
+    "first_complete_month": "2003-01",
+    "last_complete_month": "2026-08",
+    "months": 284,
+    "missing_months": [],
+    "reconciliation": "Pending",
+    "details": {
+      "reconciliation_passed": false,
+      "series_basis": "Issuer actual share-class growth; annual return/income audit pending"
+    },
+    "error": ""
+  },
+  {
+    "ticker": "GGRG",
+    "history": "Acquired",
+    "native_currency": "USD",
+    "first_complete_month": "2016-07",
+    "last_complete_month": "2026-08",
+    "months": 122,
+    "missing_months": [],
+    "reconciliation": "Pending",
+    "details": {
+      "reconciliation_passed": false,
+      "series_basis": "Rounded native NAV; currency and corporate-action audit pending"
+    },
+    "error": ""
+  },
+  {
+    "ticker": "GHYS",
+    "history": "Acquired",
+    "native_currency": "GBP",
+    "first_complete_month": "2013-07",
+    "last_complete_month": "2026-08",
+    "months": 158,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "annual_errors": [
+        {
+          "year": 2018,
+          "issuer_return": -0.033876460000000004,
+          "computed_return": -0.03387645447266785,
+          "error_bp": 5.5273321544757614e-05
+        },
+        {
+          "year": 2021,
+          "issuer_return": 0.03796813,
+          "computed_return": 0.03796813370598895,
+          "error_bp": 3.7059889462787154e-05
+        },
+        {
+          "year": 2022,
+          "issuer_return": -0.10064349,
+          "computed_return": -0.10064349397251104,
+          "error_bp": -3.9725110423383114e-05
+        },
+        {
+          "year": 2017,
+          "issuer_return": 0.050402909999999995,
+          "computed_return": 0.05040291023136545,
+          "error_bp": 2.313654545726962e-06
+        },
+        {
+          "year": 2025,
+          "issuer_return": 0.07936079,
+          "computed_return": 0.07936079492782788,
+          "error_bp": 4.927827881862079e-05
+        },
+        {
+          "year": 2019,
+          "issuer_return": 0.11134532999999999,
+          "computed_return": 0.11134533043452488,
+          "error_bp": 4.345248882930974e-06
+        },
+        {
+          "year": 2020,
+          "issuer_return": 0.025687099999999997,
+          "computed_return": 0.025687095505055213,
+          "error_bp": -4.4949447844389034e-05
+        },
+        {
+          "year": 2016,
+          "issuer_return": 0.12761414000000001,
+          "computed_return": 0.1276141437784173,
+          "error_bp": 3.778417273503365e-05
+        },
+        {
+          "year": 2023,
+          "issuer_return": 0.11474995,
+          "computed_return": 0.11474995845192848,
+          "error_bp": 8.451928476538306e-05
+        },
+        {
+          "year": 2024,
+          "issuer_return": 0.07377196999999999,
+          "computed_return": 0.0737719681704565,
+          "error_bp": -1.829543488929275e-05
+        }
+      ],
+      "annual_max_error_bp": 8.451928476538306e-05,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null,
+      "series_basis": "Issuer reinvested fund growth; published annual fund returns checked",
+      "holdings_acquisition": {
+        "url": "https://www.ishares.com/uk/individual/en/products/253488/ishares-global-high-yield-corp-bond-gbp-hedged-ucits-etf-dist/latest-holdings.csv",
+        "rows": 2,
+        "company_mapping": "Unavailable",
+        "as_of": "2026-10-12"
+      }
+    },
+    "error": ""
+  },
+  {
+    "ticker": "GLTL",
+    "history": "Acquired",
+    "native_currency": "GBP",
+    "first_complete_month": "2012-06",
+    "last_complete_month": "2026-08",
+    "months": 171,
+    "missing_months": [],
+    "reconciliation": "Pending",
+    "details": {
+      "reconciliation_passed": false,
+      "series_basis": "NAV only; missing distributions",
+      "holdings_acquisition": {
+        "url": "https://www.ssga.com/library-content/products/fund-data/etfs/emea/holdings-daily-emea-en-sybl-gy.xlsx",
+        "rows": 27,
+        "as_of": "2026-10-13",
+        "company_mapping": "Unavailable"
+      }
+    },
+    "error": ""
+  },
+  {
+    "ticker": "IASH",
+    "history": "Acquired",
+    "native_currency": "USD",
+    "first_complete_month": "2015-05",
+    "last_complete_month": "2026-08",
+    "months": 136,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "annual_errors": [
+        {
+          "year": 2018,
+          "issuer_return": -0.26062667,
+          "computed_return": -0.26062667426591357,
+          "error_bp": -4.265913566836588e-05
+        },
+        {
+          "year": 2021,
+          "issuer_return": 0.02842791,
+          "computed_return": 0.028427912667792432,
+          "error_bp": 2.667792431410021e-05
+        },
+        {
+          "year": 2022,
+          "issuer_return": -0.26197889,
+          "computed_return": -0.26197889302513466,
+          "error_bp": -3.025134642786753e-05
+        },
+        {
+          "year": 2017,
+          "issuer_return": 0.2782215,
+          "computed_return": 0.2782214961610676,
+          "error_bp": -3.838932394195638e-05
+        },
+        {
+          "year": 2025,
+          "issuer_return": 0.25999664,
+          "computed_return": 0.2599966436030925,
+          "error_bp": 3.6030924910335216e-05
+        },
+        {
+          "year": 2019,
+          "issuer_return": 0.35404916999999997,
+          "computed_return": 0.354049173752484,
+          "error_bp": 3.7524840457159314e-05
+        },
+        {
+          "year": 2020,
+          "issuer_return": 0.42622734,
+          "computed_return": 0.4262273387709463,
+          "error_bp": -1.2290536921533146e-05
+        },
+        {
+          "year": 2016,
+          "issuer_return": -0.17884582999999998,
+          "computed_return": -0.1788458267907731,
+          "error_bp": 3.209226884237637e-05
+        },
+        {
+          "year": 2023,
+          "issuer_return": -0.13759573,
+          "computed_return": -0.13759572805745823,
+          "error_bp": 1.9425417663310185e-05
+        },
+        {
+          "year": 2024,
+          "issuer_return": 0.11270922,
+          "computed_return": 0.11270921640240528,
+          "error_bp": -3.597594722126729e-05
+        }
+      ],
+      "annual_max_error_bp": 4.265913566836588e-05,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null,
+      "series_basis": "Accumulating/no-income NAV",
+      "holdings_acquisition": {
+        "url": "https://www.ishares.com/uk/individual/en/products/273192/ishares-msci-china-a-ucits-etf/latest-holdings.csv",
+        "rows": 417,
+        "company_mapping": "Unavailable",
+        "as_of": "2026-10-12"
+      }
+    },
+    "error": ""
+  },
+  {
+    "ticker": "IBTL",
+    "history": "Acquired",
+    "native_currency": "USD",
+    "first_complete_month": "2015-02",
+    "last_complete_month": "2026-08",
+    "months": 139,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "annual_errors": [
+        {
+          "year": 2018,
+          "issuer_return": -0.02137953,
+          "computed_return": -0.0213795319612351,
+          "error_bp": -1.9612350979358872e-05
+        },
+        {
+          "year": 2021,
+          "issuer_return": -0.04772322,
+          "computed_return": -0.047723217518733985,
+          "error_bp": 2.4812660120998586e-05
+        },
+        {
+          "year": 2022,
+          "issuer_return": -0.31349829,
+          "computed_return": -0.3134982910783255,
+          "error_bp": -1.0783254844604073e-05
+        },
+        {
+          "year": 2017,
+          "issuer_return": 0.08803295,
+          "computed_return": 0.08803295551203916,
+          "error_bp": 5.5120391584395634e-05
+        },
+        {
+          "year": 2025,
+          "issuer_return": 0.04398039,
+          "computed_return": 0.04398038868175358,
+          "error_bp": -1.3182464217442735e-05
+        },
+        {
+          "year": 2019,
+          "issuer_return": 0.14965666,
+          "computed_return": 0.1496566584152681,
+          "error_bp": -1.5847319012607386e-05
+        },
+        {
+          "year": 2020,
+          "issuer_return": 0.18005002,
+          "computed_return": 0.18005002056681096,
+          "error_bp": 5.668109592793513e-06
+        },
+        {
+          "year": 2016,
+          "issuer_return": 0.01226193,
+          "computed_return": 0.012261926412218793,
+          "error_bp": -3.58778120754244e-05
+        },
+        {
+          "year": 2023,
+          "issuer_return": 0.03071219,
+          "computed_return": 0.030712188602836754,
+          "error_bp": -1.3971632462084216e-05
+        },
+        {
+          "year": 2024,
+          "issuer_return": -0.07693387,
+          "computed_return": -0.07693387070782454,
+          "error_bp": -7.07824535095547e-06
+        }
+      ],
+      "annual_max_error_bp": 5.5120391584395634e-05,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null,
+      "series_basis": "Issuer reinvested fund growth; published annual fund returns checked",
+      "holdings_acquisition": {
+        "url": "https://www.ishares.com/uk/individual/en/products/272124/ishares-treasury-bond-20+yr-ucits-etf/latest-holdings.csv",
+        "rows": 0,
+        "company_mapping": "Unavailable",
+        "as_of": null
+      }
+    },
+    "error": ""
+  },
+  {
+    "ticker": "IBTM",
+    "history": "Acquired",
+    "native_currency": "USD",
+    "first_complete_month": "2007-01",
+    "last_complete_month": "2026-08",
+    "months": 236,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "annual_errors": [
+        {
+          "year": 2018,
+          "issuer_return": 0.00809824,
+          "computed_return": 0.008098236790118785,
+          "error_bp": -3.2098812149938816e-05
+        },
+        {
+          "year": 2021,
+          "issuer_return": -0.03192618,
+          "computed_return": -0.03192618199547681,
+          "error_bp": -1.9954768115670873e-05
+        },
+        {
+          "year": 2022,
+          "issuer_return": -0.15081866,
+          "computed_return": -0.15081866703371083,
+          "error_bp": -7.033710835990803e-05
+        },
+        {
+          "year": 2017,
+          "issuer_return": 0.02472533,
+          "computed_return": 0.024725331712425636,
+          "error_bp": 1.712425635319592e-05
+        },
+        {
+          "year": 2025,
+          "issuer_return": 0.08272470999999999,
+          "computed_return": 0.08272471381897684,
+          "error_bp": 3.818976843095179e-05
+        },
+        {
+          "year": 2019,
+          "issuer_return": 0.08455055,
+          "computed_return": 0.08455054649934435,
+          "error_bp": -3.500655654242735e-05
+        },
+        {
+          "year": 2020,
+          "issuer_return": 0.09971091,
+          "computed_return": 0.09971091166285517,
+          "error_bp": 1.662855173001354e-05
+        },
+        {
+          "year": 2016,
+          "issuer_return": 0.00926277,
+          "computed_return": 0.009262765152566077,
+          "error_bp": -4.847433923010902e-05
+        },
+        {
+          "year": 2023,
+          "issuer_return": 0.03721462,
+          "computed_return": 0.03721462177289259,
+          "error_bp": 1.772892589679831e-05
+        },
+        {
+          "year": 2024,
+          "issuer_return": -0.005032999999999999,
+          "computed_return": -0.005032996534836798,
+          "error_bp": 3.4651632015159084e-05
+        }
+      ],
+      "annual_max_error_bp": 7.033710835990803e-05,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null,
+      "series_basis": "Issuer reinvested fund growth; published annual fund returns checked",
+      "holdings_acquisition": {
+        "url": "https://www.ishares.com/uk/individual/en/products/251716/ishares-treasury-bond-7-10yr-ucits-etf/latest-holdings.csv",
+        "rows": 0,
+        "company_mapping": "Unavailable",
+        "as_of": null
+      }
+    },
+    "error": ""
+  },
+  {
+    "ticker": "IBTS",
+    "history": "Acquired",
+    "native_currency": "USD",
+    "first_complete_month": "2006-07",
+    "last_complete_month": "2026-08",
+    "months": 242,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "annual_errors": [
+        {
+          "year": 2018,
+          "issuer_return": 0.014538249999999999,
+          "computed_return": 0.014538246245577424,
+          "error_bp": -3.754422574914207e-05
+        },
+        {
+          "year": 2021,
+          "issuer_return": -0.00634968,
+          "computed_return": -0.006349678842033968,
+          "error_bp": 1.157966032089286e-05
+        },
+        {
+          "year": 2022,
+          "issuer_return": -0.038470620000000004,
+          "computed_return": -0.038470626409426556,
+          "error_bp": -6.409426552000941e-05
+        },
+        {
+          "year": 2017,
+          "issuer_return": 0.0032232899999999997,
+          "computed_return": 0.003223289658169426,
+          "error_bp": -3.418305738293881e-06
+        },
+        {
+          "year": 2025,
+          "issuer_return": 0.05197746,
+          "computed_return": 0.051977463682334246,
+          "error_bp": 3.682334243082508e-05
+        },
+        {
+          "year": 2019,
+          "issuer_return": 0.035274429999999996,
+          "computed_return": 0.03527443736147773,
+          "error_bp": 7.361477732947819e-05
+        },
+        {
+          "year": 2020,
+          "issuer_return": 0.03140349,
+          "computed_return": 0.03140348920825109,
+          "error_bp": -7.917489094899643e-06
+        },
+        {
+          "year": 2016,
+          "issuer_return": 0.00738894,
+          "computed_return": 0.0073889404541109815,
+          "error_bp": 4.541109814570898e-06
+        },
+        {
+          "year": 2023,
+          "issuer_return": 0.04295374,
+          "computed_return": 0.04295374100459726,
+          "error_bp": 1.0045972595462693e-05
+        },
+        {
+          "year": 2024,
+          "issuer_return": 0.04057954,
+          "computed_return": 0.04057953349257026,
+          "error_bp": -6.507429733959569e-05
+        }
+      ],
+      "annual_max_error_bp": 7.361477732947819e-05,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null,
+      "series_basis": "Issuer reinvested fund growth; published annual fund returns checked",
+      "holdings_acquisition": {
+        "url": "https://www.ishares.com/uk/individual/en/products/251715/ishares-treasury-bond-1-3yr-ucits-etf/latest-holdings.csv",
+        "rows": 0,
+        "company_mapping": "Unavailable",
+        "as_of": null
+      }
+    },
+    "error": ""
+  },
+  {
+    "ticker": "IEFV",
+    "history": "Acquired",
+    "native_currency": "EUR",
+    "first_complete_month": "2015-02",
+    "last_complete_month": "2026-08",
+    "months": 139,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "annual_errors": [
+        {
+          "year": 2018,
+          "issuer_return": -0.13554085999999999,
+          "computed_return": -0.13554085663179838,
+          "error_bp": 3.368201606512855e-05
+        },
+        {
+          "year": 2021,
+          "issuer_return": 0.27382396,
+          "computed_return": 0.2738239648586174,
+          "error_bp": 4.8586173972964275e-05
+        },
+        {
+          "year": 2022,
+          "issuer_return": -0.0472637,
+          "computed_return": -0.047263698298284584,
+          "error_bp": 1.701715414414995e-05
+        },
+        {
+          "year": 2017,
+          "issuer_return": 0.0971098,
+          "computed_return": 0.09710979658177021,
+          "error_bp": -3.4182297825591235e-05
+        },
+        {
+          "year": 2025,
+          "issuer_return": 0.35008826,
+          "computed_return": 0.3500882596668109,
+          "error_bp": -3.3318908743140696e-06
+        },
+        {
+          "year": 2019,
+          "issuer_return": 0.22182254,
+          "computed_return": 0.22182253824258713,
+          "error_bp": -1.7574128818864665e-05
+        },
+        {
+          "year": 2020,
+          "issuer_return": -0.09006451,
+          "computed_return": -0.0900645056336784,
+          "error_bp": 4.3663215959499624e-05
+        },
+        {
+          "year": 2016,
+          "issuer_return": 0.058277539999999996,
+          "computed_return": 0.05827754369203619,
+          "error_bp": 3.692036197600057e-05
+        },
+        {
+          "year": 2023,
+          "issuer_return": 0.14454906,
+          "computed_return": 0.14454906487537622,
+          "error_bp": 4.875376213853144e-05
+        },
+        {
+          "year": 2024,
+          "issuer_return": 0.104814,
+          "computed_return": 0.10481400038838307,
+          "error_bp": 3.883830618223172e-06
+        }
+      ],
+      "annual_max_error_bp": 4.875376213853144e-05,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null,
+      "series_basis": "Accumulating/no-income NAV",
+      "holdings_acquisition": {
+        "url": "https://www.ishares.com/uk/individual/en/products/272058/ishares-edge-msci-europe-value-factor-ucits-etf/latest-holdings.csv",
+        "rows": 147,
+        "company_mapping": "Unavailable",
+        "as_of": "2026-10-13"
+      }
+    },
+    "error": ""
+  },
+  {
+    "ticker": "IGLS",
+    "history": "Acquired",
+    "native_currency": "GBP",
+    "first_complete_month": "2009-05",
+    "last_complete_month": "2026-08",
+    "months": 208,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "annual_errors": [
+        {
+          "year": 2018,
+          "issuer_return": 0.0017569299999999999,
+          "computed_return": 0.0017569242478128189,
+          "error_bp": -5.752187181001095e-05
+        },
+        {
+          "year": 2021,
+          "issuer_return": -0.0167316,
+          "computed_return": -0.016731604513143816,
+          "error_bp": -4.5131438169976335e-05
+        },
+        {
+          "year": 2022,
+          "issuer_return": -0.04454824,
+          "computed_return": -0.04454824687191972,
+          "error_bp": -6.871919713824504e-05
+        },
+        {
+          "year": 2017,
+          "issuer_return": -0.00390635,
+          "computed_return": -0.00390634531738443,
+          "error_bp": 4.682615570468507e-05
+        },
+        {
+          "year": 2025,
+          "issuer_return": 0.05181197,
+          "computed_return": 0.051811973248815146,
+          "error_bp": 3.248815147460782e-05
+        },
+        {
+          "year": 2019,
+          "issuer_return": 0.010128459999999999,
+          "computed_return": 0.010128470247827481,
+          "error_bp": 0.0001024782748243469
+        },
+        {
+          "year": 2020,
+          "issuer_return": 0.0147692,
+          "computed_return": 0.014769205638799132,
+          "error_bp": 5.638799132484662e-05
+        },
+        {
+          "year": 2016,
+          "issuer_return": 0.024421369999999998,
+          "computed_return": 0.024421369539100457,
+          "error_bp": -4.60899540755122e-06
+        },
+        {
+          "year": 2023,
+          "issuer_return": 0.041859339999999995,
+          "computed_return": 0.041859343258238146,
+          "error_bp": 3.2582381515045e-05
+        },
+        {
+          "year": 2024,
+          "issuer_return": 0.02543757,
+          "computed_return": 0.02543756873100622,
+          "error_bp": -1.2689937781140692e-05
+        }
+      ],
+      "annual_max_error_bp": 0.0001024782748243469,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null,
+      "series_basis": "Issuer reinvested fund growth; published annual fund returns checked",
+      "holdings_acquisition": {
+        "url": "https://www.ishares.com/uk/individual/en/products/251804/ishares-uk-gilts-0-5yr-ucits-etf/latest-holdings.csv",
+        "rows": 0,
+        "company_mapping": "Unavailable",
+        "as_of": null
+      }
+    },
+    "error": ""
+  },
+  {
+    "ticker": "IGLT",
+    "history": "Acquired",
+    "native_currency": "GBP",
+    "first_complete_month": "2007-01",
+    "last_complete_month": "2026-08",
+    "months": 236,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "annual_errors": [
+        {
+          "year": 2018,
+          "issuer_return": 0.00403195,
+          "computed_return": 0.004031950136350382,
+          "error_bp": 1.3635038150633383e-06
+        },
+        {
+          "year": 2021,
+          "issuer_return": -0.052082430000000006,
+          "computed_return": -0.05208242998488355,
+          "error_bp": 1.511645669749484e-07
+        },
+        {
+          "year": 2022,
+          "issuer_return": -0.23828054,
+          "computed_return": -0.2382805432520071,
+          "error_bp": -3.2520070802899426e-05
+        },
+        {
+          "year": 2017,
+          "issuer_return": 0.017031169999999998,
+          "computed_return": 0.01703117607668858,
+          "error_bp": 6.0766885828789086e-05
+        },
+        {
+          "year": 2025,
+          "issuer_return": 0.05050196,
+          "computed_return": 0.05050195733676577,
+          "error_bp": -2.663234230371181e-05
+        },
+        {
+          "year": 2019,
+          "issuer_return": 0.06801453,
+          "computed_return": 0.068014530240748,
+          "error_bp": 2.407479909871668e-06
+        },
+        {
+          "year": 2020,
+          "issuer_return": 0.08199574,
+          "computed_return": 0.08199573361678314,
+          "error_bp": -6.383216857863694e-05
+        },
+        {
+          "year": 2016,
+          "issuer_return": 0.09967893,
+          "computed_return": 0.0996789347243412,
+          "error_bp": 4.724341196027382e-05
+        },
+        {
+          "year": 2023,
+          "issuer_return": 0.036849059999999996,
+          "computed_return": 0.03684906383009001,
+          "error_bp": 3.830090015977117e-05
+        },
+        {
+          "year": 2024,
+          "issuer_return": -0.03338637,
+          "computed_return": -0.033386374670854924,
+          "error_bp": -4.6708549250595865e-05
+        }
+      ],
+      "annual_max_error_bp": 6.383216857863694e-05,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null,
+      "series_basis": "Issuer reinvested fund growth; published annual fund returns checked",
+      "holdings_acquisition": {
+        "url": "https://www.ishares.com/uk/individual/en/products/251806/ishares-core-uk-gilts-ucits-etf/latest-holdings.csv",
+        "rows": 0,
+        "company_mapping": "Unavailable",
+        "as_of": null
+      }
+    },
+    "error": ""
+  },
+  {
+    "ticker": "IIND",
+    "history": "Acquired",
+    "native_currency": "USD",
+    "first_complete_month": "2018-06",
+    "last_complete_month": "2026-08",
+    "months": 99,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "annual_errors": [
+        {
+          "year": 2021,
+          "issuer_return": 0.25121815999999997,
+          "computed_return": 0.25121815803168324,
+          "error_bp": -1.9683167318262917e-05
+        },
+        {
+          "year": 2022,
+          "issuer_return": -0.08527002,
+          "computed_return": -0.08527002382657001,
+          "error_bp": -3.8265700053052853e-05
+        },
+        {
+          "year": 2025,
+          "issuer_return": 0.03105448,
+          "computed_return": 0.031054484307744712,
+          "error_bp": 4.307744713022421e-05
+        },
+        {
+          "year": 2019,
+          "issuer_return": 0.06833840000000001,
+          "computed_return": 0.0683384005696892,
+          "error_bp": 5.696891985929042e-06
+        },
+        {
+          "year": 2020,
+          "issuer_return": 0.14900925,
+          "computed_return": 0.149009251293444,
+          "error_bp": 1.2934439908018902e-05
+        },
+        {
+          "year": 2023,
+          "issuer_return": 0.19739099,
+          "computed_return": 0.19739099328760146,
+          "error_bp": 3.287601468837664e-05
+        },
+        {
+          "year": 2024,
+          "issuer_return": 0.10575863,
+          "computed_return": 0.10575862998688734,
+          "error_bp": -1.3112663732606222e-07
+        }
+      ],
+      "annual_max_error_bp": 4.307744713022421e-05,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null,
+      "series_basis": "Accumulating/no-income NAV",
+      "holdings_acquisition": {
+        "url": "https://www.ishares.com/uk/individual/en/products/297617/ishares-msci-india-ucits-etf/latest-holdings.csv",
+        "rows": 165,
+        "company_mapping": "Unavailable",
+        "as_of": "2026-10-12"
+      }
+    },
+    "error": ""
+  },
+  {
+    "ticker": "INXG",
+    "history": "Acquired",
+    "native_currency": "GBP",
+    "first_complete_month": "2007-01",
+    "last_complete_month": "2026-08",
+    "months": 236,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "annual_errors": [
+        {
+          "year": 2018,
+          "issuer_return": -0.00631499,
+          "computed_return": -0.006314995070028195,
+          "error_bp": -5.0700281950186166e-05
+        },
+        {
+          "year": 2021,
+          "issuer_return": 0.03892645,
+          "computed_return": 0.03892645769658665,
+          "error_bp": 7.696586645788983e-05
+        },
+        {
+          "year": 2022,
+          "issuer_return": -0.34548253,
+          "computed_return": -0.34548253597818745,
+          "error_bp": -5.9781874450770545e-05
+        },
+        {
+          "year": 2017,
+          "issuer_return": 0.022523590000000003,
+          "computed_return": 0.022523589023452972,
+          "error_bp": -9.765470307399049e-06
+        },
+        {
+          "year": 2025,
+          "issuer_return": 0.01263158,
+          "computed_return": 0.012631578770666119,
+          "error_bp": -1.2293338812197074e-05
+        },
+        {
+          "year": 2019,
+          "issuer_return": 0.061760390000000005,
+          "computed_return": 0.061760393034152594,
+          "error_bp": 3.0341525888988308e-05
+        },
+        {
+          "year": 2020,
+          "issuer_return": 0.11202263,
+          "computed_return": 0.11202262463687584,
+          "error_bp": -5.363124153112686e-05
+        },
+        {
+          "year": 2016,
+          "issuer_return": 0.25207567999999997,
+          "computed_return": 0.2520756859858333,
+          "error_bp": 5.985833329003043e-05
+        },
+        {
+          "year": 2023,
+          "issuer_return": 0.00517244,
+          "computed_return": 0.0051724461244722075,
+          "error_bp": 6.124472207158504e-05
+        },
+        {
+          "year": 2024,
+          "issuer_return": -0.08666221,
+          "computed_return": -0.08666220590875928,
+          "error_bp": 4.091240721204592e-05
+        }
+      ],
+      "annual_max_error_bp": 7.696586645788983e-05,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null,
+      "series_basis": "Issuer reinvested fund growth; published annual fund returns checked",
+      "holdings_acquisition": {
+        "url": "https://www.ishares.com/uk/individual/en/products/251717/ishares-index-linked-gilts-ucits-etf/latest-holdings.csv",
+        "rows": 0,
+        "company_mapping": "Unavailable",
+        "as_of": null
+      }
+    },
+    "error": ""
+  },
+  {
+    "ticker": "IS15",
+    "history": "Acquired",
+    "native_currency": "GBP",
+    "first_complete_month": "2011-04",
+    "last_complete_month": "2026-08",
+    "months": 185,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "annual_errors": [
+        {
+          "year": 2018,
+          "issuer_return": -0.00333136,
+          "computed_return": -0.0033313644392661823,
+          "error_bp": -4.439266182518914e-05
+        },
+        {
+          "year": 2021,
+          "issuer_return": -0.00851327,
+          "computed_return": -0.008513271972180658,
+          "error_bp": -1.9721806583661294e-05
+        },
+        {
+          "year": 2022,
+          "issuer_return": -0.06408302,
+          "computed_return": -0.06408302231803742,
+          "error_bp": -2.318037414794638e-05
+        },
+        {
+          "year": 2017,
+          "issuer_return": 0.019953620000000002,
+          "computed_return": 0.01995361742766466,
+          "error_bp": -2.5723353412610006e-05
+        },
+        {
+          "year": 2025,
+          "issuer_return": 0.06433954,
+          "computed_return": 0.06433953766380696,
+          "error_bp": -2.336193044571999e-05
+        },
+        {
+          "year": 2019,
+          "issuer_return": 0.04397562,
+          "computed_return": 0.043975618214462164,
+          "error_bp": -1.785537835641282e-05
+        },
+        {
+          "year": 2020,
+          "issuer_return": 0.03177277,
+          "computed_return": 0.03177277264181311,
+          "error_bp": 2.6418131085503838e-05
+        },
+        {
+          "year": 2016,
+          "issuer_return": 0.046644750000000006,
+          "computed_return": 0.04664475279787461,
+          "error_bp": 2.7978746056089854e-05
+        },
+        {
+          "year": 2023,
+          "issuer_return": 0.07672608,
+          "computed_return": 0.07672608125370317,
+          "error_bp": 1.2537031690573741e-05
+        },
+        {
+          "year": 2024,
+          "issuer_return": 0.046877089999999996,
+          "computed_return": 0.04687709030196552,
+          "error_bp": 3.0196552203154425e-06
+        }
+      ],
+      "annual_max_error_bp": 4.439266182518914e-05,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null,
+      "series_basis": "Issuer reinvested fund growth; published annual fund returns checked",
+      "holdings_acquisition": {
+        "url": "https://www.ishares.com/uk/individual/en/products/251840/ishares-corp-bond-0-5yr-ucits-etf/latest-holdings.csv",
+        "rows": 0,
+        "company_mapping": "Unavailable",
+        "as_of": null
+      }
+    },
+    "error": ""
+  },
+  {
+    "ticker": "ITPG",
+    "history": "Acquired",
+    "native_currency": "GBP",
+    "first_complete_month": "2018-04",
+    "last_complete_month": "2026-08",
+    "months": 101,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "annual_errors": [
+        {
+          "year": 2021,
+          "issuer_return": 0.05633836,
+          "computed_return": 0.05633836556877303,
+          "error_bp": 5.5687730329823104e-05
+        },
+        {
+          "year": 2022,
+          "issuer_return": -0.13662667,
+          "computed_return": -0.1366266742435771,
+          "error_bp": -4.243577100826457e-05
+        },
+        {
+          "year": 2025,
+          "issuer_return": 0.06571335,
+          "computed_return": 0.06571334597358325,
+          "error_bp": -4.02641675556481e-05
+        },
+        {
+          "year": 2019,
+          "issuer_return": 0.06757601,
+          "computed_return": 0.06757601312710038,
+          "error_bp": 3.127100370314828e-05
+        },
+        {
+          "year": 2020,
+          "issuer_return": 0.10391341000000001,
+          "computed_return": 0.10391341013113897,
+          "error_bp": 1.3113896080163556e-06
+        },
+        {
+          "year": 2023,
+          "issuer_return": 0.028997609999999997,
+          "computed_return": 0.02899759986164918,
+          "error_bp": -0.00010138350815119823
+        },
+        {
+          "year": 2024,
+          "issuer_return": 0.013613809999999999,
+          "computed_return": 0.013613806646469051,
+          "error_bp": -3.353530947727834e-05
+        }
+      ],
+      "annual_max_error_bp": 0.00010138350815119823,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null,
+      "series_basis": "Issuer reinvested fund growth; published annual fund returns checked",
+      "holdings_acquisition": {
+        "url": "https://www.ishares.com/uk/individual/en/products/295697/ishares-tips-ucits-etf/latest-holdings.csv",
+        "rows": 0,
+        "company_mapping": "Unavailable",
+        "as_of": null
+      }
+    },
+    "error": ""
+  },
+  {
+    "ticker": "IUVF",
+    "history": "Acquired",
+    "native_currency": "USD",
+    "first_complete_month": "2016-11",
+    "last_complete_month": "2026-08",
+    "months": 118,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "annual_errors": [
+        {
+          "year": 2018,
+          "issuer_return": -0.11520239,
+          "computed_return": -0.11520239056275372,
+          "error_bp": -5.627537186247977e-06
+        },
+        {
+          "year": 2021,
+          "issuer_return": 0.28429769,
+          "computed_return": 0.2842976932145289,
+          "error_bp": 3.214528920825188e-05
+        },
+        {
+          "year": 2022,
+          "issuer_return": -0.14556015,
+          "computed_return": -0.14556014646612558,
+          "error_bp": 3.533874415317939e-05
+        },
+        {
+          "year": 2017,
+          "issuer_return": 0.2145776,
+          "computed_return": 0.21457760216259314,
+          "error_bp": 2.162593132348789e-05
+        },
+        {
+          "year": 2025,
+          "issuer_return": 0.32034001,
+          "computed_return": 0.3203400131339045,
+          "error_bp": 3.133904469265758e-05
+        },
+        {
+          "year": 2019,
+          "issuer_return": 0.26900733,
+          "computed_return": 0.2690073251683729,
+          "error_bp": -4.831627098411673e-05
+        },
+        {
+          "year": 2020,
+          "issuer_return": -0.00858593,
+          "computed_return": -0.00858593104606653,
+          "error_bp": -1.0460665302719496e-05
+        },
+        {
+          "year": 2023,
+          "issuer_return": 0.13711957,
+          "computed_return": 0.13711957277446718,
+          "error_bp": 2.7744671837748314e-05
+        },
+        {
+          "year": 2024,
+          "issuer_return": 0.06689371000000001,
+          "computed_return": 0.06689370946253637,
+          "error_bp": -5.374636430355295e-06
+        }
+      ],
+      "annual_max_error_bp": 4.831627098411673e-05,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null,
+      "series_basis": "Accumulating/no-income NAV",
+      "holdings_acquisition": {
+        "url": "https://www.ishares.com/uk/individual/en/products/285207/ishares-edge-msci-usa-value-factor-ucits-etf/latest-holdings.csv",
+        "rows": 146,
+        "company_mapping": "Unavailable",
+        "as_of": "2026-10-12"
+      }
+    },
+    "error": ""
+  },
+  {
+    "ticker": "IWDP",
+    "history": "Acquired",
+    "native_currency": "USD",
+    "first_complete_month": "2006-11",
+    "last_complete_month": "2026-08",
+    "months": 238,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "annual_errors": [
+        {
+          "year": 2018,
+          "issuer_return": -0.05801164,
+          "computed_return": -0.058011639870852116,
+          "error_bp": 1.291478868292728e-06
+        },
+        {
+          "year": 2021,
+          "issuer_return": 0.25180257,
+          "computed_return": 0.2518025632473848,
+          "error_bp": -6.752615189231648e-05
+        },
+        {
+          "year": 2022,
+          "issuer_return": -0.2432873,
+          "computed_return": -0.24328729313260578,
+          "error_bp": 6.867394236609314e-05
+        },
+        {
+          "year": 2017,
+          "issuer_return": 0.10590930999999999,
+          "computed_return": 0.10590930960232048,
+          "error_bp": -3.976795143190159e-06
+        },
+        {
+          "year": 2025,
+          "issuer_return": 0.08240524,
+          "computed_return": 0.082405238868684,
+          "error_bp": -1.131315999214344e-05
+        },
+        {
+          "year": 2019,
+          "issuer_return": 0.21948255,
+          "computed_return": 0.21948254261998845,
+          "error_bp": -7.38001154632073e-05
+        },
+        {
+          "year": 2020,
+          "issuer_return": -0.09467513999999999,
+          "computed_return": -0.09467513873637246,
+          "error_bp": 1.2636275359412252e-05
+        },
+        {
+          "year": 2016,
+          "issuer_return": 0.05504187,
+          "computed_return": 0.05504187041417974,
+          "error_bp": 4.141797391166158e-06
+        },
+        {
+          "year": 2023,
+          "issuer_return": 0.08920906,
+          "computed_return": 0.0892090572503541,
+          "error_bp": -2.749645899857711e-05
+        },
+        {
+          "year": 2024,
+          "issuer_return": 0.01000035,
+          "computed_return": 0.010000349835198818,
+          "error_bp": -1.6480118138206823e-06
+        }
+      ],
+      "annual_max_error_bp": 7.38001154632073e-05,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null,
+      "series_basis": "Issuer reinvested fund growth; published annual fund returns checked",
+      "holdings_acquisition": {
+        "url": "https://www.ishares.com/uk/individual/en/products/251801/ishares-developed-markets-property-yield-ucits-etf/latest-holdings.csv",
+        "rows": 319,
+        "company_mapping": "Unavailable",
+        "as_of": "2026-10-12"
+      }
+    },
+    "error": ""
+  },
+  {
+    "ticker": "IWFM",
+    "history": "Acquired",
+    "native_currency": "USD",
+    "first_complete_month": "2014-11",
+    "last_complete_month": "2026-08",
+    "months": 142,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "annual_errors": [
+        {
+          "year": 2018,
+          "issuer_return": -0.029710329999999997,
+          "computed_return": -0.029710328982610057,
+          "error_bp": 1.0173899396559438e-05
+        },
+        {
+          "year": 2021,
+          "issuer_return": 0.14310045999999998,
+          "computed_return": 0.1431004635917814,
+          "error_bp": 3.591781427836338e-05
+        },
+        {
+          "year": 2022,
+          "issuer_return": -0.17870284000000003,
+          "computed_return": -0.17870283750068827,
+          "error_bp": 2.4993117575533574e-05
+        },
+        {
+          "year": 2017,
+          "issuer_return": 0.31906177,
+          "computed_return": 0.3190617746528037,
+          "error_bp": 4.652803697879904e-05
+        },
+        {
+          "year": 2025,
+          "issuer_return": 0.21228339,
+          "computed_return": 0.21228339067344315,
+          "error_bp": 6.7344316234674295e-06
+        },
+        {
+          "year": 2019,
+          "issuer_return": 0.27438434,
+          "computed_return": 0.27438434226240016,
+          "error_bp": 2.2624001561055707e-05
+        },
+        {
+          "year": 2020,
+          "issuer_return": 0.27901256,
+          "computed_return": 0.2790125625627875,
+          "error_bp": 2.5627874822298224e-05
+        },
+        {
+          "year": 2016,
+          "issuer_return": 0.040484280000000004,
+          "computed_return": 0.040484278982798605,
+          "error_bp": -1.0172013995002338e-05
+        },
+        {
+          "year": 2023,
+          "issuer_return": 0.11556313,
+          "computed_return": 0.11556313189011913,
+          "error_bp": 1.8901191306541776e-05
+        },
+        {
+          "year": 2024,
+          "issuer_return": 0.29802938,
+          "computed_return": 0.2980293757945882,
+          "error_bp": -4.205411796576186e-05
+        }
+      ],
+      "annual_max_error_bp": 4.652803697879904e-05,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null,
+      "series_basis": "Accumulating/no-income NAV",
+      "holdings_acquisition": {
+        "url": "https://www.ishares.com/uk/individual/en/products/270051/ishares-edge-msci-world-momentum-factor-ucits-etf/latest-holdings.csv",
+        "rows": 350,
+        "company_mapping": "Unavailable",
+        "as_of": "2026-10-12"
+      }
+    },
+    "error": ""
+  },
+  {
+    "ticker": "IWFQ",
+    "history": "Acquired",
+    "native_currency": "USD",
+    "first_complete_month": "2014-11",
+    "last_complete_month": "2026-08",
+    "months": 142,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "annual_errors": [
+        {
+          "year": 2018,
+          "issuer_return": -0.07314155,
+          "computed_return": -0.07314154529072248,
+          "error_bp": 4.709277523495814e-05
+        },
+        {
+          "year": 2021,
+          "issuer_return": 0.23195843,
+          "computed_return": 0.2319584302618043,
+          "error_bp": 2.6180430046096603e-06
+        },
+        {
+          "year": 2022,
+          "issuer_return": -0.19196770999999999,
+          "computed_return": -0.191967709754013,
+          "error_bp": 2.4598698078470704e-06
+        },
+        {
+          "year": 2017,
+          "issuer_return": 0.23089555,
+          "computed_return": 0.23089555115155025,
+          "error_bp": 1.1515502440495595e-05
+        },
+        {
+          "year": 2025,
+          "issuer_return": 0.15385417,
+          "computed_return": 0.15385417249922262,
+          "error_bp": 2.49922260664448e-05
+        },
+        {
+          "year": 2019,
+          "issuer_return": 0.30527011000000004,
+          "computed_return": 0.30527010658926224,
+          "error_bp": -3.4107378032999236e-05
+        },
+        {
+          "year": 2020,
+          "issuer_return": 0.149069,
+          "computed_return": 0.14906899925839334,
+          "error_bp": -7.416066649668096e-06
+        },
+        {
+          "year": 2016,
+          "issuer_return": 0.05028963,
+          "computed_return": 0.050289629497301425,
+          "error_bp": -5.02698577209415e-06
+        },
+        {
+          "year": 2023,
+          "issuer_return": 0.2572175,
+          "computed_return": 0.2572175035904296,
+          "error_bp": 3.5904296202815544e-05
+        },
+        {
+          "year": 2024,
+          "issuer_return": 0.16621489,
+          "computed_return": 0.166214893470797,
+          "error_bp": 3.4707969831515584e-05
+        }
+      ],
+      "annual_max_error_bp": 4.709277523495814e-05,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null,
+      "series_basis": "Accumulating/no-income NAV",
+      "holdings_acquisition": {
+        "url": "https://www.ishares.com/uk/individual/en/products/270054/ishares-edge-msci-world-quality-factor-ucits-etf/latest-holdings.csv",
+        "rows": 290,
+        "company_mapping": "Unavailable",
+        "as_of": "2026-10-12"
+      }
+    },
+    "error": ""
+  },
+  {
+    "ticker": "IWFS",
+    "history": "Acquired",
+    "native_currency": "USD",
+    "first_complete_month": "2014-11",
+    "last_complete_month": "2026-08",
+    "months": 142,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "annual_errors": [
+        {
+          "year": 2018,
+          "issuer_return": -0.14067607000000001,
+          "computed_return": -0.14067607301291807,
+          "error_bp": -3.0129180539351097e-05
+        },
+        {
+          "year": 2021,
+          "issuer_return": 0.12867317,
+          "computed_return": 0.1286731679502069,
+          "error_bp": -2.049793113023668e-05
+        },
+        {
+          "year": 2022,
+          "issuer_return": -0.18312559,
+          "computed_return": -0.18312559427439357,
+          "error_bp": -4.274393561320977e-05
+        },
+        {
+          "year": 2017,
+          "issuer_return": 0.23994076,
+          "computed_return": 0.23994076137275644,
+          "error_bp": 1.3727564363019695e-05
+        },
+        {
+          "year": 2025,
+          "issuer_return": 0.20756561999999998,
+          "computed_return": 0.20756561553926423,
+          "error_bp": -4.460735752997991e-05
+        },
+        {
+          "year": 2019,
+          "issuer_return": 0.23659664,
+          "computed_return": 0.2365966359890086,
+          "error_bp": -4.010991400127395e-05
+        },
+        {
+          "year": 2020,
+          "issuer_return": 0.1060515,
+          "computed_return": 0.10605150139397468,
+          "error_bp": 1.3939746718039103e-05
+        },
+        {
+          "year": 2016,
+          "issuer_return": 0.08253112,
+          "computed_return": 0.08253112433437004,
+          "error_bp": 4.334370043435065e-05
+        },
+        {
+          "year": 2023,
+          "issuer_return": 0.15688608,
+          "computed_return": 0.15688607573702518,
+          "error_bp": -4.2629748342459806e-05
+        },
+        {
+          "year": 2024,
+          "issuer_return": 0.061973450000000006,
+          "computed_return": 0.061973450377245776,
+          "error_bp": 3.772457693451692e-06
+        }
+      ],
+      "annual_max_error_bp": 4.460735752997991e-05,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null,
+      "series_basis": "Accumulating/no-income NAV",
+      "holdings_acquisition": {
+        "url": "https://www.ishares.com/uk/individual/en/products/270057/ishares-msci-world-mid-cap-equal-weight-ucits-etf/latest-holdings.csv",
+        "rows": 724,
+        "company_mapping": "Unavailable",
+        "as_of": "2026-10-12"
+      }
+    },
+    "error": "Index/strategy regime change requires current-regime calibration audit"
+  },
+  {
+    "ticker": "IWFV",
+    "history": "Acquired",
+    "native_currency": "USD",
+    "first_complete_month": "2014-11",
+    "last_complete_month": "2026-08",
+    "months": 142,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "annual_errors": [
+        {
+          "year": 2018,
+          "issuer_return": -0.13898179,
+          "computed_return": -0.13898179123695809,
+          "error_bp": -1.2369580915105871e-05
+        },
+        {
+          "year": 2021,
+          "issuer_return": 0.20032877,
+          "computed_return": 0.20032876585186732,
+          "error_bp": -4.148132670689364e-05
+        },
+        {
+          "year": 2022,
+          "issuer_return": -0.09956313,
+          "computed_return": -0.09956313248910142,
+          "error_bp": -2.4891014249739385e-05
+        },
+        {
+          "year": 2017,
+          "issuer_return": 0.22155114,
+          "computed_return": 0.22155114195465364,
+          "error_bp": 1.9546536333958642e-05
+        },
+        {
+          "year": 2025,
+          "issuer_return": 0.39627481000000003,
+          "computed_return": 0.3962748103160054,
+          "error_bp": 3.1600538852316618e-06
+        },
+        {
+          "year": 2019,
+          "issuer_return": 0.19129107,
+          "computed_return": 0.19129107002732826,
+          "error_bp": 2.732825077345069e-07
+        },
+        {
+          "year": 2020,
+          "issuer_return": -0.03930359,
+          "computed_return": -0.039303590944460676,
+          "error_bp": -9.444606763331365e-06
+        },
+        {
+          "year": 2016,
+          "issuer_return": 0.08136067000000001,
+          "computed_return": 0.08136067330000207,
+          "error_bp": 3.3000020632778515e-05
+        },
+        {
+          "year": 2023,
+          "issuer_return": 0.19413014,
+          "computed_return": 0.19413013834323944,
+          "error_bp": -1.656760562074311e-05
+        },
+        {
+          "year": 2024,
+          "issuer_return": 0.05251966,
+          "computed_return": 0.052519659695723586,
+          "error_bp": -3.04276416562832e-06
+        }
+      ],
+      "annual_max_error_bp": 4.148132670689364e-05,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null,
+      "series_basis": "Accumulating/no-income NAV",
+      "holdings_acquisition": {
+        "url": "https://www.ishares.com/uk/individual/en/products/270048/ishares-edge-msci-world-value-factor-ucits-etf/latest-holdings.csv",
+        "rows": 392,
+        "company_mapping": "Unavailable",
+        "as_of": "2026-10-12"
+      }
+    },
+    "error": ""
+  },
+  {
+    "ticker": "JPGL",
+    "history": "Unavailable",
+    "error": "DataError: Full actual history endpoint remains unresolved for JPGL"
+  },
+  {
+    "ticker": "LQQ",
+    "history": "Unavailable",
+    "error": "DataError: Full actual history endpoint remains unresolved for LQQ"
+  },
+  {
+    "ticker": "MVOL",
+    "history": "Acquired",
+    "native_currency": "USD",
+    "first_complete_month": "2012-12",
+    "last_complete_month": "2026-08",
+    "months": 165,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "annual_errors": [
+        {
+          "year": 2018,
+          "issuer_return": -0.021467589999999998,
+          "computed_return": -0.02146758786864622,
+          "error_bp": 2.131353777495848e-05
+        },
+        {
+          "year": 2021,
+          "issuer_return": 0.14153186,
+          "computed_return": 0.14153185935899582,
+          "error_bp": -6.410041941684597e-06
+        },
+        {
+          "year": 2022,
+          "issuer_return": -0.09861418000000001,
+          "computed_return": -0.09861417832335573,
+          "error_bp": 1.6766442817450766e-05
+        },
+        {
+          "year": 2017,
+          "issuer_return": 0.17356038999999998,
+          "computed_return": 0.1735603924481055,
+          "error_bp": 2.4481055238556593e-05
+        },
+        {
+          "year": 2025,
+          "issuer_return": 0.10522289000000001,
+          "computed_return": 0.10522289372500437,
+          "error_bp": 3.725004360521922e-05
+        },
+        {
+          "year": 2019,
+          "issuer_return": 0.23155387000000002,
+          "computed_return": 0.2315538733002156,
+          "error_bp": 3.300215573043275e-05
+        },
+        {
+          "year": 2020,
+          "issuer_return": 0.02616253,
+          "computed_return": 0.026162526010048204,
+          "error_bp": -3.9899517960406694e-05
+        },
+        {
+          "year": 2016,
+          "issuer_return": 0.07403461,
+          "computed_return": 0.07403460887539848,
+          "error_bp": -1.124601523017077e-05
+        },
+        {
+          "year": 2023,
+          "issuer_return": 0.07785497000000001,
+          "computed_return": 0.07785497437792466,
+          "error_bp": 4.3779246478026224e-05
+        },
+        {
+          "year": 2024,
+          "issuer_return": 0.10803005,
+          "computed_return": 0.10803005067448401,
+          "error_bp": 6.7448401031011684e-06
+        }
+      ],
+      "annual_max_error_bp": 4.3779246478026224e-05,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null,
+      "series_basis": "Accumulating/no-income NAV",
+      "holdings_acquisition": {
+        "url": "https://www.ishares.com/uk/individual/en/products/251382/ishares-edge-msci-world-minimum-volatility-ucits-etf/latest-holdings.csv",
+        "rows": 297,
+        "company_mapping": "Unavailable",
+        "as_of": "2026-10-12"
+      }
+    },
+    "error": ""
+  },
+  {
+    "ticker": "SGLN",
+    "history": "Acquired",
+    "native_currency": "USD",
+    "first_complete_month": "2011-05",
+    "last_complete_month": "2026-08",
+    "months": 184,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "annual_errors": [
+        {
+          "year": 2018,
+          "issuer_return": -0.01394004,
+          "computed_return": -0.013940037772408487,
+          "error_bp": 2.2275915140257396e-05
+        },
+        {
+          "year": 2021,
+          "issuer_return": -0.03894922,
+          "computed_return": -0.038949224651282144,
+          "error_bp": -4.651282144163549e-05
+        },
+        {
+          "year": 2022,
+          "issuer_return": -0.00544981,
+          "computed_return": -0.005449812873335236,
+          "error_bp": -2.8733352355411745e-05
+        },
+        {
+          "year": 2017,
+          "issuer_return": 0.11575156,
+          "computed_return": 0.11575155519559321,
+          "error_bp": -4.804406789071791e-05
+        },
+        {
+          "year": 2025,
+          "issuer_return": 0.64803828,
+          "computed_return": 0.648038281216019,
+          "error_bp": 1.2160190632215517e-05
+        },
+        {
+          "year": 2019,
+          "issuer_return": 0.18534156,
+          "computed_return": 0.18534156090191956,
+          "error_bp": 9.01919566809184e-06
+        },
+        {
+          "year": 2020,
+          "issuer_return": 0.23949406,
+          "computed_return": 0.239494057514964,
+          "error_bp": -2.485036010302366e-05
+        },
+        {
+          "year": 2016,
+          "issuer_return": 0.08845389000000001,
+          "computed_return": 0.08845389386656821,
+          "error_bp": 3.866568204502485e-05
+        },
+        {
+          "year": 2023,
+          "issuer_return": 0.13660834,
+          "computed_return": 0.13660834428228164,
+          "error_bp": 4.2822816403997876e-05
+        },
+        {
+          "year": 2024,
+          "issuer_return": 0.2644007,
+          "computed_return": 0.26440070136080074,
+          "error_bp": 1.360800749861113e-05
+        }
+      ],
+      "annual_max_error_bp": 4.804406789071791e-05,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null,
+      "series_basis": "Accumulating/no-income NAV"
+    },
+    "error": ""
+  },
+  {
+    "ticker": "SLXX",
+    "history": "Acquired",
+    "native_currency": "GBP",
+    "first_complete_month": "2004-04",
+    "last_complete_month": "2026-08",
+    "months": 269,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "annual_errors": [
+        {
+          "year": 2018,
+          "issuer_return": -0.02587151,
+          "computed_return": -0.025871509017670435,
+          "error_bp": 9.823295649136199e-06
+        },
+        {
+          "year": 2021,
+          "issuer_return": -0.04053629,
+          "computed_return": -0.040536289352444466,
+          "error_bp": 6.475555369700459e-06
+        },
+        {
+          "year": 2022,
+          "issuer_return": -0.18782287,
+          "computed_return": -0.1878228693265307,
+          "error_bp": 6.734693080989729e-06
+        },
+        {
+          "year": 2017,
+          "issuer_return": 0.04302595,
+          "computed_return": 0.04302595517870955,
+          "error_bp": 5.1787095514677084e-05
+        },
+        {
+          "year": 2025,
+          "issuer_return": 0.06795349,
+          "computed_return": 0.06795348903537879,
+          "error_bp": -9.646212162373047e-06
+        },
+        {
+          "year": 2019,
+          "issuer_return": 0.11154120000000001,
+          "computed_return": 0.11154120238076737,
+          "error_bp": 2.380767361032099e-05
+        },
+        {
+          "year": 2020,
+          "issuer_return": 0.08920692000000001,
+          "computed_return": 0.08920692104299244,
+          "error_bp": 1.0429924285348946e-05
+        },
+        {
+          "year": 2016,
+          "issuer_return": 0.13243815,
+          "computed_return": 0.1324381501750369,
+          "error_bp": 1.750369016395581e-06
+        },
+        {
+          "year": 2023,
+          "issuer_return": 0.09308559000000001,
+          "computed_return": 0.09308559021916074,
+          "error_bp": 2.1916073122962842e-06
+        },
+        {
+          "year": 2024,
+          "issuer_return": 0.01250623,
+          "computed_return": 0.012506235257333076,
+          "error_bp": 5.257333075825432e-05
+        }
+      ],
+      "annual_max_error_bp": 5.257333075825432e-05,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null,
+      "series_basis": "Issuer reinvested fund growth; published annual fund returns checked",
+      "holdings_acquisition": {
+        "url": "https://www.ishares.com/uk/individual/en/products/251839/ishares-core-corp-bond-ucits-etf/latest-holdings.csv",
+        "rows": 0,
+        "company_mapping": "Unavailable",
+        "as_of": null
+      }
+    },
+    "error": ""
+  },
+  {
+    "ticker": "SSLN",
+    "history": "Acquired",
+    "native_currency": "USD",
+    "first_complete_month": "2011-05",
+    "last_complete_month": "2026-08",
+    "months": 184,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "annual_errors": [
+        {
+          "year": 2018,
+          "issuer_return": -0.08670016,
+          "computed_return": -0.08670015585171886,
+          "error_bp": 4.148281135263332e-05
+        },
+        {
+          "year": 2021,
+          "issuer_return": -0.1301178,
+          "computed_return": -0.13011779588299488,
+          "error_bp": 4.1170051257033435e-05
+        },
+        {
+          "year": 2022,
+          "issuer_return": 0.03518478,
+          "computed_return": 0.0351847755025958,
+          "error_bp": -4.4974041990553104e-05
+        },
+        {
+          "year": 2017,
+          "issuer_return": 0.03434268,
+          "computed_return": 0.03434267609238528,
+          "error_bp": -3.9076147179128995e-05
+        },
+        {
+          "year": 2025,
+          "issuer_return": 1.48558381,
+          "computed_return": 1.4855838116704154,
+          "error_bp": 1.6704153615876294e-05
+        },
+        {
+          "year": 2019,
+          "issuer_return": 0.16216104,
+          "computed_return": 0.162161039112106,
+          "error_bp": -8.878940083167919e-06
+        },
+        {
+          "year": 2020,
+          "issuer_return": 0.46249782000000006,
+          "computed_return": 0.46249781984589666,
+          "error_bp": -1.5410339671007023e-06
+        },
+        {
+          "year": 2016,
+          "issuer_return": 0.17042099,
+          "computed_return": 0.17042098895469127,
+          "error_bp": -1.0453087284645335e-05
+        },
+        {
+          "year": 2023,
+          "issuer_return": -0.00845472,
+          "computed_return": -0.008454721064279469,
+          "error_bp": -1.064279468374063e-05
+        },
+        {
+          "year": 2024,
+          "issuer_return": 0.21256292999999998,
+          "computed_return": 0.21256293112351998,
+          "error_bp": 1.1235199992576383e-05
+        }
+      ],
+      "annual_max_error_bp": 4.4974041990553104e-05,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null,
+      "series_basis": "Accumulating/no-income NAV"
+    },
+    "error": ""
+  },
+  {
+    "ticker": "SWDA",
+    "history": "Acquired",
+    "native_currency": "USD",
+    "first_complete_month": "2009-10",
+    "last_complete_month": "2026-08",
+    "months": 203,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "annual_errors": [
+        {
+          "year": 2018,
+          "issuer_return": -0.0864514,
+          "computed_return": -0.08645140029199305,
+          "error_bp": -2.9199305473515125e-06
+        },
+        {
+          "year": 2021,
+          "issuer_return": 0.21903577999999999,
+          "computed_return": 0.21903578376501875,
+          "error_bp": 3.765018768975281e-05
+        },
+        {
+          "year": 2022,
+          "issuer_return": -0.18028779,
+          "computed_return": -0.1802877922556585,
+          "error_bp": -2.255658493321988e-05
+        },
+        {
+          "year": 2017,
+          "issuer_return": 0.22446617,
+          "computed_return": 0.22446616722494372,
+          "error_bp": -2.7750562681116975e-05
+        },
+        {
+          "year": 2025,
+          "issuer_return": 0.21160364999999998,
+          "computed_return": 0.21160364742454885,
+          "error_bp": -2.5754511301379068e-05
+        },
+        {
+          "year": 2019,
+          "issuer_return": 0.27757779,
+          "computed_return": 0.27757779168967756,
+          "error_bp": 1.689677564531422e-05
+        },
+        {
+          "year": 2020,
+          "issuer_return": 0.15949624,
+          "computed_return": 0.15949624483736047,
+          "error_bp": 4.837360456644291e-05
+        },
+        {
+          "year": 2016,
+          "issuer_return": 0.0773148,
+          "computed_return": 0.077314803509696,
+          "error_bp": 3.50969599216544e-05
+        },
+        {
+          "year": 2023,
+          "issuer_return": 0.23858947,
+          "computed_return": 0.23858946790314395,
+          "error_bp": -2.0968560499046163e-05
+        },
+        {
+          "year": 2024,
+          "issuer_return": 0.18697165,
+          "computed_return": 0.18697164669446975,
+          "error_bp": -3.305530238417731e-05
+        }
+      ],
+      "annual_max_error_bp": 4.837360456644291e-05,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null,
+      "series_basis": "Accumulating/no-income NAV",
+      "holdings_acquisition": {
+        "url": "https://www.ishares.com/uk/individual/en/products/251882/ishares-core-msci-world-ucits-etf/latest-holdings.csv",
+        "rows": 1250,
+        "company_mapping": "Unavailable",
+        "as_of": "2026-10-12"
+      }
+    },
+    "error": ""
+  },
+  {
+    "ticker": "USSC",
+    "history": "Acquired",
+    "native_currency": "USD",
+    "first_complete_month": "2015-03",
+    "last_complete_month": "2026-08",
+    "months": 138,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "reconciliation_passed": true,
+      "series_basis": "Own accumulating NAV",
+      "holdings_acquisition": {
+        "url": "https://www.ssga.com/library-content/products/fund-data/etfs/emea/holdings-daily-emea-en-zprv-gy.xlsx",
+        "rows": 1625,
+        "as_of": "2026-10-13",
+        "company_mapping": "Unavailable"
+      }
+    },
+    "error": ""
+  },
+  {
+    "ticker": "VAGS",
+    "history": "Acquired",
+    "native_currency": "GBP",
+    "first_complete_month": "2019-07",
+    "last_complete_month": "2026-08",
+    "months": 86,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "series_basis": "Issuer own-share-class monthly total returns; percent divided once",
+      "nav_overlap_months": 87,
+      "nav_max_monthly_difference": 0.00017859222737623415,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null
+    },
+    "error": "Pre/post-hedge issuer yield convention and credit-loss assumptions unresolved; actual benchmark history available"
+  },
+  {
+    "ticker": "VAPX",
+    "history": "Acquired",
+    "native_currency": "USD",
+    "first_complete_month": "2013-06",
+    "last_complete_month": "2026-08",
+    "months": 159,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "series_basis": "Issuer own-share-class monthly total returns; percent divided once",
+      "nav_overlap_months": 142,
+      "nav_max_monthly_difference": 5.432498828363691e-05,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null,
+      "distribution_records": 54,
+      "records_before_nav_coverage": 6,
+      "income_policy": "Ex-date closing NAV reinvestment; total rows not added to tax components"
+    },
+    "error": ""
+  },
+  {
+    "ticker": "VEMT",
+    "history": "Acquired",
+    "native_currency": "USD",
+    "first_complete_month": "2017-01",
+    "last_complete_month": "2026-08",
+    "months": 116,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "series_basis": "Issuer own-share-class monthly total returns; percent divided once",
+      "nav_overlap_months": 117,
+      "nav_max_monthly_difference": 0.0004489235038769943,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null,
+      "distribution_records": 118,
+      "records_before_nav_coverage": 1,
+      "income_policy": "Ex-date closing NAV reinvestment; total rows not added to tax components"
+    },
+    "error": ""
+  },
+  {
+    "ticker": "VERX",
+    "history": "Acquired",
+    "native_currency": "EUR",
+    "first_complete_month": "2014-10",
+    "last_complete_month": "2026-08",
+    "months": 143,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "series_basis": "Issuer own-share-class monthly total returns; percent divided once",
+      "nav_overlap_months": 142,
+      "nav_max_monthly_difference": 1.5509107544824097e-05,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null,
+      "distribution_records": 48,
+      "records_before_nav_coverage": 0,
+      "income_policy": "Ex-date closing NAV reinvestment; total rows not added to tax components"
+    },
+    "error": ""
+  },
+  {
+    "ticker": "VJPN",
+    "history": "Acquired",
+    "native_currency": "USD",
+    "first_complete_month": "2013-06",
+    "last_complete_month": "2026-08",
+    "months": 159,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "series_basis": "Issuer own-share-class monthly total returns; percent divided once",
+      "nav_overlap_months": 142,
+      "nav_max_monthly_difference": 1.2274124366842831e-05,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null,
+      "distribution_records": 54,
+      "records_before_nav_coverage": 6,
+      "income_policy": "Ex-date closing NAV reinvestment; total rows not added to tax components"
+    },
+    "error": ""
+  },
+  {
+    "ticker": "VMID",
+    "history": "Acquired",
+    "native_currency": "GBP",
+    "first_complete_month": "2014-10",
+    "last_complete_month": "2026-08",
+    "months": 143,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "series_basis": "Issuer own-share-class monthly total returns; percent divided once",
+      "nav_overlap_months": 142,
+      "nav_max_monthly_difference": 3.926165798969622e-06,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null,
+      "distribution_records": 48,
+      "records_before_nav_coverage": 0,
+      "income_policy": "Ex-date closing NAV reinvestment; total rows not added to tax components"
+    },
+    "error": ""
+  },
+  {
+    "ticker": "VUKE",
+    "history": "Acquired",
+    "native_currency": "GBP",
+    "first_complete_month": "2012-06",
+    "last_complete_month": "2026-08",
+    "months": 171,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "series_basis": "Issuer own-share-class monthly total returns; percent divided once",
+      "nav_overlap_months": 142,
+      "nav_max_monthly_difference": 3.2309550172769652e-06,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null,
+      "distribution_records": 58,
+      "records_before_nav_coverage": 10,
+      "income_policy": "Ex-date closing NAV reinvestment; total rows not added to tax components"
+    },
+    "error": ""
+  },
+  {
+    "ticker": "VUSA",
+    "history": "Acquired",
+    "native_currency": "USD",
+    "first_complete_month": "2012-06",
+    "last_complete_month": "2026-08",
+    "months": 171,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "series_basis": "Issuer own-share-class monthly total returns; percent divided once",
+      "nav_overlap_months": 142,
+      "nav_max_monthly_difference": 2.5294784253772525e-06,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null,
+      "distribution_records": 58,
+      "records_before_nav_coverage": 10,
+      "income_policy": "Ex-date closing NAV reinvestment; total rows not added to tax components"
+    },
+    "error": ""
+  },
+  {
+    "ticker": "VWRP",
+    "history": "Acquired",
+    "native_currency": "USD",
+    "first_complete_month": "2019-08",
+    "last_complete_month": "2026-08",
+    "months": 85,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "series_basis": "Issuer own-share-class monthly total returns; percent divided once",
+      "nav_overlap_months": 86,
+      "nav_max_monthly_difference": 4.771044670448532e-13,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null
+    },
+    "error": ""
+  },
+  {
+    "ticker": "WLDS",
+    "history": "Acquired",
+    "native_currency": "USD",
+    "first_complete_month": "2018-04",
+    "last_complete_month": "2026-08",
+    "months": 101,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "annual_errors": [
+        {
+          "year": 2021,
+          "issuer_return": 0.15809035,
+          "computed_return": 0.1580903461911647,
+          "error_bp": -3.808835302709923e-05
+        },
+        {
+          "year": 2022,
+          "issuer_return": -0.18639683999999998,
+          "computed_return": -0.18639684426672465,
+          "error_bp": -4.266724668022803e-05
+        },
+        {
+          "year": 2025,
+          "issuer_return": 0.19842818,
+          "computed_return": 0.19842817692232018,
+          "error_bp": -3.077679833207725e-05
+        },
+        {
+          "year": 2019,
+          "issuer_return": 0.25728183,
+          "computed_return": 0.25728182658497545,
+          "error_bp": -3.415024540931455e-05
+        },
+        {
+          "year": 2020,
+          "issuer_return": 0.15831754,
+          "computed_return": 0.15831754334334103,
+          "error_bp": 3.343341020700663e-05
+        },
+        {
+          "year": 2023,
+          "issuer_return": 0.16020331,
+          "computed_return": 0.16020330700147567,
+          "error_bp": -2.9985243177321763e-05
+        },
+        {
+          "year": 2024,
+          "issuer_return": 0.07928132,
+          "computed_return": 0.0792813238689487,
+          "error_bp": 3.868948703078523e-05
+        }
+      ],
+      "annual_max_error_bp": 4.266724668022803e-05,
+      "reconciliation_passed": true,
+      "reconciliation_warning": null,
+      "series_basis": "Accumulating/no-income NAV",
+      "holdings_acquisition": {
+        "url": "https://www.ishares.com/uk/individual/en/products/296576/ishares-msci-world-small-cap-ucits-etf/latest-holdings.csv",
+        "rows": 3582,
+        "company_mapping": "Unavailable",
+        "as_of": "2026-10-13"
+      }
+    },
+    "error": ""
+  },
+  {
+    "ticker": "XS2D",
+    "history": "Acquired",
+    "native_currency": "USD",
+    "first_complete_month": "2010-04",
+    "last_complete_month": "2026-08",
+    "months": 197,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "reconciliation_passed": true,
+      "nav_chart_overlap_days": 4105,
+      "nav_chart_max_relative_error": 3.8604821742116435e-05,
+      "maximum_absolute_daily_move": 0.2394229278627532,
+      "issuer_chart_flags": [],
+      "nav_consistency_tolerance": 0.0001,
+      "series_basis": "Capitalising own fund NAV; issuer USD NAV chart/workbook consistency within declared 1bp trigger; net product costs unchanged",
+      "reconciliation_warning": "Issuer chart consistency and anomaly screen do not establish a complete independent corporate-action audit; forecast mechanics remain unavailable"
+    },
+    "error": "Daily funding/reset, corporate-action and stressed overlap validation pending; actual history acquired"
+  },
+  {
+    "ticker": "ZPRX",
+    "history": "Acquired",
+    "native_currency": "EUR",
+    "first_complete_month": "2015-03",
+    "last_complete_month": "2026-08",
+    "months": 138,
+    "missing_months": [],
+    "reconciliation": "Passed stated checks",
+    "details": {
+      "reconciliation_passed": true,
+      "series_basis": "Own accumulating NAV",
+      "holdings_acquisition": {
+        "url": "https://www.ssga.com/library-content/products/fund-data/etfs/emea/holdings-daily-emea-en-zprx-gy.xlsx",
+        "rows": 805,
+        "as_of": "2026-10-13",
+        "company_mapping": "Unavailable"
+      }
+    },
+    "error": ""
+  }
+]

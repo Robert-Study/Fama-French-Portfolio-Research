@@ -107,7 +107,10 @@ if snapshot.manifest.get('provisional_policy'):
     policy = snapshot.manifest['provisional_policy']
     currency_note = 'Actual ECB GBP conversion.' if policy['actual_gbp_history'] else 'FX risk suppressed by assumption.'
     bond_note = 'Gilt carry uses a cash-based prior.' if policy.get('bond_carry_assumed', True) else 'Dated issuer gilt carry/duration.'
-    st.warning('Provisional calibration: US RF proxies SONIA. ' + bond_note + ' ' + currency_note + ' Details on Methods.')
+    if policy.get('historical_sonia_actual'):
+        st.caption('Actual SONIA and GBP histories; forward SONIA held flat by assumption. Details and remaining exclusions on Methods.')
+    else:
+        st.warning('Provisional calibration: US RF proxies SONIA. ' + bond_note + ' ' + currency_note + ' Details on Methods.')
 if apply or run is None or run.model.snapshot.fingerprint != snapshot.fingerprint:
     stage = 'loading calibrated model inputs'
     try:

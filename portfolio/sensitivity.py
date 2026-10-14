@@ -22,6 +22,11 @@ def predefined_models(model):
     for shift in (-.05,.05):
         delta=(categories==CATEGORIES[1]).to_numpy()*shift/12
         candidates[f'commodity_{shift:+g}']=replace(model,mean=model.mean+delta)
+    # Wholesale-rate stresses are conditional assumptions, not fitted OIS paths.
+    if model.snapshot.manifest.get('provisional_policy',{}).get('historical_sonia_actual'):
+        for shift in (-.02,-.01,.01,.02):
+            affected=categories.isin([CATEGORIES[1],CATEGORIES[3],CATEGORIES[4]]).to_numpy()
+            candidates[f'flat_sonia_{shift:+g}']=replace(model,mean=model.mean+affected*shift/12)
     risky=[j for j,i in enumerate(model.ids) if i!='GBP_BANK_SAVINGS']
     if len(model.history)>=120 and risky:
         for months in (72,120):

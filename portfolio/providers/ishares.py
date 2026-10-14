@@ -24,7 +24,11 @@ class Components(HTMLParser):
                 except ValueError:
                     continue
                 if isinstance(data, dict) and 'componentId' in data:
-                    self.components[data['componentId']] = data
+                    # Responsive pages repeat components; an empty final copy
+                    # must not erase the complete data-bearing component.
+                    previous = self.components.get(data['componentId'], {})
+                    if len(json.dumps(data)) > len(json.dumps(previous)):
+                        self.components[data['componentId']] = data
 
 
 def _series(point):

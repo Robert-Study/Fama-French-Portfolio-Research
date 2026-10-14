@@ -1,10 +1,10 @@
 # Efficient-frontier research using regional Fama–French estimation
 
-*Draft for the separate Streamlit Methods page · 12 October 2026 · Proposed V7 method; no V7 empirical results are claimed.*
+*Methods page · 14 October 2026 · Model 0.3.0. Executed calibration diagnostics and current capability exclusions appear below this report.*
 
 ## Introduction
 
-This model compares conditional portfolio allocations available through a UK Trading 212 Invest account. Its proposed universe contains 49 exchange-traded products and interest-bearing GBP cash, grouped into six categories: savings/cash, commodities, bonds, equity ETFs, factor-tilted ETFs and leveraged products. The objective is to identify portfolios with the lowest modelled variance for a given expected return, while making the assumptions and uncertainty visible.
+This model compares conditional GBP portfolio allocations from a selected universe of 49 exchange-traded products plus a separate UK bank savings account. Public Trading 212 listings do not establish individual-account eligibility. The original six categories remain visible: savings/cash, commodities, bonds, equity ETFs, factor-tilted ETFs and leveraged products. Thirty forward models currently pass their capability gates; the remainder retain specific exclusions. The objective is to identify portfolios with the lowest modelled variance for a given expected return, while making assumptions and uncertainty visible.
 
 The Fama–French five-factor model (FF5) provides an empirical description of equity exposures. It does not determine future returns without assumptions about factor premiums. Separate models are required for non-equity assets and daily-reset leverage. All portfolio calculations use nominal GBP total returns before personal tax.
 
@@ -14,7 +14,7 @@ The Fama–French five-factor model (FF5) provides an empirical description of e
 
 Fund histories use actual share-class total returns, including reinvested distributions. Prices quoted in pence are normalised and foreign-currency returns are converted consistently to GBP. Pre-inception index proxies are identified separately from actual observations.
 
-The Kenneth French Data Library supplies public US, developed, regional and emerging-market factors. Developed/regional histories extend from July 1990, and emerging-market monthly histories from July 1989; early emerging-factor construction changes require attention to the common complete-factor period. The source returns are expressed in USD. [1, 2]
+The Kenneth French Data Library supplies public US, developed, regional and emerging-market factors. Developed/regional histories extend from July 1990; the acquired Emerging five-factor panel has complete observations from July 1992 after missing-value sentinels are excluded. GBP premium estimation uses the common actual FX/factor period and ends in August 2026. The source returns are expressed in USD. [1, 2]
 
 For fund \(i\), monthly excess returns are estimated as
 
@@ -30,7 +30,7 @@ With \(x_t\) denoting the return of GBP per USD, the market factor is converted 
 f_{M,t}^{GBP}=(1+f_{M,t}^{USD}+r_{f,t}^{USD})(1+x_t)-1-r_{f,t}^{GBP}.
 \]
 
-Long–short style spreads are multiplied by \(1+x_t\); a standalone FX return is not added to them. Compounded SONIA supplies the GBP research cash reference, distinct from the broker's retail cash rate. [3]
+Long–short style spreads are multiplied by \(1+x_t\); a standalone FX return is not added to them. Actual delayed SONIA supplies the GBP research cash reference, distinct from savings AER. Each business-day observation accrues simply over its ACT/365 calendar interval; month-boundary allocations use ratios of accrued levels so subperiod factors telescope. Current live BoE access fails, so dated actual observations supplied by the research task are used. Latest observed SONIA held flat is an explicit forward scenario, not a market OIS forecast. [3]
 
 Ridge regression uses up to 120 recent months, with 72 required for an ordinary equity fit. Scaling, penalty selection and model-extension selection occur inside chronological training folds. The final 12 months are reserved for assessment. Market-only and unregularised FF5 models provide comparisons; the selected specification is then refitted for current exposures.
 
@@ -50,9 +50,9 @@ Prior scales are research choices tested in sensitivity analysis. Negative premi
 
 Expected gross alpha is zero. Historical net returns already contain fund expenses; forecasting costs are deducted once, with financing and underlying-fund charges reconciled separately.
 
-Bond estimates use current carry, duration, inflation where applicable, credit losses and explicit yield/hedge assumptions. Commodity estimates distinguish physical metals from futures products whose returns include roll and collateral effects. Cash uses the applicable variable rate. Trading 212 cash can include qualifying money-market funds, so it must not be represented as an unconditional insured bank deposit. [4]
+Admitted government-bond estimates use dated issuer YTM and duration with constant yields and zero assumed roll-down. Unresolved credit, inflation and hedge inputs block the other forward models. Physical metals use a neutral zero excess-return prior over forward SONIA, less ongoing charges; this is an assumption, not a metal coupon. Futures products remain blocked pending roll/collateral/swap reconciliation. Savings uses the dated bank's variable AER, with conditional deposit-protection and eligibility limits; it is outside Trading 212. Actual net histories are not charged expenses again.
 
-Leveraged products are modelled from daily underlying returns, funding, fees and contractual reset rules before monthly aggregation. Multiplying a long-horizon return by the leverage factor is invalid. Native-currency resets precede GBP conversion where required by product mechanics. [5]
+The leverage engine models daily underlying returns, funding, fees and contractual resets before monthly aggregation. No selected leveraged forward model has yet passed all those evidence gates. XS2D remains available as an actual historical reference after issuer workbook/chart reconciliation within a declared 1bp trigger, with an incomplete independent corporate-action audit disclosed. Multiplying monthly returns by leverage is invalid; native resets precede GBP conversion. [5]
 
 ### Risk, optimisation and concentration
 

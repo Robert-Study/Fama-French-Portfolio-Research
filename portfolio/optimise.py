@@ -59,10 +59,12 @@ def efficient_frontier(mean, covariance, cap=1.0, points=101, exposure=None, lim
 
     def solve(required):
         target.value = required
-        for solver in ("OSQP", "CLARABEL"):
+        # The real multi-fund panel is correlated. An interior-point solve
+        # avoids thousands of failed high-precision OSQP iterations in exports.
+        for solver in ("CLARABEL", "OSQP"):
             try:
                 options = dict(eps_abs=1e-9, eps_rel=1e-9, max_iter=50000,
-                               polishing=True) if solver == "OSQP" else {}
+                               polishing=True) if solver == "OSQP" else dict(tol_gap_abs=1e-11, tol_gap_rel=1e-10, tol_feas=1e-10)
                 problem.solve(solver=solver, warm_start=True, **options)
             except cp.error.SolverError:
                 continue
@@ -82,12 +84,19 @@ def efficient_frontier(mean, covariance, cap=1.0, points=101, exposure=None, lim
                 return cleaned, solver, violation
         raise ValueError("The solver could not verify a portfolio at this target. Try less restrictive limits.")
 
-    minimum, first_solver, first_error = solve(float(annual_mu.min()) - 1)
     # All equal-variance minimisers differ only in the PSD quadratic's nullspace.
     # Maximise return on that fibre, without adding variance to deterministic cash.
     eigenvalues, eigenvectors = np.linalg.eigh(annual_cov)
     active = eigenvalues > max(1e-14, float(eigenvalues.max()) * 1e-12)
     basis = eigenvectors[:, active].T
+    zero_risk = linprog(-annual_mu, A_ub=a if len(b) else None, b_ub=b if len(b) else None,
+                        A_eq=np.vstack([np.ones(n), basis]), b_eq=np.r_[1.0, np.zeros(len(basis))],
+                        bounds=list(zip(np.zeros(n), upper)), method='highs')
+    if zero_risk.success:
+        # Deterministic cash is an exact boundary, not an approximate QP point.
+        minimum, first_solver, first_error = zero_risk.x, 'HiGHS zero-risk', 0.0
+    else:
+        minimum, first_solver, first_error = solve(float(annual_mu.min()) - 1)
     tie = linprog(-annual_mu, A_ub=a if len(b) else None, b_ub=b if len(b) else None,
                   A_eq=np.vstack([np.ones(n), basis]),
                   b_eq=np.r_[1.0, basis @ minimum],
@@ -107,7 +116,10 @@ def efficient_frontier(mean, covariance, cap=1.0, points=101, exposure=None, lim
     else:
         remaining = targets[1:]
     for required in remaining:
-        result, solver, error = solve(float(required))
+        if required <= start + 1e-10:
+            result, solver, error = minimum, first_solver, first_error
+        else:
+            result, solver, error = solve(float(required))
         weights.append(result)
         solvers.append(solver)
         errors.append(error)

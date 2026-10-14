@@ -44,14 +44,23 @@ def show_benchmark_status(run=None, status=None):
     if unavailable:
         with st.expander('Fixed reference availability', expanded=run is None):
             for label, reason in unavailable.items():
-                st.write(label + ' — unavailable: ' + reason)
+                history=run.benchmarks[label].get('historical',{}) if run is not None else {}
+                if history.get('available'):
+                    st.write(f"{label} — actual historical reference available ({history['start']}–{history['end']}); forward estimate unavailable: {reason}")
+                else:
+                    st.write(label + ' — forward estimate unavailable: ' + reason)
     st.caption('Fixed references remain independent of the portfolio switches and caps.')
 
 
 def diversity_for(run, point):
     m = run.model
     equity = m.snapshot.instruments.index[m.snapshot.instruments.category.isin(CATEGORIES[3:])]
-    return effective_companies(m.snapshot.holdings, full_weights(run, point), equity, m.leverage.to_dict())
+    try:
+        return effective_companies(m.snapshot.holdings, full_weights(run, point), equity, m.leverage.to_dict())
+    except ValueError as exc:
+        # Optional holdings evidence cannot invalidate an otherwise verified
+        # mean/covariance frontier. Reject the statistic, not the portfolio.
+        return {'effective_companies':None,'coverage':None,'status':'Company diversity unavailable: '+str(exc),'as_of':None}, pd.Series(dtype=float)
 
 
 def dashboard(run, point, scenarios, years):
@@ -125,6 +134,17 @@ def compare(run, point, other, scenarios, years):
         {name:'{:.2%}' for name in ['annual_arithmetic_return','annual_volatility','ongoing_fees','financing']},
         na_rep='Unavailable'), width='stretch')
     m = run.model
+    historical=[]
+    for label,ref in run.benchmarks.items():
+        history=ref.get('historical',{})
+        if history.get('available'):
+            historical.append(dict(name=label,period=history['start']+'–'+history['end'],months=history['months'],
+                                   realised_annual_mean=history['annual_arithmetic_mean'],realised_annual_volatility=history['annual_volatility'],
+                                   terminal_index=history['terminal_index'],maximum_drawdown=history['max_drawdown']))
+    if historical:
+        st.caption('Actual historical fixed references · their own available periods; realised statistics, not forward forecasts. Global 60/40 rebalances monthly.')
+        st.dataframe(pd.DataFrame(historical).set_index('name').style.format(
+            {'realised_annual_mean':'{:.2%}','realised_annual_volatility':'{:.2%}','maximum_drawdown':'{:.2%}','terminal_index':'{:.1f}'}),width='stretch')
     weights = [run.frontier.weights[point], run.frontier.weights[other]]
     labels = ['Portfolio A', 'Portfolio B']
     for label, ref in run.benchmarks.items():
@@ -172,7 +192,8 @@ def methods(root, snapshot, run=None):
     if (root / 'data/research/cash-policy.json').exists():
         st.info('Cash scope updated at the user’s request: the active reference is a separate UK bank savings account, outside Trading 212. The supplied report below describes the original planning cash facility; the source inventory records the current policy.')
     if snapshot.manifest.get('provisional_policy'):
-        st.caption('Current provisional implementation: US RF proxies missing SONIA. ' + snapshot.manifest['provisional_policy']['bond_policy'] + '. The report is followed by actual calibration diagnostics and source limitations.')
+        policy=snapshot.manifest['provisional_policy']
+        st.caption('Current implementation: '+policy['cash_reference']+'. '+policy.get('bond_policy','Dated issuer carry with explicit exclusions for unresolved credit, real-yield and hedge inputs')+'. Actual diagnostics and remaining limitations follow.')
     if snapshot.manifest.get('derived_model_inputs'):
         st.caption('This checkout retains derived calibrated inputs. Horizon paths use a labelled IID Gaussian joint-risk approximation; source refresh restores the synchronised-block path model and historical replay.')
     report = (root / 'docs/v7-methods-report.md').read_text()

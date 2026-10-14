@@ -102,6 +102,7 @@ def research_zip(run, point, other, years, scenarios=None, convergence_check=Non
               'dust_tolerance': 1e-10, 'benchmark_policy': 'Fixed references outside active constraints',
               'scenarios': None if scenarios is None else {'seed': scenarios.seed, 'paths': scenarios.paths,
                'block': scenarios.block, 'estimation': scenarios.estimation, 'convergence': convergence_check}}
+    policy['historical_reference_statistics']=model.historical_references
     root = Path(__file__).resolve().parents[1]
     commit = subprocess.run(['git', '-C', str(root), 'rev-parse', 'HEAD'], capture_output=True, text=True)
     policy['model_commit'] = commit.stdout.strip() if commit.returncode == 0 else 'Unavailable in this runtime'

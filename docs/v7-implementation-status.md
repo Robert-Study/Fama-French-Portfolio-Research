@@ -1,4 +1,40 @@
-# V7 implementation and evidence status
+# V7 implementation checkpoint — 14 October 2026
+
+Model **0.3.0**, schema **2**, Python **3.14.8**. The user requested that this checkpoint be uploaded and further work pause until instructed. The original 50 identities and `data/legacy` remain unchanged; repository/app privacy and the `main` workflow are preserved.
+
+## Current results
+
+- Public cached adapters execute iShares, Vanguard GraphQL, SPDR XLSX, Invesco, WisdomTree POST and DWS requests, retaining original bytes, SHA256, method/body, URL, content type and retrieval UTC. Bounded retries and validated last-good snapshots keep refresh outside interactive controls.
+- **46 actual securities histories acquired; 39 pass documented reconciliation screens.** Passing screens do not prove a complete independent corporate-action audit. Unreconciled NAV/growth stays outside the production net-total-return panel. Per-instrument counts, dates, gaps, currencies and errors are in `acquisition-audit.json`.
+- iShares NAV/reinvested growth reconciles to published calendar-year fund returns. Vanguard accumulating NAV reconciles to issuer monthly returns; six distributing equity classes also reconcile using actual ex-date distributions, without double-counting tax components. SPDR accumulating histories retain exact ISIN/currency. DWS XS2D reconciles over 4,105 dates against its exact USD fund chart within a declared 1bp consistency trigger; maximum discrepancy is about 0.386bp. Its independent corporate-action audit and forward mechanics remain incomplete.
+- Actual delayed **SONIA replaces the US-RF proxy**. ACT/365 business-day accrual intervals split via ratios of accrued levels at month boundaries. The live BoE request returns HTTP 403 here; the supplied 7,523 actual observations through **9 October 2026** are retained with OGL attribution and the failed request recorded. The research audit compared 970 FRED observations; comparison with the official compounded index remains pending.
+- Actual ECB GBP/USD and GBP/EUR conversion, published regional French factors, chronological market/OLS/ridge selection, final untouched holdout, premium shrinkage and joint exposure/premium bootstrap are executed for **22 equity models**. Mixed Developed/Emerging candidates are fitted for VWRP. Selected market-only baselines remain distinguished from full FF5. Calibration/risk ends at **August 2026**, the slowest common source.
+- **30 admitted models:** 1 savings, 2 physical metals, 5 government-bond funds, 12 equity ETFs, 10 factor ETFs and **0 leveraged forward models**. Joint risk uses **85 common actual GBP months**. Flat latest SONIA, fixed bank AER, constant-yield carry and zero metal excess premiums are conditional assumptions, not market forecasts. Non-iShares fees lacking live adapter fields use the dated supplied research ledger, with their source basis recorded.
+- Actual VWRP, VAGS, XS2D and monthly-rebalanced 60/40 reference statistics survive fresh checkouts independently of forward admission. VAGS/XS2D forward models remain blocked. Current bank AER is a conditional forward reference; no historical savings returns are invented.
+- Identity/history/reconciliation/forward/risk/holdings/broker checks are separate capabilities. Full holdings acquisitions retain dates/security IDs without invented company mappings. Mapped company coverage is **0%**; diversity is unavailable and does not disable a passing financial frontier.
+- Four pages, six visible categories, synchronized slider/numeric controls, complete non-zero holdings, switches/caps and horizon-dependent arithmetic-return bands remain implemented. Annual volatility does not shrink with horizon. Portable scenarios use labelled IID Gaussian joint risk; refreshed instances use synchronized blocks and actual portfolio replay.
+- CLARABEL is tried first to avoid repeated failed high-precision OSQP iterations. A nullspace linear solve preserves an exact feasible zero-risk cash endpoint; comparable targets at/below GMV reuse the same verified minimum portfolio. Independent constraints are checked after solver dust cleanup.
+- Lazy ZIP exports all 50 identities, coefficients, covariance, premiums, assumptions, source hashes, statuses, historical reference statistics and sensitivity results. Restricted raw issuer workbooks/histories remain outside Git and ZIPs.
+
+## Checkpoint validation and limitations
+
+Baseline **53 tests passed**; expanded financial/parser/constraint/export/Streamlit suite **61 passed**. New checks cover SONIA boundaries, units, missing months, duplicate dates, Excel row/date alignment, ISIN identity, distribution-component double counting, leverage-history/forecast separation and security-key/company-ID separation. The actual shipped inputs render from a checkout without raw cache.
+
+The actual 30-model ZIP completed (about **121 KB**) and its script reproduced every solved weight within **1e-6**. Source-cache validation/export process peak RSS was about **225 MiB** locally. **Export performance remains follow-up work:** the full predefined sensitivity screen took about **155 seconds**. These are local measurements, not hosted-service guarantees. The historical hosted dashboard exception is not claimed resolved because its traceback has not been supplied.
+
+## Remaining work when instructed
+
+1. Obtain any remaining hosted traceback and measure hosted startup/export performance; optimize the slow sensitivity screen.
+2. Acquire full histories for JPGL, LQQ and 3QQQ. Keep their known dated research facts separate from missing histories.
+3. Reconcile the seven other acquired histories: GLTL/EQQQ income and WisdomTree COPA/AIGA/CRUD/GGRG/3LUS currency/corporate actions. Do not treat distributing NAV as net total return or guess split adjustments.
+4. Resolve bond gates: INXG/ITPG real yield/inflation; IS15/SLXX credit-loss/spread assumptions; VAGS/GHYS hedge/yield basis; VEMT yield/credit evidence. Known duration is insufficient to fill missing inputs.
+5. Resolve futures roll/collateral/swap costs, IWFS strategy-regime continuity and exact binding leveraged funding/reset/termination terms plus stressed actual overlap. Intraday gates remain material.
+6. Build a reviewed company master, consolidate share classes/ADRs/nested exposure, acquire missing Vanguard books and achieve >=95% current mapped economic-equity coverage.
+7. Live-check ledger-sourced fees, compare SONIA with the official compounded index, refresh dated SONIA when access works and expand forward-rate/structural sensitivities where data permits.
+
+**Full six-category forward coverage and every original scientific acceptance gate remain incomplete.** No deployment, publication or paid-data purchase was performed. Further investigation is paused at the user's request.
+
+## Historical record: initial 12 October checkpoint
 
 Prepared 12 October 2026 on `feat/v7-research`, based on upstream `1071128bdb6ad8888133f9152bfc3cc45fa90145`. Model **0.2.0**, input schema **2**, Python **3.14.8**. The revised attached specification and Methods report replace the older planning material. Two later user instructions authorise separate UK bank savings and a provisional calibration with explicit assumptions.
 

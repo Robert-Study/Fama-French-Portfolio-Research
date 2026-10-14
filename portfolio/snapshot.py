@@ -144,5 +144,14 @@ def load_snapshot(root, today=None):
         rows.append({'ticker': ident, 'Name': row['name'], 'Category': row.category,
                      'Status': 'Blocked' if reasons else 'Evidence eligible',
                      'Reason': '; '.join(reasons), 'Owner': 'Public-data adapter / issuer evidence' if row.category != CATEGORIES[0] else 'Public bank rate and terms verification'})
+        e=snapshot.evidence.get(ident,{})
+        rows[-1].update({
+            'Identity': 'Sourced' if e.get('identity_source') in source_ids else ('Bank quote' if ident=='GBP_BANK_SAVINGS' else 'Missing issuer evidence'),
+            'History': 'Actual source acquired' if e.get('history_acquired') or ident in snapshot.returns else ('Not applicable: current savings quote' if ident=='GBP_BANK_SAVINGS' else 'Unavailable'),
+            'Return reconciliation': 'Passed documented checks' if e.get('distribution_split_reconciled') else ('Not applicable' if ident=='GBP_BANK_SAVINGS' else 'Pending'),
+            'Expected return model': 'Eligible for calibration' if not reasons else 'Blocked',
+            'Risk model': 'Pending joint calibration' if not reasons else 'Not admitted',
+            'Holdings coverage': 'Not required for asset model; company mapping unavailable' if row.category in CATEGORIES[3:] else 'Not applicable to company diversity',
+            'Broker listing': 'Outside broker: bank account' if ident=='GBP_BANK_SAVINGS' else 'Public catalogue checked; account eligibility unverified'})
     snapshot.status = pd.DataFrame(rows).set_index('ticker')
     return snapshot

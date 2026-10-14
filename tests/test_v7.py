@@ -269,7 +269,8 @@ def test_complete_nonzero_holdings_and_export_reproduces_all_solved_points(model
         matrix=pd.read_csv(BytesIO(z.read('covariance.csv')),index_col=0)
         np.testing.assert_allclose(matrix,model.covariance)
         assumptions=json.loads(z.read('assumptions.json'))
-        assert assumptions['position_B']==100 and assumptions['model_version']=='0.2.0'
+        from portfolio import __version__
+        assert assumptions['position_B']==100 and assumptions['model_version']==__version__
     result=subprocess.run([sys.executable,str(tmp_path/'reproduce.py')],capture_output=True,text=True)
     assert result.returncode==0,result.stderr
     table=holdings_table(run,50)
@@ -352,7 +353,9 @@ def test_boe_calendar_accrual_splits_month_boundaries_and_ecb_quotes():
     for start,stop in zip(dates[:-1],dates[1:]):
         days=(stop-start).days
         count=sum(day.month==8 for day in pd.date_range(start,periods=days))
-        expected*=(1+.04*days/365)**(count/days)
+        offsets=[j for j,day in enumerate(pd.date_range(start,periods=days)) if day.month==8]
+        if offsets:
+            expected*=(1+.04*(offsets[-1]+1)/365)/(1+.04*offsets[0]/365)
     assert result.GBP_RF.iloc[0]==pytest.approx(expected-1)
     csv=b'Date,USD,GBP\n2026-08-03,1.2,0.8\n2026-08-04,1.25,0.81\n'
     rates=parse_ecb(csv)
@@ -482,7 +485,7 @@ def test_committed_dashboard_without_raw_cache(tmp_path, monkeypatch):
     import streamlit as st
     import portfolio.portable as portable
     from portfolio.validation import age_days
-    monkeypatch.setattr(portable, 'age_days', lambda value: age_days(value, date(2026,10,12)))
+    monkeypatch.setattr(portable, 'age_days', lambda value: age_days(value, date(2026,10,14)))
     for folder in ('portfolio', 'ui', 'docs'):
         shutil.copytree(ROOT/folder, tmp_path/folder, ignore=shutil.ignore_patterns('__pycache__'))
     shutil.copy(ROOT/'app.py', tmp_path/'app.py')
@@ -501,7 +504,8 @@ def test_committed_dashboard_without_raw_cache(tmp_path, monkeypatch):
     assert not app.error
     assert len(app.metric) == 4
     assert all(metric.value != 'Unavailable' for metric in app.metric[:3])
-    assert len(app.session_state['active_run_v7'].model.ids) == 4
+    assert len(app.session_state['active_run_v7'].model.ids) == len(json.loads((data/'model-inputs.json').read_text())['ids'])
+    assert 'VWRP' in app.session_state['active_run_v7'].model.ids
     st.cache_data.clear()
     import portfolio.research as research
     def fail_solve(*args, **kwargs):

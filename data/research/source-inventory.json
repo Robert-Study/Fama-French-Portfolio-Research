@@ -1,151 +1,1642 @@
 {
-  "checked_on": "2026-10-12",
-  "factor_sources": [
+  "status": "ACTUAL GBP HISTORIES AND SONIA \u2014 CONDITIONAL FORWARD ASSUMPTIONS",
+  "cut_off": "2026-08",
+  "sources": [
+    {
+      "id": "research:ledger",
+      "url": "https://github.com/Robert-Study/Fama-French-Portfolio-Research/blob/main/data/research/evidence-ledger-2026-10-14.csv",
+      "sha256": "d765571d2d9df2e0459a38731c775b1f9e14dbc447d540522835cb0c44373c76",
+      "retrieved_utc": "2026-10-14T16:54:17.212189+00:00",
+      "licence": "User-provided factual issuer research ledger; cited original URLs",
+      "redistribution": true
+    },
     {
       "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_5_Factors_2x3_CSV.zip",
       "sha256": "36756c5c2559648519ac4b22913d860c6afd865cfebce920e3e8927f8e2d10b7",
       "bytes": 11964,
-      "retrieved_utc": "2026-10-12T18:47:43.649634+00:00",
-      "licence": "Kenneth French public research data; review redistribution terms",
+      "retrieved_utc": "2026-10-14T16:34:48.810215+00:00",
+      "licence": "Kenneth French public research data; raw redistribution not established",
       "redistribution": false,
       "file": "36756c5c2559648519ac4b22913d860c6afd865cfebce920e3e8927f8e2d10b7",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "application/x-zip-compressed",
+      "resolved_url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_5_Factors_2x3_CSV.zip",
       "id": "french:US"
     },
     {
       "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/Developed_5_Factors_CSV.zip",
       "sha256": "11c299a69b299ada4bd2e68d4c6393347a70e3bf474c967fe96bff469baa5e2e",
       "bytes": 6802,
-      "retrieved_utc": "2026-10-12T18:47:44.172500+00:00",
-      "licence": "Kenneth French public research data; review redistribution terms",
+      "retrieved_utc": "2026-10-14T16:34:49.358293+00:00",
+      "licence": "Kenneth French public research data; raw redistribution not established",
       "redistribution": false,
       "file": "11c299a69b299ada4bd2e68d4c6393347a70e3bf474c967fe96bff469baa5e2e",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "application/x-zip-compressed",
+      "resolved_url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/Developed_5_Factors_CSV.zip",
       "id": "french:Developed"
     },
     {
       "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/North_America_5_Factors_CSV.zip",
       "sha256": "165290e829c5cb1ffa3d90551ad2f097e42a510b4e5120fe70ba9912bb1a4654",
       "bytes": 6924,
-      "retrieved_utc": "2026-10-12T18:47:44.400136+00:00",
-      "licence": "Kenneth French public research data; review redistribution terms",
+      "retrieved_utc": "2026-10-14T16:34:50.088772+00:00",
+      "licence": "Kenneth French public research data; raw redistribution not established",
       "redistribution": false,
       "file": "165290e829c5cb1ffa3d90551ad2f097e42a510b4e5120fe70ba9912bb1a4654",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "application/x-zip-compressed",
+      "resolved_url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/North_America_5_Factors_CSV.zip",
       "id": "french:North_America"
     },
     {
       "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/Europe_5_Factors_CSV.zip",
       "sha256": "cc0aa7c9f1a60eec96f5cb7749ee9abed61063b1318fbc913a2514831a9746f2",
       "bytes": 6799,
-      "retrieved_utc": "2026-10-12T18:47:44.728471+00:00",
-      "licence": "Kenneth French public research data; review redistribution terms",
+      "retrieved_utc": "2026-10-14T16:34:50.603953+00:00",
+      "licence": "Kenneth French public research data; raw redistribution not established",
       "redistribution": false,
       "file": "cc0aa7c9f1a60eec96f5cb7749ee9abed61063b1318fbc913a2514831a9746f2",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "application/x-zip-compressed",
+      "resolved_url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/Europe_5_Factors_CSV.zip",
       "id": "french:Europe"
     },
     {
       "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/Japan_5_Factors_CSV.zip",
       "sha256": "8eeae8609febc2dfb8bac1ffcd8d0a8ac4f6e620c747b6586b2719697908dd64",
       "bytes": 6959,
-      "retrieved_utc": "2026-10-12T18:47:44.913714+00:00",
-      "licence": "Kenneth French public research data; review redistribution terms",
+      "retrieved_utc": "2026-10-14T16:34:51.246236+00:00",
+      "licence": "Kenneth French public research data; raw redistribution not established",
       "redistribution": false,
       "file": "8eeae8609febc2dfb8bac1ffcd8d0a8ac4f6e620c747b6586b2719697908dd64",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "application/x-zip-compressed",
+      "resolved_url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/Japan_5_Factors_CSV.zip",
       "id": "french:Japan"
     },
     {
       "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/Asia_Pacific_ex_Japan_5_Factors_CSV.zip",
       "sha256": "f1810afbbe4b90679a940e6bb54509752bc2a1eae233e7bf757b3e498a3ff91a",
       "bytes": 6964,
-      "retrieved_utc": "2026-10-12T18:47:45.091668+00:00",
-      "licence": "Kenneth French public research data; review redistribution terms",
+      "retrieved_utc": "2026-10-14T16:34:51.510141+00:00",
+      "licence": "Kenneth French public research data; raw redistribution not established",
       "redistribution": false,
       "file": "f1810afbbe4b90679a940e6bb54509752bc2a1eae233e7bf757b3e498a3ff91a",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "application/x-zip-compressed",
+      "resolved_url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/Asia_Pacific_ex_Japan_5_Factors_CSV.zip",
       "id": "french:Asia_Pacific_ex_Japan"
     },
     {
       "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/Emerging_5_Factors_CSV.zip",
       "sha256": "303b5afb42232683f48f80178206a5cb99b1b755e4dc0493f9ec9b26dd74d103",
       "bytes": 6978,
-      "retrieved_utc": "2026-10-12T18:47:45.251742+00:00",
-      "licence": "Kenneth French public research data; review redistribution terms",
+      "retrieved_utc": "2026-10-14T16:34:52.347182+00:00",
+      "licence": "Kenneth French public research data; raw redistribution not established",
       "redistribution": false,
       "file": "303b5afb42232683f48f80178206a5cb99b1b755e4dc0493f9ec9b26dd74d103",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "application/x-zip-compressed",
+      "resolved_url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/Emerging_5_Factors_CSV.zip",
       "id": "french:Emerging"
+    },
+    {
+      "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.xml",
+      "sha256": "502c46b9f57ae4d4d533e57f2c703e521bd2f383053e6eed9a01808a13ef3954",
+      "bytes": 8200111,
+      "retrieved_utc": "2026-10-14T16:34:54.394537+00:00",
+      "licence": "ECB public reference rates; cite ECB",
+      "redistribution": false,
+      "file": "502c46b9f57ae4d4d533e57f2c703e521bd2f383053e6eed9a01808a13ef3954",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/xml",
+      "resolved_url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.xml",
+      "id": "ecb:fx"
+    },
+    {
+      "url": "https://github.com/Robert-Study/Fama-French-Portfolio-Research/blob/main/data/research/sonia-daily-boe-2026-10-13.csv",
+      "original_url": "https://www.bankofengland.co.uk/boeapps/database/fromshowcolumns.asp?CSVF=TT&DAT=RNG&FD=1&FM=Jan&FY=1997&SeriesCodes=IUDSOIA&TD=14&TM=Oct&TY=2026&UsingCodes=Y&html.x=66&html.y=26",
+      "sha256": "25d1c7632bed150a812266444bfc4846603ed0ac7ab2bbef3329d45ed0c70ca4",
+      "retrieved_utc": "2026-10-13T00:00:00+00:00",
+      "licence": "Source: Bank of England. Delayed SONIA under OGL v3.0; research acquisition CSV retained.",
+      "redistribution": true,
+      "refresh_error": "HTTPError: 403 Client Error: Forbidden for url: https://www.bankofengland.co.uk/boeapps/database/fromshowcolumns.asp?CSVF=TT&DAT=RNG&FD=1&FM=Jan&FY=1997&SeriesCodes=IUDSOIA&TD=14&TM=Oct&TY=2026&UsingCodes=Y&html.x=66&html.y=26",
+      "last_observation": "2026-10-09",
+      "id": "boe:sonia"
+    },
+    {
+      "url": "https://www.htb.co.uk/personal-savings/variable-rate-accounts/",
+      "sha256": "17320c9979ca97ab518c25849fc2184bb3861963a8f317e3d1b49093b08bfe13",
+      "bytes": 543734,
+      "retrieved_utc": "2026-10-14T16:54:20.922195+00:00",
+      "licence": "Public factual rate/eligibility metadata; full page redistribution not established",
+      "redistribution": false,
+      "file": "17320c9979ca97ab518c25849fc2184bb3861963a8f317e3d1b49093b08bfe13",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/html",
+      "resolved_url": "https://www.htb.co.uk/personal-savings/variable-rate-accounts/",
+      "id": "bank:HTB"
+    },
+    {
+      "url": "https://www.chartersavingsbank.co.uk/Products/EasyAccess",
+      "sha256": "217dbad740c9e12782037c9b75a96f0aad7e9af429e44486d1ae9262df5e8bce",
+      "bytes": 71927,
+      "retrieved_utc": "2026-10-14T16:54:22.076469+00:00",
+      "licence": "Public factual rate/eligibility metadata; full page redistribution not established",
+      "redistribution": false,
+      "file": "217dbad740c9e12782037c9b75a96f0aad7e9af429e44486d1ae9262df5e8bce",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://www.chartersavingsbank.co.uk/Products/EasyAccess",
+      "id": "bank:Charter"
+    },
+    {
+      "url": "https://dng-api.invesco.com/cache/v1/accounts/en_GB/shareclasses/IE00BD6FTQ80/performance/rolling?idType=isin&variationType=ALL&baseline=10000",
+      "sha256": "6313fe20c4c271e3e4ee30990aa72f1d955c62b27c89248e6b842497802aacf3",
+      "bytes": 339694,
+      "retrieved_utc": "2026-10-14T16:31:34.317456+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "6313fe20c4c271e3e4ee30990aa72f1d955c62b27c89248e6b842497802aacf3",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/plain;charset=UTF-8",
+      "resolved_url": "https://dng-api.invesco.com/cache/v1/accounts/en_GB/shareclasses/IE00BD6FTQ80/performance/rolling?idType=isin&variationType=ALL&baseline=10000",
+      "id": "issuer:CMOP:0"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/258441/",
+      "sha256": "bdf80955ec6b61cf8bcff350aa46d0d54527060bdb622e880ed2c81a7e211350",
+      "bytes": 2189337,
+      "retrieved_utc": "2026-10-14T16:35:01.635100+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "bdf80955ec6b61cf8bcff350aa46d0d54527060bdb622e880ed2c81a7e211350",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/258441/",
+      "id": "issuer:SGLN:0"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/258443/",
+      "sha256": "c5160b4fe2536d9d508da17e83f298090b2e16483467091253e60b4bfa658b90",
+      "bytes": 2178762,
+      "retrieved_utc": "2026-10-14T16:35:01.613243+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "c5160b4fe2536d9d508da17e83f298090b2e16483467091253e60b4bfa658b90",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/258443/",
+      "id": "issuer:SSLN:0"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/251804/",
+      "sha256": "2123e08f814b6da6a272204c393047cee4cd242ac16748be9f5148cd4cbc19b4",
+      "bytes": 2779611,
+      "retrieved_utc": "2026-10-14T16:35:02.118121+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "2123e08f814b6da6a272204c393047cee4cd242ac16748be9f5148cd4cbc19b4",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/251804/",
+      "id": "issuer:IGLS:0"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/251804/ishares-uk-gilts-0-5yr-ucits-etf/latest-holdings.csv",
+      "sha256": "c459aef332687dba70b379588a0e6de2ad637d1a1b476cc71126eadebadf1d65",
+      "bytes": 5325,
+      "retrieved_utc": "2026-10-14T16:40:09.741444+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "c459aef332687dba70b379588a0e6de2ad637d1a1b476cc71126eadebadf1d65",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/plain; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/251804/ishares-uk-gilts-0-5yr-ucits-etf/latest-holdings.csv",
+      "id": "issuer:IGLS:1"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/251806/",
+      "sha256": "f9f983100279f1fc83e6f09f203a6f20368360738918e06279666194c796bb8f",
+      "bytes": 2917433,
+      "retrieved_utc": "2026-10-14T16:32:42.584662+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "f9f983100279f1fc83e6f09f203a6f20368360738918e06279666194c796bb8f",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/251806/",
+      "id": "issuer:IGLT:0"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/251806/ishares-core-uk-gilts-ucits-etf/latest-holdings.csv",
+      "sha256": "0e1179d93add19f2441cbca6c9fbbad8d5f9b23f2c989c714aba7b3f9137c34f",
+      "bytes": 15408,
+      "retrieved_utc": "2026-10-14T16:40:09.965542+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "0e1179d93add19f2441cbca6c9fbbad8d5f9b23f2c989c714aba7b3f9137c34f",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/plain; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/251806/ishares-core-uk-gilts-ucits-etf/latest-holdings.csv",
+      "id": "issuer:IGLT:1"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/251717/",
+      "sha256": "32d92bf5035243328168e230fc8d9efb4d44b1ed23405f0b41f7e0edb2c3042d",
+      "bytes": 2647246,
+      "retrieved_utc": "2026-10-14T16:35:02.664857+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "32d92bf5035243328168e230fc8d9efb4d44b1ed23405f0b41f7e0edb2c3042d",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/251717/",
+      "id": "issuer:INXG:0"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/251717/ishares-index-linked-gilts-ucits-etf/latest-holdings.csv",
+      "sha256": "ac46f1fb4393c4fd807e7f3fbfd8095a311085cf8a800128fe9889cf2e53f3b0",
+      "bytes": 7740,
+      "retrieved_utc": "2026-10-14T16:40:11.762454+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "ac46f1fb4393c4fd807e7f3fbfd8095a311085cf8a800128fe9889cf2e53f3b0",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/plain; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/251717/ishares-index-linked-gilts-ucits-etf/latest-holdings.csv",
+      "id": "issuer:INXG:1"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/251840/",
+      "sha256": "41be3442eb4add38545ee7dbdf22815c35fdb79dc004d901415bf198cf5b4ada",
+      "bytes": 2578665,
+      "retrieved_utc": "2026-10-14T16:35:02.972855+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "41be3442eb4add38545ee7dbdf22815c35fdb79dc004d901415bf198cf5b4ada",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/251840/",
+      "id": "issuer:IS15:0"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/251840/ishares-corp-bond-0-5yr-ucits-etf/latest-holdings.csv",
+      "sha256": "75d506df498c4625c4f8c1b810cf103c9704cf5a2d844f9999fe414ed22c79cc",
+      "bytes": 94507,
+      "retrieved_utc": "2026-10-14T16:40:11.969652+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "75d506df498c4625c4f8c1b810cf103c9704cf5a2d844f9999fe414ed22c79cc",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/plain; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/251840/ishares-corp-bond-0-5yr-ucits-etf/latest-holdings.csv",
+      "id": "issuer:IS15:1"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/251839/",
+      "sha256": "4a4f3ca861fb799c67b6add3e58330105754c59d6c0efb2251e8a584a633385e",
+      "bytes": 3044387,
+      "retrieved_utc": "2026-10-14T16:35:03.274473+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "4a4f3ca861fb799c67b6add3e58330105754c59d6c0efb2251e8a584a633385e",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/251839/",
+      "id": "issuer:SLXX:0"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/251839/ishares-core-corp-bond-ucits-etf/latest-holdings.csv",
+      "sha256": "41b94a613d482f981e29fc7d7440347774e8f141ff7c3a7475f0e05bdc93c905",
+      "bytes": 122052,
+      "retrieved_utc": "2026-10-14T16:40:13.045442+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "41b94a613d482f981e29fc7d7440347774e8f141ff7c3a7475f0e05bdc93c905",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/plain; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/251839/ishares-core-corp-bond-ucits-etf/latest-holdings.csv",
+      "id": "issuer:SLXX:1"
+    },
+    {
+      "url": "https://www.vanguard.co.uk/gpx/graphql",
+      "sha256": "ae5a71d2a0d7b7f376c926a14bdde7ff358132cd04859a10395c5468360be565",
+      "bytes": 119044,
+      "retrieved_utc": "2026-10-14T16:31:34.915665+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "ae5a71d2a0d7b7f376c926a14bdde7ff358132cd04859a10395c5468360be565",
+      "method": "POST",
+      "request_body": {
+        "query": "query HistoricalPricesQuery($portIds: [String!]!) {\n funds(portIds: $portIds) { portId profile { fundCurrency fundInceptionDate fundFullName }\n pricingDetails { navPrices(limit: -1) { items { price currencyCode asOfDate } } } } }",
+        "variables": {
+          "portIds": [
+            "9685"
+          ]
+        }
+      },
+      "content_type": "application/json; charset=utf-8",
+      "resolved_url": "https://www.vanguard.co.uk/gpx/graphql",
+      "id": "issuer:VAGS:0"
+    },
+    {
+      "url": "https://www.vanguard.co.uk/gpx/graphql",
+      "sha256": "1d8d9064d737989acde9bd8b8340eaca8620e1143eb14ef0e14cabc92166c7ce",
+      "bytes": 7141,
+      "retrieved_utc": "2026-10-14T16:31:35.630611+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "1d8d9064d737989acde9bd8b8340eaca8620e1143eb14ef0e14cabc92166c7ce",
+      "method": "POST",
+      "request_body": {
+        "query": "query Growth10kQuery($portIds: [String!]!) {\n polarisPerformanceHistory(portIds: $portIds) { monthlyReturns { totalReturns(limit: -1) {\n items { portId effectiveDate CMLT { _1MTH } } } } }\n funds(portIds: $portIds) { profile { fundCurrency fundInceptionDate fundFullName\n distributionStrategy currencyHedgingStrategy } } }",
+        "variables": {
+          "portIds": [
+            "9685"
+          ]
+        }
+      },
+      "content_type": "application/json; charset=utf-8",
+      "resolved_url": "https://www.vanguard.co.uk/gpx/graphql",
+      "id": "issuer:VAGS:1"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/251715/",
+      "sha256": "cfedb94f6e12c54ddfbbd1792725b97c70f3a98d8b7418dd7147a6e06017b4f4",
+      "bytes": 4408985,
+      "retrieved_utc": "2026-10-14T16:35:04.055914+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "cfedb94f6e12c54ddfbbd1792725b97c70f3a98d8b7418dd7147a6e06017b4f4",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/251715/",
+      "id": "issuer:IBTS:0"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/251715/ishares-treasury-bond-1-3yr-ucits-etf/latest-holdings.csv",
+      "sha256": "56c3fcead1299fe69931bb3860034baadfdbce59a6d37f0c1bb04de74f4ef3fa",
+      "bytes": 20000,
+      "retrieved_utc": "2026-10-14T16:40:13.842519+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "56c3fcead1299fe69931bb3860034baadfdbce59a6d37f0c1bb04de74f4ef3fa",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/plain; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/251715/ishares-treasury-bond-1-3yr-ucits-etf/latest-holdings.csv",
+      "id": "issuer:IBTS:1"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/251716/",
+      "sha256": "53e5ab39fa452ee522f2c67f1374fb9b72ea699d55a072ce3ab1ac59d00d47ef",
+      "bytes": 4481810,
+      "retrieved_utc": "2026-10-14T16:35:05.671938+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "53e5ab39fa452ee522f2c67f1374fb9b72ea699d55a072ce3ab1ac59d00d47ef",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/251716/",
+      "id": "issuer:IBTM:0"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/251716/ishares-treasury-bond-7-10yr-ucits-etf/latest-holdings.csv",
+      "sha256": "f687c98750631f973672296bcc7383adc52c6287f8066f5e3ef776a766e8b23b",
+      "bytes": 4303,
+      "retrieved_utc": "2026-10-14T16:40:15.064831+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "f687c98750631f973672296bcc7383adc52c6287f8066f5e3ef776a766e8b23b",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/plain; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/251716/ishares-treasury-bond-7-10yr-ucits-etf/latest-holdings.csv",
+      "id": "issuer:IBTM:1"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/272124/",
+      "sha256": "70d19ec9353fe0c2d521bf10e38b6188930a90adbde96900bcfa6d5abd759647",
+      "bytes": 2777140,
+      "retrieved_utc": "2026-10-14T16:35:05.498984+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "70d19ec9353fe0c2d521bf10e38b6188930a90adbde96900bcfa6d5abd759647",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/272124/",
+      "id": "issuer:IBTL:0"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/272124/ishares-treasury-bond-20+yr-ucits-etf/latest-holdings.csv",
+      "sha256": "ffb09455035699b82f230f6797db4bd238ee420ce36f8a3ef0a07a1ae033d4bf",
+      "bytes": 9712,
+      "retrieved_utc": "2026-10-14T16:40:14.279449+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "ffb09455035699b82f230f6797db4bd238ee420ce36f8a3ef0a07a1ae033d4bf",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/plain; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/272124/ishares-treasury-bond-20+yr-ucits-etf/latest-holdings.csv",
+      "id": "issuer:IBTL:1"
+    },
+    {
+      "url": "https://www.wisdomtree.com/api/fund-history/1000063/historical-data-export",
+      "sha256": "702f5cd8a3957a91ccc30b1b733dd7788d446e3007b77d4fd424b6af1f03f2fa",
+      "bytes": 113404,
+      "retrieved_utc": "2026-10-14T16:35:00.236818+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "702f5cd8a3957a91ccc30b1b733dd7788d446e3007b77d4fd424b6af1f03f2fa",
+      "method": "POST",
+      "request_body": {
+        "locale": "en-GB",
+        "productName": "AIGA",
+        "fromDate": "1990-01-01",
+        "toDate": "2026-10-14",
+        "includeNav": true,
+        "includeAum": false
+      },
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "resolved_url": "https://www.wisdomtree.com/api/fund-history/1000063/historical-data-export",
+      "id": "issuer:AIGA:0"
+    },
+    {
+      "url": "https://www.ssga.com/library-content/products/fund-data/etfs/emea/navhist-emea-en-sybl-gy.xlsx",
+      "sha256": "a74ea9e10050a03ff6c16a4da01c3d499f618146f72aad47e392e5303170951f",
+      "bytes": 155081,
+      "retrieved_utc": "2026-10-14T16:35:03.640602+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "a74ea9e10050a03ff6c16a4da01c3d499f618146f72aad47e392e5303170951f",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "resolved_url": "https://www.ssga.com/library-content/products/fund-data/etfs/emea/navhist-emea-en-sybl-gy.xlsx",
+      "id": "issuer:GLTL:0"
+    },
+    {
+      "url": "https://www.ssga.com/library-content/products/fund-data/etfs/emea/holdings-daily-emea-en-sybl-gy.xlsx",
+      "sha256": "7dfabe6b89fa1e6f66749fb10fd85aa39e933fe61357f6f9df0e54452e6af8a5",
+      "bytes": 11295,
+      "retrieved_utc": "2026-10-14T16:41:36.206538+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "7dfabe6b89fa1e6f66749fb10fd85aa39e933fe61357f6f9df0e54452e6af8a5",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "resolved_url": "https://www.ssga.com/library-content/products/fund-data/etfs/emea/holdings-daily-emea-en-sybl-gy.xlsx",
+      "id": "issuer:GLTL:1"
+    },
+    {
+      "url": "https://www.wisdomtree.com/api/fund-history/1000073/historical-data-export",
+      "sha256": "944b43d59f7808edffb04318e7ad7c18f65ecc2753e8ff7829c1c5b6d01b1510",
+      "bytes": 117404,
+      "retrieved_utc": "2026-10-14T16:35:00.655095+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "944b43d59f7808edffb04318e7ad7c18f65ecc2753e8ff7829c1c5b6d01b1510",
+      "method": "POST",
+      "request_body": {
+        "locale": "en-GB",
+        "productName": "COPA",
+        "fromDate": "1990-01-01",
+        "toDate": "2026-10-14",
+        "includeNav": true,
+        "includeAum": false
+      },
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "resolved_url": "https://www.wisdomtree.com/api/fund-history/1000073/historical-data-export",
+      "id": "issuer:COPA:0"
+    },
+    {
+      "url": "https://www.wisdomtree.com/api/fund-history/1000076/historical-data-export",
+      "sha256": "f70caf61b82848da29cd09c45158eaf2e99be5cfda632d88619eea1fcab2c4a0",
+      "bytes": 116222,
+      "retrieved_utc": "2026-10-14T16:35:00.577221+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "f70caf61b82848da29cd09c45158eaf2e99be5cfda632d88619eea1fcab2c4a0",
+      "method": "POST",
+      "request_body": {
+        "locale": "en-GB",
+        "productName": "CRUD",
+        "fromDate": "1990-01-01",
+        "toDate": "2026-10-14",
+        "includeNav": true,
+        "includeAum": false
+      },
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "resolved_url": "https://www.wisdomtree.com/api/fund-history/1000076/historical-data-export",
+      "id": "issuer:CRUD:0"
+    },
+    {
+      "url": "https://www.vanguard.co.uk/gpx/graphql",
+      "sha256": "4c97ff57dfba56cb5adbbe8505281a1e7387ca1a17ae9e2a38c697be290ccf16",
+      "bytes": 118772,
+      "retrieved_utc": "2026-10-14T16:31:35.773502+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "4c97ff57dfba56cb5adbbe8505281a1e7387ca1a17ae9e2a38c697be290ccf16",
+      "method": "POST",
+      "request_body": {
+        "query": "query HistoricalPricesQuery($portIds: [String!]!) {\n funds(portIds: $portIds) { portId profile { fundCurrency fundInceptionDate fundFullName }\n pricingDetails { navPrices(limit: -1) { items { price currencyCode asOfDate } } } } }",
+        "variables": {
+          "portIds": [
+            "9679"
+          ]
+        }
+      },
+      "content_type": "application/json; charset=utf-8",
+      "resolved_url": "https://www.vanguard.co.uk/gpx/graphql",
+      "id": "issuer:VWRP:0"
+    },
+    {
+      "url": "https://www.vanguard.co.uk/gpx/graphql",
+      "sha256": "cb3dcaac199874333373fdf677998d50ebe0ff33d6595cd25b73c8dd2a9d67f3",
+      "bytes": 7034,
+      "retrieved_utc": "2026-10-14T16:31:37.657297+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "cb3dcaac199874333373fdf677998d50ebe0ff33d6595cd25b73c8dd2a9d67f3",
+      "method": "POST",
+      "request_body": {
+        "query": "query Growth10kQuery($portIds: [String!]!) {\n polarisPerformanceHistory(portIds: $portIds) { monthlyReturns { totalReturns(limit: -1) {\n items { portId effectiveDate CMLT { _1MTH } } } } }\n funds(portIds: $portIds) { profile { fundCurrency fundInceptionDate fundFullName\n distributionStrategy currencyHedgingStrategy } } }",
+        "variables": {
+          "portIds": [
+            "9679"
+          ]
+        }
+      },
+      "content_type": "application/json; charset=utf-8",
+      "resolved_url": "https://www.vanguard.co.uk/gpx/graphql",
+      "id": "issuer:VWRP:1"
+    },
+    {
+      "url": "https://www.vanguard.co.uk/gpx/graphql",
+      "sha256": "ed783e47a99ec6edd6e5651ed8f1ccfcc9e9091ff2dfcb8eed93cbec1fe75111",
+      "bytes": 159994,
+      "retrieved_utc": "2026-10-14T16:35:07.271736+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "ed783e47a99ec6edd6e5651ed8f1ccfcc9e9091ff2dfcb8eed93cbec1fe75111",
+      "method": "POST",
+      "request_body": {
+        "query": "query HistoricalPricesQuery($portIds: [String!]!) {\n funds(portIds: $portIds) { portId profile { fundCurrency fundInceptionDate fundFullName }\n pricingDetails { navPrices(limit: -1) { items { price currencyCode asOfDate } } } } }",
+        "variables": {
+          "portIds": [
+            "9664"
+          ]
+        }
+      },
+      "content_type": "application/json; charset=utf-8",
+      "resolved_url": "https://www.vanguard.co.uk/gpx/graphql",
+      "id": "issuer:VEMT:0"
+    },
+    {
+      "url": "https://www.vanguard.co.uk/gpx/graphql",
+      "sha256": "2b3a18006f1d1bceec49fd9e770c9ce39a2d639b1e5b7327d5b6e409caf89718",
+      "bytes": 9450,
+      "retrieved_utc": "2026-10-14T16:35:09.078954+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "2b3a18006f1d1bceec49fd9e770c9ce39a2d639b1e5b7327d5b6e409caf89718",
+      "method": "POST",
+      "request_body": {
+        "query": "query Growth10kQuery($portIds: [String!]!) {\n polarisPerformanceHistory(portIds: $portIds) { monthlyReturns { totalReturns(limit: -1) {\n items { portId effectiveDate CMLT { _1MTH } } } } }\n funds(portIds: $portIds) { profile { fundCurrency fundInceptionDate fundFullName\n distributionStrategy currencyHedgingStrategy } } }",
+        "variables": {
+          "portIds": [
+            "9664"
+          ]
+        }
+      },
+      "content_type": "application/json; charset=utf-8",
+      "resolved_url": "https://www.vanguard.co.uk/gpx/graphql",
+      "id": "issuer:VEMT:1"
+    },
+    {
+      "url": "https://www.vanguard.co.uk/gpx/graphql",
+      "sha256": "0a44fa965101fcd3596ef55b16ef3615b4dd6d6c1e7bde33feb3ccb40af5fe74",
+      "bytes": 46685,
+      "retrieved_utc": "2026-10-14T16:40:15.862031+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "0a44fa965101fcd3596ef55b16ef3615b4dd6d6c1e7bde33feb3ccb40af5fe74",
+      "method": "POST",
+      "request_body": {
+        "query": "query DistributionHistoryQuery($portIds: [String!]!, $startDate: String) {\n funds(portIds: $portIds) { portId distributionDetails { periodicDistributions(limit: 0, startDate: $startDate) {\n items { asOfDate exDividendDate recordDate payableDate reinvestPrice reinvestmentDate\n taxDetails { totalDistributionTypeName distributionLevelCode totalDistributionAmount distributionAmount\n distributionType { distCode distDesc } currencyCode } } } } } }",
+        "variables": {
+          "portIds": [
+            "9664"
+          ],
+          "startDate": "1990-01-01"
+        }
+      },
+      "content_type": "application/json; charset=utf-8",
+      "resolved_url": "https://www.vanguard.co.uk/gpx/graphql",
+      "id": "issuer:VEMT:2"
+    },
+    {
+      "url": "https://dng-api.invesco.com/cache/v1/accounts/en_GB/shareclasses/IE0032077012/performance/rolling?idType=isin&variationType=ALL&baseline=10000",
+      "sha256": "8d32b1ad967e6b6fdf14cc1289ba720f6c2b4997bad04d05fb996c6b932031f4",
+      "bytes": 860920,
+      "retrieved_utc": "2026-10-14T16:35:14.240750+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "8d32b1ad967e6b6fdf14cc1289ba720f6c2b4997bad04d05fb996c6b932031f4",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/plain;charset=UTF-8",
+      "resolved_url": "https://dng-api.invesco.com/cache/v1/accounts/en_GB/shareclasses/IE0032077012/performance/rolling?idType=isin&variationType=ALL&baseline=10000",
+      "id": "issuer:EQQQ:0"
+    },
+    {
+      "url": "https://www.vanguard.co.uk/gpx/graphql",
+      "sha256": "13ca49d3da4de40a442d9a529390e94001fd2ec5a4d581a51d80bff94360ac51",
+      "bytes": 193819,
+      "retrieved_utc": "2026-10-14T16:35:07.193152+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "13ca49d3da4de40a442d9a529390e94001fd2ec5a4d581a51d80bff94360ac51",
+      "method": "POST",
+      "request_body": {
+        "query": "query HistoricalPricesQuery($portIds: [String!]!) {\n funds(portIds: $portIds) { portId profile { fundCurrency fundInceptionDate fundFullName }\n pricingDetails { navPrices(limit: -1) { items { price currencyCode asOfDate } } } } }",
+        "variables": {
+          "portIds": [
+            "9503"
+          ]
+        }
+      },
+      "content_type": "application/json; charset=utf-8",
+      "resolved_url": "https://www.vanguard.co.uk/gpx/graphql",
+      "id": "issuer:VUSA:0"
+    },
+    {
+      "url": "https://www.vanguard.co.uk/gpx/graphql",
+      "sha256": "4be90993c583ba392770e78e52cd5775f53bc95ce4691e0dec1d6f67df8aaeea",
+      "bytes": 13662,
+      "retrieved_utc": "2026-10-14T16:35:09.147048+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "4be90993c583ba392770e78e52cd5775f53bc95ce4691e0dec1d6f67df8aaeea",
+      "method": "POST",
+      "request_body": {
+        "query": "query Growth10kQuery($portIds: [String!]!) {\n polarisPerformanceHistory(portIds: $portIds) { monthlyReturns { totalReturns(limit: -1) {\n items { portId effectiveDate CMLT { _1MTH } } } } }\n funds(portIds: $portIds) { profile { fundCurrency fundInceptionDate fundFullName\n distributionStrategy currencyHedgingStrategy } } }",
+        "variables": {
+          "portIds": [
+            "9503"
+          ]
+        }
+      },
+      "content_type": "application/json; charset=utf-8",
+      "resolved_url": "https://www.vanguard.co.uk/gpx/graphql",
+      "id": "issuer:VUSA:1"
+    },
+    {
+      "url": "https://www.vanguard.co.uk/gpx/graphql",
+      "sha256": "1e72143cf77112efd612a4db6e76233b1817859b98c4a76d1e699fc38ccf52a6",
+      "bytes": 22995,
+      "retrieved_utc": "2026-10-14T16:38:29.092332+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "1e72143cf77112efd612a4db6e76233b1817859b98c4a76d1e699fc38ccf52a6",
+      "method": "POST",
+      "request_body": {
+        "query": "query DistributionHistoryQuery($portIds: [String!]!, $startDate: String) {\n funds(portIds: $portIds) { portId distributionDetails { periodicDistributions(limit: 0, startDate: $startDate) {\n items { asOfDate exDividendDate recordDate payableDate reinvestPrice reinvestmentDate\n taxDetails { totalDistributionTypeName distributionLevelCode totalDistributionAmount distributionAmount\n distributionType { distCode distDesc } currencyCode } } } } } }",
+        "variables": {
+          "portIds": [
+            "9503"
+          ],
+          "startDate": "1990-01-01"
+        }
+      },
+      "content_type": "application/json; charset=utf-8",
+      "resolved_url": "https://www.vanguard.co.uk/gpx/graphql",
+      "id": "issuer:VUSA:2"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/295697/",
+      "sha256": "675d879f06c6506c2262b152c20fbe38b258dd80772800ba59aaa99d74493162",
+      "bytes": 3421237,
+      "retrieved_utc": "2026-10-14T16:35:06.394295+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "675d879f06c6506c2262b152c20fbe38b258dd80772800ba59aaa99d74493162",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/295697/",
+      "id": "issuer:ITPG:0"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/295697/ishares-tips-ucits-etf/latest-holdings.csv",
+      "sha256": "71faab5fd32e7672dcb3d771d80fb37284ad3a4c3e28a4e6afb903276e4a62e2",
+      "bytes": 10782,
+      "retrieved_utc": "2026-10-14T16:40:15.328622+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "71faab5fd32e7672dcb3d771d80fb37284ad3a4c3e28a4e6afb903276e4a62e2",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/plain; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/295697/ishares-tips-ucits-etf/latest-holdings.csv",
+      "id": "issuer:ITPG:1"
+    },
+    {
+      "url": "https://www.vanguard.co.uk/gpx/graphql",
+      "sha256": "5e3a85fde37e0751393f4fc8a4ec5d49f245d4144a422f26bce99469a9d7ad87",
+      "bytes": 189579,
+      "retrieved_utc": "2026-10-14T16:35:08.216998+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "5e3a85fde37e0751393f4fc8a4ec5d49f245d4144a422f26bce99469a9d7ad87",
+      "method": "POST",
+      "request_body": {
+        "query": "query HistoricalPricesQuery($portIds: [String!]!) {\n funds(portIds: $portIds) { portId profile { fundCurrency fundInceptionDate fundFullName }\n pricingDetails { navPrices(limit: -1) { items { price currencyCode asOfDate } } } } }",
+        "variables": {
+          "portIds": [
+            "9509"
+          ]
+        }
+      },
+      "content_type": "application/json; charset=utf-8",
+      "resolved_url": "https://www.vanguard.co.uk/gpx/graphql",
+      "id": "issuer:VUKE:0"
+    },
+    {
+      "url": "https://www.vanguard.co.uk/gpx/graphql",
+      "sha256": "131a62c0b7c116b814803c6678118203e42491485c7434730e22bf3a04771646",
+      "bytes": 13676,
+      "retrieved_utc": "2026-10-14T16:35:09.674387+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "131a62c0b7c116b814803c6678118203e42491485c7434730e22bf3a04771646",
+      "method": "POST",
+      "request_body": {
+        "query": "query Growth10kQuery($portIds: [String!]!) {\n polarisPerformanceHistory(portIds: $portIds) { monthlyReturns { totalReturns(limit: -1) {\n items { portId effectiveDate CMLT { _1MTH } } } } }\n funds(portIds: $portIds) { profile { fundCurrency fundInceptionDate fundFullName\n distributionStrategy currencyHedgingStrategy } } }",
+        "variables": {
+          "portIds": [
+            "9509"
+          ]
+        }
+      },
+      "content_type": "application/json; charset=utf-8",
+      "resolved_url": "https://www.vanguard.co.uk/gpx/graphql",
+      "id": "issuer:VUKE:1"
+    },
+    {
+      "url": "https://www.vanguard.co.uk/gpx/graphql",
+      "sha256": "72b5c93097f30f96d95e3c31c5edd896673973a2fa718b674ad4d6211267cb7c",
+      "bytes": 22993,
+      "retrieved_utc": "2026-10-14T16:38:29.636277+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "72b5c93097f30f96d95e3c31c5edd896673973a2fa718b674ad4d6211267cb7c",
+      "method": "POST",
+      "request_body": {
+        "query": "query DistributionHistoryQuery($portIds: [String!]!, $startDate: String) {\n funds(portIds: $portIds) { portId distributionDetails { periodicDistributions(limit: 0, startDate: $startDate) {\n items { asOfDate exDividendDate recordDate payableDate reinvestPrice reinvestmentDate\n taxDetails { totalDistributionTypeName distributionLevelCode totalDistributionAmount distributionAmount\n distributionType { distCode distDesc } currencyCode } } } } } }",
+        "variables": {
+          "portIds": [
+            "9509"
+          ],
+          "startDate": "1990-01-01"
+        }
+      },
+      "content_type": "application/json; charset=utf-8",
+      "resolved_url": "https://www.vanguard.co.uk/gpx/graphql",
+      "id": "issuer:VUKE:2"
+    },
+    {
+      "url": "https://www.vanguard.co.uk/gpx/graphql",
+      "sha256": "a375eb19e9b2b819f566481c139259aba0bcd1dda1fd7a8633a7defa8ff390af",
+      "bytes": 189541,
+      "retrieved_utc": "2026-10-14T16:35:09.048261+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "a375eb19e9b2b819f566481c139259aba0bcd1dda1fd7a8633a7defa8ff390af",
+      "method": "POST",
+      "request_body": {
+        "query": "query HistoricalPricesQuery($portIds: [String!]!) {\n funds(portIds: $portIds) { portId profile { fundCurrency fundInceptionDate fundFullName }\n pricingDetails { navPrices(limit: -1) { items { price currencyCode asOfDate } } } } }",
+        "variables": {
+          "portIds": [
+            "9525"
+          ]
+        }
+      },
+      "content_type": "application/json; charset=utf-8",
+      "resolved_url": "https://www.vanguard.co.uk/gpx/graphql",
+      "id": "issuer:VMID:0"
+    },
+    {
+      "url": "https://www.vanguard.co.uk/gpx/graphql",
+      "sha256": "b620ff5bdf559caf69332a3bc76a91feef29d5bca39f9c77b64d43e716eafe95",
+      "bytes": 11505,
+      "retrieved_utc": "2026-10-14T16:35:10.168822+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "b620ff5bdf559caf69332a3bc76a91feef29d5bca39f9c77b64d43e716eafe95",
+      "method": "POST",
+      "request_body": {
+        "query": "query Growth10kQuery($portIds: [String!]!) {\n polarisPerformanceHistory(portIds: $portIds) { monthlyReturns { totalReturns(limit: -1) {\n items { portId effectiveDate CMLT { _1MTH } } } } }\n funds(portIds: $portIds) { profile { fundCurrency fundInceptionDate fundFullName\n distributionStrategy currencyHedgingStrategy } } }",
+        "variables": {
+          "portIds": [
+            "9525"
+          ]
+        }
+      },
+      "content_type": "application/json; charset=utf-8",
+      "resolved_url": "https://www.vanguard.co.uk/gpx/graphql",
+      "id": "issuer:VMID:1"
+    },
+    {
+      "url": "https://www.vanguard.co.uk/gpx/graphql",
+      "sha256": "0a6b5a7179439eb8dce40bdd9092e0a84d053169a874890437b3d3128b0bce76",
+      "bytes": 19049,
+      "retrieved_utc": "2026-10-14T16:38:30.116173+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "0a6b5a7179439eb8dce40bdd9092e0a84d053169a874890437b3d3128b0bce76",
+      "method": "POST",
+      "request_body": {
+        "query": "query DistributionHistoryQuery($portIds: [String!]!, $startDate: String) {\n funds(portIds: $portIds) { portId distributionDetails { periodicDistributions(limit: 0, startDate: $startDate) {\n items { asOfDate exDividendDate recordDate payableDate reinvestPrice reinvestmentDate\n taxDetails { totalDistributionTypeName distributionLevelCode totalDistributionAmount distributionAmount\n distributionType { distCode distDesc } currencyCode } } } } } }",
+        "variables": {
+          "portIds": [
+            "9525"
+          ],
+          "startDate": "1990-01-01"
+        }
+      },
+      "content_type": "application/json; charset=utf-8",
+      "resolved_url": "https://www.vanguard.co.uk/gpx/graphql",
+      "id": "issuer:VMID:2"
+    },
+    {
+      "url": "https://www.vanguard.co.uk/gpx/graphql",
+      "sha256": "32095e4f754d1039699cf1691f538341a89e048ffa08100a4deb6b77047a00f8",
+      "bytes": 193235,
+      "retrieved_utc": "2026-10-14T16:35:10.049932+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "32095e4f754d1039699cf1691f538341a89e048ffa08100a4deb6b77047a00f8",
+      "method": "POST",
+      "request_body": {
+        "query": "query HistoricalPricesQuery($portIds: [String!]!) {\n funds(portIds: $portIds) { portId profile { fundCurrency fundInceptionDate fundFullName }\n pricingDetails { navPrices(limit: -1) { items { price currencyCode asOfDate } } } } }",
+        "variables": {
+          "portIds": [
+            "9524"
+          ]
+        }
+      },
+      "content_type": "application/json; charset=utf-8",
+      "resolved_url": "https://www.vanguard.co.uk/gpx/graphql",
+      "id": "issuer:VERX:0"
+    },
+    {
+      "url": "https://www.vanguard.co.uk/gpx/graphql",
+      "sha256": "032507247794316a3497b604f60ccb63289ae25f14ad613ff1b949388ed1df7c",
+      "bytes": 11528,
+      "retrieved_utc": "2026-10-14T16:35:10.928315+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "032507247794316a3497b604f60ccb63289ae25f14ad613ff1b949388ed1df7c",
+      "method": "POST",
+      "request_body": {
+        "query": "query Growth10kQuery($portIds: [String!]!) {\n polarisPerformanceHistory(portIds: $portIds) { monthlyReturns { totalReturns(limit: -1) {\n items { portId effectiveDate CMLT { _1MTH } } } } }\n funds(portIds: $portIds) { profile { fundCurrency fundInceptionDate fundFullName\n distributionStrategy currencyHedgingStrategy } } }",
+        "variables": {
+          "portIds": [
+            "9524"
+          ]
+        }
+      },
+      "content_type": "application/json; charset=utf-8",
+      "resolved_url": "https://www.vanguard.co.uk/gpx/graphql",
+      "id": "issuer:VERX:1"
+    },
+    {
+      "url": "https://www.vanguard.co.uk/gpx/graphql",
+      "sha256": "62bb34484e36136921ec354a95ad0b98805147e96e1365cd05aa0abcdc90c1be",
+      "bytes": 19048,
+      "retrieved_utc": "2026-10-14T16:38:29.649633+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "62bb34484e36136921ec354a95ad0b98805147e96e1365cd05aa0abcdc90c1be",
+      "method": "POST",
+      "request_body": {
+        "query": "query DistributionHistoryQuery($portIds: [String!]!, $startDate: String) {\n funds(portIds: $portIds) { portId distributionDetails { periodicDistributions(limit: 0, startDate: $startDate) {\n items { asOfDate exDividendDate recordDate payableDate reinvestPrice reinvestmentDate\n taxDetails { totalDistributionTypeName distributionLevelCode totalDistributionAmount distributionAmount\n distributionType { distCode distDesc } currencyCode } } } } } }",
+        "variables": {
+          "portIds": [
+            "9524"
+          ],
+          "startDate": "1990-01-01"
+        }
+      },
+      "content_type": "application/json; charset=utf-8",
+      "resolved_url": "https://www.vanguard.co.uk/gpx/graphql",
+      "id": "issuer:VERX:2"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/253488/",
+      "sha256": "d622c829ab633de27931d2df2c813d7920ab0131372c43e1a4b500d66ba8f10d",
+      "bytes": 2546836,
+      "retrieved_utc": "2026-10-14T16:35:04.728354+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "d622c829ab633de27931d2df2c813d7920ab0131372c43e1a4b500d66ba8f10d",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/253488/",
+      "id": "issuer:GHYS:0"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/253488/ishares-global-high-yield-corp-bond-gbp-hedged-ucits-etf-dist/latest-holdings.csv",
+      "sha256": "50087b80cea7e9c6835fd91c19e6b273c94e0767440d5fd92f04118ea985c77f",
+      "bytes": 344118,
+      "retrieved_utc": "2026-10-14T16:40:15.872567+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "50087b80cea7e9c6835fd91c19e6b273c94e0767440d5fd92f04118ea985c77f",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/plain; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/253488/ishares-global-high-yield-corp-bond-gbp-hedged-ucits-etf-dist/latest-holdings.csv",
+      "id": "issuer:GHYS:1"
+    },
+    {
+      "url": "https://www.vanguard.co.uk/gpx/graphql",
+      "sha256": "806d726c08c6e234754613cda571797797087afc3a1353de6915a0f1dc4fb59a",
+      "bytes": 193206,
+      "retrieved_utc": "2026-10-14T16:35:11.210434+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "806d726c08c6e234754613cda571797797087afc3a1353de6915a0f1dc4fb59a",
+      "method": "POST",
+      "request_body": {
+        "query": "query HistoricalPricesQuery($portIds: [String!]!) {\n funds(portIds: $portIds) { portId profile { fundCurrency fundInceptionDate fundFullName }\n pricingDetails { navPrices(limit: -1) { items { price currencyCode asOfDate } } } } }",
+        "variables": {
+          "portIds": [
+            "9504"
+          ]
+        }
+      },
+      "content_type": "application/json; charset=utf-8",
+      "resolved_url": "https://www.vanguard.co.uk/gpx/graphql",
+      "id": "issuer:VJPN:0"
+    },
+    {
+      "url": "https://www.vanguard.co.uk/gpx/graphql",
+      "sha256": "ee9dfc688f7505aa9ef6386024da68ddb20f9ff669f7c8846e7bcf7da33ae5f0",
+      "bytes": 12743,
+      "retrieved_utc": "2026-10-14T16:35:12.329657+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "ee9dfc688f7505aa9ef6386024da68ddb20f9ff669f7c8846e7bcf7da33ae5f0",
+      "method": "POST",
+      "request_body": {
+        "query": "query Growth10kQuery($portIds: [String!]!) {\n polarisPerformanceHistory(portIds: $portIds) { monthlyReturns { totalReturns(limit: -1) {\n items { portId effectiveDate CMLT { _1MTH } } } } }\n funds(portIds: $portIds) { profile { fundCurrency fundInceptionDate fundFullName\n distributionStrategy currencyHedgingStrategy } } }",
+        "variables": {
+          "portIds": [
+            "9504"
+          ]
+        }
+      },
+      "content_type": "application/json; charset=utf-8",
+      "resolved_url": "https://www.vanguard.co.uk/gpx/graphql",
+      "id": "issuer:VJPN:1"
+    },
+    {
+      "url": "https://www.vanguard.co.uk/gpx/graphql",
+      "sha256": "94580982a67a8880e1b9162f36af43d1b23cea88d78362129426de97d170fe33",
+      "bytes": 21404,
+      "retrieved_utc": "2026-10-14T16:38:29.821632+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "94580982a67a8880e1b9162f36af43d1b23cea88d78362129426de97d170fe33",
+      "method": "POST",
+      "request_body": {
+        "query": "query DistributionHistoryQuery($portIds: [String!]!, $startDate: String) {\n funds(portIds: $portIds) { portId distributionDetails { periodicDistributions(limit: 0, startDate: $startDate) {\n items { asOfDate exDividendDate recordDate payableDate reinvestPrice reinvestmentDate\n taxDetails { totalDistributionTypeName distributionLevelCode totalDistributionAmount distributionAmount\n distributionType { distCode distDesc } currencyCode } } } } } }",
+        "variables": {
+          "portIds": [
+            "9504"
+          ],
+          "startDate": "1990-01-01"
+        }
+      },
+      "content_type": "application/json; charset=utf-8",
+      "resolved_url": "https://www.vanguard.co.uk/gpx/graphql",
+      "id": "issuer:VJPN:2"
+    },
+    {
+      "url": "https://www.vanguard.co.uk/gpx/graphql",
+      "sha256": "dbd2add38200e7c3eb80a38bb3b87dd702b86b95e3566022f39b41c794e2376f",
+      "bytes": 193230,
+      "retrieved_utc": "2026-10-14T16:35:11.313773+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "dbd2add38200e7c3eb80a38bb3b87dd702b86b95e3566022f39b41c794e2376f",
+      "method": "POST",
+      "request_body": {
+        "query": "query HistoricalPricesQuery($portIds: [String!]!) {\n funds(portIds: $portIds) { portId profile { fundCurrency fundInceptionDate fundFullName }\n pricingDetails { navPrices(limit: -1) { items { price currencyCode asOfDate } } } } }",
+        "variables": {
+          "portIds": [
+            "9522"
+          ]
+        }
+      },
+      "content_type": "application/json; charset=utf-8",
+      "resolved_url": "https://www.vanguard.co.uk/gpx/graphql",
+      "id": "issuer:VAPX:0"
+    },
+    {
+      "url": "https://www.vanguard.co.uk/gpx/graphql",
+      "sha256": "3c9e77fcb2feead19434e1bf364d07e90289ff8ad40fe2014df00e91bdb8dce5",
+      "bytes": 12793,
+      "retrieved_utc": "2026-10-14T16:35:12.064235+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "3c9e77fcb2feead19434e1bf364d07e90289ff8ad40fe2014df00e91bdb8dce5",
+      "method": "POST",
+      "request_body": {
+        "query": "query Growth10kQuery($portIds: [String!]!) {\n polarisPerformanceHistory(portIds: $portIds) { monthlyReturns { totalReturns(limit: -1) {\n items { portId effectiveDate CMLT { _1MTH } } } } }\n funds(portIds: $portIds) { profile { fundCurrency fundInceptionDate fundFullName\n distributionStrategy currencyHedgingStrategy } } }",
+        "variables": {
+          "portIds": [
+            "9522"
+          ]
+        }
+      },
+      "content_type": "application/json; charset=utf-8",
+      "resolved_url": "https://www.vanguard.co.uk/gpx/graphql",
+      "id": "issuer:VAPX:1"
+    },
+    {
+      "url": "https://www.vanguard.co.uk/gpx/graphql",
+      "sha256": "375b0493a9d92d22dca584b17cc455cdd4e6b53bff04d2f8e551b0721d3f00a9",
+      "bytes": 21420,
+      "retrieved_utc": "2026-10-14T16:38:30.958136+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "375b0493a9d92d22dca584b17cc455cdd4e6b53bff04d2f8e551b0721d3f00a9",
+      "method": "POST",
+      "request_body": {
+        "query": "query DistributionHistoryQuery($portIds: [String!]!, $startDate: String) {\n funds(portIds: $portIds) { portId distributionDetails { periodicDistributions(limit: 0, startDate: $startDate) {\n items { asOfDate exDividendDate recordDate payableDate reinvestPrice reinvestmentDate\n taxDetails { totalDistributionTypeName distributionLevelCode totalDistributionAmount distributionAmount\n distributionType { distCode distDesc } currencyCode } } } } } }",
+        "variables": {
+          "portIds": [
+            "9522"
+          ],
+          "startDate": "1990-01-01"
+        }
+      },
+      "content_type": "application/json; charset=utf-8",
+      "resolved_url": "https://www.vanguard.co.uk/gpx/graphql",
+      "id": "issuer:VAPX:2"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/251882/",
+      "sha256": "e23cef343c5b1b48485f6b788960475e5ead1b96b6e80bc374eb62e1941c5dfe",
+      "bytes": 3651887,
+      "retrieved_utc": "2026-10-14T16:30:14.409054+00:00",
+      "licence": "Issuer public data; redistribution not established",
+      "redistribution": false,
+      "file": "e23cef343c5b1b48485f6b788960475e5ead1b96b6e80bc374eb62e1941c5dfe",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/251882/",
+      "id": "issuer:SWDA:0"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/251882/ishares-core-msci-world-ucits-etf/latest-holdings.csv",
+      "sha256": "5e1eb8db5bd5d6a0e1b3d75522d0a5629f0d6965243c4e676ee87a78acb24cb7",
+      "bytes": 197060,
+      "retrieved_utc": "2026-10-14T16:40:16.039843+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "5e1eb8db5bd5d6a0e1b3d75522d0a5629f0d6965243c4e676ee87a78acb24cb7",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/plain; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/251882/ishares-core-msci-world-ucits-etf/latest-holdings.csv",
+      "id": "issuer:SWDA:1"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/297617/",
+      "sha256": "164bb303e8980fb1d24700d32987fb9768bf3b7592e6638256ebdd4c7fe07877",
+      "bytes": 1770002,
+      "retrieved_utc": "2026-10-14T16:35:12.583857+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "164bb303e8980fb1d24700d32987fb9768bf3b7592e6638256ebdd4c7fe07877",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/297617/",
+      "id": "issuer:IIND:0"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/297617/ishares-msci-india-ucits-etf/latest-holdings.csv",
+      "sha256": "7a04efa0dec9d9ce8eda61956754557861d8481bc2b6b41dc6df1cdfe7841342",
+      "bytes": 28206,
+      "retrieved_utc": "2026-10-14T16:40:16.751981+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "7a04efa0dec9d9ce8eda61956754557861d8481bc2b6b41dc6df1cdfe7841342",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/plain; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/297617/ishares-msci-india-ucits-etf/latest-holdings.csv",
+      "id": "issuer:IIND:1"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/273192/",
+      "sha256": "8aaaf563514fd00128af34e2179c8471a6392eecb32eb402120da1c562efef09",
+      "bytes": 1958704,
+      "retrieved_utc": "2026-10-14T16:35:11.974785+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "8aaaf563514fd00128af34e2179c8471a6392eecb32eb402120da1c562efef09",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/273192/",
+      "id": "issuer:IASH:0"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/273192/ishares-msci-china-a-ucits-etf/latest-holdings.csv",
+      "sha256": "4a1e58186e159b2a952250dbcdeb558e657030dd080100bc691fb0b56b2acc63",
+      "bytes": 69837,
+      "retrieved_utc": "2026-10-14T16:40:17.527595+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "4a1e58186e159b2a952250dbcdeb558e657030dd080100bc691fb0b56b2acc63",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/plain; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/273192/ishares-msci-china-a-ucits-etf/latest-holdings.csv",
+      "id": "issuer:IASH:1"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/264659/",
+      "sha256": "43267b54ae9ae3f6d696a40250a0525fbeb8d280f195077bf78c1d22af7581eb",
+      "bytes": 3091944,
+      "retrieved_utc": "2026-10-14T16:35:10.965527+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "43267b54ae9ae3f6d696a40250a0525fbeb8d280f195077bf78c1d22af7581eb",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/264659/",
+      "id": "issuer:EMIM:0"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/264659/ishares-core-msci-em-imi-ucits-etf/latest-holdings.csv",
+      "sha256": "4afffd32f2a0eca5c2074e0c6fe0b79be0ed3fdd1faddfac08c3ca13519de5ee",
+      "bytes": 485120,
+      "retrieved_utc": "2026-10-14T16:40:17.425060+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "4afffd32f2a0eca5c2074e0c6fe0b79be0ed3fdd1faddfac08c3ca13519de5ee",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/plain; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/264659/ishares-core-msci-em-imi-ucits-etf/latest-holdings.csv",
+      "id": "issuer:EMIM:1"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/251801/",
+      "sha256": "594aff1baa1a6d4af440bf827b53dcf2f86b265f8bb4f836601b736128804dff",
+      "bytes": 3556624,
+      "retrieved_utc": "2026-10-14T16:35:14.576687+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "594aff1baa1a6d4af440bf827b53dcf2f86b265f8bb4f836601b736128804dff",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/251801/",
+      "id": "issuer:IWDP:0"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/251801/ishares-developed-markets-property-yield-ucits-etf/latest-holdings.csv",
+      "sha256": "97efd7d9b0e8361df153936b0a5606a044e60a852007e986856bed28a979d25a",
+      "bytes": 52811,
+      "retrieved_utc": "2026-10-14T16:40:18.261526+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "97efd7d9b0e8361df153936b0a5606a044e60a852007e986856bed28a979d25a",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/plain; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/251801/ishares-developed-markets-property-yield-ucits-etf/latest-holdings.csv",
+      "id": "issuer:IWDP:1"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/270054/",
+      "sha256": "916b9ce4f35a3dad2e88548c884ad24b50bcd3e4fcb6150971eb2b9320f96e5f",
+      "bytes": 2992581,
+      "retrieved_utc": "2026-10-14T16:35:13.496531+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "916b9ce4f35a3dad2e88548c884ad24b50bcd3e4fcb6150971eb2b9320f96e5f",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/270054/",
+      "id": "issuer:IWFQ:0"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/270054/ishares-edge-msci-world-quality-factor-ucits-etf/latest-holdings.csv",
+      "sha256": "2b2c50de9b71a93d460098049beed22ffa4e2924cb64f03cb20f83b244e02b70",
+      "bytes": 45990,
+      "retrieved_utc": "2026-10-14T16:40:20.235228+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "2b2c50de9b71a93d460098049beed22ffa4e2924cb64f03cb20f83b244e02b70",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/plain; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/270054/ishares-edge-msci-world-quality-factor-ucits-etf/latest-holdings.csv",
+      "id": "issuer:IWFQ:1"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/270051/",
+      "sha256": "19c89ecd54b4628e33ba8ba27b481f1dddab1f3cfccc88bbabcbb30f22592611",
+      "bytes": 3033264,
+      "retrieved_utc": "2026-10-14T16:35:13.121748+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "19c89ecd54b4628e33ba8ba27b481f1dddab1f3cfccc88bbabcbb30f22592611",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/270051/",
+      "id": "issuer:IWFM:0"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/270051/ishares-edge-msci-world-momentum-factor-ucits-etf/latest-holdings.csv",
+      "sha256": "fdda1e5f728b59484e5155c0c3986835327ff49e2d3cea072ff3ca65718f7fa3",
+      "bytes": 56982,
+      "retrieved_utc": "2026-10-14T16:40:19.437617+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "fdda1e5f728b59484e5155c0c3986835327ff49e2d3cea072ff3ca65718f7fa3",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/plain; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/270051/ishares-edge-msci-world-momentum-factor-ucits-etf/latest-holdings.csv",
+      "id": "issuer:IWFM:1"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/270048/",
+      "sha256": "b48733b23829f42949da4bbbd9d4407c7f4260407fdf4e77cd69a94dc342cd57",
+      "bytes": 3235718,
+      "retrieved_utc": "2026-10-14T16:32:39.595025+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "b48733b23829f42949da4bbbd9d4407c7f4260407fdf4e77cd69a94dc342cd57",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/270048/",
+      "id": "issuer:IWFV:0"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/270048/ishares-edge-msci-world-value-factor-ucits-etf/latest-holdings.csv",
+      "sha256": "3c93e81535c1464499f1e33fdf314643199c76fe8590a57f92161438a7705cfa",
+      "bytes": 61548,
+      "retrieved_utc": "2026-10-14T16:40:19.194097+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "3c93e81535c1464499f1e33fdf314643199c76fe8590a57f92161438a7705cfa",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/plain; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/270048/ishares-edge-msci-world-value-factor-ucits-etf/latest-holdings.csv",
+      "id": "issuer:IWFV:1"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/251382/",
+      "sha256": "90c7a0ff4ff8aee42431c564a75ebeb9e36752e3e7758c8effb64102ecbf3d4c",
+      "bytes": 3333688,
+      "retrieved_utc": "2026-10-14T16:35:13.555521+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "90c7a0ff4ff8aee42431c564a75ebeb9e36752e3e7758c8effb64102ecbf3d4c",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/251382/",
+      "id": "issuer:MVOL:0"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/251382/ishares-edge-msci-world-minimum-volatility-ucits-etf/latest-holdings.csv",
+      "sha256": "73ed8571c9394fdae6d7af9306bbe8733444a7f236366474bb54992c550334dc",
+      "bytes": 47815,
+      "retrieved_utc": "2026-10-14T16:40:20.068256+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "73ed8571c9394fdae6d7af9306bbe8733444a7f236366474bb54992c550334dc",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/plain; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/251382/ishares-edge-msci-world-minimum-volatility-ucits-etf/latest-holdings.csv",
+      "id": "issuer:MVOL:1"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/296576/",
+      "sha256": "86f2e8c1dd51fb7a1a12af5fba0458e2e734f8e9c4ad94261a9e787e80cfef01",
+      "bytes": 2961236,
+      "retrieved_utc": "2026-10-14T16:35:14.983673+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "86f2e8c1dd51fb7a1a12af5fba0458e2e734f8e9c4ad94261a9e787e80cfef01",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/296576/",
+      "id": "issuer:WLDS:0"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/296576/ishares-msci-world-small-cap-ucits-etf/latest-holdings.csv",
+      "sha256": "d7acef6609a900d7a01ee64edcb3443f7e993daaa2914bbc4ada9d4eaec886f5",
+      "bytes": 535830,
+      "retrieved_utc": "2026-10-14T16:40:22.416329+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "d7acef6609a900d7a01ee64edcb3443f7e993daaa2914bbc4ada9d4eaec886f5",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/plain; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/296576/ishares-msci-world-small-cap-ucits-etf/latest-holdings.csv",
+      "id": "issuer:WLDS:1"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/270057/",
+      "sha256": "dbe6cc2daaeae45facaa182ba8e083c07f6dbb3884cd8969a3607ca1f5aeac42",
+      "bytes": 3155201,
+      "retrieved_utc": "2026-10-14T16:35:16.148451+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "dbe6cc2daaeae45facaa182ba8e083c07f6dbb3884cd8969a3607ca1f5aeac42",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/270057/",
+      "id": "issuer:IWFS:0"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/270057/ishares-msci-world-mid-cap-equal-weight-ucits-etf/latest-holdings.csv",
+      "sha256": "7e8f4f5de2227907fadb76f1aa84aa1bdeddcd34039dab6b111add9c520b0619",
+      "bytes": 107864,
+      "retrieved_utc": "2026-10-14T16:40:20.978624+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "7e8f4f5de2227907fadb76f1aa84aa1bdeddcd34039dab6b111add9c520b0619",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/plain; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/270057/ishares-msci-world-mid-cap-equal-weight-ucits-etf/latest-holdings.csv",
+      "id": "issuer:IWFS:1"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/285207/",
+      "sha256": "bad936f1aa41216f607b6c20f8901fb0e66675d38b0ac58bdbb585b9c767b25a",
+      "bytes": 2708908,
+      "retrieved_utc": "2026-10-14T16:35:15.360920+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "bad936f1aa41216f607b6c20f8901fb0e66675d38b0ac58bdbb585b9c767b25a",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/285207/",
+      "id": "issuer:IUVF:0"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/285207/ishares-edge-msci-usa-value-factor-ucits-etf/latest-holdings.csv",
+      "sha256": "a2a3222f22264141356e3fc625ee32baa92f301cfe2e230162249230eb690e4a",
+      "bytes": 24208,
+      "retrieved_utc": "2026-10-14T16:40:22.399446+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "a2a3222f22264141356e3fc625ee32baa92f301cfe2e230162249230eb690e4a",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/plain; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/285207/ishares-edge-msci-usa-value-factor-ucits-etf/latest-holdings.csv",
+      "id": "issuer:IUVF:1"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/297452/",
+      "sha256": "22ee3e6721bc21804ad4d7777982be891484b8ecfbbd8759e73c52c78b5bd1ce",
+      "bytes": 2747469,
+      "retrieved_utc": "2026-10-14T16:35:17.033251+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "22ee3e6721bc21804ad4d7777982be891484b8ecfbbd8759e73c52c78b5bd1ce",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/297452/",
+      "id": "issuer:EMVL:0"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/297452/ishares-edge-msci-em-value-factor-ucits-etf/latest-holdings.csv",
+      "sha256": "40259bc1d1385e23046e4d2da9b5569f5afae808cafa39f3a7885e6668024718",
+      "bytes": 28667,
+      "retrieved_utc": "2026-10-14T16:40:22.980050+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "40259bc1d1385e23046e4d2da9b5569f5afae808cafa39f3a7885e6668024718",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/plain; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/297452/ishares-edge-msci-em-value-factor-ucits-etf/latest-holdings.csv",
+      "id": "issuer:EMVL:1"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/272058/",
+      "sha256": "d48f662b835fbc8cceff202109893e67f38900ba51a6c83574017c372746be23",
+      "bytes": 2728432,
+      "retrieved_utc": "2026-10-14T16:35:16.583640+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "d48f662b835fbc8cceff202109893e67f38900ba51a6c83574017c372746be23",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/272058/",
+      "id": "issuer:IEFV:0"
+    },
+    {
+      "url": "https://www.ishares.com/uk/individual/en/products/272058/ishares-edge-msci-europe-value-factor-ucits-etf/latest-holdings.csv",
+      "sha256": "0a856c5d3149089d1c2a56142bcdb0d45cba6f7dc3798060379aa4c27afcaa8d",
+      "bytes": 23363,
+      "retrieved_utc": "2026-10-14T16:40:22.934096+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "0a856c5d3149089d1c2a56142bcdb0d45cba6f7dc3798060379aa4c27afcaa8d",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "text/plain; charset=utf-8",
+      "resolved_url": "https://www.ishares.com/uk/individual/en/products/272058/ishares-edge-msci-europe-value-factor-ucits-etf/latest-holdings.csv",
+      "id": "issuer:IEFV:1"
+    },
+    {
+      "url": "https://www.wisdomtree.com/api/fund-history/1000422/historical-data-export",
+      "sha256": "30735f26a90adaf3546b8408d348e4e1c11614dff5cc91a0cf2f8fe79d4c4b20",
+      "bytes": 68948,
+      "retrieved_utc": "2026-10-14T16:35:16.893640+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "30735f26a90adaf3546b8408d348e4e1c11614dff5cc91a0cf2f8fe79d4c4b20",
+      "method": "POST",
+      "request_body": {
+        "locale": "en-GB",
+        "productName": "GGRG",
+        "fromDate": "1990-01-01",
+        "toDate": "2026-10-14",
+        "includeNav": true,
+        "includeAum": false
+      },
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "resolved_url": "https://www.wisdomtree.com/api/fund-history/1000422/historical-data-export",
+      "id": "issuer:GGRG:0"
+    },
+    {
+      "url": "https://www.ssga.com/library-content/products/fund-data/etfs/emea/navhist-emea-en-zprx-gy.xlsx",
+      "sha256": "e29c25cd56c4b4635955478de0dd83ddd512b8346087a5ae953ddb1cfbb4054f",
+      "bytes": 125247,
+      "retrieved_utc": "2026-10-14T16:35:15.487747+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "e29c25cd56c4b4635955478de0dd83ddd512b8346087a5ae953ddb1cfbb4054f",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "resolved_url": "https://www.ssga.com/library-content/products/fund-data/etfs/emea/navhist-emea-en-zprx-gy.xlsx",
+      "id": "issuer:ZPRX:0"
+    },
+    {
+      "url": "https://www.ssga.com/library-content/products/fund-data/etfs/emea/holdings-daily-emea-en-zprx-gy.xlsx",
+      "sha256": "bc5c7d28f97052dc06d1459566727230ce51f4f5242ac4f685d833978f959093",
+      "bytes": 87094,
+      "retrieved_utc": "2026-10-14T16:41:46.538452+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "bc5c7d28f97052dc06d1459566727230ce51f4f5242ac4f685d833978f959093",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "resolved_url": "https://www.ssga.com/library-content/products/fund-data/etfs/emea/holdings-daily-emea-en-zprx-gy.xlsx",
+      "id": "issuer:ZPRX:1"
+    },
+    {
+      "url": "https://www.ssga.com/library-content/products/fund-data/etfs/emea/navhist-emea-en-zprv-gy.xlsx",
+      "sha256": "10daf4b8b61235a1580cb828dcd3365488a9169117aee671d0675563faf3a57d",
+      "bytes": 126259,
+      "retrieved_utc": "2026-10-14T16:31:35.261526+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "10daf4b8b61235a1580cb828dcd3365488a9169117aee671d0675563faf3a57d",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "resolved_url": "https://www.ssga.com/library-content/products/fund-data/etfs/emea/navhist-emea-en-zprv-gy.xlsx",
+      "id": "issuer:USSC:0"
+    },
+    {
+      "url": "https://www.ssga.com/library-content/products/fund-data/etfs/emea/holdings-daily-emea-en-zprv-gy.xlsx",
+      "sha256": "b48848e6d34acddc6a90b103db823a320d2259506f6798b19fc23e7aaf8da2a8",
+      "bytes": 162014,
+      "retrieved_utc": "2026-10-14T16:40:23.804750+00:00",
+      "licence": "Issuer public holdings; restricted raw redistribution",
+      "redistribution": false,
+      "file": "b48848e6d34acddc6a90b103db823a320d2259506f6798b19fc23e7aaf8da2a8",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "resolved_url": "https://www.ssga.com/library-content/products/fund-data/etfs/emea/holdings-daily-emea-en-zprv-gy.xlsx",
+      "id": "issuer:USSC:1"
+    },
+    {
+      "url": "https://www.wisdomtree.com/api/fund-history/1000395/historical-data-export",
+      "sha256": "60fddf0aba28205c52f0165dbcb74043efea592e9048afc77bdd7b7d363ee85b",
+      "bytes": 83881,
+      "retrieved_utc": "2026-10-14T16:35:17.366139+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "60fddf0aba28205c52f0165dbcb74043efea592e9048afc77bdd7b7d363ee85b",
+      "method": "POST",
+      "request_body": {
+        "locale": "en-GB",
+        "productName": "3LUS",
+        "fromDate": "1990-01-01",
+        "toDate": "2026-10-14",
+        "includeNav": true,
+        "includeAum": false
+      },
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "resolved_url": "https://www.wisdomtree.com/api/fund-history/1000395/historical-data-export",
+      "id": "issuer:3LUS:0"
+    },
+    {
+      "url": "https://etf.dws.com/api/pdp/en-gb/etf/LU0411078552/historicaldata/download?startDate=2010-03-18&endDate=2026-10-14&includeTax=true",
+      "sha256": "109b4e2b9635922e04dbcff8f3a23575161a955563a7f677e5ae4caa1ed70b34",
+      "bytes": 188037,
+      "retrieved_utc": "2026-10-14T16:31:36.404906+00:00",
+      "licence": "Issuer public fund data; raw redistribution not established",
+      "redistribution": false,
+      "file": "109b4e2b9635922e04dbcff8f3a23575161a955563a7f677e5ae4caa1ed70b34",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "resolved_url": "https://etf.dws.com/api/pdp/en-gb/etf/LU0411078552/historicaldata/download?startDate=2010-03-18&endDate=2026-10-14&includeTax=true",
+      "id": "issuer:XS2D:0"
+    },
+    {
+      "url": "https://etf.dws.com/api/pdp/en-gb/etf/LU0411078552/performancechart",
+      "sha256": "030f3896f336df48abe65e556abbdca2067a3b484ddea64f062461e43acbcc65",
+      "bytes": 293206,
+      "retrieved_utc": "2026-10-14T16:37:25.153323+00:00",
+      "licence": "DWS public performance chart; raw redistribution not established",
+      "redistribution": false,
+      "file": "030f3896f336df48abe65e556abbdca2067a3b484ddea64f062461e43acbcc65",
+      "method": "GET",
+      "request_body": null,
+      "content_type": "application/json; charset=utf-8",
+      "resolved_url": "https://etf.dws.com/api/pdp/en-gb/etf/LU0411078552/performancechart",
+      "id": "issuer:XS2D:1"
     }
-  ],
-  "pilot_evidence": [
-    {
-      "instrument": "IWFV",
-      "url": "https://www.ishares.com/uk/individual/en/products/270048/ishares-msci-world-value-factor-ucits-etf",
-      "admitted": false,
-      "isin": "IE00BP3QZB59",
-      "native_currency": "USD",
-      "inception": "2014-10-03",
-      "use_of_income": "Accumulating",
-      "structure": "Physical",
-      "ucits": true,
-      "ongoing_charge": 0.0025,
-      "history_start": "2014-10-06",
-      "history_end": "2026-10-09",
-      "history_type": "Issuer native-currency performance index; GBP conversion and convention reconciliation pending",
-      "parsed_months": 143,
-      "remaining_gate": "Actual GBP cash/FX alignment; issuer total-return conventions and split/distribution reconciliation; dated holdings/bond evidence where relevant"
-    },
-    {
-      "instrument": "IGLT",
-      "url": "https://www.ishares.com/uk/individual/en/products/251806/ishares-uk-gilts-ucits-etf",
-      "admitted": false,
-      "isin": "IE00B1FZSB30",
-      "native_currency": "GBP",
-      "inception": "2006-12-01",
-      "use_of_income": "Distributing",
-      "structure": "Physical",
-      "ucits": true,
-      "ongoing_charge": 0.0007000000000000001,
-      "history_start": "2006-12-01",
-      "history_end": "2026-10-09",
-      "history_type": "Issuer native-currency performance index; GBP conversion and convention reconciliation pending",
-      "parsed_months": 237,
-      "remaining_gate": "Actual GBP cash/FX alignment; issuer total-return conventions and split/distribution reconciliation; dated holdings/bond evidence where relevant"
-    },
-    {
-      "instrument": "SGLN",
-      "url": "https://www.ishares.com/uk/individual/en/products/258441/ishares-physical-gold-etc-fund",
-      "admitted": false,
-      "isin": "IE00B4ND3602",
-      "native_currency": "USD",
-      "inception": "2011-04-08",
-      "use_of_income": "No Income",
-      "structure": "Physical metal",
-      "ucits": false,
-      "ongoing_charge": 0.0012,
-      "history_start": "2011-04-08",
-      "history_end": "2026-10-09",
-      "history_type": "Issuer native-currency performance index; GBP conversion and convention reconciliation pending",
-      "parsed_months": 185,
-      "remaining_gate": "Actual GBP cash/FX alignment; issuer total-return conventions and split/distribution reconciliation; dated holdings/bond evidence where relevant"
-    },
-    {
-      "instrument": "VWRP",
-      "url": "https://www.vanguard.co.uk/uk-fund-directory/product/etf/equity/9679/ftse-all-world-ucits-etf-usd-accumulating",
-      "admitted": false,
-      "remaining_gate": "Issuer page retained; reconciled share-class daily/monthly total returns and GBP FX evidence required"
-    },
-    {
-      "instrument": "XS2D",
-      "url": "https://etf.dws.com/en-fi/LU0411078552-s-p-500-2x-leveraged-daily-swap-ucits-etf-1c/",
-      "admitted": false,
-      "remaining_gate": "Issuer site supplies a client-rendered shell; exact funding/reset/termination terms, native underlying and actual daily overlap required"
-    },
-    {
-      "instrument": "T212_GBP_CASH",
-      "url": "https://helpcentre.trading212.com/hc/en-us/articles/15475153380637-What-is-interest-on-cash",
-      "admitted": false,
-      "remaining_gate": "Public terms retained; applicable Invest account AER, quote date and eligibility/bonus terms required"
-    }
-  ],
-  "bank_of_england_access": {
-    "url": "https://www.bankofengland.co.uk/boeapps/database/_iadb-fromshowcolumns.asp?csv.x=yes&Datefrom=01%2FJan%2F1997&Dateto=31%2FAug%2F2026&SeriesCodes=IUDERB6%2CIUDSOIA&CSVF=TN&UsingCodes=Y&VPD=Y&VFD=N",
-    "status": "Unavailable",
-    "reason": "403 Client Error: Forbidden for url: https://www.bankofengland.co.uk/boeapps/database/_iadb-fromshowcolumns.asp?csv.x=yes&Datefrom=01%2FJan%2F1997&Dateto=31%2FAug%2F2026&SeriesCodes=IUDERB6%2CIUDSOIA&CSVF=TN&UsingCodes=Y&VPD=Y&VFD=N"
-  }
+  ]
 }

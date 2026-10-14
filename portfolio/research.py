@@ -39,6 +39,7 @@ class Model:
     daily_months: np.ndarray | None = None
     source_month: str | None = None
     daily_config: dict | None = None
+    historical_references: dict = field(default_factory=dict)
 
 
 @dataclass
@@ -72,7 +73,7 @@ def prepare_model(snapshot, bootstrap_paths=200, seed=212):
     broker_cash = evidence.get('GBP_BANK_SAVINGS', {})
     # Wholesale forward cash is distinct from the retail account quote.
     forward = snapshot.manifest.get('forward_sonia_annual')
-    if snapshot.manifest.get('provisional_policy') and broker_cash.get('aer') is not None:
+    if snapshot.manifest.get('provisional_policy') and not snapshot.manifest['provisional_policy'].get('historical_sonia_actual') and broker_cash.get('aer') is not None:
         forward_monthly = cash_monthly(broker_cash['aer'])
         limitations.append('PROVISIONAL: ' + snapshot.manifest['provisional_policy']['cash_reference'])
         limitations.append(snapshot.manifest['provisional_policy']['currency_policy'])
@@ -80,7 +81,9 @@ def prepare_model(snapshot, bootstrap_paths=200, seed=212):
         forward_monthly = float(snapshot.cash_fx.GBP_RF.iloc[-1])
         limitations.append('Forward wholesale cash held at latest compounded SONIA month; variable-rate sensitivity required.')
     elif forward is not None:
-        forward_monthly = cash_monthly(forward)
+        # SONIA is an ACT/365 simple annual quote, not an effective savings AER.
+        forward_monthly = forward / 12
+        limitations.append('Latest actual SONIA held flat by assumption, dated '+str(snapshot.manifest.get('forward_sonia_date'))+'; not an observed forward curve.')
     else:
         forward_monthly = None
     for ident in eligible:
@@ -310,6 +313,9 @@ def prepare_model(snapshot, bootstrap_paths=200, seed=212):
     snapshot.status = status
     for ident in ids:
         snapshot.status.loc[ident, 'Status'] = 'Admitted provisional model' if snapshot.manifest.get('provisional_policy') else 'Admitted research model'
+        if 'Expected return model' in snapshot.status:
+            snapshot.status.loc[ident,'Expected return model']='Executed calibrated FF5' if ident in active_fits else 'Explicit cash/carry/premium assumption'
+            snapshot.status.loc[ident,'Risk model']='Joint actual GBP covariance' if ident!='GBP_BANK_SAVINGS' else 'Deterministic nominal savings scenario'
     return Model(ids, means, cov, history, pd.Series(fees, index=ids), pd.Series(financing, index=ids),
                  pd.Series(levels, index=ids), betas, pd.DataFrame(diagnostics), premiums, snapshot, mean_draws,
                  limitations, pd.DataFrame(stresses), daily_months,
@@ -317,6 +323,9 @@ def prepare_model(snapshot, bootstrap_paths=200, seed=212):
 
 
 def solve_run(model, constraints=None, targets_monthly=None):
+    if not model.historical_references:
+        from portfolio.references import historical_references
+        model.historical_references=historical_references(model.snapshot)
     policy = dict(allow_cash=True, allow_commodities=True, allow_leverage=False,
                   leverage_cap=.25, gross_cap=1.5, fund_cap=1.0, category_caps={})
     policy.update(constraints or {})
@@ -365,6 +374,7 @@ def solve_run(model, constraints=None, targets_monthly=None):
             mean, vol, _ = portfolio_metrics(w, model.mean, model.covariance)
             benchmarks[label] = dict(available=True, weights=w, mean=mean, volatility=vol,
                                      outside_constraints=True)
+        benchmarks[label]['historical']=model.historical_references.get(label,dict(available=False,reason='Historical source data unavailable'))
     return ResearchRun(run_id, model, frontier, policy, [model.ids[i] for i in indices], benchmarks)
 
 
