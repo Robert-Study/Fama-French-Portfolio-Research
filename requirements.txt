@@ -35,7 +35,8 @@ narwhals==2.27.1
 packaging==25.0
 pillow==11.3.0
 protobuf==6.33.6
-pyarrow==26.0.0
+# Match Streamlit Cloud mitigation for apache/arrow#50471.
+pyarrow==24.0.0
 pycparser==3.0
 pydeck==0.9.3
 python-dateutil==2.9.0.post0

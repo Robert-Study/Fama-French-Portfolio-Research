@@ -20,7 +20,7 @@ from portfolio.research import prepare_model, solve_run
 from portfolio.research_export import research_zip
 from portfolio.scenarios import monthly_scenarios, matrix_scenarios, leveraged_horizon_scenarios, convergence
 from portfolio.validation import CATEGORIES
-from portfolio.sensitivity import useful_universe
+from portfolio.sensitivity import useful_universe, load_screen_cache
 from ui import pages
 
 ROOT = Path(__file__).resolve().parent
@@ -43,7 +43,8 @@ def solve(key, version, constraints, _model):
 
 @st.cache_data(show_spinner=False, max_entries=6)
 def screening(run_id, version, _run):
-    return useful_universe(_run)
+    saved=load_screen_cache(_run,ROOT/'data/research')
+    return useful_universe(_run) if saved is None else saved
 
 
 @st.cache_data(show_spinner=False, max_entries=8)
@@ -91,7 +92,7 @@ with controls[1]:
                     category_caps[category] = st.number_input(category + ' cap (%)', 0.0, 100.0, 100.0) / 100
             apply = st.form_submit_button('Apply')
 requested = dict(allow_cash=allow_cash, allow_commodities=allow_commodities, allow_leverage=allow_leverage,
-                 leverage_cap=leverage_cap, gross_cap=gross_cap, fund_cap=fund_cap, category_caps=category_caps)
+                 leverage_cap=leverage_cap, gross_cap=gross_cap, fund_cap=fund_cap, category_caps={c:cap for c,cap in category_caps.items() if cap<1})
 root = ROOT / 'data/research'
 pointer = root / '.cache/current.json'
 key = (pointer.read_text() if pointer.exists() else 'no-snapshot') + snapshot_fingerprint(root)

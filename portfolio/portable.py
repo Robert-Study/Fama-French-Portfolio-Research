@@ -10,7 +10,8 @@ from portfolio.validation import age_days, check_covariance
 
 
 def frame_payload(frame):
-    return json.loads(frame.to_json(orient='split'))
+    # Preserve float bits: rounded JSON frames invalidate the screen signature.
+    return frame.astype(object).where(pd.notna(frame), None).to_dict(orient='split')
 
 
 def payload_frame(value):
@@ -18,6 +19,7 @@ def payload_frame(value):
 
 
 def save_derived_model(model, root):
+    from portfolio.research import risk_window_covariances
     root=Path(root)
     if model.daily_config is not None or (model.leverage > 1).any():
         raise ValueError('Admitted daily leverage requires its daily source cache; matrix-only portability is not supported.')
@@ -33,6 +35,7 @@ def save_derived_model(model, root):
            'bootstrap_mean_draws':None if model.mean_draws is None else model.mean_draws.tolist(),
            'source_month':model.source_month,'limitations':model.limitations,
            'historical_references':model.historical_references,
+           'covariance_windows':{m:c.tolist() for m,c in risk_window_covariances(model).items()},
            'evidence':model.snapshot.evidence,'source_manifest':model.snapshot.manifest,
            'status':frame_payload(model.snapshot.status),
            'portability_policy':'Derived calibrated matrices/coefficient/mean-draw statistics only; raw price/return histories are not redistributed. Historical replay requires refreshed source cache. Matrix-only horizon paths use an explicitly labelled IID Gaussian joint-risk approximation.'}
@@ -69,9 +72,14 @@ def load_derived_model(snapshot):
     draws=None if value['bootstrap_mean_draws'] is None else np.array(value['bootstrap_mean_draws'],float)
     if draws is not None and (draws.ndim!=2 or draws.shape[1]!=len(ids) or not np.isfinite(draws).all()):
         raise ValueError('Invalid derived joint mean draws.')
+    windows={}
+    for months,matrix in value.get('covariance_windows',{}).items():
+        c=np.asarray(matrix,float)
+        if months not in ('72','120') or c.shape!=cov.shape:raise ValueError('Invalid derived risk-window dimensions.')
+        check_covariance(c);windows[months]=c
     snapshot.evidence=value['evidence']
     snapshot.status=payload_frame(value['status'])
     limitations=value['limitations']+[value['portability_policy']]
     return Model(ids,mu,cov,pd.DataFrame(columns=ids),fees,financing,gross,payload_frame(value['factor_betas']),
                  payload_frame(value['diagnostics']),payload_frame(value['premiums']),snapshot,draws,limitations,
-                 payload_frame(value['stress']),source_month=value['source_month'],historical_references=value.get('historical_references',{}))
+                 payload_frame(value['stress']),source_month=value['source_month'],historical_references=value.get('historical_references',{}),covariance_windows=windows)

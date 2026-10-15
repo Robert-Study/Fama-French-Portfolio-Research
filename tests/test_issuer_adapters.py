@@ -98,3 +98,105 @@ def test_historical_benchmark_does_not_require_admitted_forward_model():
     assert references['Global 60/40']['available']
     actual=.6*returns.VWRP+.4*returns.VAGS
     assert references['Global 60/40']['annual_arithmetic_mean']==pytest.approx(actual.mean()*12)
+
+
+def invesco_fixture():
+    returns=pd.Series(.01,index=pd.period_range('2020-01','2023-06',freq='M'))
+    payload={'isin':'TEST','calendarPerformance':[{'label':str(y),'etf':((1.01**12)-1)*100} for y in range(2020,2024)]}
+    page=b'includes dividends, reinvested; Net Asset Value after management fees and other ETF costs'
+    return returns,payload,page
+
+
+def test_invesco_calendar_units_incomplete_year_and_basis():
+    from portfolio.providers.issuers import reconcile_invesco_calendar
+    returns,payload,page=invesco_fixture()
+    audit=reconcile_invesco_calendar(json.dumps(payload),'TEST',returns,page)
+    assert audit['reconciliation_passed'] and len(audit['annual_errors'])==3
+    assert audit['annual_max_error_bp']<1e-8
+    for incomplete in (returns.iloc[1:],returns.mask(returns.index==pd.Period('2021-06'))):
+        assert not reconcile_invesco_calendar(json.dumps(payload),'TEST',incomplete,page)['reconciliation_passed']
+    for missing in (b'includes dividends, reinvested',b'Net Asset Value after management fees and other ETF costs'):
+        assert not reconcile_invesco_calendar(json.dumps(payload),'TEST',returns,missing)['reconciliation_passed']
+    with pytest.raises(ValueError,match='ISIN'):
+        reconcile_invesco_calendar(json.dumps(payload),'WRONG',returns,page)
+    payload['calendarPerformance'][0]['etf']+=.11
+    assert not reconcile_invesco_calendar(json.dumps(payload),'TEST',returns,page)['reconciliation_passed']
+    payload['calendarPerformance'][0]['etf']=float('nan')
+    with pytest.raises(ValueError,match='Invalid'):
+        reconcile_invesco_calendar(json.dumps(payload),'TEST',returns,page)
+
+
+def spdr_fixture():
+    nav=pd.Series(100.,index=pd.date_range('2018-12-31','2023-06-30'))
+    rows=[{'ISIN':'TEST','CURRENCY':'GBP','EX-DATE':f'01/03/{y}','EX-DATE NAV':100.,'DISTRIBUTION':1.,'FREQUENCY':'Annual'} for y in range(2019,2024)]
+    calendar={'asOfDateSimple':'30 Jun 2023','attrs':{str(y):{'label':str(y),'originalValue':1.} for y in range(2019,2023)}}
+    calendar['attrs']['ytd']={'originalValue':1.}
+    return nav,pd.DataFrame(rows),calendar
+
+
+def distribution_workbook(frame):
+    out=BytesIO()
+    frame.to_excel(out,sheet_name='Open Fund',index=False)
+    return out.getvalue()
+
+
+def test_spdr_reconciliation_trims_failed_year_and_checks_ytd():
+    from portfolio.providers.issuers import reconcile_spdr_distributions
+    nav,rows,calendar=spdr_fixture()
+    calendar['attrs']['2019']['originalValue']=2.
+    monthly,audit=reconcile_spdr_distributions(distribution_workbook(rows),'TEST',nav,'GBP',calendar)
+    assert audit['reconciliation_passed']
+    assert str(monthly.index[0])=='2020-01'
+    assert audit['excluded_failed_reconciliation_years']==[2019]
+    assert audit['ytd_error_bp']==pytest.approx(0,abs=1e-8)
+    calendar['attrs']['ytd']['originalValue']=2.
+    assert not reconcile_spdr_distributions(distribution_workbook(rows),'TEST',nav,'GBP',calendar)[1]['reconciliation_passed']
+
+
+@pytest.mark.parametrize('change,match',[
+    ('currency','currency'),('duplicate','Duplicate'),('amount','distribution amount'),
+    ('nav','ex-date NAV'),('date','absent'),('schema','schema')])
+def test_spdr_distribution_negative_gates(change,match):
+    from portfolio.providers.issuers import reconcile_spdr_distributions
+    nav,rows,calendar=spdr_fixture()
+    if change=='currency':rows.loc[0,'CURRENCY']='USD'
+    elif change=='duplicate':rows=pd.concat([rows,rows.iloc[:1]],ignore_index=True)
+    elif change=='amount':rows.loc[0,'DISTRIBUTION']=-1
+    elif change=='nav':rows.loc[0,'EX-DATE NAV']=np.nan
+    elif change=='date':nav=nav.drop(pd.Timestamp('2019-03-01'))
+    else:rows=rows.drop(columns='DISTRIBUTION')
+    with pytest.raises(ValueError,match=match):
+        reconcile_spdr_distributions(distribution_workbook(rows),'TEST',nav,'GBP',calendar)
+
+
+def test_spdr_page_identity_fee_and_dated_yield():
+    from html import escape
+    from portfolio.providers.issuers import parse_spdr_page
+    facts={'asOfDateSimple':'15 Oct 2026','attrs':{'isin':{'value':'TEST'},'total-expense-ratio':{'originalValue':.15}}}
+    page=('<input id="fund-quick-info" value="'+escape(json.dumps(facts),quote=True)+'">'
+          '<section>Fund Characteristics as of 14 Oct 2026<span></span><table>'
+          '<tr><th>Yield to Maturity</th><td>5.85%</td></tr>'
+          '<tr><th>Effective Duration</th><td>14.94</td></tr></table></section>').encode()
+    meta,_=parse_spdr_page(page,'TEST')
+    assert meta['ongoing_charge']==.0015
+    assert meta['bond_characteristics']['yield']==pytest.approx(.0585)
+    assert meta['bond_characteristics']['date']=='2026-10-14'
+    assert 'convexity' not in meta['bond_characteristics']
+    with pytest.raises(ValueError,match='ISIN'):parse_spdr_page(page,'WRONG')
+
+
+def test_spdr_missing_calendar_or_invalid_ytd_cannot_pass():
+    from portfolio.providers.issuers import reconcile_spdr_distributions
+    nav,rows,calendar=spdr_fixture()
+    with pytest.raises(ValueError,match='calendar'):
+        reconcile_spdr_distributions(distribution_workbook(rows),'TEST',nav,'GBP',None)
+    calendar['attrs']['ytd']['originalValue']=float('nan')
+    with pytest.raises(ValueError,match='YTD'):
+        reconcile_spdr_distributions(distribution_workbook(rows),'TEST',nav,'GBP',calendar)
+
+
+def test_portable_frames_preserve_calibration_float_precision():
+    from portfolio.portable import frame_payload,payload_frame
+    frame=pd.DataFrame({'beta':[.12345678901234568,np.nan]})
+    restored=payload_frame(json.loads(json.dumps(frame_payload(frame))))
+    np.testing.assert_array_equal(restored.to_numpy(),frame.to_numpy())

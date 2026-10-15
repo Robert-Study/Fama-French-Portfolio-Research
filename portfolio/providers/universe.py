@@ -31,7 +31,7 @@ def fx_panel(raw):
     return {'USD':monthly_fx(usd),'EUR':monthly_fx(eur)}
 
 
-def build_universe(root, workers=5):
+def build_universe(root, workers=5, precompute_screen=True):
     root=Path(root);cache=root/'.cache';raw_cache=cache/'raw';raw_cache.mkdir(parents=True,exist_ok=True)
     schedule=pd.read_csv(root/'instruments.csv').set_index('ticker',drop=False)
     ledger=pd.read_csv(root/'evidence-ledger-2026-10-14.csv').set_index('identity')
@@ -115,7 +115,7 @@ def build_universe(root, workers=5):
         sid=item.sources[0]['id']
         e=dict(isin=schedule.loc[ident,'isin'],legal_structure=meta.get('structure') or str(row.legal_structure),
                native_currency=native,currency='GBP',price_unit='GBP',inception=meta['inception'],hedge=meta.get('hedge','unverified'),
-               fee=fee,fee_source='research:ledger' if from_ledger else sid,identity_source=sid,
+               fee=fee,fee_source='research:ledger' if from_ledger else meta.get('fee_source',sid),identity_source=sid,
                fee_evidence_basis='Dated user-provided issuer research; not a fresh fee quote' if from_ledger else 'Current issuer facts',
                return_source=sid,return_type='actual_share_class_net_total' if reconciled else 'unreconciled_NAV_or_growth',
                distribution_split_reconciled=reconciled,
@@ -123,6 +123,8 @@ def build_universe(root, workers=5):
                history_acquired=True,history_observations=len(item.nav),
                broker_listing_status='Public Invest catalogue checked; individual-account eligibility not established')
         if meta.get('use_of_income'): e['use_of_income']=meta['use_of_income']
+        for field in ('fee_date','distribution_source'):
+            if meta.get(field):e[field]=meta[field]
         if not item.holdings.empty:holdings.append(item.holdings)
         if item.audit.get('holdings_acquisition'):e['holdings_acquisition']=item.audit['holdings_acquisition']
         if item.audit.get('reconciliation_warning'):e['reconciliation_warning']=item.audit['reconciliation_warning']
@@ -134,7 +136,7 @@ def build_universe(root, workers=5):
         if category=='Bonds' and 'bond_characteristics' in meta:
             b=meta['bond_characteristics']; label=str(b['yield_label'])
             if 'Maturity' in label or 'YTM' in label:
-                e.update(yield_kind='nominal',duration=b['duration'],bond_date=b['date'],bond_source=sid,
+                e.update(yield_kind='nominal',duration=b['duration'],bond_date=b['date'],bond_source=meta.get('bond_source',sid),
                          yield_convention='Issuer '+label+'; constant-yield carry; zero assumed roll-down', **{'yield':b['yield']})
             else:e['forward_model_blocker']='Issuer yield definition is unresolved: '+label
         # Precise unresolved mechanics remain blockers rather than fake terms.
@@ -177,6 +179,11 @@ def build_universe(root, workers=5):
         from portfolio.portable import save_derived_model
         model=prepare_model(load_snapshot(candidate));run=solve_run(model)
         if 'VWRP' not in model.ids:raise ValueError('VWRP calibration did not pass; last good snapshot retained: '+str(model.snapshot.status.loc['VWRP'].to_dict()))
+        if precompute_screen:
+            from portfolio.sensitivity import useful_universe,load_screen_cache,save_screen_cache
+            screen=load_screen_cache(run,root)
+            if screen is None:
+                save_screen_cache(run,useful_universe(run),root)
         save_derived_model(model,root)
         pointer=cache/'current.tmp';pointer.write_text(json.dumps({'snapshot':ident}));pointer.replace(cache/'current.json')
         model.snapshot.status.to_csv(root/'admission-status.csv')

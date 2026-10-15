@@ -40,6 +40,19 @@ class Model:
     source_month: str | None = None
     daily_config: dict | None = None
     historical_references: dict = field(default_factory=dict)
+    covariance_windows: dict = field(default_factory=dict)
+
+
+def risk_window_covariances(model):
+    windows=dict(model.covariance_windows)
+    risky=[j for j,i in enumerate(model.ids) if i!='GBP_BANK_SAVINGS']
+    if model.daily_config is None and risky:
+        for months in (72,120):
+            if len(model.history)>=months:
+                covariance=np.zeros_like(model.covariance)
+                covariance[np.ix_(risky,risky)],_=shrunk_covariance(model.history.iloc[-months:,risky].to_numpy())
+                windows[str(months)]=covariance
+    return windows
 
 
 @dataclass
@@ -322,7 +335,7 @@ def prepare_model(snapshot, bootstrap_paths=200, seed=212):
                  str(history.index[-1]) if len(history) else None, daily_config)
 
 
-def solve_run(model, constraints=None, targets_monthly=None):
+def solve_run(model, constraints=None, targets_monthly=None, *, frontier_points=101):
     if not model.historical_references:
         from portfolio.references import historical_references
         model.historical_references=historical_references(model.snapshot)
@@ -355,12 +368,13 @@ def solve_run(model, constraints=None, targets_monthly=None):
             exposure.append((selected_categories == category).to_numpy(float))
             limits.append(cap)
     f = efficient_frontier(model.mean[indices], model.covariance[np.ix_(indices, indices)], cap=policy['fund_cap'],
-                           exposure=exposure, limits=limits, targets_monthly=targets_monthly)
+                           exposure=exposure, limits=limits, targets_monthly=targets_monthly, points=frontier_points)
     full = np.zeros((len(f.weights), len(model.ids)))
     full[:, indices] = f.weights
     frontier = Frontier(full, f.returns, f.volatilities, f.targets, f.solvers, f.max_violation)
     identity = {'version': __version__, 'snapshot': model.snapshot.fingerprint, 'constraints': policy,
-                'mean': model.mean.tolist(), 'covariance': model.covariance.tolist(), 'ids': model.ids}
+                'mean': model.mean.tolist(), 'covariance': model.covariance.tolist(), 'ids': model.ids,
+                'frontier_points':frontier_points}
     if targets_monthly is not None:
         identity['requested_targets'] = np.asarray(targets_monthly).tolist()
     run_id = sha256(json.dumps(identity, sort_keys=True).encode()).hexdigest()[:12]
@@ -389,10 +403,15 @@ def full_weights(run, point):
 
 def universe_usefulness(runs, inclusion=.01):
     """Predeclared scenario runs only; no tuned artificial inclusion caps."""
-    rows = []
-    for ident in runs[0].model.snapshot.instruments.index:
-        weights = np.concatenate([full_weights(r, p).loc[[ident]].to_numpy() for r in runs for p in range(len(r.frontier.weights))])
-        rows.append({'instrument': ident, 'max_weight': float(weights.max()),
-                     'frequency_above_1pct': float((weights >= inclusion).mean()),
-                     'review': 'No meaningful inclusion; removal sensitivity still required' if weights.max() < inclusion else 'Removal/bootstrap stability review required'})
-    return pd.DataFrame(rows)
+    if not runs:
+        raise ValueError('At least one predefined run is required.')
+    ids=runs[0].model.snapshot.instruments.index
+    # Align once per run instead of building a 50-row Series separately for
+    # every instrument, position and scenario (tens of thousands of copies).
+    weights=np.concatenate([pd.DataFrame(r.frontier.weights,columns=r.model.ids)
+                            .reindex(columns=ids,fill_value=0).to_numpy() for r in runs])
+    maximum=weights.max(axis=0)
+    return pd.DataFrame({'instrument':ids,'max_weight':maximum,
+                         'frequency_above_1pct':(weights>=inclusion).mean(axis=0),
+                         'review':np.where(maximum<inclusion,'No meaningful inclusion; removal sensitivity still required',
+                                           'Removal/bootstrap stability review required')})

@@ -230,12 +230,128 @@ def parse_spdr_holdings(raw, isin, instrument):
                              mapping_status='Unmapped security ISIN; company/share-class consolidation required'))
 
 
+def parse_spdr_page(raw,isin):
+    from html.parser import HTMLParser
+    from html import unescape
+    import re
+    class Inputs(HTMLParser):
+        def __init__(self):super().__init__();self.data={}
+        def handle_starttag(self,tag,attrs):
+            attributes=dict(attrs);value=attributes.get('value','')
+            if value.startswith('{'):
+                try:
+                    payload=json.loads(value)
+                    if attributes.get('id')=='fund-quick-info':self.data['facts']=payload
+                    if 'fund-perf-cal-net-total-mon' in payload:self.data['calendar']=payload['fund-perf-cal-net-total-mon']
+                except ValueError:pass
+    parser=Inputs();parser.feed(raw.decode('utf-8'))
+    facts=parser.data['facts'];fields=facts['attrs']
+    if fields['isin']['value']!=isin:raise DataError('SPDR page share-class ISIN mismatch.')
+    fee=float(fields['total-expense-ratio']['originalValue'])/100
+    if not np.isfinite(fee) or not 0<=fee<=.1:raise DataError('Invalid SPDR ongoing charge.')
+    meta=dict(ongoing_charge=fee,fee_date=pd.to_datetime(facts['asOfDateSimple'],format='%d %b %Y').date().isoformat())
+    text=raw.decode('utf-8');block=re.search(r'Fund Characteristics(.*?)</section>',text,re.S)
+    if block:
+        values={}
+        for left,right in re.findall(r'<tr[^>]*>\s*<th[^>]*>(.*?)</th>\s*<td[^>]*>(.*?)</td>',block[1],re.S):
+            clean=lambda s:re.sub(r'\s+',' ',unescape(re.sub('<[^>]+>','',s))).strip()
+            values[clean(left)]=clean(right)
+        date=re.search(r'as of\s+([^<]+)',block[1])
+        if date and 'Yield to Maturity' in values and 'Effective Duration' in values:
+            meta['bond_characteristics']=dict(yield_label='Yield to Maturity',duration_label='Effective Duration',
+                  date=pd.to_datetime(date[1].strip(),format='%d %b %Y').date().isoformat(),
+                  duration=float(values['Effective Duration']),**{'yield':float(values['Yield to Maturity'].strip('%'))/100})
+    return meta,parser.data.get('calendar')
+
+
+def reconcile_spdr_distributions(raw,isin,nav,currency,calendar):
+    from portfolio.providers.history import total_returns
+    data=pd.read_excel(BytesIO(raw),sheet_name='Open Fund')
+    required={'ISIN','CURRENCY','EX-DATE','EX-DATE NAV','DISTRIBUTION','FREQUENCY'}
+    if not required.issubset(data):raise DataError('SPDR distribution archive schema changed.')
+    data=data.loc[data.ISIN==isin].copy()
+    if data.empty or set(data.CURRENCY)!={currency}:raise DataError('Distribution share class/currency unavailable.')
+    data['date']=pd.to_datetime(data['EX-DATE'],format='%d/%m/%Y',errors='raise')
+    if data.date.duplicated().any():raise DataError('Duplicate distribution ex-dates.')
+    income=pd.Series(0.,index=nav.index);nav_errors={}
+    for row in data.itertuples(index=False,name=None):
+        item=dict(zip(data.columns,row));date=item['date']
+        if date<nav.index[0] or date>nav.index[-1]:continue
+        if date not in nav.index:raise DataError('SPDR ex-date absent from actual NAV.')
+        amount=float(item['DISTRIBUTION'])
+        if not np.isfinite(amount) or amount<0:raise DataError('Invalid distribution amount.')
+        income.loc[date]=amount
+        published_nav=float(item['EX-DATE NAV'])
+        if not np.isfinite(published_nav) or published_nav<=0:raise DataError('Invalid published ex-date NAV.')
+        nav_errors[date]=abs(published_nav/nav.loc[date]-1)
+    daily=total_returns(nav,income,unit=currency)
+    monthly=(1+daily).groupby(daily.index.to_period('M')).prod()-1
+    monthly=monthly[(monthly.index>nav.index[0].to_period('M')) & (monthly.index<pd.Timestamp.today().to_period('M'))]
+    if not calendar or not isinstance(calendar.get('attrs'),dict):raise DataError('SPDR net calendar performance unavailable.')
+    errors=[]
+    for row in calendar['attrs'].values():
+        if not str(row.get('label','')).isdigit():continue
+        year=int(row['label']);sample=monthly.loc[monthly.index.year==year]
+        if len(sample)!=12 or sample.isna().any():continue
+        target=float(row['originalValue'])/100
+        if not np.isfinite(target) or target<=-1:raise DataError('Invalid SPDR calendar return.')
+        computed=float((1+sample).prod()-1)
+        errors.append(dict(year=year,issuer_return=target,computed_return=computed,error_bp=(computed-target)*10000))
+    bad=[row['year'] for row in errors if abs(row['error_bp'])>10]
+    # Incomplete older distribution books must not contaminate later complete
+    # actual risk history. Preserve the failed years, and do not fill them.
+    if bad:monthly=monthly.loc[str(max(bad)+1)+'-01':]
+    retained=[row for row in errors if not bad or row['year']>max(bad)]
+    active_nav=[value for date,value in nav_errors.items() if not monthly.empty and date.to_period('M')>=monthly.index[0]]
+    maximum=max((abs(row['error_bp']) for row in retained),default=None)
+    ytd_error=None
+    if calendar.get('asOfDateSimple') and calendar['attrs'].get('ytd'):
+        end=pd.Timestamp(calendar['asOfDateSimple']).to_period('M')
+        sample=monthly.loc[(monthly.index.year==end.year)&(monthly.index<=end)]
+        if len(sample)==end.month and not sample.isna().any():
+            target=float(calendar['attrs']['ytd']['originalValue'])/100
+            if not np.isfinite(target) or target<=-1:raise DataError('Invalid SPDR YTD return.')
+            ytd_error=float(((1+sample).prod()-1-target)*10000)
+    passed=bool(len(retained)>=3 and maximum<=10 and active_nav and max(active_nav)<=.001 and (ytd_error is None or abs(ytd_error)<=10))
+    return monthly,dict(reconciliation_passed=passed,annual_errors=errors,excluded_failed_reconciliation_years=bad,
+                        retained_annual_max_error_bp=maximum,distribution_records=len(data),
+                        ytd_error_bp=ytd_error,
+                        ex_date_nav_max_relative_error=max(active_nav,default=None),
+                        series_basis='Actual NAV plus published cash distributions reinvested at ex-date close; net issuer calendar returns checked',
+                        reconciliation_warning='Earlier NAV/distribution reconciliation failed; those years are excluded' if bad else None)
+
+
 def parse_invesco(raw, isin):
     value=json.loads(raw)
     if value.get('isin')!=isin: raise DataError('Invesco ISIN mismatch.')
     series=next(p for p in value['lineChartData'] if p['type']=='Shareclass')
     nav=positive_levels([p['date'] for p in series['data']],[p['value'] for p in series['data']])
     return nav,value
+
+
+def reconcile_invesco_calendar(raw, isin, returns, product_page):
+    from html import unescape
+    import re
+    value=json.loads(raw)
+    if value.get('isin')!=isin:raise DataError('Invesco calendar performance ISIN mismatch.')
+    text=unescape(product_page.decode('utf-8'))
+    reinvested=bool(re.search(r'includes dividends,?\s+reinvested',text,re.I))
+    net=bool(re.search(r'Net Asset Value after management fees and other ETF costs',text,re.I))
+    errors=[]
+    for row in value['calendarPerformance']:
+        if not str(row.get('label','')).isdigit() or row.get('etf') is None:continue
+        year=int(row['label']);actual=returns.loc[returns.index.year==year]
+        if len(actual)!=12 or actual.isna().any():continue
+        expected=float(row['etf'])/100
+        if not np.isfinite(expected) or expected<=-1:raise DataError('Invalid Invesco calendar return.')
+        computed=float((1+actual).prod()-1)
+        errors.append(dict(year=year,issuer_return=expected,computed_return=computed,error_bp=(computed-expected)*10000))
+    maximum=max((abs(r['error_bp']) for r in errors),default=None)
+    return dict(reconciliation_passed=bool(reinvested and net and len(errors)>=3 and maximum<=10),
+                annual_errors=errors,annual_max_error_bp=maximum,
+                issuer_reinvested_distributions= reinvested,issuer_net_costs=net,
+                series_basis='Own share-class growth, net of fund costs with reinvested dividends; published fund calendar returns cross-checked',
+                reconciliation_warning=None if reinvested and net and len(errors)>=3 and maximum<=10 else 'Issuer reinvestment/net-cost statement or annual fund reconciliation failed')
 
 
 def parse_wisdomtree(raw):
@@ -331,17 +447,38 @@ def acquire(ident, isin, cache):
         if currency is None: raise DataError('SPDR NAV currency absent.')
         meta=dict(native_currency=currency,inception=nav.index[0].date().isoformat(),use_of_income='Distributing' if ident=='GLTL' else 'Accumulating',hedge='unhedged',structure='UCITS ETF')
         audit=dict(reconciliation_passed=ident!='GLTL',series_basis='Own accumulating NAV' if ident!='GLTL' else 'NAV only; missing distributions')
+        returns=complete_nav_returns(nav,meta['inception'])
+        if ident=='GLTL':
+            page=get('https://www.ssga.com/uk/en_gb/institutional/etfs/state-street-spdr-bloomberg-15-year-gilt-ucits-etf-dist-sybl-gy')
+            facts,calendar=parse_spdr_page(page,isin);meta.update(facts)
+            meta.update(fee_source=sources[-1]['id'],bond_source=sources[-1]['id'])
+            distributions=get('https://www.ssga.com/library-content/products/fund-data/etfs/emea/spdr-etf-historical-distributions-uk-en.xlsx')
+            meta['distribution_source']=sources[-1]['id']
+            returns,audit=reconcile_spdr_distributions(distributions,isin,nav,currency,calendar)
         book=pd.DataFrame();url=f'https://www.ssga.com/library-content/products/fund-data/etfs/emea/holdings-daily-emea-en-{SPDR[ident]}.xlsx'
         try:
             book=parse_spdr_holdings(get(url),isin,ident)
             audit['holdings_acquisition']=dict(url=url,rows=len(book),as_of=None if book.empty else book.as_of.iloc[0],company_mapping='Unavailable')
             if ident=='GLTL':book=pd.DataFrame() # Bond issuers are not equity companies.
         except Exception as exc:audit['holdings_acquisition']=dict(url=url,error=type(exc).__name__+': '+str(exc))
-        return IssuerHistory(meta,nav,complete_nav_returns(nav,meta['inception']),sources,audit,book)
+        return IssuerHistory(meta,nav,returns,sources,audit,book)
     if ident in ('CMOP','EQQQ'):
         nav,value=parse_invesco(get(f'https://dng-api.invesco.com/cache/v1/accounts/en_GB/shareclasses/{isin}/performance/rolling?idType=isin&variationType=ALL&baseline=10000'),isin)
         meta=dict(native_currency=value['currency'],inception=value['inceptionDate'][:10],use_of_income='Distributing' if ident=='EQQQ' else 'Accumulating',hedge='unhedged',structure='UCITS ETF')
-        return IssuerHistory(meta,nav,complete_nav_returns(nav,meta['inception']),sources,dict(reconciliation_passed=ident=='CMOP',series_basis='Issuer actual share-class growth; annual return/income audit pending'))
+        returns=complete_nav_returns(nav,meta['inception'])
+        audit=dict(reconciliation_passed=ident=='CMOP',series_basis='Issuer actual share-class growth; annual return/income audit pending')
+        if ident=='EQQQ':
+            page=get('https://www.invesco.com/uk/en/financial-products/etfs/invesco-eqqq-nasdaq-100-ucits-etf-dist.html')
+            annual=get(f'https://dng-api.invesco.com/cache/v1/accounts/en_GB/shareclasses/{isin}/performance/calendar?idType=isin&performanceSubType=calendar&productType=ETF&productCode=ETF')
+            audit=reconcile_invesco_calendar(annual,isin,returns,page)
+        stats=json.loads(get(f'https://dng-api.invesco.com/cache/v1/accounts/en_GB/shareclasses/{isin}/keyStats?idType=isin&productCode=ETF&bondType=NotCallable'))
+        if stats.get('isin')!=isin or stats.get('currency')!=meta['native_currency']:raise DataError('Invesco statistics identity/currency mismatch.')
+        charge=next((r for r in stats.get('keyStats',[]) if r.get('name')=='mgmtFee'),None)
+        if charge is not None:
+            fee=float(charge['value'])/100
+            if not np.isfinite(fee) or not 0<=fee<=.1:raise DataError('Invalid Invesco ongoing charge.')
+            meta.update(ongoing_charge=fee,fee_date=charge.get('asOfDate'),fee_source=sources[-1]['id'])
+        return IssuerHistory(meta,nav,returns,sources,audit)
     if ident in WISDOMTREE:
         from datetime import date
         raw=get(f'https://www.wisdomtree.com/api/fund-history/{WISDOMTREE[ident]}/historical-data-export',method='POST',headers={'Content-Type':'application/json'},json_body=dict(locale='en-GB',productName=ident,fromDate='1990-01-01',toDate=date.today().isoformat(),includeNav=True,includeAum=False))

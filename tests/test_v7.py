@@ -437,6 +437,55 @@ def test_comparable_return_solve_and_universe_screen(model):
     assert screen.loc['EMIM','review'].startswith('Unavailable')
 
 
+def test_compact_frontiers_preserve_endpoint_and_midpoint(model):
+    full=solve_run(model)
+    compact=solve_run(model,frontier_points=3)
+    endpoints=solve_run(model,frontier_points=2)
+    np.testing.assert_allclose(compact.frontier.targets,full.frontier.targets[[0,50,100]],atol=1e-12)
+    np.testing.assert_allclose(compact.frontier.weights,full.frontier.weights[[0,50,100]],atol=1e-6)
+    np.testing.assert_allclose(endpoints.frontier.returns,full.frontier.returns[[0,100]],atol=1e-9)
+    assert compact.run_id!=full.run_id
+
+
+def test_vectorised_usefulness_matches_full50_definition(model):
+    from portfolio.research import universe_usefulness
+    runs=[solve_run(model),solve_run(model,{'allow_cash':False})]
+    table=universe_usefulness(runs).set_index('instrument')
+    for ident in model.snapshot.instruments.index:
+        values=np.array([full_weights(r,p).loc[ident] for r in runs for p in range(len(r.frontier.weights))])
+        assert table.loc[ident,'max_weight']==values.max()
+        assert table.loc[ident,'frequency_above_1pct']==(values>=.01).mean()
+
+
+def test_sensitivity_reports_failed_removals_instead_of_zero_effect(model,monkeypatch):
+    import portfolio.sensitivity as sensitivity
+    real=sensitivity.solve_run
+    def solve(candidate,*args,**kwargs):
+        if len(candidate.ids)<len(model.ids):raise ValueError('injected infeasible removal')
+        return real(candidate,*args,**kwargs)
+    monkeypatch.setattr(sensitivity,'solve_run',solve)
+    table=sensitivity.useful_universe(real(model),bootstrap_draws=0)
+    failed=table.removal_cases_failed.fillna(0)>0
+    assert failed.any()
+    assert table.loc[failed,'review'].str.startswith('Incomplete').all()
+    assert table.loc[failed,'removal_status'].str.contains('injected').all()
+
+
+def test_precomputed_screen_is_bound_to_inputs_constraints_and_bytes(model,tmp_path):
+    from dataclasses import replace
+    from portfolio.sensitivity import useful_universe,save_screen_cache,load_screen_cache
+    run=solve_run(model)
+    table=useful_universe(run,bootstrap_draws=0)
+    save_screen_cache(run,table,tmp_path,bootstrap_draws=0)
+    restored=load_screen_cache(run,tmp_path,bootstrap_draws=0)
+    pd.testing.assert_frame_equal(restored,table,check_dtype=False,rtol=1e-12)
+    assert load_screen_cache(solve_run(model,{'allow_cash':False}),tmp_path,bootstrap_draws=0) is None
+    changed=solve_run(replace(model,mean=model.mean+.001))
+    assert load_screen_cache(changed,tmp_path,bootstrap_draws=0) is None
+    path=tmp_path/'universe-screen.csv';path.write_bytes(path.read_bytes()+b'corrupt')
+    assert load_screen_cache(run,tmp_path,bootstrap_draws=0) is None
+
+
 def test_recursive_holdings_company_shareclass_merging_and_unknown_coverage():
     from portfolio.holdings import expand_company_holdings
     today=date.today().isoformat()
@@ -469,6 +518,11 @@ def test_derived_matrix_checkout_reproduces_risk_and_labels_approximation(model,
     save_derived_model(model,tmp_path)
     restored=prepare_model(load_snapshot(tmp_path))
     assert restored.history.empty
+    from portfolio.sensitivity import screen_signature
+    assert screen_signature(solve_run(restored)) == screen_signature(solve_run(model))
+    from portfolio.research import risk_window_covariances
+    for months, matrix in risk_window_covariances(model).items():
+        np.testing.assert_array_equal(restored.covariance_windows[months], matrix)
     np.testing.assert_allclose(restored.mean,model.mean)
     np.testing.assert_allclose(restored.covariance,model.covariance)
     run=solve_run(restored)
@@ -485,7 +539,7 @@ def test_committed_dashboard_without_raw_cache(tmp_path, monkeypatch):
     import streamlit as st
     import portfolio.portable as portable
     from portfolio.validation import age_days
-    monkeypatch.setattr(portable, 'age_days', lambda value: age_days(value, date(2026,10,14)))
+    monkeypatch.setattr(portable, 'age_days', lambda value: age_days(value, date(2026,10,15)))
     for folder in ('portfolio', 'ui', 'docs'):
         shutil.copytree(ROOT/folder, tmp_path/folder, ignore=shutil.ignore_patterns('__pycache__'))
     shutil.copy(ROOT/'app.py', tmp_path/'app.py')
@@ -506,6 +560,8 @@ def test_committed_dashboard_without_raw_cache(tmp_path, monkeypatch):
     assert all(metric.value != 'Unavailable' for metric in app.metric[:3])
     assert len(app.session_state['active_run_v7'].model.ids) == len(json.loads((data/'model-inputs.json').read_text())['ids'])
     assert 'VWRP' in app.session_state['active_run_v7'].model.ids
+    from portfolio.sensitivity import load_screen_cache
+    assert load_screen_cache(app.session_state['active_run_v7'], data) is not None
     st.cache_data.clear()
     import portfolio.research as research
     def fail_solve(*args, **kwargs):
@@ -560,3 +616,29 @@ def test_dated_issuer_bond_characteristics_and_stress_coverage(model):
     table=stress_comparison(run,0,100)
     assert table.loc[table.portfolio.eq('A'),'instantaneous_price_shock'].isna().all()
     assert table.loc[table.portfolio.eq('B'),'instantaneous_price_shock'].iloc[0]==pytest.approx(-.2)
+
+
+def test_72_month_risk_case_survives_without_120_months(model):
+    from dataclasses import replace
+    from portfolio.research import risk_window_covariances
+    from portfolio.risk import shrunk_covariance
+    model=replace(model,history=model.history.iloc[-85:])
+    windows=risk_window_covariances(model)
+    assert set(windows)=={'72'}
+    assert np.all(windows['72'][0]==0) and np.all(windows['72'][:,0]==0)
+    expected,_=shrunk_covariance(model.history.iloc[-72:,1:].to_numpy())
+    np.testing.assert_array_equal(windows['72'][1:,1:],expected)
+
+
+def test_sensitivity_signature_survives_dataframe_storage_layout(model):
+    from dataclasses import replace
+    from portfolio.portable import frame_payload,payload_frame
+    from portfolio.sensitivity import screen_signature
+    rng=np.random.default_rng(42)
+    columns=['US:Mkt-RF','US:SMB','US:HML']
+    betas=pd.DataFrame(rng.normal(size=(len(model.ids),3)),index=model.ids,columns=columns)
+    premiums=pd.DataFrame(rng.normal(size=(3,2)),index=columns,columns=['central','unshrunk'])
+    model=replace(model,betas=betas,premiums=premiums)
+    restored=replace(model,betas=payload_frame(json.loads(json.dumps(frame_payload(betas)))),
+                     premiums=payload_frame(json.loads(json.dumps(frame_payload(premiums)))))
+    assert screen_signature(solve_run(model))==screen_signature(solve_run(restored))
