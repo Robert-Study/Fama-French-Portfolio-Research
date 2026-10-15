@@ -1,5 +1,14 @@
 # Efficient-frontier research using regional Fama–French estimation
 
+## Executed update — 15 October 2026
+
+Model 0.4.0 uses 32 admitted models: one savings account, two physical metals, six government-bond funds, 13 equity ETFs and 10 factor ETFs. No daily leveraged forward model is admitted. Of 46 acquired security histories, 41 pass their stated reconciliation checks; passing these checks is not a complete independent corporate-action audit. Calibration ends August 2026 and joint risk uses 80 months.
+
+EQQQ's net reinvested share-class growth passes 23 calendar-year comparisons (maximum discrepancy 0.00613bp). GLTL's ex-date distribution reconstruction passes 2020–2025 and the latest YTD comparison; its failed 2019 history is excluded rather than repaired with an invented payment. GLTL carry uses dated 5.85% YTM, 14.94 effective duration and 0.15% annual expense, with constant yield and zero assumed roll-down; convexity is unavailable.
+
+Live BoE access still returned HTTP 403. Actual supplied SONIA through 9 October is retained; the official compounded-index cross-check remains outstanding. Forward SONIA stays flat by assumption. Company mapping coverage remains 0%, so effective-company diversity is unavailable. VWRP, VAGS, XS2D and monthly-rebalanced 60/40 historical references remain available independently of forward admission. The dated earlier report below records the original specification and checkpoints.
+
+
 *Methods page · 14 October 2026 · Model 0.3.0. Executed calibration diagnostics and current capability exclusions appear below this report.*
 
 ## Introduction

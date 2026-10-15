@@ -33,6 +33,12 @@ All refresh commands preserve TLS/checksum verification. No credentials are save
 
 ## Export and reproduction
 
-`model-inputs.json` preserves derived calibrated inputs for fresh private checkouts; it carries no raw history. That mode uses labelled IID Gaussian joint-risk scenarios and cannot restore leveraged products without their daily source cache.
+`model-inputs.json` preserves derived calibrated inputs for fresh checkouts; it carries no raw history. That mode uses labelled IID Gaussian joint-risk scenarios and cannot restore leveraged products without their daily source cache.
 
 ZIPs contain all 50 allocations (excluded IDs have zero weight), solved targets/weights, monthly means/covariance/correlations, betas/premiums/diagnostics, fees/financing, company coverage, horizon quantiles, stresses, assumptions/constraints/source hashes, model version/commit/source-code hash and `reproduce.py`. Running that script checks every solved allocation against exported weights. It reproduces the solve; independently repeating source ingestion/calibration requires original source artefacts and use rights. Full source histories are omitted by default. Empty diagnostics are marked unavailable rather than filled with illustrative figures.
+
+## Model 0.4.0 integration — 15 October 2026
+
+EQQQ uses its own net reinvested growth after exact-ISIN calendar reconciliation across 23 complete years. GLTL reconstructs net total returns from exact-ISIN GBP distributions and ex-date NAV; the failed 2019 comparison excludes all history before January 2020. Published annual and YTD comparisons are retained in the acquisition audit. Neither parser fabricates missing distributions.
+
+Portable matrices now retain available 72/120-month covariance alternatives, with nominal savings appended after risky shrinkage. The current 80-month risk panel supports only the 72-month alternative. Calibration frames preserve float precision. The default screen binds model version, mathematical source, exact inputs, constraints, scenario set, bootstrap draws and CSV checksum; altered constraints or data reject it. A consistent contiguous matrix layout keeps the sensitivity calculation reproducible after portable restoration. Failed removal solves remain explicit incomplete assessments.

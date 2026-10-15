@@ -1,0 +1,51 @@
+instrument,max_weight,frequency_above_1pct,review,bootstrap_position50_weight_std,bootstrap_requested_draws,bootstrap_solved_draws,max_removal_annual_volatility_increase,max_removal_max_return_loss,removal_cases_total,removal_cases_proved_unchanged,removal_cases_solved,removal_cases_failed,removal_status
+GBP_BANK_SAVINGS,1.0,0.5107746068724519,Meaningful in at least one predefined case; not proof of future benefit,0.04405777876088513,20,20,0.03949755616109262,8.425135589185118e-13,17.0,1.0,16.0,0.0,Complete
+SGLN,0.23655078585581132,0.07105416423995341,Meaningful in at least one predefined case; not proof of future benefit,0.008360084136679196,20,20,0.006912179058154666,0.0,17.0,1.0,16.0,0.0,Complete
+SSLN,0.02933484898264137,0.011648223645894,Meaningful in at least one predefined case; not proof of future benefit,4.081118047478055e-05,20,20,0.0008789149551831382,0.0,17.0,1.0,16.0,0.0,Complete
+CMOP,0.0,0.0,Unavailable: evidence/model gates prevent usefulness assessment,,20,20,,,,,,,
+COPA,0.0,0.0,Unavailable: evidence/model gates prevent usefulness assessment,,20,20,,,,,,,
+AIGA,0.0,0.0,Unavailable: evidence/model gates prevent usefulness assessment,,20,20,,,,,,,
+CRUD,0.0,0.0,Unavailable: evidence/model gates prevent usefulness assessment,,20,20,,,,,,,
+IGLS,0.4192692875103213,0.15492137449039023,Meaningful in at least one predefined case; not proof of future benefit,0.018939021940889103,20,20,0.008912960068980569,0.0,17.0,0.0,17.0,0.0,Complete
+IGLT,0.06828684717424069,0.010483401281304601,Meaningful in at least one predefined case; not proof of future benefit,1.2411825381787349e-10,20,20,0.0004065957991115861,0.0,17.0,0.0,17.0,0.0,Complete
+GLTL,2.5366490571067966e-08,0.0,"Review: never reaches 1%, no measured frontier improvement >=5bp",4.461297056358387e-11,20,20,2.740705786726045e-09,0.0,17.0,0.0,17.0,0.0,Complete
+INXG,0.0,0.0,Unavailable: evidence/model gates prevent usefulness assessment,,20,20,,,,,,,
+IS15,0.0,0.0,Unavailable: evidence/model gates prevent usefulness assessment,,20,20,,,,,,,
+SLXX,0.0,0.0,Unavailable: evidence/model gates prevent usefulness assessment,,20,20,,,,,,,
+VAGS,0.0,0.0,Unavailable: evidence/model gates prevent usefulness assessment,,20,20,,,,,,,
+IBTS,0.32829587932320636,0.7524752475247525,Meaningful in at least one predefined case; not proof of future benefit,0.04928681881336908,20,20,0.005587571220510609,0.0,17.0,0.0,17.0,0.0,Complete
+IBTM,0.19196491593684104,0.6674432149097262,Meaningful in at least one predefined case; not proof of future benefit,0.03198914705553628,20,20,0.0009582017073769029,0.0,17.0,0.0,17.0,0.0,Complete
+IBTL,0.12646796255212428,0.04950495049504951,Meaningful in at least one predefined case; not proof of future benefit,0.009138131916951002,20,20,0.0006800655096587491,0.0,17.0,0.0,17.0,0.0,Complete
+ITPG,0.0,0.0,Unavailable: evidence/model gates prevent usefulness assessment,,20,20,,,,,,,
+GHYS,0.0,0.0,Unavailable: evidence/model gates prevent usefulness assessment,,20,20,,,,,,,
+VEMT,0.0,0.0,Unavailable: evidence/model gates prevent usefulness assessment,,20,20,,,,,,,
+VWRP,2.5009818861908266e-07,0.0,"Review: never reaches 1%, no measured frontier improvement >=5bp",1.199337325322159e-10,20,20,1.897820328875219e-08,0.0,17.0,0.0,17.0,0.0,Complete
+SWDA,7.356513659971672e-08,0.0,"Review: never reaches 1%, no measured frontier improvement >=5bp",1.0101713327409075e-10,20,20,7.801310416659323e-09,0.0,17.0,0.0,17.0,0.0,Complete
+VUSA,0.5329347037886399,0.5771694816540478,Meaningful in at least one predefined case; not proof of future benefit,0.07763564716026179,20,20,0.006145792898021756,0.0,17.0,0.0,17.0,0.0,Complete
+EQQQ,1.0,0.5969714618520675,Meaningful in at least one predefined case; not proof of future benefit,0.0261076523820009,20,20,0.016486138690959606,0.001994630033736497,17.0,0.0,17.0,0.0,Complete
+VUKE,0.06060512772602433,0.22655794991263833,Meaningful in at least one predefined case; not proof of future benefit,0.017930664894919367,20,20,0.00023144449276445676,0.0,17.0,0.0,17.0,0.0,Complete
+VMID,0.6817552414242525,0.5497961560861968,Meaningful in at least one predefined case; not proof of future benefit,0.0861432564111958,20,20,0.011183566367956576,0.0,17.0,0.0,17.0,0.0,Complete
+VERX,0.02750936057695193,0.029120559114735003,Meaningful in at least one predefined case; not proof of future benefit,4.929210269641506e-11,20,20,2.7573959376486513e-05,0.0,17.0,0.0,17.0,0.0,Complete
+VJPN,2.5048657535821225e-08,0.0,"Review: never reaches 1%, no measured frontier improvement >=5bp",0.02420933073639745,20,20,2.710254714110447e-09,0.0,17.0,0.0,17.0,0.0,Complete
+VAPX,2.936626577592307e-09,0.0,"Review: never reaches 1%, no measured frontier improvement >=5bp",0.0,20,20,1.8499926236388472e-08,0.0,17.0,0.0,17.0,0.0,Complete
+EMIM,0.3470291683306584,0.0553290623179965,Meaningful in at least one predefined case; not proof of future benefit,8.957038160684868e-11,20,20,0.003025710358643817,0.0,17.0,0.0,17.0,0.0,Complete
+IIND,1.0,0.8229470005824112,Meaningful in at least one predefined case; not proof of future benefit,0.08151328541659104,20,20,0.029839200159469146,0.00807148945478952,17.0,0.0,17.0,0.0,Complete
+IASH,0.07289818874167672,0.05358182877111241,Meaningful in at least one predefined case; not proof of future benefit,0.012482120048366917,20,20,0.0006657201050968698,0.0,17.0,0.0,17.0,0.0,Complete
+IWDP,5.640515778530671e-09,0.0,"Review: never reaches 1%, no measured frontier improvement >=5bp",0.0,20,20,6.520511791897786e-09,0.0,17.0,0.0,17.0,0.0,Complete
+IWFV,2.4075172816436744e-07,0.0,"Review: never reaches 1%, no measured frontier improvement >=5bp",0.0,20,20,1.8749747060194054e-08,0.0,17.0,0.0,17.0,0.0,Complete
+IWFM,1.028169194266537e-08,0.0,"Review: never reaches 1%, no measured frontier improvement >=5bp",2.3819801356127138e-11,20,20,3.206478109259553e-09,0.0,17.0,0.0,17.0,0.0,Complete
+IWFQ,0.05269331574923002,0.06930693069306931,Meaningful in at least one predefined case; not proof of future benefit,0.03022576179207681,20,20,5.4413595218411304e-05,0.0,17.0,0.0,17.0,0.0,Complete
+MVOL,0.41845435084784505,0.7157833430401864,Meaningful in at least one predefined case; not proof of future benefit,0.07487175687196475,20,20,0.005045737838087606,0.0,17.0,0.0,17.0,0.0,Complete
+IWFS,0.0,0.0,Unavailable: evidence/model gates prevent usefulness assessment,,20,20,,,,,,,
+WLDS,1.469062601118562e-08,0.0,"Review: never reaches 1%, no measured frontier improvement >=5bp",2.402050589512108e-11,20,20,7.785801023266194e-09,0.0,17.0,0.0,17.0,0.0,Complete
+USSC,0.026245387952555925,0.0011648223645894002,Meaningful in at least one predefined case; not proof of future benefit,0.03201285458698549,20,20,4.821256647383365e-05,0.0,17.0,0.0,17.0,0.0,Complete
+ZPRX,1.0,0.26150262085032033,Meaningful in at least one predefined case; not proof of future benefit,0.046283201120520014,20,20,0.002277080838117722,0.0007273063470559227,17.0,0.0,17.0,0.0,Complete
+IUVF,0.1544332725376367,0.004076878276062901,Meaningful in at least one predefined case; not proof of future benefit,3.7172570816965685e-11,20,20,0.000985417970376452,0.0,17.0,0.0,17.0,0.0,Complete
+IEFV,0.021457230645197254,0.0011648223645894002,Meaningful in at least one predefined case; not proof of future benefit,6.85512858716694e-11,20,20,3.429464603061073e-05,0.0,17.0,0.0,17.0,0.0,Complete
+EMVL,1.0,0.9563191613278975,Meaningful in at least one predefined case; not proof of future benefit,0.08700929092895357,20,20,0.05677285575831631,0.017810092363020773,17.0,0.0,17.0,0.0,Complete
+JPGL,0.0,0.0,Unavailable: evidence/model gates prevent usefulness assessment,,20,20,,,,,,,
+GGRG,0.0,0.0,Unavailable: evidence/model gates prevent usefulness assessment,,20,20,,,,,,,
+XS2D,0.0,0.0,Unavailable: evidence/model gates prevent usefulness assessment,,20,20,,,,,,,
+LQQ,0.0,0.0,Unavailable: evidence/model gates prevent usefulness assessment,,20,20,,,,,,,
+3LUS,0.0,0.0,Unavailable: evidence/model gates prevent usefulness assessment,,20,20,,,,,,,
+3QQQ,0.0,0.0,Unavailable: evidence/model gates prevent usefulness assessment,,20,20,,,,,,,

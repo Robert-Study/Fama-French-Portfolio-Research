@@ -1,3 +1,39 @@
+# V7 implementation checkpoint — 15 October 2026
+
+Model **0.4.0**, schema **2**, Python **3.14.8**, PyArrow **24.0.0**. The supplied seven-file patch was verified against its manifest and applied after remote main was confirmed at `bc8f2ca5aba3e977ac3c42bbc6f1c498832f83bc`. Original legacy Git objects and working bytes match the supplied tree. The repository is **public**, verified through GitHub; visibility was not changed. App visibility was not inspected.
+
+## Executed results
+
+- **46 security histories acquired, 41 passing documented reconciliation screens, 32 admitted forward models:** savings 1, physical metals 2, government bonds 6, equity ETFs 13, factor ETFs 10, leverage 0. All 50 original identities remain represented.
+- EQQQ passed 23 own-share-class net reinvested calendar comparisons, maximum error **0.00612613bp**. Its 0.30% fee is issuer-sourced. GLTL's 2019 distribution reconstruction failed by **80.22497bp** and all history before January 2020 is excluded. Retained 2020–2025 comparisons pass within **0.00007856bp**, and latest YTD within **0.00007757bp**. Ex-date NAVs match. GLTL yield **5.85%**, effective duration **14.94**, dated 14 October; expense **0.15%**. No missing payment or convexity was invented. CMOP's issuer fee is 0.19%; futures mechanics still block its forecast.
+- Calibration cutoff remains **August 2026**, with **80 common actual GBP months** and 23 executed equity calibrations. Portable inputs retain the available **72-month** joint-risk sensitivity; 120 months are unavailable. Nominal bank cash stays deterministic and is appended after risky covariance shrinkage.
+- Charter Easy Access Issue 79 was rechecked on **15 October**, still **4.25% variable AER**. Actual SONIA observations through **9 October** are retained after live BoE HTTP 403; official compounded-index reconciliation remains pending. No new SONIA values were fabricated.
+- VWRP, VAGS, XS2D and monthly-rebalanced 60/40 historical statistics survive fresh checkouts. VAGS/XS2D forward gates remain closed. Historical bank savings returns are unavailable. Mapped company coverage remains **0%**, so effective-company diversity is unavailable independently of financial admission.
+
+## Validation
+
+**78 tests pass** on Python 3.14.8/PyArrow 24, including new issuer identity, basis, unit, incomplete-year, distribution, YTD and invalid-value cases, portable precision/layout and 72-month covariance tests. Six synthetic-test warnings remain from attempted solver paths; independent final constraints are enforced.
+
+A separate checkout containing only shipped files (no raw caches) loaded all four pages, exercised numeric/slider endpoints and horizon changes, retained fixed references and exported through the actual UI. The default screen cache was reused; altered constraints rejected it. All 101 exported weights reproduced within **1e-6**. ZIP content inspection found derived calculations and provenance, no raw issuer histories/workbooks. Full refresh and portable scenarios remain distinct: synchronized blocks versus labelled IID Gaussian joint risk.
+
+Local measurements: load/solve **0.18s**, default cache read **0.011s**, direct ZIP **0.19s**, UI export **0.34s**, ZIP **231,858 bytes**, peak process RSS **376 MiB** including four-page UI testing. The screen records **541 solved removal cases, zero failures**. Maximum independent default frontier violation was **1.57e-11**. These are local measurements, not hosted guarantees. Custom constraint screening can still take minutes.
+
+The supplied hosted log confirms successful clone/dependency installation, Python 3.14.8 and Streamlit 1.50.0. Streamlit replaced PyArrow 26 with 24 for known apache/arrow#50471; requirements now match that mitigation. The excerpt contains **no application exception or traceback**. The original hosted failure therefore remains undiagnosed, and no claim of hosted recovery is made. No deployment was initiated.
+
+## Remaining concrete evidence requirements
+
+1. Complete actual histories for JPGL, LQQ and 3QQQ.
+2. WisdomTree COPA/AIGA/CRUD/GGRG/3LUS currency, corporate-action and net-return reconciliation; no guessed split correction.
+3. INXG/ITPG real-yield and inflation inputs; IS15/SLXX credit losses/spreads; VAGS/GHYS hedge and yield basis; VEMT yield/credit evidence.
+4. Futures roll/collateral/swap terms, IWFS strategy continuity, and exact daily leverage financing/reset/termination terms with stressed same-product overlap and required intraday observations.
+5. Reviewed company/share-class/ADR/nested-exposure mappings, missing full books, and at least 95% current mapped economic-equity coverage.
+6. Remaining ledger-sourced fee checks, official compounded SONIA comparison and a successful dated SONIA refresh. Flat forward SONIA remains an explicit assumption, not an OIS forecast.
+7. Hosted application traceback or observed page failure after startup to establish the original failure's cause and subsequent recovery.
+
+The following sections are historical checkpoints, not the current calibration.
+
+---
+
 # V7 implementation checkpoint — 14 October 2026
 
 Model **0.3.0**, schema **2**, Python **3.14.8**. The user requested that this checkpoint be uploaded and further work pause until instructed. The original 50 identities and `data/legacy` remain unchanged; repository/app privacy and the `main` workflow are preserved.

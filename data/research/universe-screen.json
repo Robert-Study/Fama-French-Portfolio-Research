@@ -1,0 +1,6 @@
+{
+  "signature": "35a9efc99bcd66469dd81c022b22bacb3ca44b53264418f1e94e417f4cf43c44",
+  "sha256": "1ff4218168fc909f6318d8ea1aab71511a99d85c36441770b90f7884d9e740e4",
+  "rows": 50,
+  "policy": "Exact predefined target solves; no approximate interpolation. Failed removals remain incomplete."
+}

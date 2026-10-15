@@ -159,7 +159,7 @@
         "url": "https://www.ishares.com/uk/individual/en/products/264659/ishares-core-msci-em-imi-ucits-etf/latest-holdings.csv",
         "rows": 2957,
         "company_mapping": "Unavailable",
-        "as_of": "2026-10-12"
+        "as_of": "2026-10-13"
       }
     },
     "error": ""
@@ -226,7 +226,7 @@
         "url": "https://www.ishares.com/uk/individual/en/products/297452/ishares-edge-msci-em-value-factor-ucits-etf/latest-holdings.csv",
         "rows": 151,
         "company_mapping": "Unavailable",
-        "as_of": "2026-10-12"
+        "as_of": "2026-10-13"
       }
     },
     "error": ""
@@ -239,10 +239,154 @@
     "last_complete_month": "2026-08",
     "months": 284,
     "missing_months": [],
-    "reconciliation": "Pending",
+    "reconciliation": "Passed stated checks",
     "details": {
-      "reconciliation_passed": false,
-      "series_basis": "Issuer actual share-class growth; annual return/income audit pending"
+      "reconciliation_passed": true,
+      "annual_errors": [
+        {
+          "year": 2025,
+          "issuer_return": 0.20556907154504,
+          "computed_return": 0.20556906981607792,
+          "error_bp": -1.7289620846128173e-05
+        },
+        {
+          "year": 2024,
+          "issuer_return": 0.25361420660892997,
+          "computed_return": 0.25361418461580554,
+          "error_bp": -0.0002199312443273982
+        },
+        {
+          "year": 2023,
+          "issuer_return": 0.54474650754379,
+          "computed_return": 0.5447464879978181,
+          "error_bp": -0.0001954597184106177
+        },
+        {
+          "year": 2022,
+          "issuer_return": -0.32634671516998,
+          "computed_return": -0.32634669504351765,
+          "error_bp": 0.00020126462330072314
+        },
+        {
+          "year": 2021,
+          "issuer_return": 0.26980356619496,
+          "computed_return": 0.2698035470374476,
+          "error_bp": -0.00019157512409773148
+        },
+        {
+          "year": 2020,
+          "issuer_return": 0.4828081959017,
+          "computed_return": 0.48280830312514444,
+          "error_bp": 0.0010722344445657228
+        },
+        {
+          "year": 2019,
+          "issuer_return": 0.38813650784401,
+          "computed_return": 0.3881364632254576,
+          "error_bp": -0.00044618552408337564
+        },
+        {
+          "year": 2018,
+          "issuer_return": -0.00424588253241,
+          "computed_return": -0.004245912547386155,
+          "error_bp": -0.0003001497615468668
+        },
+        {
+          "year": 2017,
+          "issuer_return": 0.32392278178942,
+          "computed_return": 0.32392279511342315,
+          "error_bp": 0.00013324003123038608
+        },
+        {
+          "year": 2016,
+          "issuer_return": 0.06775243535538,
+          "computed_return": 0.06775236332215062,
+          "error_bp": -0.0007203322938131862
+        },
+        {
+          "year": 2015,
+          "issuer_return": 0.09224134900690001,
+          "computed_return": 0.0922413412931935,
+          "error_bp": -7.713706506873308e-05
+        },
+        {
+          "year": 2014,
+          "issuer_return": 0.18836141281907998,
+          "computed_return": 0.18836158619000276,
+          "error_bp": 0.0017337092278468802
+        },
+        {
+          "year": 2013,
+          "issuer_return": 0.36241062296144,
+          "computed_return": 0.36241057440765534,
+          "error_bp": -0.0004855378465951077
+        },
+        {
+          "year": 2012,
+          "issuer_return": 0.17773833407889,
+          "computed_return": 0.17773831861600042,
+          "error_bp": -0.0001546288957987585
+        },
+        {
+          "year": 2011,
+          "issuer_return": 0.03294293273438,
+          "computed_return": 0.03294313705686269,
+          "error_bp": 0.002043224826900336
+        },
+        {
+          "year": 2010,
+          "issuer_return": 0.19677417571660002,
+          "computed_return": 0.1967738718674732,
+          "error_bp": -0.0030384912683145693
+        },
+        {
+          "year": 2009,
+          "issuer_return": 0.54146230507021,
+          "computed_return": 0.5414624103088672,
+          "error_bp": 0.0010523865723310877
+        },
+        {
+          "year": 2008,
+          "issuer_return": -0.41716323641822,
+          "computed_return": -0.4171631304257172,
+          "error_bp": 0.001059925028301656
+        },
+        {
+          "year": 2007,
+          "issuer_return": 0.18897602472414,
+          "computed_return": 0.1889754121115006,
+          "error_bp": -0.006126126393946052
+        },
+        {
+          "year": 2006,
+          "issuer_return": 0.06951649887481,
+          "computed_return": 0.06951701071537308,
+          "error_bp": 0.005118405630860634
+        },
+        {
+          "year": 2005,
+          "issuer_return": 0.01622906258848,
+          "computed_return": 0.016229009433300412,
+          "error_bp": -0.0005315517958778826
+        },
+        {
+          "year": 2004,
+          "issuer_return": 0.09449319985192,
+          "computed_return": 0.09449344992251119,
+          "error_bp": 0.002500705911789858
+        },
+        {
+          "year": 2003,
+          "issuer_return": 0.49096626520207004,
+          "computed_return": 0.4909663006775129,
+          "error_bp": 0.0003547544286108817
+        }
+      ],
+      "annual_max_error_bp": 0.006126126393946052,
+      "issuer_reinvested_distributions": true,
+      "issuer_net_costs": true,
+      "series_basis": "Own share-class growth, net of fund costs with reinvested dividends; published fund calendar returns cross-checked",
+      "reconciliation_warning": null
     },
     "error": ""
   },
@@ -341,7 +485,7 @@
         "url": "https://www.ishares.com/uk/individual/en/products/253488/ishares-global-high-yield-corp-bond-gbp-hedged-ucits-etf-dist/latest-holdings.csv",
         "rows": 2,
         "company_mapping": "Unavailable",
-        "as_of": "2026-10-12"
+        "as_of": "2026-10-13"
       }
     },
     "error": ""
@@ -350,18 +494,88 @@
     "ticker": "GLTL",
     "history": "Acquired",
     "native_currency": "GBP",
-    "first_complete_month": "2012-06",
+    "first_complete_month": "2020-01",
     "last_complete_month": "2026-08",
-    "months": 171,
+    "months": 80,
     "missing_months": [],
-    "reconciliation": "Pending",
+    "reconciliation": "Passed stated checks",
     "details": {
-      "reconciliation_passed": false,
-      "series_basis": "NAV only; missing distributions",
+      "reconciliation_passed": true,
+      "annual_errors": [
+        {
+          "year": 2025,
+          "issuer_return": 0.03598332,
+          "computed_return": 0.035983323459819694,
+          "error_bp": 3.4598196946289406e-05
+        },
+        {
+          "year": 2024,
+          "issuer_return": -0.10646799,
+          "computed_return": -0.10646798214496411,
+          "error_bp": 7.855035885628858e-05
+        },
+        {
+          "year": 2023,
+          "issuer_return": 0.01402854,
+          "computed_return": 0.014028536028970695,
+          "error_bp": -3.9710293057299006e-05
+        },
+        {
+          "year": 2022,
+          "issuer_return": -0.40248336,
+          "computed_return": -0.4024833535789757,
+          "error_bp": 6.42102432335534e-05
+        },
+        {
+          "year": 2021,
+          "issuer_return": -0.07366809,
+          "computed_return": -0.07366808848972883,
+          "error_bp": 1.5102711720116346e-05
+        },
+        {
+          "year": 2020,
+          "issuer_return": 0.13707263,
+          "computed_return": 0.13707262762345107,
+          "error_bp": -2.3765489298721576e-05
+        },
+        {
+          "year": 2019,
+          "issuer_return": 0.11538551999999999,
+          "computed_return": 0.10736302331700176,
+          "error_bp": -80.2249668299823
+        },
+        {
+          "year": 2018,
+          "issuer_return": 0.0005568,
+          "computed_return": 0.0005567950889000528,
+          "error_bp": -4.9110999471779423e-05
+        },
+        {
+          "year": 2017,
+          "issuer_return": 0.03350807,
+          "computed_return": 0.03350806517364169,
+          "error_bp": -4.826358313003709e-05
+        },
+        {
+          "year": 2016,
+          "issuer_return": 0.1869704,
+          "computed_return": 0.186970405123132,
+          "error_bp": 5.123132001960684e-05
+        }
+      ],
+      "excluded_failed_reconciliation_years": [
+        2019
+      ],
+      "retained_annual_max_error_bp": 7.855035885628858e-05,
+      "distribution_records": 27,
+      "ytd_error_bp": 7.756478501153019e-05,
+      "ex_date_nav_max_relative_error": 0.0,
+      "series_basis": "Actual NAV plus published cash distributions reinvested at ex-date close; net issuer calendar returns checked",
+      "reconciliation_warning": "Earlier NAV/distribution reconciliation failed; those years are excluded",
       "holdings_acquisition": {
         "url": "https://www.ssga.com/library-content/products/fund-data/etfs/emea/holdings-daily-emea-en-sybl-gy.xlsx",
         "rows": 27,
-        "as_of": "2026-10-13",
+        "as_of": "2026-10-14",
         "company_mapping": "Unavailable"
       }
     },
@@ -447,7 +661,7 @@
         "url": "https://www.ishares.com/uk/individual/en/products/273192/ishares-msci-china-a-ucits-etf/latest-holdings.csv",
         "rows": 417,
         "company_mapping": "Unavailable",
-        "as_of": "2026-10-12"
+        "as_of": "2026-10-13"
       }
     },
     "error": ""
@@ -1024,7 +1238,7 @@
         "url": "https://www.ishares.com/uk/individual/en/products/297617/ishares-msci-india-ucits-etf/latest-holdings.csv",
         "rows": 165,
         "company_mapping": "Unavailable",
-        "as_of": "2026-10-12"
+        "as_of": "2026-10-13"
       }
     },
     "error": ""
@@ -1340,7 +1554,7 @@
         "url": "https://www.ishares.com/uk/individual/en/products/285207/ishares-edge-msci-usa-value-factor-ucits-etf/latest-holdings.csv",
         "rows": 146,
         "company_mapping": "Unavailable",
-        "as_of": "2026-10-12"
+        "as_of": "2026-10-13"
       }
     },
     "error": ""
@@ -1425,7 +1639,7 @@
         "url": "https://www.ishares.com/uk/individual/en/products/251801/ishares-developed-markets-property-yield-ucits-etf/latest-holdings.csv",
         "rows": 319,
         "company_mapping": "Unavailable",
-        "as_of": "2026-10-12"
+        "as_of": "2026-10-13"
       }
     },
     "error": ""
@@ -1510,7 +1724,7 @@
         "url": "https://www.ishares.com/uk/individual/en/products/270051/ishares-edge-msci-world-momentum-factor-ucits-etf/latest-holdings.csv",
         "rows": 350,
         "company_mapping": "Unavailable",
-        "as_of": "2026-10-12"
+        "as_of": "2026-10-13"
       }
     },
     "error": ""
@@ -1595,7 +1809,7 @@
         "url": "https://www.ishares.com/uk/individual/en/products/270054/ishares-edge-msci-world-quality-factor-ucits-etf/latest-holdings.csv",
         "rows": 290,
         "company_mapping": "Unavailable",
-        "as_of": "2026-10-12"
+        "as_of": "2026-10-13"
       }
     },
     "error": ""
@@ -1680,7 +1894,7 @@
         "url": "https://www.ishares.com/uk/individual/en/products/270057/ishares-msci-world-mid-cap-equal-weight-ucits-etf/latest-holdings.csv",
         "rows": 724,
         "company_mapping": "Unavailable",
-        "as_of": "2026-10-12"
+        "as_of": "2026-10-13"
       }
     },
     "error": "Index/strategy regime change requires current-regime calibration audit"
@@ -1765,7 +1979,7 @@
         "url": "https://www.ishares.com/uk/individual/en/products/270048/ishares-edge-msci-world-value-factor-ucits-etf/latest-holdings.csv",
         "rows": 392,
         "company_mapping": "Unavailable",
-        "as_of": "2026-10-12"
+        "as_of": "2026-10-13"
       }
     },
     "error": ""
@@ -1860,7 +2074,7 @@
         "url": "https://www.ishares.com/uk/individual/en/products/251382/ishares-edge-msci-world-minimum-volatility-ucits-etf/latest-holdings.csv",
         "rows": 297,
         "company_mapping": "Unavailable",
-        "as_of": "2026-10-12"
+        "as_of": "2026-10-13"
       }
     },
     "error": ""
@@ -2188,7 +2402,7 @@
         "url": "https://www.ishares.com/uk/individual/en/products/251882/ishares-core-msci-world-ucits-etf/latest-holdings.csv",
         "rows": 1250,
         "company_mapping": "Unavailable",
-        "as_of": "2026-10-12"
+        "as_of": "2026-10-13"
       }
     },
     "error": ""
@@ -2208,7 +2422,7 @@
       "holdings_acquisition": {
         "url": "https://www.ssga.com/library-content/products/fund-data/etfs/emea/holdings-daily-emea-en-zprv-gy.xlsx",
         "rows": 1625,
-        "as_of": "2026-10-13",
+        "as_of": "2026-10-14",
         "company_mapping": "Unavailable"
       }
     },
@@ -2475,7 +2689,7 @@
     "reconciliation": "Passed stated checks",
     "details": {
       "reconciliation_passed": true,
-      "nav_chart_overlap_days": 4105,
+      "nav_chart_overlap_days": 4106,
       "nav_chart_max_relative_error": 3.8604821742116435e-05,
       "maximum_absolute_daily_move": 0.2394229278627532,
       "issuer_chart_flags": [],
@@ -2500,7 +2714,7 @@
       "holdings_acquisition": {
         "url": "https://www.ssga.com/library-content/products/fund-data/etfs/emea/holdings-daily-emea-en-zprx-gy.xlsx",
         "rows": 805,
-        "as_of": "2026-10-13",
+        "as_of": "2026-10-14",
         "company_mapping": "Unavailable"
       }
     },
