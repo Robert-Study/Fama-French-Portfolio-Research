@@ -1,0 +1,1665 @@
+{
+  "model_version": "0.4.0",
+  "cut_off": "2026-08",
+  "admitted": [
+    "GBP_BANK_SAVINGS",
+    "SGLN",
+    "SSLN",
+    "IGLS",
+    "IGLT",
+    "GLTL",
+    "IBTS",
+    "IBTM",
+    "IBTL",
+    "VWRP",
+    "SWDA",
+    "VUSA",
+    "EQQQ",
+    "VUKE",
+    "VMID",
+    "VERX",
+    "VJPN",
+    "VAPX",
+    "EMIM",
+    "IIND",
+    "IASH",
+    "IWDP",
+    "IWFV",
+    "IWFM",
+    "IWFQ",
+    "MVOL",
+    "WLDS",
+    "USSC",
+    "ZPRX",
+    "IUVF",
+    "IEFV",
+    "EMVL"
+  ],
+  "by_category": {
+    "ETFs": 13,
+    "Factor-tilted ETFs": 10,
+    "Bonds": 6,
+    "Commodities": 2,
+    "Instant-access savings / cash": 1
+  },
+  "diagnostics": [
+    {
+      "instrument": "VWRP",
+      "specification": "ff5_ridge",
+      "ridge_penalty": 0.1,
+      "validation_rmse": 0.0018764816173291083,
+      "holdout_rmse": 0.003576332645450672,
+      "holdout_start": "2025-09",
+      "fitted_net_alpha_monthly": -0.0003025716028571901,
+      "residual_annual_volatility": 0.0061753034788667996,
+      "beta_change_l2": 0.04226713555228767,
+      "holdout_comparisons": {
+        "market": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.003822499082005353
+        },
+        "ff5_ols": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.003582243661221195
+        },
+        "ff5_ridge": {
+          "validation_selected_penalty": 0.1,
+          "holdout_rmse": 0.003576332645450672
+        },
+        "developed_only_ridge": {
+          "validation_selected_penalty": 1.0,
+          "holdout_rmse": 0.0074748164302292
+        }
+      },
+      "start": "2019-08",
+      "end": "2026-08",
+      "months": 85,
+      "candidates": [
+        {
+          "specification": "market",
+          "penalty": 0.0,
+          "validation_rmse": 0.0026208288297054315
+        },
+        {
+          "specification": "ff5_ols",
+          "penalty": 0.0,
+          "validation_rmse": 0.0019156585621022389
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.0,
+          "validation_rmse": 0.0019156585621022389
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.1,
+          "validation_rmse": 0.0018764816173291083
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 1.0,
+          "validation_rmse": 0.00224099354209253
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 10.0,
+          "validation_rmse": 0.008705338371223786
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 100.0,
+          "validation_rmse": 0.020646920621382417
+        },
+        {
+          "specification": "developed_only_ridge",
+          "penalty": 0.0,
+          "validation_rmse": 0.003973988132848666
+        },
+        {
+          "specification": "developed_only_ridge",
+          "penalty": 0.1,
+          "validation_rmse": 0.00395779809318683
+        },
+        {
+          "specification": "developed_only_ridge",
+          "penalty": 1.0,
+          "validation_rmse": 0.00392899215462399
+        },
+        {
+          "specification": "developed_only_ridge",
+          "penalty": 10.0,
+          "validation_rmse": 0.007014075437280493
+        },
+        {
+          "specification": "developed_only_ridge",
+          "penalty": 100.0,
+          "validation_rmse": 0.020009572845685216
+        }
+      ],
+      "factor_currency": "GBP converted",
+      "cash_reference": "Actual Bank of England SONIA, ACT/365 with accrued-level boundary ratios",
+      "factor_vintage": "{\"Asia_Pacific_ex_Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Developed\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Emerging\": {\"end\": \"2026-08\", \"start\": \"1992-07\"}, \"Europe\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"North_America\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"US\": {\"end\": \"2026-08\", \"start\": \"1963-07\"}}",
+      "source_reconciliation": "Input evidence reviewed"
+    },
+    {
+      "instrument": "SWDA",
+      "specification": "ff5_ols",
+      "ridge_penalty": 0.0,
+      "validation_rmse": 0.0020445973963209847,
+      "holdout_rmse": 0.0035180976296100017,
+      "holdout_start": "2025-09",
+      "fitted_net_alpha_monthly": -0.00023935762857308848,
+      "residual_annual_volatility": 0.0070122540916116236,
+      "beta_change_l2": 0.019643225487243447,
+      "holdout_comparisons": {
+        "market": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.003296100706235158
+        },
+        "ff5_ols": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.0035180976296100017
+        },
+        "ff5_ridge": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.0035180976296100017
+        }
+      },
+      "start": "2016-09",
+      "end": "2026-08",
+      "months": 120,
+      "candidates": [
+        {
+          "specification": "market",
+          "penalty": 0.0,
+          "validation_rmse": 0.0034585691610580344
+        },
+        {
+          "specification": "ff5_ols",
+          "penalty": 0.0,
+          "validation_rmse": 0.0020445973963209847
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.0,
+          "validation_rmse": 0.0020445973963209847
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.1,
+          "validation_rmse": 0.0020543032836252677
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 1.0,
+          "validation_rmse": 0.0023378982811125665
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 10.0,
+          "validation_rmse": 0.007593670116949002
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 100.0,
+          "validation_rmse": 0.024494809233960465
+        }
+      ],
+      "factor_currency": "GBP converted",
+      "cash_reference": "Actual Bank of England SONIA, ACT/365 with accrued-level boundary ratios",
+      "factor_vintage": "{\"Asia_Pacific_ex_Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Developed\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Emerging\": {\"end\": \"2026-08\", \"start\": \"1992-07\"}, \"Europe\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"North_America\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"US\": {\"end\": \"2026-08\", \"start\": \"1963-07\"}}",
+      "source_reconciliation": "Input evidence reviewed"
+    },
+    {
+      "instrument": "VUSA",
+      "specification": "ff5_ridge",
+      "ridge_penalty": 1.0,
+      "validation_rmse": 0.0032941813503702864,
+      "holdout_rmse": 0.004851588571547599,
+      "holdout_start": "2025-09",
+      "fitted_net_alpha_monthly": -0.0001878289732466041,
+      "residual_annual_volatility": 0.008853954336606799,
+      "beta_change_l2": 0.03898749764816473,
+      "holdout_comparisons": {
+        "market": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.0023126054013127193
+        },
+        "ff5_ols": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.004558287716826397
+        },
+        "ff5_ridge": {
+          "validation_selected_penalty": 1.0,
+          "holdout_rmse": 0.004851588571547599
+        }
+      },
+      "start": "2016-09",
+      "end": "2026-08",
+      "months": 120,
+      "candidates": [
+        {
+          "specification": "market",
+          "penalty": 0.0,
+          "validation_rmse": 0.005100033970294446
+        },
+        {
+          "specification": "ff5_ols",
+          "penalty": 0.0,
+          "validation_rmse": 0.0033532942677733536
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.0,
+          "validation_rmse": 0.0033532942677733536
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.1,
+          "validation_rmse": 0.0033307449376655837
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 1.0,
+          "validation_rmse": 0.0032941813503702864
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 10.0,
+          "validation_rmse": 0.0077956713160019855
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 100.0,
+          "validation_rmse": 0.025510930909729154
+        }
+      ],
+      "factor_currency": "GBP converted",
+      "cash_reference": "Actual Bank of England SONIA, ACT/365 with accrued-level boundary ratios",
+      "factor_vintage": "{\"Asia_Pacific_ex_Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Developed\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Emerging\": {\"end\": \"2026-08\", \"start\": \"1992-07\"}, \"Europe\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"North_America\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"US\": {\"end\": \"2026-08\", \"start\": \"1963-07\"}}",
+      "source_reconciliation": "Input evidence reviewed"
+    },
+    {
+      "instrument": "EQQQ",
+      "specification": "ff5_ols",
+      "ridge_penalty": 0.0,
+      "validation_rmse": 0.01661249273076176,
+      "holdout_rmse": 0.02400536604517624,
+      "holdout_start": "2025-09",
+      "fitted_net_alpha_monthly": 0.0028572928481183316,
+      "residual_annual_volatility": 0.05006659257963016,
+      "beta_change_l2": 0.1868685866281372,
+      "holdout_comparisons": {
+        "market": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.027635861588193113
+        },
+        "ff5_ols": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.02400536604517624
+        },
+        "ff5_ridge": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.02400536604517624
+        }
+      },
+      "start": "2016-09",
+      "end": "2026-08",
+      "months": 120,
+      "candidates": [
+        {
+          "specification": "market",
+          "penalty": 0.0,
+          "validation_rmse": 0.023643931452097113
+        },
+        {
+          "specification": "ff5_ols",
+          "penalty": 0.0,
+          "validation_rmse": 0.01661249273076176
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.0,
+          "validation_rmse": 0.01661249273076176
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.1,
+          "validation_rmse": 0.016613605793760897
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 1.0,
+          "validation_rmse": 0.016648911248187744
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 10.0,
+          "validation_rmse": 0.01825559911833011
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 100.0,
+          "validation_rmse": 0.03276385911790796
+        }
+      ],
+      "factor_currency": "GBP converted",
+      "cash_reference": "Actual Bank of England SONIA, ACT/365 with accrued-level boundary ratios",
+      "factor_vintage": "{\"Asia_Pacific_ex_Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Developed\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Emerging\": {\"end\": \"2026-08\", \"start\": \"1992-07\"}, \"Europe\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"North_America\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"US\": {\"end\": \"2026-08\", \"start\": \"1963-07\"}}",
+      "source_reconciliation": "Input evidence reviewed"
+    },
+    {
+      "instrument": "VUKE",
+      "specification": "ff5_ols",
+      "ridge_penalty": 0.0,
+      "validation_rmse": 0.01510735963591711,
+      "holdout_rmse": 0.009005600273421621,
+      "holdout_start": "2025-09",
+      "fitted_net_alpha_monthly": -0.0007317924120288548,
+      "residual_annual_volatility": 0.04604718675216917,
+      "beta_change_l2": 0.05850844934296597,
+      "holdout_comparisons": {
+        "market": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.016234943772049093
+        },
+        "ff5_ols": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.009005600273421621
+        },
+        "ff5_ridge": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.009005600273421621
+        }
+      },
+      "start": "2016-09",
+      "end": "2026-08",
+      "months": 120,
+      "candidates": [
+        {
+          "specification": "market",
+          "penalty": 0.0,
+          "validation_rmse": 0.01711205807418398
+        },
+        {
+          "specification": "ff5_ols",
+          "penalty": 0.0,
+          "validation_rmse": 0.01510735963591711
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.0,
+          "validation_rmse": 0.01510735963591711
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.1,
+          "validation_rmse": 0.015116318943687193
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 1.0,
+          "validation_rmse": 0.015219952504317813
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 10.0,
+          "validation_rmse": 0.016940962114340395
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 100.0,
+          "validation_rmse": 0.027298628810502955
+        }
+      ],
+      "factor_currency": "GBP converted",
+      "cash_reference": "Actual Bank of England SONIA, ACT/365 with accrued-level boundary ratios",
+      "factor_vintage": "{\"Asia_Pacific_ex_Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Developed\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Emerging\": {\"end\": \"2026-08\", \"start\": \"1992-07\"}, \"Europe\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"North_America\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"US\": {\"end\": \"2026-08\", \"start\": \"1963-07\"}}",
+      "source_reconciliation": "Input evidence reviewed"
+    },
+    {
+      "instrument": "VMID",
+      "specification": "ff5_ols",
+      "ridge_penalty": 0.0,
+      "validation_rmse": 0.02475863951370636,
+      "holdout_rmse": 0.018253393960874997,
+      "holdout_start": "2025-09",
+      "fitted_net_alpha_monthly": -0.0011590415622197998,
+      "residual_annual_volatility": 0.06346610745911063,
+      "beta_change_l2": 0.11845382068601175,
+      "holdout_comparisons": {
+        "market": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.024907263342294036
+        },
+        "ff5_ols": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.018253393960874997
+        },
+        "ff5_ridge": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.018253393960874997
+        }
+      },
+      "start": "2016-09",
+      "end": "2026-08",
+      "months": 120,
+      "candidates": [
+        {
+          "specification": "market",
+          "penalty": 0.0,
+          "validation_rmse": 0.029200773026445324
+        },
+        {
+          "specification": "ff5_ols",
+          "penalty": 0.0,
+          "validation_rmse": 0.02475863951370636
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.0,
+          "validation_rmse": 0.02475863951370636
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.1,
+          "validation_rmse": 0.024798343348857846
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 1.0,
+          "validation_rmse": 0.025141181360792436
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 10.0,
+          "validation_rmse": 0.02794611035923813
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 100.0,
+          "validation_rmse": 0.03974213842730064
+        }
+      ],
+      "factor_currency": "GBP converted",
+      "cash_reference": "Actual Bank of England SONIA, ACT/365 with accrued-level boundary ratios",
+      "factor_vintage": "{\"Asia_Pacific_ex_Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Developed\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Emerging\": {\"end\": \"2026-08\", \"start\": \"1992-07\"}, \"Europe\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"North_America\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"US\": {\"end\": \"2026-08\", \"start\": \"1963-07\"}}",
+      "source_reconciliation": "Input evidence reviewed"
+    },
+    {
+      "instrument": "VERX",
+      "specification": "ff5_ridge",
+      "ridge_penalty": 1.0,
+      "validation_rmse": 0.007032507988120327,
+      "holdout_rmse": 0.008208028971762774,
+      "holdout_start": "2025-09",
+      "fitted_net_alpha_monthly": 0.00023527726813521964,
+      "residual_annual_volatility": 0.02204729765444574,
+      "beta_change_l2": 0.04454282643090088,
+      "holdout_comparisons": {
+        "market": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.009292740005667804
+        },
+        "ff5_ols": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.008228978839007578
+        },
+        "ff5_ridge": {
+          "validation_selected_penalty": 1.0,
+          "holdout_rmse": 0.008208028971762774
+        }
+      },
+      "start": "2016-09",
+      "end": "2026-08",
+      "months": 120,
+      "candidates": [
+        {
+          "specification": "market",
+          "penalty": 0.0,
+          "validation_rmse": 0.007322139466106157
+        },
+        {
+          "specification": "ff5_ols",
+          "penalty": 0.0,
+          "validation_rmse": 0.007055288215318433
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.0,
+          "validation_rmse": 0.007055288215318433
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.1,
+          "validation_rmse": 0.00704673417870832
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 1.0,
+          "validation_rmse": 0.007032507988120327
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 10.0,
+          "validation_rmse": 0.009749610339555348
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 100.0,
+          "validation_rmse": 0.026864206746424885
+        }
+      ],
+      "factor_currency": "GBP converted",
+      "cash_reference": "Actual Bank of England SONIA, ACT/365 with accrued-level boundary ratios",
+      "factor_vintage": "{\"Asia_Pacific_ex_Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Developed\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Emerging\": {\"end\": \"2026-08\", \"start\": \"1992-07\"}, \"Europe\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"North_America\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"US\": {\"end\": \"2026-08\", \"start\": \"1963-07\"}}",
+      "source_reconciliation": "Input evidence reviewed"
+    },
+    {
+      "instrument": "VJPN",
+      "specification": "ff5_ridge",
+      "ridge_penalty": 1.0,
+      "validation_rmse": 0.0046256200051438025,
+      "holdout_rmse": 0.005290061453086969,
+      "holdout_start": "2025-09",
+      "fitted_net_alpha_monthly": -0.0002507390810050549,
+      "residual_annual_volatility": 0.015068346159587177,
+      "beta_change_l2": 0.03258272916178067,
+      "holdout_comparisons": {
+        "market": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.0058508606994666906
+        },
+        "ff5_ols": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.005153523243475396
+        },
+        "ff5_ridge": {
+          "validation_selected_penalty": 1.0,
+          "holdout_rmse": 0.005290061453086969
+        }
+      },
+      "start": "2016-09",
+      "end": "2026-08",
+      "months": 120,
+      "candidates": [
+        {
+          "specification": "market",
+          "penalty": 0.0,
+          "validation_rmse": 0.005050824897559468
+        },
+        {
+          "specification": "ff5_ols",
+          "penalty": 0.0,
+          "validation_rmse": 0.004777627839658774
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.0,
+          "validation_rmse": 0.004777627839658774
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.1,
+          "validation_rmse": 0.004753223721413516
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 1.0,
+          "validation_rmse": 0.0046256200051438025
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 10.0,
+          "validation_rmse": 0.007306936117736172
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 100.0,
+          "validation_rmse": 0.021866008034721145
+        }
+      ],
+      "factor_currency": "GBP converted",
+      "cash_reference": "Actual Bank of England SONIA, ACT/365 with accrued-level boundary ratios",
+      "factor_vintage": "{\"Asia_Pacific_ex_Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Developed\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Emerging\": {\"end\": \"2026-08\", \"start\": \"1992-07\"}, \"Europe\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"North_America\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"US\": {\"end\": \"2026-08\", \"start\": \"1963-07\"}}",
+      "source_reconciliation": "Input evidence reviewed"
+    },
+    {
+      "instrument": "VAPX",
+      "specification": "ff5_ols",
+      "ridge_penalty": 0.0,
+      "validation_rmse": 0.0167636926697115,
+      "holdout_rmse": 0.08507565153033832,
+      "holdout_start": "2025-09",
+      "fitted_net_alpha_monthly": 0.0039044469294292113,
+      "residual_annual_volatility": 0.10048561447516786,
+      "beta_change_l2": 0.37820661274601003,
+      "holdout_comparisons": {
+        "market": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.08409126641995761
+        },
+        "ff5_ols": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.08507565153033832
+        },
+        "ff5_ridge": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.08507565153033832
+        }
+      },
+      "start": "2016-09",
+      "end": "2026-08",
+      "months": 120,
+      "candidates": [
+        {
+          "specification": "market",
+          "penalty": 0.0,
+          "validation_rmse": 0.016899293132335187
+        },
+        {
+          "specification": "ff5_ols",
+          "penalty": 0.0,
+          "validation_rmse": 0.0167636926697115
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.0,
+          "validation_rmse": 0.0167636926697115
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.1,
+          "validation_rmse": 0.016768245951051346
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 1.0,
+          "validation_rmse": 0.016833762210116524
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 10.0,
+          "validation_rmse": 0.018718078090951783
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 100.0,
+          "validation_rmse": 0.03230776269548843
+        }
+      ],
+      "factor_currency": "GBP converted",
+      "cash_reference": "Actual Bank of England SONIA, ACT/365 with accrued-level boundary ratios",
+      "factor_vintage": "{\"Asia_Pacific_ex_Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Developed\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Emerging\": {\"end\": \"2026-08\", \"start\": \"1992-07\"}, \"Europe\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"North_America\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"US\": {\"end\": \"2026-08\", \"start\": \"1963-07\"}}",
+      "source_reconciliation": "Input evidence reviewed"
+    },
+    {
+      "instrument": "EMIM",
+      "specification": "ff5_ridge",
+      "ridge_penalty": 0.1,
+      "validation_rmse": 0.0033781683321456655,
+      "holdout_rmse": 0.003924041747647751,
+      "holdout_start": "2025-09",
+      "fitted_net_alpha_monthly": -0.0004002529331133889,
+      "residual_annual_volatility": 0.009875258853397286,
+      "beta_change_l2": 0.038189560921782724,
+      "holdout_comparisons": {
+        "market": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.004875239005690282
+        },
+        "ff5_ols": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.003949277756144737
+        },
+        "ff5_ridge": {
+          "validation_selected_penalty": 0.1,
+          "holdout_rmse": 0.003924041747647751
+        }
+      },
+      "start": "2016-09",
+      "end": "2026-08",
+      "months": 120,
+      "candidates": [
+        {
+          "specification": "market",
+          "penalty": 0.0,
+          "validation_rmse": 0.0048056223711572844
+        },
+        {
+          "specification": "ff5_ols",
+          "penalty": 0.0,
+          "validation_rmse": 0.0033926285815103407
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.0,
+          "validation_rmse": 0.0033926285815103407
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.1,
+          "validation_rmse": 0.0033781683321456655
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 1.0,
+          "validation_rmse": 0.003436790266654819
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 10.0,
+          "validation_rmse": 0.008578919641030075
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 100.0,
+          "validation_rmse": 0.02609985736134299
+        }
+      ],
+      "factor_currency": "GBP converted",
+      "cash_reference": "Actual Bank of England SONIA, ACT/365 with accrued-level boundary ratios",
+      "factor_vintage": "{\"Asia_Pacific_ex_Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Developed\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Emerging\": {\"end\": \"2026-08\", \"start\": \"1992-07\"}, \"Europe\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"North_America\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"US\": {\"end\": \"2026-08\", \"start\": \"1963-07\"}}",
+      "source_reconciliation": "Input evidence reviewed"
+    },
+    {
+      "instrument": "IIND",
+      "specification": "ff5_ols",
+      "ridge_penalty": 0.0,
+      "validation_rmse": 0.03276303509010361,
+      "holdout_rmse": 0.04209870335185636,
+      "holdout_start": "2025-09",
+      "fitted_net_alpha_monthly": -0.005297424215406795,
+      "residual_annual_volatility": 0.11896586384729392,
+      "beta_change_l2": 0.2408507680190481,
+      "holdout_comparisons": {
+        "market": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.051719583444312225
+        },
+        "ff5_ols": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.04209870335185636
+        },
+        "ff5_ridge": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.04209870335185636
+        }
+      },
+      "start": "2018-06",
+      "end": "2026-08",
+      "months": 99,
+      "candidates": [
+        {
+          "specification": "market",
+          "penalty": 0.0,
+          "validation_rmse": 0.042704072673335994
+        },
+        {
+          "specification": "ff5_ols",
+          "penalty": 0.0,
+          "validation_rmse": 0.03276303509010361
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.0,
+          "validation_rmse": 0.03276303509010361
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.1,
+          "validation_rmse": 0.0327650397604188
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 1.0,
+          "validation_rmse": 0.032792760439688255
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 10.0,
+          "validation_rmse": 0.03334843495097364
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 100.0,
+          "validation_rmse": 0.03762396931103436
+        }
+      ],
+      "factor_currency": "GBP converted",
+      "cash_reference": "Actual Bank of England SONIA, ACT/365 with accrued-level boundary ratios",
+      "factor_vintage": "{\"Asia_Pacific_ex_Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Developed\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Emerging\": {\"end\": \"2026-08\", \"start\": \"1992-07\"}, \"Europe\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"North_America\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"US\": {\"end\": \"2026-08\", \"start\": \"1963-07\"}}",
+      "source_reconciliation": "Input evidence reviewed"
+    },
+    {
+      "instrument": "IASH",
+      "specification": "ff5_ridge",
+      "ridge_penalty": 1.0,
+      "validation_rmse": 0.0443302254157663,
+      "holdout_rmse": 0.03359351266189611,
+      "holdout_start": "2025-09",
+      "fitted_net_alpha_monthly": 0.004079114196109365,
+      "residual_annual_volatility": 0.13672440512348877,
+      "beta_change_l2": 0.30929706503314397,
+      "holdout_comparisons": {
+        "market": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.029180682273470638
+        },
+        "ff5_ols": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.03428207520655212
+        },
+        "ff5_ridge": {
+          "validation_selected_penalty": 1.0,
+          "holdout_rmse": 0.03359351266189611
+        }
+      },
+      "start": "2016-09",
+      "end": "2026-08",
+      "months": 120,
+      "candidates": [
+        {
+          "specification": "market",
+          "penalty": 0.0,
+          "validation_rmse": 0.04805510711336209
+        },
+        {
+          "specification": "ff5_ols",
+          "penalty": 0.0,
+          "validation_rmse": 0.04437241850137729
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.0,
+          "validation_rmse": 0.04437241850137729
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.1,
+          "validation_rmse": 0.044366921738108155
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 1.0,
+          "validation_rmse": 0.0443302254157663
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 10.0,
+          "validation_rmse": 0.04460174057382481
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 100.0,
+          "validation_rmse": 0.0492270677289031
+        }
+      ],
+      "factor_currency": "GBP converted",
+      "cash_reference": "Actual Bank of England SONIA, ACT/365 with accrued-level boundary ratios",
+      "factor_vintage": "{\"Asia_Pacific_ex_Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Developed\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Emerging\": {\"end\": \"2026-08\", \"start\": \"1992-07\"}, \"Europe\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"North_America\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"US\": {\"end\": \"2026-08\", \"start\": \"1963-07\"}}",
+      "source_reconciliation": "Input evidence reviewed"
+    },
+    {
+      "instrument": "IWDP",
+      "specification": "market",
+      "ridge_penalty": 0.0,
+      "validation_rmse": 0.027768169063819476,
+      "holdout_rmse": 0.03135392045553868,
+      "holdout_start": "2025-09",
+      "fitted_net_alpha_monthly": -0.006678564080873307,
+      "residual_annual_volatility": 0.09401561583217265,
+      "beta_change_l2": 0.009065224999526555,
+      "holdout_comparisons": {
+        "market": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.03135392045553868
+        },
+        "ff5_ols": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.02314774420803119
+        },
+        "ff5_ridge": {
+          "validation_selected_penalty": 1.0,
+          "holdout_rmse": 0.02327511462750126
+        }
+      },
+      "start": "2016-09",
+      "end": "2026-08",
+      "months": 120,
+      "candidates": [
+        {
+          "specification": "market",
+          "penalty": 0.0,
+          "validation_rmse": 0.027768169063819476
+        },
+        {
+          "specification": "ff5_ols",
+          "penalty": 0.0,
+          "validation_rmse": 0.031894743119912444
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.0,
+          "validation_rmse": 0.031894743119912444
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.1,
+          "validation_rmse": 0.03185174657496333
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 1.0,
+          "validation_rmse": 0.03156936136425721
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 10.0,
+          "validation_rmse": 0.03187361181772926
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 100.0,
+          "validation_rmse": 0.0384824176776304
+        }
+      ],
+      "factor_currency": "GBP converted",
+      "cash_reference": "Actual Bank of England SONIA, ACT/365 with accrued-level boundary ratios",
+      "factor_vintage": "{\"Asia_Pacific_ex_Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Developed\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Emerging\": {\"end\": \"2026-08\", \"start\": \"1992-07\"}, \"Europe\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"North_America\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"US\": {\"end\": \"2026-08\", \"start\": \"1963-07\"}}",
+      "source_reconciliation": "Input evidence reviewed"
+    },
+    {
+      "instrument": "IWFV",
+      "specification": "ff5_ridge",
+      "ridge_penalty": 1.0,
+      "validation_rmse": 0.0127902710324886,
+      "holdout_rmse": 0.04522751321437035,
+      "holdout_start": "2025-09",
+      "fitted_net_alpha_monthly": 0.00028480917072301604,
+      "residual_annual_volatility": 0.055476338465771886,
+      "beta_change_l2": 0.4857415856197259,
+      "holdout_comparisons": {
+        "market": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.04146791525366783
+        },
+        "ff5_ols": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.04527159281676237
+        },
+        "ff5_ridge": {
+          "validation_selected_penalty": 1.0,
+          "holdout_rmse": 0.04522751321437035
+        }
+      },
+      "start": "2016-09",
+      "end": "2026-08",
+      "months": 120,
+      "candidates": [
+        {
+          "specification": "market",
+          "penalty": 0.0,
+          "validation_rmse": 0.022761238025041337
+        },
+        {
+          "specification": "ff5_ols",
+          "penalty": 0.0,
+          "validation_rmse": 0.01296329931460542
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.0,
+          "validation_rmse": 0.01296329931460542
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.1,
+          "validation_rmse": 0.012938033327457767
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 1.0,
+          "validation_rmse": 0.0127902710324886
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 10.0,
+          "validation_rmse": 0.01420159441669858
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 100.0,
+          "validation_rmse": 0.02749297836535116
+        }
+      ],
+      "factor_currency": "GBP converted",
+      "cash_reference": "Actual Bank of England SONIA, ACT/365 with accrued-level boundary ratios",
+      "factor_vintage": "{\"Asia_Pacific_ex_Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Developed\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Emerging\": {\"end\": \"2026-08\", \"start\": \"1992-07\"}, \"Europe\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"North_America\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"US\": {\"end\": \"2026-08\", \"start\": \"1963-07\"}}",
+      "source_reconciliation": "Input evidence reviewed"
+    },
+    {
+      "instrument": "IWFM",
+      "specification": "ff5_ridge",
+      "ridge_penalty": 1.0,
+      "validation_rmse": 0.020526187714648043,
+      "holdout_rmse": 0.03801991510093328,
+      "holdout_start": "2025-09",
+      "fitted_net_alpha_monthly": 0.0021606174804517583,
+      "residual_annual_volatility": 0.06371780164652033,
+      "beta_change_l2": 0.5422780650245104,
+      "holdout_comparisons": {
+        "market": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.04355352196716413
+        },
+        "ff5_ols": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.03734018398762781
+        },
+        "ff5_ridge": {
+          "validation_selected_penalty": 1.0,
+          "holdout_rmse": 0.03801991510093328
+        }
+      },
+      "start": "2016-09",
+      "end": "2026-08",
+      "months": 120,
+      "candidates": [
+        {
+          "specification": "market",
+          "penalty": 0.0,
+          "validation_rmse": 0.021240809525325487
+        },
+        {
+          "specification": "ff5_ols",
+          "penalty": 0.0,
+          "validation_rmse": 0.0206542862664502
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.0,
+          "validation_rmse": 0.0206542862664502
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.1,
+          "validation_rmse": 0.020638087851111
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 1.0,
+          "validation_rmse": 0.020526187714648043
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 10.0,
+          "validation_rmse": 0.02058541509851791
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 100.0,
+          "validation_rmse": 0.02769081274870615
+        }
+      ],
+      "factor_currency": "GBP converted",
+      "cash_reference": "Actual Bank of England SONIA, ACT/365 with accrued-level boundary ratios",
+      "factor_vintage": "{\"Asia_Pacific_ex_Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Developed\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Emerging\": {\"end\": \"2026-08\", \"start\": \"1992-07\"}, \"Europe\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"North_America\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"US\": {\"end\": \"2026-08\", \"start\": \"1963-07\"}}",
+      "source_reconciliation": "Input evidence reviewed"
+    },
+    {
+      "instrument": "IWFQ",
+      "specification": "ff5_ridge",
+      "ridge_penalty": 0.1,
+      "validation_rmse": 0.006721449029926224,
+      "holdout_rmse": 0.01370416834322915,
+      "holdout_start": "2025-09",
+      "fitted_net_alpha_monthly": -0.0005961786453600217,
+      "residual_annual_volatility": 0.024208282570693872,
+      "beta_change_l2": 0.1567235870188447,
+      "holdout_comparisons": {
+        "market": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.009968091626834066
+        },
+        "ff5_ols": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.013690149351321162
+        },
+        "ff5_ridge": {
+          "validation_selected_penalty": 0.1,
+          "holdout_rmse": 0.01370416834322915
+        }
+      },
+      "start": "2016-09",
+      "end": "2026-08",
+      "months": 120,
+      "candidates": [
+        {
+          "specification": "market",
+          "penalty": 0.0,
+          "validation_rmse": 0.009911178589916659
+        },
+        {
+          "specification": "ff5_ols",
+          "penalty": 0.0,
+          "validation_rmse": 0.006725610181155582
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.0,
+          "validation_rmse": 0.006725610181155582
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.1,
+          "validation_rmse": 0.006721449029926224
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 1.0,
+          "validation_rmse": 0.006761492924016276
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 10.0,
+          "validation_rmse": 0.009685810611748984
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 100.0,
+          "validation_rmse": 0.024335530352324233
+        }
+      ],
+      "factor_currency": "GBP converted",
+      "cash_reference": "Actual Bank of England SONIA, ACT/365 with accrued-level boundary ratios",
+      "factor_vintage": "{\"Asia_Pacific_ex_Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Developed\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Emerging\": {\"end\": \"2026-08\", \"start\": \"1992-07\"}, \"Europe\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"North_America\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"US\": {\"end\": \"2026-08\", \"start\": \"1963-07\"}}",
+      "source_reconciliation": "Input evidence reviewed"
+    },
+    {
+      "instrument": "MVOL",
+      "specification": "ff5_ridge",
+      "ridge_penalty": 10.0,
+      "validation_rmse": 0.018969968816402238,
+      "holdout_rmse": 0.019870163763655354,
+      "holdout_start": "2025-09",
+      "fitted_net_alpha_monthly": -0.0015212257186713578,
+      "residual_annual_volatility": 0.0562620593298113,
+      "beta_change_l2": 0.12405099862123004,
+      "holdout_comparisons": {
+        "market": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.02602292518663008
+        },
+        "ff5_ols": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.019764021252433036
+        },
+        "ff5_ridge": {
+          "validation_selected_penalty": 10.0,
+          "holdout_rmse": 0.019870163763655354
+        }
+      },
+      "start": "2016-09",
+      "end": "2026-08",
+      "months": 120,
+      "candidates": [
+        {
+          "specification": "market",
+          "penalty": 0.0,
+          "validation_rmse": 0.019022766421511454
+        },
+        {
+          "specification": "ff5_ols",
+          "penalty": 0.0,
+          "validation_rmse": 0.019706090653326173
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.0,
+          "validation_rmse": 0.019706090653326173
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.1,
+          "validation_rmse": 0.019663575249128186
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 1.0,
+          "validation_rmse": 0.01936003437195247
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 10.0,
+          "validation_rmse": 0.018969968816402238
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 100.0,
+          "validation_rmse": 0.023070614492904422
+        }
+      ],
+      "factor_currency": "GBP converted",
+      "cash_reference": "Actual Bank of England SONIA, ACT/365 with accrued-level boundary ratios",
+      "factor_vintage": "{\"Asia_Pacific_ex_Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Developed\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Emerging\": {\"end\": \"2026-08\", \"start\": \"1992-07\"}, \"Europe\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"North_America\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"US\": {\"end\": \"2026-08\", \"start\": \"1963-07\"}}",
+      "source_reconciliation": "Input evidence reviewed"
+    },
+    {
+      "instrument": "WLDS",
+      "specification": "ff5_ridge",
+      "ridge_penalty": 0.1,
+      "validation_rmse": 0.008928390522020385,
+      "holdout_rmse": 0.013845174625249996,
+      "holdout_start": "2025-09",
+      "fitted_net_alpha_monthly": -0.0005077015438187038,
+      "residual_annual_volatility": 0.029563097736621493,
+      "beta_change_l2": 0.09775066875841534,
+      "holdout_comparisons": {
+        "market": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.018209789348706373
+        },
+        "ff5_ols": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.013850144647095356
+        },
+        "ff5_ridge": {
+          "validation_selected_penalty": 0.1,
+          "holdout_rmse": 0.013845174625249996
+        }
+      },
+      "start": "2018-04",
+      "end": "2026-08",
+      "months": 101,
+      "candidates": [
+        {
+          "specification": "market",
+          "penalty": 0.0,
+          "validation_rmse": 0.017655281632824357
+        },
+        {
+          "specification": "ff5_ols",
+          "penalty": 0.0,
+          "validation_rmse": 0.00893170536474222
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.0,
+          "validation_rmse": 0.00893170536474222
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.1,
+          "validation_rmse": 0.008928390522020385
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 1.0,
+          "validation_rmse": 0.008935905925096653
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 10.0,
+          "validation_rmse": 0.01091109061784762
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 100.0,
+          "validation_rmse": 0.026556353350819604
+        }
+      ],
+      "factor_currency": "GBP converted",
+      "cash_reference": "Actual Bank of England SONIA, ACT/365 with accrued-level boundary ratios",
+      "factor_vintage": "{\"Asia_Pacific_ex_Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Developed\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Emerging\": {\"end\": \"2026-08\", \"start\": \"1992-07\"}, \"Europe\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"North_America\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"US\": {\"end\": \"2026-08\", \"start\": \"1963-07\"}}",
+      "source_reconciliation": "Input evidence reviewed"
+    },
+    {
+      "instrument": "USSC",
+      "specification": "ff5_ols",
+      "ridge_penalty": 0.0,
+      "validation_rmse": 0.009254954765890916,
+      "holdout_rmse": 0.008388352403166105,
+      "holdout_start": "2025-09",
+      "fitted_net_alpha_monthly": -0.0007722430494175973,
+      "residual_annual_volatility": 0.025400888654841892,
+      "beta_change_l2": 0.03953255272359978,
+      "holdout_comparisons": {
+        "market": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.03699164323634039
+        },
+        "ff5_ols": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.008388352403166105
+        },
+        "ff5_ridge": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.008388352403166105
+        }
+      },
+      "start": "2016-09",
+      "end": "2026-08",
+      "months": 120,
+      "candidates": [
+        {
+          "specification": "market",
+          "penalty": 0.0,
+          "validation_rmse": 0.03979872385036428
+        },
+        {
+          "specification": "ff5_ols",
+          "penalty": 0.0,
+          "validation_rmse": 0.009254954765890916
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.0,
+          "validation_rmse": 0.009254954765890916
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.1,
+          "validation_rmse": 0.009278512438922836
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 1.0,
+          "validation_rmse": 0.009562417852604286
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 10.0,
+          "validation_rmse": 0.014703043607483635
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 100.0,
+          "validation_rmse": 0.04007213074171896
+        }
+      ],
+      "factor_currency": "GBP converted",
+      "cash_reference": "Actual Bank of England SONIA, ACT/365 with accrued-level boundary ratios",
+      "factor_vintage": "{\"Asia_Pacific_ex_Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Developed\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Emerging\": {\"end\": \"2026-08\", \"start\": \"1992-07\"}, \"Europe\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"North_America\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"US\": {\"end\": \"2026-08\", \"start\": \"1963-07\"}}",
+      "source_reconciliation": "Input evidence reviewed"
+    },
+    {
+      "instrument": "ZPRX",
+      "specification": "ff5_ols",
+      "ridge_penalty": 0.0,
+      "validation_rmse": 0.011940425306137023,
+      "holdout_rmse": 0.011012207011602155,
+      "holdout_start": "2025-09",
+      "fitted_net_alpha_monthly": -0.00174361515051778,
+      "residual_annual_volatility": 0.03544454306251779,
+      "beta_change_l2": 0.10001221525137409,
+      "holdout_comparisons": {
+        "market": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.023816441915872153
+        },
+        "ff5_ols": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.011012207011602155
+        },
+        "ff5_ridge": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.011012207011602155
+        }
+      },
+      "start": "2016-09",
+      "end": "2026-08",
+      "months": 120,
+      "candidates": [
+        {
+          "specification": "market",
+          "penalty": 0.0,
+          "validation_rmse": 0.02317094114603783
+        },
+        {
+          "specification": "ff5_ols",
+          "penalty": 0.0,
+          "validation_rmse": 0.011940425306137023
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.0,
+          "validation_rmse": 0.011940425306137023
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.1,
+          "validation_rmse": 0.011994336427124554
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 1.0,
+          "validation_rmse": 0.012513866637140365
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 10.0,
+          "validation_rmse": 0.018028616376815073
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 100.0,
+          "validation_rmse": 0.03897652968695423
+        }
+      ],
+      "factor_currency": "GBP converted",
+      "cash_reference": "Actual Bank of England SONIA, ACT/365 with accrued-level boundary ratios",
+      "factor_vintage": "{\"Asia_Pacific_ex_Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Developed\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Emerging\": {\"end\": \"2026-08\", \"start\": \"1992-07\"}, \"Europe\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"North_America\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"US\": {\"end\": \"2026-08\", \"start\": \"1963-07\"}}",
+      "source_reconciliation": "Input evidence reviewed"
+    },
+    {
+      "instrument": "IUVF",
+      "specification": "ff5_ridge",
+      "ridge_penalty": 1.0,
+      "validation_rmse": 0.016903180769109957,
+      "holdout_rmse": 0.06167666883817538,
+      "holdout_start": "2025-09",
+      "fitted_net_alpha_monthly": -0.00012299597925487238,
+      "residual_annual_volatility": 0.0715763501791398,
+      "beta_change_l2": 0.4641570782843908,
+      "holdout_comparisons": {
+        "market": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.05596292319001508
+        },
+        "ff5_ols": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.06131504262066899
+        },
+        "ff5_ridge": {
+          "validation_selected_penalty": 1.0,
+          "holdout_rmse": 0.06167666883817538
+        }
+      },
+      "start": "2016-11",
+      "end": "2026-08",
+      "months": 118,
+      "candidates": [
+        {
+          "specification": "market",
+          "penalty": 0.0,
+          "validation_rmse": 0.02770255126041112
+        },
+        {
+          "specification": "ff5_ols",
+          "penalty": 0.0,
+          "validation_rmse": 0.01716942398564237
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.0,
+          "validation_rmse": 0.01716942398564237
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.1,
+          "validation_rmse": 0.017138101907805275
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 1.0,
+          "validation_rmse": 0.016903180769109957
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 10.0,
+          "validation_rmse": 0.017240629454760098
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 100.0,
+          "validation_rmse": 0.03193593294269339
+        }
+      ],
+      "factor_currency": "GBP converted",
+      "cash_reference": "Actual Bank of England SONIA, ACT/365 with accrued-level boundary ratios",
+      "factor_vintage": "{\"Asia_Pacific_ex_Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Developed\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Emerging\": {\"end\": \"2026-08\", \"start\": \"1992-07\"}, \"Europe\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"North_America\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"US\": {\"end\": \"2026-08\", \"start\": \"1963-07\"}}",
+      "source_reconciliation": "Input evidence reviewed"
+    },
+    {
+      "instrument": "IEFV",
+      "specification": "ff5_ridge",
+      "ridge_penalty": 0.1,
+      "validation_rmse": 0.01034731990295898,
+      "holdout_rmse": 0.010843866867917919,
+      "holdout_start": "2025-09",
+      "fitted_net_alpha_monthly": -0.0012852645770878024,
+      "residual_annual_volatility": 0.0312925111012107,
+      "beta_change_l2": 0.10938478663401414,
+      "holdout_comparisons": {
+        "market": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.011811025497865328
+        },
+        "ff5_ols": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.01084249555616116
+        },
+        "ff5_ridge": {
+          "validation_selected_penalty": 0.1,
+          "holdout_rmse": 0.010843866867917919
+        }
+      },
+      "start": "2016-09",
+      "end": "2026-08",
+      "months": 120,
+      "candidates": [
+        {
+          "specification": "market",
+          "penalty": 0.0,
+          "validation_rmse": 0.019159921123817505
+        },
+        {
+          "specification": "ff5_ols",
+          "penalty": 0.0,
+          "validation_rmse": 0.01035656347910318
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.0,
+          "validation_rmse": 0.01035656347910318
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.1,
+          "validation_rmse": 0.01034731990295898
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 1.0,
+          "validation_rmse": 0.010370544026801156
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 10.0,
+          "validation_rmse": 0.013838195425531894
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 100.0,
+          "validation_rmse": 0.03244437781743212
+        }
+      ],
+      "factor_currency": "GBP converted",
+      "cash_reference": "Actual Bank of England SONIA, ACT/365 with accrued-level boundary ratios",
+      "factor_vintage": "{\"Asia_Pacific_ex_Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Developed\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Emerging\": {\"end\": \"2026-08\", \"start\": \"1992-07\"}, \"Europe\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"North_America\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"US\": {\"end\": \"2026-08\", \"start\": \"1963-07\"}}",
+      "source_reconciliation": "Input evidence reviewed"
+    },
+    {
+      "instrument": "EMVL",
+      "specification": "ff5_ols",
+      "ridge_penalty": 0.0,
+      "validation_rmse": 0.013235939569693534,
+      "holdout_rmse": 0.022804114552921646,
+      "holdout_start": "2025-09",
+      "fitted_net_alpha_monthly": 4.298201719970564e-05,
+      "residual_annual_volatility": 0.04845082309986241,
+      "beta_change_l2": 0.114104636124229,
+      "holdout_comparisons": {
+        "market": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.03423046747184257
+        },
+        "ff5_ols": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.022804114552921646
+        },
+        "ff5_ridge": {
+          "validation_selected_penalty": 0.0,
+          "holdout_rmse": 0.022804114552921646
+        }
+      },
+      "start": "2019-01",
+      "end": "2026-08",
+      "months": 92,
+      "candidates": [
+        {
+          "specification": "market",
+          "penalty": 0.0,
+          "validation_rmse": 0.01587411622502615
+        },
+        {
+          "specification": "ff5_ols",
+          "penalty": 0.0,
+          "validation_rmse": 0.013235939569693534
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.0,
+          "validation_rmse": 0.013235939569693534
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 0.1,
+          "validation_rmse": 0.013284832546070088
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 1.0,
+          "validation_rmse": 0.013730727910558356
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 10.0,
+          "validation_rmse": 0.017926558872470515
+        },
+        {
+          "specification": "ff5_ridge",
+          "penalty": 100.0,
+          "validation_rmse": 0.031242140066770587
+        }
+      ],
+      "factor_currency": "GBP converted",
+      "cash_reference": "Actual Bank of England SONIA, ACT/365 with accrued-level boundary ratios",
+      "factor_vintage": "{\"Asia_Pacific_ex_Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Developed\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Emerging\": {\"end\": \"2026-08\", \"start\": \"1992-07\"}, \"Europe\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"Japan\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"North_America\": {\"end\": \"2026-08\", \"start\": \"1990-07\"}, \"US\": {\"end\": \"2026-08\", \"start\": \"1963-07\"}}",
+      "source_reconciliation": "Input evidence reviewed"
+    }
+  ],
+  "risk_months": 80,
+  "run_id": "58a12eb05c15"
+}

@@ -1,0 +1,2967 @@
+{
+  "SGLN": {
+    "source": "https://www.ishares.com/uk/individual/en/products/258441/",
+    "facts": {
+      "baseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "emeaMgt": {
+        "value": 0.12,
+        "display": "0.12%",
+        "as_of": null
+      },
+      "indexSeriesName": {
+        "value": "LBMA Gold Price",
+        "display": "LBMA Gold Price",
+        "as_of": null
+      },
+      "isin": {
+        "value": "IE00B4ND3602",
+        "display": "IE00B4ND3602",
+        "as_of": null
+      },
+      "issuingCompany": {
+        "value": "iShares Physical Metals plc",
+        "display": "iShares Physical Metals plc",
+        "as_of": null
+      },
+      "launchDate": {
+        "value": 20110408,
+        "display": "08/Apr/2011",
+        "as_of": null
+      },
+      "productStructure": {
+        "value": "Physical metal",
+        "display": "Physical metal",
+        "as_of": null
+      },
+      "ucitsCompliantFlag": {
+        "value": "No",
+        "display": "No",
+        "as_of": null
+      },
+      "useOfProfitsCode": {
+        "value": "No Income",
+        "display": "No Income",
+        "as_of": null
+      }
+    },
+    "bond_and_risk_fields": {},
+    "holdings_acquisition": null
+  },
+  "SSLN": {
+    "source": "https://www.ishares.com/uk/individual/en/products/258443/",
+    "facts": {
+      "baseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "emeaMgt": {
+        "value": 0.2,
+        "display": "0.20%",
+        "as_of": null
+      },
+      "indexSeriesName": {
+        "value": "Benchmark for Physical Silver",
+        "display": "Benchmark for Physical Silver",
+        "as_of": null
+      },
+      "isin": {
+        "value": "IE00B4NCWG09",
+        "display": "IE00B4NCWG09",
+        "as_of": null
+      },
+      "issuingCompany": {
+        "value": "iShares Physical Metals plc",
+        "display": "iShares Physical Metals plc",
+        "as_of": null
+      },
+      "launchDate": {
+        "value": 20110408,
+        "display": "08/Apr/2011",
+        "as_of": null
+      },
+      "productStructure": {
+        "value": "Physical metal",
+        "display": "Physical metal",
+        "as_of": null
+      },
+      "ucitsCompliantFlag": {
+        "value": "No",
+        "display": "No",
+        "as_of": null
+      },
+      "useOfProfitsCode": {
+        "value": "No Income",
+        "display": "No Income",
+        "as_of": null
+      }
+    },
+    "bond_and_risk_fields": {},
+    "holdings_acquisition": null
+  },
+  "IGLS": {
+    "source": "https://www.ishares.com/uk/individual/en/products/251804/",
+    "facts": {
+      "baseCurrencyCode": {
+        "value": "GBP",
+        "display": "GBP",
+        "as_of": null
+      },
+      "emeaMgt": {
+        "value": 0.07,
+        "display": "0.07%",
+        "as_of": null
+      },
+      "inceptionDate": {
+        "value": 20090417,
+        "display": "17/Apr/2009",
+        "as_of": null
+      },
+      "indexSeriesName": {
+        "value": "FTSE Actuaries UK Conventional Gilts up to 5 Years Index (GBP)",
+        "display": "FTSE Actuaries UK Conventional Gilts up to 5 Years Index (GBP)",
+        "as_of": null
+      },
+      "isin": {
+        "value": "IE00B4WXJK79",
+        "display": "IE00B4WXJK79",
+        "as_of": null
+      },
+      "issuingCompany": {
+        "value": "iShares III plc",
+        "display": "iShares III plc",
+        "as_of": null
+      },
+      "launchDate": {
+        "value": 20090417,
+        "display": "17/Apr/2009",
+        "as_of": null
+      },
+      "productStructure": {
+        "value": "Physical",
+        "display": "Physical",
+        "as_of": null
+      },
+      "seriesBaseCurrencyCode": {
+        "value": "GBP",
+        "display": "GBP",
+        "as_of": null
+      },
+      "ucitsCompliantFlag": {
+        "value": "Yes",
+        "display": "Yes",
+        "as_of": null
+      },
+      "useOfProfitsCode": {
+        "value": "Distributing",
+        "display": "Distributing",
+        "as_of": null
+      }
+    },
+    "bond_and_risk_fields": {
+      "modelOad": {
+        "value": 2.15174,
+        "display": "2.15",
+        "as_of": 20261009
+      },
+      "twelveMonTrlYld": {
+        "value": 3.983057,
+        "display": "3.98%",
+        "as_of": 20261009
+      },
+      "weightedAvgCoupon": {
+        "value": 2.76469,
+        "display": "2.76",
+        "as_of": 20261009
+      },
+      "weightedAvgLife": {
+        "value": 2.3,
+        "display": "2.30",
+        "as_of": 20261009
+      },
+      "yieldToWorst": {
+        "value": 4.62,
+        "display": "4.62%",
+        "as_of": 20261009
+      }
+    },
+    "holdings_acquisition": {
+      "componentId": "holdings",
+      "context": {
+        "productId": "251804",
+        "portfolioType": "ISHARES_FUND_DATA",
+        "currencyCode": "GBP",
+        "shareClass": " ",
+        "aladdinFundTicker": "ISIGLSTTL",
+        "ticker": "IGLS",
+        "appSubType": "ISHARES",
+        "locale": "en_GB",
+        "targetSite": "ishares-uk",
+        "userType": "individual",
+        "slice": "emea"
+      },
+      "tabs": [
+        {
+          "name": "issuers",
+          "label": "Top Issuers",
+          "default": true
+        },
+        {
+          "name": "all",
+          "label": "All",
+          "default": false
+        }
+      ],
+      "initSelectedTab": "issuers",
+      "apiHost": "https://www.blackrock.com/varnish-api/uk-retail01-product-data/product-data/api/v2/get-product-data?",
+      "initAsOfDates": {
+        "all": "20261012",
+        "issuers": "20261012"
+      },
+      "initAsOfDateList": {
+        "all": [
+          20261012,
+          20260930,
+          20251231
+        ]
+      },
+      "initAsOfDateListFormatted": {
+        "all": {
+          "value": [
+            20261012,
+            20260930,
+            20251231
+          ],
+          "formattedValue": [
+            "12/Oct/2026",
+            "30/Sept/2026",
+            "31/Dec/2025"
+          ]
+        },
+        "issuers": {
+          "value": [],
+          "formattedValue": []
+        }
+      }
+    }
+  },
+  "IGLT": {
+    "source": "https://www.ishares.com/uk/individual/en/products/251806/",
+    "facts": {
+      "baseCurrencyCode": {
+        "value": "GBP",
+        "display": "GBP",
+        "as_of": null
+      },
+      "emeaMgt": {
+        "value": 0.07,
+        "display": "0.07%",
+        "as_of": null
+      },
+      "inceptionDate": {
+        "value": 20061201,
+        "display": "01/Dec/2006",
+        "as_of": null
+      },
+      "indexSeriesName": {
+        "value": "FTSE Actuaries UK Conventional Gilts All Stocks Index (GBP)",
+        "display": "FTSE Actuaries UK Conventional Gilts All Stocks Index (GBP)",
+        "as_of": null
+      },
+      "isin": {
+        "value": "IE00B1FZSB30",
+        "display": "IE00B1FZSB30",
+        "as_of": null
+      },
+      "issuingCompany": {
+        "value": "iShares II plc",
+        "display": "iShares II plc",
+        "as_of": null
+      },
+      "launchDate": {
+        "value": 20061201,
+        "display": "01/Dec/2006",
+        "as_of": null
+      },
+      "productStructure": {
+        "value": "Physical",
+        "display": "Physical",
+        "as_of": null
+      },
+      "seriesBaseCurrencyCode": {
+        "value": "GBP",
+        "display": "GBP",
+        "as_of": null
+      },
+      "ucitsCompliantFlag": {
+        "value": "Yes",
+        "display": "Yes",
+        "as_of": null
+      },
+      "useOfProfitsCode": {
+        "value": "Distributing",
+        "display": "Distributing",
+        "as_of": null
+      }
+    },
+    "bond_and_risk_fields": {
+      "modelOad": {
+        "value": 6.93642,
+        "display": "6.94",
+        "as_of": 20261009
+      },
+      "twelveMonTrlYld": {
+        "value": 4.557582,
+        "display": "4.56%",
+        "as_of": 20261009
+      },
+      "weightedAvgCoupon": {
+        "value": 3.06665,
+        "display": "3.07",
+        "as_of": 20261009
+      },
+      "weightedAvgLife": {
+        "value": 10.17,
+        "display": "10.17",
+        "as_of": 20261009
+      },
+      "yieldToWorst": {
+        "value": 5.2,
+        "display": "5.20%",
+        "as_of": 20261009
+      }
+    },
+    "holdings_acquisition": {
+      "componentId": "holdings",
+      "context": {
+        "productId": "251806",
+        "portfolioType": "ISHARES_FUND_DATA",
+        "currencyCode": "GBP",
+        "shareClass": " ",
+        "aladdinFundTicker": "ISGBGTTTL",
+        "ticker": "IGLT",
+        "appSubType": "ISHARES",
+        "locale": "en_GB",
+        "targetSite": "ishares-uk",
+        "userType": "individual",
+        "slice": "emea"
+      },
+      "tabs": [
+        {
+          "name": "issuers",
+          "label": "Top Issuers",
+          "default": true
+        },
+        {
+          "name": "all",
+          "label": "All",
+          "default": false
+        }
+      ],
+      "initSelectedTab": "issuers",
+      "apiHost": "https://www.blackrock.com/varnish-api/uk-retail01-product-data/product-data/api/v2/get-product-data?",
+      "initAsOfDates": {
+        "all": "20261012",
+        "issuers": "20261012"
+      },
+      "initAsOfDateList": {
+        "all": [
+          20261012,
+          20260930,
+          20251231
+        ]
+      },
+      "initAsOfDateListFormatted": {
+        "all": {
+          "value": [
+            20261012,
+            20260930,
+            20251231
+          ],
+          "formattedValue": [
+            "12/Oct/2026",
+            "30/Sept/2026",
+            "31/Dec/2025"
+          ]
+        },
+        "issuers": {
+          "value": [],
+          "formattedValue": []
+        }
+      }
+    }
+  },
+  "INXG": {
+    "source": "https://www.ishares.com/uk/individual/en/products/251717/",
+    "facts": {},
+    "bond_and_risk_fields": {},
+    "holdings_acquisition": null
+  },
+  "IS15": {
+    "source": "https://www.ishares.com/uk/individual/en/products/251840/",
+    "facts": {
+      "baseCurrencyCode": {
+        "value": "GBP",
+        "display": "GBP",
+        "as_of": null
+      },
+      "emeaMgt": {
+        "value": 0.2,
+        "display": "0.20%",
+        "as_of": null
+      },
+      "inceptionDate": {
+        "value": 20110330,
+        "display": "30/Mar/2011",
+        "as_of": null
+      },
+      "indexSeriesName": {
+        "value": "iBoxx GBP Corporates 0-5 Index",
+        "display": "iBoxx GBP Corporates 0-5 Index",
+        "as_of": null
+      },
+      "isin": {
+        "value": "IE00B5L65R35",
+        "display": "IE00B5L65R35",
+        "as_of": null
+      },
+      "issuingCompany": {
+        "value": "iShares plc",
+        "display": "iShares plc",
+        "as_of": null
+      },
+      "launchDate": {
+        "value": 20110330,
+        "display": "30/Mar/2011",
+        "as_of": null
+      },
+      "productStructure": {
+        "value": "Physical",
+        "display": "Physical",
+        "as_of": null
+      },
+      "seriesBaseCurrencyCode": {
+        "value": "GBP",
+        "display": "GBP",
+        "as_of": null
+      },
+      "ucitsCompliantFlag": {
+        "value": "Yes",
+        "display": "Yes",
+        "as_of": null
+      },
+      "useOfProfitsCode": {
+        "value": "Distributing",
+        "display": "Distributing",
+        "as_of": null
+      }
+    },
+    "bond_and_risk_fields": {
+      "modelOad": {
+        "value": 2.39692,
+        "display": "2.40",
+        "as_of": 20261009
+      },
+      "twelveMonTrlYld": {
+        "value": 4.749616,
+        "display": "4.75%",
+        "as_of": 20261009
+      },
+      "weightedAvgCoupon": {
+        "value": 4.41309,
+        "display": "4.41",
+        "as_of": 20261009
+      },
+      "weightedAvgLife": {
+        "value": 2.77,
+        "display": "2.77",
+        "as_of": 20261009
+      },
+      "yieldToWorst": {
+        "value": 5.61,
+        "display": "5.61%",
+        "as_of": 20261009
+      }
+    },
+    "holdings_acquisition": {
+      "componentId": "holdings",
+      "context": {
+        "productId": "251840",
+        "portfolioType": "ISHARES_FUND_DATA",
+        "currencyCode": "GBP",
+        "shareClass": " ",
+        "aladdinFundTicker": "ISIS15TTL",
+        "ticker": "IS15",
+        "appSubType": "ISHARES",
+        "locale": "en_GB",
+        "targetSite": "ishares-uk",
+        "userType": "individual",
+        "slice": "emea"
+      },
+      "tabs": [
+        {
+          "name": "issuers",
+          "label": "Top Issuers",
+          "default": true
+        },
+        {
+          "name": "all",
+          "label": "All",
+          "default": false
+        }
+      ],
+      "initSelectedTab": "issuers",
+      "apiHost": "https://www.blackrock.com/varnish-api/uk-retail01-product-data/product-data/api/v2/get-product-data?",
+      "initAsOfDates": {
+        "all": "20261012",
+        "issuers": "20261012"
+      },
+      "initAsOfDateList": {
+        "all": [
+          20261012,
+          20260930,
+          20251231
+        ]
+      },
+      "initAsOfDateListFormatted": {
+        "all": {
+          "value": [
+            20261012,
+            20260930,
+            20251231
+          ],
+          "formattedValue": [
+            "12/Oct/2026",
+            "30/Sept/2026",
+            "31/Dec/2025"
+          ]
+        },
+        "issuers": {
+          "value": [],
+          "formattedValue": []
+        }
+      }
+    }
+  },
+  "SLXX": {
+    "source": "https://www.ishares.com/uk/individual/en/products/251839/",
+    "facts": {
+      "baseCurrencyCode": {
+        "value": "GBP",
+        "display": "GBP",
+        "as_of": null
+      },
+      "emeaMgt": {
+        "value": 0.2,
+        "display": "0.20%",
+        "as_of": null
+      },
+      "inceptionDate": {
+        "value": 20040329,
+        "display": "29/Mar/2004",
+        "as_of": null
+      },
+      "indexSeriesName": {
+        "value": "iBoxx GBP Liquid Corporates Large Cap Index",
+        "display": "iBoxx GBP Liquid Corporates Large Cap Index",
+        "as_of": null
+      },
+      "isin": {
+        "value": "IE00B00FV011",
+        "display": "IE00B00FV011",
+        "as_of": null
+      },
+      "issuingCompany": {
+        "value": "iShares plc",
+        "display": "iShares plc",
+        "as_of": null
+      },
+      "launchDate": {
+        "value": 20040329,
+        "display": "29/Mar/2004",
+        "as_of": null
+      },
+      "productStructure": {
+        "value": "Physical",
+        "display": "Physical",
+        "as_of": null
+      },
+      "seriesBaseCurrencyCode": {
+        "value": "GBP",
+        "display": "GBP",
+        "as_of": null
+      },
+      "ucitsCompliantFlag": {
+        "value": "Yes",
+        "display": "Yes",
+        "as_of": null
+      },
+      "useOfProfitsCode": {
+        "value": "Distributing",
+        "display": "Distributing",
+        "as_of": null
+      }
+    },
+    "bond_and_risk_fields": {
+      "modelOad": {
+        "value": 5.43084,
+        "display": "5.43",
+        "as_of": 20261009
+      },
+      "twelveMonTrlYld": {
+        "value": 5.238217,
+        "display": "5.24%",
+        "as_of": 20261009
+      },
+      "weightedAvgCoupon": {
+        "value": 4.80214,
+        "display": "4.80",
+        "as_of": 20261009
+      },
+      "weightedAvgLife": {
+        "value": 8.44,
+        "display": "8.44",
+        "as_of": 20261009
+      },
+      "yieldToWorst": {
+        "value": 6.19,
+        "display": "6.19%",
+        "as_of": 20261009
+      }
+    },
+    "holdings_acquisition": {
+      "componentId": "holdings",
+      "context": {
+        "productId": "251839",
+        "portfolioType": "ISHARES_FUND_DATA",
+        "currencyCode": "GBP",
+        "shareClass": " ",
+        "aladdinFundTicker": "IBOXGBTTL",
+        "ticker": "SLXX",
+        "appSubType": "ISHARES",
+        "locale": "en_GB",
+        "targetSite": "ishares-uk",
+        "userType": "individual",
+        "slice": "emea"
+      },
+      "tabs": [
+        {
+          "name": "issuers",
+          "label": "Top Issuers",
+          "default": true
+        },
+        {
+          "name": "all",
+          "label": "All",
+          "default": false
+        }
+      ],
+      "initSelectedTab": "issuers",
+      "apiHost": "https://www.blackrock.com/varnish-api/uk-retail01-product-data/product-data/api/v2/get-product-data?",
+      "initAsOfDates": {
+        "all": "20261012",
+        "issuers": "20261012"
+      },
+      "initAsOfDateList": {
+        "all": [
+          20261012,
+          20260930,
+          20251231
+        ]
+      },
+      "initAsOfDateListFormatted": {
+        "all": {
+          "value": [
+            20261012,
+            20260930,
+            20251231
+          ],
+          "formattedValue": [
+            "12/Oct/2026",
+            "30/Sept/2026",
+            "31/Dec/2025"
+          ]
+        },
+        "issuers": {
+          "value": [],
+          "formattedValue": []
+        }
+      }
+    }
+  },
+  "IBTS": {
+    "source": "https://www.ishares.com/uk/individual/en/products/251715/",
+    "facts": {
+      "baseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "emeaMgt": {
+        "value": 0.07,
+        "display": "0.07%",
+        "as_of": null
+      },
+      "inceptionDate": {
+        "value": 20060602,
+        "display": "02/Jun/2006",
+        "as_of": null
+      },
+      "indexSeriesName": {
+        "value": "ICE U.S. Treasury 1-3 Year Bond Index",
+        "display": "ICE U.S. Treasury 1-3 Year Bond Index",
+        "as_of": null
+      },
+      "isin": {
+        "value": "IE00B14X4S71",
+        "display": "IE00B14X4S71",
+        "as_of": null
+      },
+      "issuingCompany": {
+        "value": "iShares plc",
+        "display": "iShares plc",
+        "as_of": null
+      },
+      "launchDate": {
+        "value": 20060602,
+        "display": "02/Jun/2006",
+        "as_of": null
+      },
+      "productStructure": {
+        "value": "Physical",
+        "display": "Physical",
+        "as_of": null
+      },
+      "seriesBaseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "ucitsCompliantFlag": {
+        "value": "Yes",
+        "display": "Yes",
+        "as_of": null
+      },
+      "useOfProfitsCode": {
+        "value": "Distributing",
+        "display": "Distributing",
+        "as_of": null
+      }
+    },
+    "bond_and_risk_fields": {
+      "modelOad": {
+        "value": 1.82685,
+        "display": "1.83",
+        "as_of": 20261009
+      },
+      "twelveMonTrlYld": {
+        "value": 3.925164,
+        "display": "3.93%",
+        "as_of": 20261009
+      },
+      "weightedAvgCoupon": {
+        "value": 3.24654,
+        "display": "3.25",
+        "as_of": 20261009
+      },
+      "weightedAvgLife": {
+        "value": 1.94,
+        "display": "1.94",
+        "as_of": 20261009
+      },
+      "yieldToWorst": {
+        "value": 4.77,
+        "display": "4.77%",
+        "as_of": 20261009
+      }
+    },
+    "holdings_acquisition": {
+      "componentId": "holdings",
+      "context": {
+        "productId": "251715",
+        "portfolioType": "ISHARES_FUND_DATA",
+        "currencyCode": "USD",
+        "shareClass": " ",
+        "aladdinFundTicker": "ISUS13TTL",
+        "ticker": "IBTS",
+        "appSubType": "ISHARES",
+        "locale": "en_GB",
+        "targetSite": "ishares-uk",
+        "userType": "individual",
+        "slice": "emea"
+      },
+      "tabs": [
+        {
+          "name": "issuers",
+          "label": "Top Issuers",
+          "default": true
+        },
+        {
+          "name": "all",
+          "label": "All",
+          "default": false
+        }
+      ],
+      "initSelectedTab": "issuers",
+      "apiHost": "https://www.blackrock.com/varnish-api/uk-retail01-product-data/product-data/api/v2/get-product-data?",
+      "initAsOfDates": {
+        "all": "20261012",
+        "issuers": "20261012"
+      },
+      "initAsOfDateList": {
+        "all": [
+          20261012,
+          20260930,
+          20251231
+        ]
+      },
+      "initAsOfDateListFormatted": {
+        "all": {
+          "value": [
+            20261012,
+            20260930,
+            20251231
+          ],
+          "formattedValue": [
+            "12/Oct/2026",
+            "30/Sept/2026",
+            "31/Dec/2025"
+          ]
+        },
+        "issuers": {
+          "value": [],
+          "formattedValue": []
+        }
+      }
+    }
+  },
+  "IBTM": {
+    "source": "https://www.ishares.com/uk/individual/en/products/251716/",
+    "facts": {
+      "baseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "emeaMgt": {
+        "value": 0.07,
+        "display": "0.07%",
+        "as_of": null
+      },
+      "inceptionDate": {
+        "value": 20061208,
+        "display": "08/Dec/2006",
+        "as_of": null
+      },
+      "indexSeriesName": {
+        "value": "ICE U.S. Treasury 7-10 Year Bond Index",
+        "display": "ICE U.S. Treasury 7-10 Year Bond Index",
+        "as_of": null
+      },
+      "isin": {
+        "value": "IE00B1FZS798",
+        "display": "IE00B1FZS798",
+        "as_of": null
+      },
+      "issuingCompany": {
+        "value": "iShares II plc",
+        "display": "iShares II plc",
+        "as_of": null
+      },
+      "launchDate": {
+        "value": 20061208,
+        "display": "08/Dec/2006",
+        "as_of": null
+      },
+      "productStructure": {
+        "value": "Physical",
+        "display": "Physical",
+        "as_of": null
+      },
+      "seriesBaseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "ucitsCompliantFlag": {
+        "value": "Yes",
+        "display": "Yes",
+        "as_of": null
+      },
+      "useOfProfitsCode": {
+        "value": "Distributing",
+        "display": "Distributing",
+        "as_of": null
+      }
+    },
+    "bond_and_risk_fields": {
+      "modelOad": {
+        "value": 6.84198,
+        "display": "6.84",
+        "as_of": 20261009
+      },
+      "twelveMonTrlYld": {
+        "value": 4.489107,
+        "display": "4.49%",
+        "as_of": 20261009
+      },
+      "weightedAvgCoupon": {
+        "value": 4.25184,
+        "display": "4.25",
+        "as_of": 20261009
+      },
+      "weightedAvgLife": {
+        "value": 8.44,
+        "display": "8.44",
+        "as_of": 20261009
+      },
+      "yieldToWorst": {
+        "value": 5.2,
+        "display": "5.20%",
+        "as_of": 20261009
+      }
+    },
+    "holdings_acquisition": {
+      "componentId": "holdings",
+      "context": {
+        "productId": "251716",
+        "portfolioType": "ISHARES_FUND_DATA",
+        "currencyCode": "USD",
+        "shareClass": " ",
+        "aladdinFundTicker": "ISUS10TTL",
+        "ticker": "IBTM",
+        "appSubType": "ISHARES",
+        "locale": "en_GB",
+        "targetSite": "ishares-uk",
+        "userType": "individual",
+        "slice": "emea"
+      },
+      "tabs": [
+        {
+          "name": "issuers",
+          "label": "Top Issuers",
+          "default": true
+        },
+        {
+          "name": "all",
+          "label": "All",
+          "default": false
+        }
+      ],
+      "initSelectedTab": "issuers",
+      "apiHost": "https://www.blackrock.com/varnish-api/uk-retail01-product-data/product-data/api/v2/get-product-data?",
+      "initAsOfDates": {
+        "all": "20261012",
+        "issuers": "20261012"
+      },
+      "initAsOfDateList": {
+        "all": [
+          20261012,
+          20260930,
+          20251231
+        ]
+      },
+      "initAsOfDateListFormatted": {
+        "all": {
+          "value": [
+            20261012,
+            20260930,
+            20251231
+          ],
+          "formattedValue": [
+            "12/Oct/2026",
+            "30/Sept/2026",
+            "31/Dec/2025"
+          ]
+        },
+        "issuers": {
+          "value": [],
+          "formattedValue": []
+        }
+      }
+    }
+  },
+  "IBTL": {
+    "source": "https://www.ishares.com/uk/individual/en/products/272124/",
+    "facts": {
+      "baseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "emeaMgt": {
+        "value": 0.07,
+        "display": "0.07%",
+        "as_of": null
+      },
+      "inceptionDate": {
+        "value": 20150120,
+        "display": "20/Jan/2015",
+        "as_of": null
+      },
+      "indexSeriesName": {
+        "value": "ICE U.S. Treasury 20+ Year Bond Index",
+        "display": "ICE U.S. Treasury 20+ Year Bond Index",
+        "as_of": null
+      },
+      "isin": {
+        "value": "IE00BSKRJZ44",
+        "display": "IE00BSKRJZ44",
+        "as_of": null
+      },
+      "issuingCompany": {
+        "value": "iShares IV plc",
+        "display": "iShares IV plc",
+        "as_of": null
+      },
+      "launchDate": {
+        "value": 20150120,
+        "display": "20/Jan/2015",
+        "as_of": null
+      },
+      "productStructure": {
+        "value": "Physical",
+        "display": "Physical",
+        "as_of": null
+      },
+      "seriesBaseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "ucitsCompliantFlag": {
+        "value": "Yes",
+        "display": "Yes",
+        "as_of": null
+      },
+      "useOfProfitsCode": {
+        "value": "Distributing",
+        "display": "Distributing",
+        "as_of": null
+      }
+    },
+    "bond_and_risk_fields": {
+      "modelOad": {
+        "value": 14.67157,
+        "display": "14.67",
+        "as_of": 20261009
+      },
+      "twelveMonTrlYld": {
+        "value": 5.093305,
+        "display": "5.09%",
+        "as_of": 20261009
+      },
+      "weightedAvgCoupon": {
+        "value": 3.35857,
+        "display": "3.36",
+        "as_of": 20261009
+      },
+      "weightedAvgLife": {
+        "value": 26.05,
+        "display": "26.05",
+        "as_of": 20261009
+      },
+      "yieldToWorst": {
+        "value": 5.65,
+        "display": "5.65%",
+        "as_of": 20261009
+      }
+    },
+    "holdings_acquisition": {
+      "componentId": "holdings",
+      "context": {
+        "productId": "272124",
+        "portfolioType": "ISHARES_FUND_DATA",
+        "currencyCode": "USD",
+        "shareClass": " ",
+        "aladdinFundTicker": "ISIDTLTTL",
+        "ticker": "IDTL",
+        "appSubType": "ISHARES",
+        "locale": "en_GB",
+        "targetSite": "ishares-uk",
+        "userType": "individual",
+        "slice": "emea"
+      },
+      "tabs": [
+        {
+          "name": "issuers",
+          "label": "Top Issuers",
+          "default": true
+        },
+        {
+          "name": "all",
+          "label": "All",
+          "default": false
+        }
+      ],
+      "initSelectedTab": "issuers",
+      "apiHost": "https://www.blackrock.com/varnish-api/uk-retail01-product-data/product-data/api/v2/get-product-data?",
+      "initAsOfDates": {
+        "all": "20261012",
+        "issuers": "20261012"
+      },
+      "initAsOfDateList": {
+        "all": [
+          20261012,
+          20260930,
+          20251231
+        ]
+      },
+      "initAsOfDateListFormatted": {
+        "all": {
+          "value": [
+            20261012,
+            20260930,
+            20251231
+          ],
+          "formattedValue": [
+            "12/Oct/2026",
+            "30/Sept/2026",
+            "31/Dec/2025"
+          ]
+        },
+        "issuers": {
+          "value": [],
+          "formattedValue": []
+        }
+      }
+    }
+  },
+  "ITPG": {
+    "source": "https://www.ishares.com/uk/individual/en/products/295697/",
+    "facts": {
+      "baseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "emeaMgt": {
+        "value": 0.12,
+        "display": "0.12%",
+        "as_of": null
+      },
+      "inceptionDate": {
+        "value": 20180305,
+        "display": "05/Mar/2018",
+        "as_of": null
+      },
+      "indexSeriesName": {
+        "value": "BBG US Government Inflation-Linked Bond Index (USD)",
+        "display": "BBG US Government Inflation-Linked Bond Index (USD)",
+        "as_of": null
+      },
+      "isin": {
+        "value": "IE00BDZVH859",
+        "display": "IE00BDZVH859",
+        "as_of": null
+      },
+      "issuingCompany": {
+        "value": "iShares II plc",
+        "display": "iShares II plc",
+        "as_of": null
+      },
+      "launchDate": {
+        "value": 20061208,
+        "display": "08/Dec/2006",
+        "as_of": null
+      },
+      "productStructure": {
+        "value": "Physical",
+        "display": "Physical",
+        "as_of": null
+      },
+      "seriesBaseCurrencyCode": {
+        "value": "GBP",
+        "display": "GBP",
+        "as_of": null
+      },
+      "ucitsCompliantFlag": {
+        "value": "Yes",
+        "display": "Yes",
+        "as_of": null
+      },
+      "useOfProfitsCode": {
+        "value": "Distributing",
+        "display": "Distributing",
+        "as_of": null
+      }
+    },
+    "bond_and_risk_fields": {
+      "modelOad": {
+        "value": 6.35986,
+        "display": "6.36",
+        "as_of": 20261009
+      },
+      "realYield": {
+        "value": 2.77279,
+        "display": "2.77",
+        "as_of": 20261009
+      },
+      "twelveMonTrlYld": {
+        "value": 4.826505,
+        "display": "4.83%",
+        "as_of": 20261009
+      },
+      "weightedAvgCoupon": {
+        "value": 1.28733,
+        "display": "1.29",
+        "as_of": 20261009
+      },
+      "weightedAvgLife": {
+        "value": 7.24,
+        "display": "7.24",
+        "as_of": 20261009
+      },
+      "weightedAvgYieldToMaturity": {
+        "value": 5.06,
+        "display": "5.06",
+        "as_of": 20261009
+      }
+    },
+    "holdings_acquisition": {
+      "componentId": "holdings",
+      "context": {
+        "productId": "295697",
+        "portfolioType": "ISHARES_FUND_DATA",
+        "currencyCode": "GBP",
+        "shareClass": "Hedged",
+        "aladdinFundTicker": "ISUSILTTL",
+        "ticker": "ITPG",
+        "appSubType": "ISHARES",
+        "locale": "en_GB",
+        "targetSite": "ishares-uk",
+        "userType": "individual",
+        "slice": "emea"
+      },
+      "tabs": [
+        {
+          "name": "issuers",
+          "label": "Top Issuers",
+          "default": true
+        },
+        {
+          "name": "all",
+          "label": "All",
+          "default": false
+        }
+      ],
+      "initSelectedTab": "issuers",
+      "apiHost": "https://www.blackrock.com/varnish-api/uk-retail01-product-data/product-data/api/v2/get-product-data?",
+      "initAsOfDates": {
+        "all": "20261012",
+        "issuers": "20261012"
+      },
+      "initAsOfDateList": {
+        "all": [
+          20261012,
+          20260930,
+          20251231
+        ]
+      },
+      "initAsOfDateListFormatted": {
+        "all": {
+          "value": [
+            20261012,
+            20260930,
+            20251231
+          ],
+          "formattedValue": [
+            "12/Oct/2026",
+            "30/Sept/2026",
+            "31/Dec/2025"
+          ]
+        },
+        "issuers": {
+          "value": [],
+          "formattedValue": []
+        }
+      }
+    }
+  },
+  "GHYS": {
+    "source": "https://www.ishares.com/uk/individual/en/products/253488/",
+    "facts": {
+      "baseCurrencyCode": {
+        "value": "GBP",
+        "display": "GBP",
+        "as_of": null
+      },
+      "emeaMgt": {
+        "value": 0.55,
+        "display": "0.55%",
+        "as_of": null
+      },
+      "indexSeriesName": {
+        "value": "iBoxx Global Dev Markets High Yield Capped GBP Hedged Index",
+        "display": "iBoxx Global Dev Markets High Yield Capped GBP Hedged Index",
+        "as_of": null
+      },
+      "isin": {
+        "value": "IE00B8KQFS66",
+        "display": "IE00B8KQFS66",
+        "as_of": null
+      },
+      "issuingCompany": {
+        "value": "iShares VI plc",
+        "display": "iShares VI plc",
+        "as_of": null
+      },
+      "launchDate": {
+        "value": 20130625,
+        "display": "25/Jun/2013",
+        "as_of": null
+      },
+      "productStructure": {
+        "value": "Physical",
+        "display": "Physical",
+        "as_of": null
+      },
+      "ucitsCompliantFlag": {
+        "value": "Yes",
+        "display": "Yes",
+        "as_of": null
+      },
+      "useOfProfitsCode": {
+        "value": "Distributing",
+        "display": "Distributing",
+        "as_of": null
+      }
+    },
+    "bond_and_risk_fields": {
+      "modelOad": {
+        "value": 3.15448,
+        "display": "3.15",
+        "as_of": 20261009
+      },
+      "twelveMonTrlYld": {
+        "value": 7.388327,
+        "display": "7.39%",
+        "as_of": 20261009
+      },
+      "weightedAvgCoupon": {
+        "value": 6.1993,
+        "display": "6.20",
+        "as_of": 20261009
+      },
+      "weightedAvgLife": {
+        "value": 4.02,
+        "display": "4.02",
+        "as_of": 20261009
+      },
+      "yieldToWorst": {
+        "value": 7.43,
+        "display": "7.43%",
+        "as_of": 20261009
+      }
+    },
+    "holdings_acquisition": {
+      "componentId": "holdings",
+      "context": {
+        "productId": "253488",
+        "portfolioType": "ISHARES_FUND_DATA",
+        "currencyCode": "GBP",
+        "shareClass": " ",
+        "aladdinFundTicker": "ISGHYGTTL",
+        "ticker": "GHYS",
+        "appSubType": "ISHARES",
+        "locale": "en_GB",
+        "targetSite": "ishares-uk",
+        "userType": "individual",
+        "slice": "emea"
+      },
+      "tabs": [
+        {
+          "name": "issuers",
+          "label": "Top Issuers",
+          "default": true
+        },
+        {
+          "name": "all",
+          "label": "All",
+          "default": false
+        }
+      ],
+      "initSelectedTab": "issuers",
+      "apiHost": "https://www.blackrock.com/varnish-api/uk-retail01-product-data/product-data/api/v2/get-product-data?",
+      "initAsOfDates": {
+        "all": "20261012",
+        "issuers": "20261012"
+      },
+      "initAsOfDateList": {
+        "all": [
+          20261012,
+          20260930,
+          20251231
+        ]
+      },
+      "initAsOfDateListFormatted": {
+        "all": {
+          "value": [
+            20261012,
+            20260930,
+            20251231
+          ],
+          "formattedValue": [
+            "12/Oct/2026",
+            "30/Sept/2026",
+            "31/Dec/2025"
+          ]
+        },
+        "issuers": {
+          "value": [],
+          "formattedValue": []
+        }
+      }
+    }
+  },
+  "SWDA": {
+    "source": "https://www.ishares.com/uk/individual/en/products/251882/",
+    "facts": {
+      "baseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "emeaMgt": {
+        "value": 0.2,
+        "display": "0.20%",
+        "as_of": null
+      },
+      "inceptionDate": {
+        "value": 20090925,
+        "display": "25/Sept/2009",
+        "as_of": null
+      },
+      "indexSeriesName": {
+        "value": "MSCI World Index (Net)",
+        "display": "MSCI World Index (Net)",
+        "as_of": null
+      },
+      "isin": {
+        "value": "IE00B4L5Y983",
+        "display": "IE00B4L5Y983",
+        "as_of": null
+      },
+      "issuingCompany": {
+        "value": "iShares III plc",
+        "display": "iShares III plc",
+        "as_of": null
+      },
+      "launchDate": {
+        "value": 20090925,
+        "display": "25/Sept/2009",
+        "as_of": null
+      },
+      "productStructure": {
+        "value": "Physical",
+        "display": "Physical",
+        "as_of": null
+      },
+      "seriesBaseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "ucitsCompliantFlag": {
+        "value": "Yes",
+        "display": "Yes",
+        "as_of": null
+      },
+      "useOfProfitsCode": {
+        "value": "Accumulating",
+        "display": "Accumulating",
+        "as_of": null
+      }
+    },
+    "bond_and_risk_fields": {},
+    "holdings_acquisition": {
+      "componentId": "holdings",
+      "context": {
+        "productId": "251882",
+        "portfolioType": "ISHARES_FUND_DATA",
+        "currencyCode": "USD",
+        "shareClass": " ",
+        "aladdinFundTicker": "ISIWDATTL",
+        "ticker": "SWDA",
+        "appSubType": "ISHARES",
+        "locale": "en_GB",
+        "targetSite": "ishares-uk",
+        "userType": "individual",
+        "slice": "emea"
+      },
+      "tabs": [
+        {
+          "name": "all",
+          "label": "All",
+          "default": true
+        }
+      ],
+      "initSelectedTab": "all",
+      "apiHost": "https://www.blackrock.com/varnish-api/uk-retail01-product-data/product-data/api/v2/get-product-data?",
+      "initAsOfDates": {
+        "all": "20261012"
+      },
+      "initAsOfDateList": {
+        "all": [
+          20261012,
+          20260930,
+          20251231
+        ]
+      },
+      "initAsOfDateListFormatted": {
+        "all": {
+          "value": [
+            20261012,
+            20260930,
+            20251231
+          ],
+          "formattedValue": [
+            "12/Oct/2026",
+            "30/Sept/2026",
+            "31/Dec/2025"
+          ]
+        }
+      }
+    }
+  },
+  "EMIM": {
+    "source": "https://www.ishares.com/uk/individual/en/products/264659/",
+    "facts": {
+      "baseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "emeaMgt": {
+        "value": 0.18,
+        "display": "0.18%",
+        "as_of": null
+      },
+      "inceptionDate": {
+        "value": 20140530,
+        "display": "30/May/2014",
+        "as_of": null
+      },
+      "indexSeriesName": {
+        "value": "MSCI Emerging Markets Investable Market Index (USD) (Net)",
+        "display": "MSCI Emerging Markets Investable Market Index (USD) (Net)",
+        "as_of": null
+      },
+      "isin": {
+        "value": "IE00BKM4GZ66",
+        "display": "IE00BKM4GZ66",
+        "as_of": null
+      },
+      "issuingCompany": {
+        "value": "iShares plc",
+        "display": "iShares plc",
+        "as_of": null
+      },
+      "launchDate": {
+        "value": 20140530,
+        "display": "30/May/2014",
+        "as_of": null
+      },
+      "productStructure": {
+        "value": "Physical",
+        "display": "Physical",
+        "as_of": null
+      },
+      "seriesBaseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "ucitsCompliantFlag": {
+        "value": "Yes",
+        "display": "Yes",
+        "as_of": null
+      },
+      "useOfProfitsCode": {
+        "value": "Accumulating",
+        "display": "Accumulating",
+        "as_of": null
+      }
+    },
+    "bond_and_risk_fields": {},
+    "holdings_acquisition": {
+      "componentId": "holdings",
+      "context": {
+        "productId": "264659",
+        "portfolioType": "ISHARES_FUND_DATA",
+        "currencyCode": "USD",
+        "shareClass": " ",
+        "aladdinFundTicker": "ISEMIMTTL",
+        "ticker": "EIMI",
+        "appSubType": "ISHARES",
+        "locale": "en_GB",
+        "targetSite": "ishares-uk",
+        "userType": "individual",
+        "slice": "emea"
+      },
+      "tabs": [
+        {
+          "name": "all",
+          "label": "All",
+          "default": true
+        }
+      ],
+      "initSelectedTab": "all",
+      "apiHost": "https://www.blackrock.com/varnish-api/uk-retail01-product-data/product-data/api/v2/get-product-data?",
+      "initAsOfDates": {
+        "all": "20261012"
+      },
+      "initAsOfDateList": {
+        "all": [
+          20261012,
+          20260930,
+          20251231
+        ]
+      },
+      "initAsOfDateListFormatted": {
+        "all": {
+          "value": [
+            20261012,
+            20260930,
+            20251231
+          ],
+          "formattedValue": [
+            "12/Oct/2026",
+            "30/Sept/2026",
+            "31/Dec/2025"
+          ]
+        }
+      }
+    }
+  },
+  "IIND": {
+    "source": "https://www.ishares.com/uk/individual/en/products/297617/",
+    "facts": {
+      "baseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "emeaMgt": {
+        "value": 0.65,
+        "display": "0.65%",
+        "as_of": null
+      },
+      "inceptionDate": {
+        "value": 20180524,
+        "display": "24/May/2018",
+        "as_of": null
+      },
+      "indexSeriesName": {
+        "value": "MSCI India Index (Net)",
+        "display": "MSCI India Index (Net)",
+        "as_of": null
+      },
+      "isin": {
+        "value": "IE00BZCQB185",
+        "display": "IE00BZCQB185",
+        "as_of": null
+      },
+      "issuingCompany": {
+        "value": "iShares IV plc",
+        "display": "iShares IV plc",
+        "as_of": null
+      },
+      "launchDate": {
+        "value": 20180524,
+        "display": "24/May/2018",
+        "as_of": null
+      },
+      "productStructure": {
+        "value": "Physical",
+        "display": "Physical",
+        "as_of": null
+      },
+      "seriesBaseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "ucitsCompliantFlag": {
+        "value": "Yes",
+        "display": "Yes",
+        "as_of": null
+      },
+      "useOfProfitsCode": {
+        "value": "Accumulating",
+        "display": "Accumulating",
+        "as_of": null
+      }
+    },
+    "bond_and_risk_fields": {},
+    "holdings_acquisition": {
+      "componentId": "holdings",
+      "context": {
+        "productId": "297617",
+        "portfolioType": "ISHARES_FUND_DATA",
+        "currencyCode": "USD",
+        "shareClass": " ",
+        "aladdinFundTicker": "ISNDIATTL",
+        "ticker": "NDIA",
+        "appSubType": "ISHARES",
+        "locale": "en_GB",
+        "targetSite": "ishares-uk",
+        "userType": "individual",
+        "slice": "emea"
+      },
+      "tabs": [
+        {
+          "name": "all",
+          "label": "All",
+          "default": true
+        }
+      ],
+      "initSelectedTab": "all",
+      "apiHost": "https://www.blackrock.com/varnish-api/uk-retail01-product-data/product-data/api/v2/get-product-data?",
+      "initAsOfDates": {
+        "all": "20261012"
+      },
+      "initAsOfDateList": {
+        "all": [
+          20261012,
+          20260930,
+          20251231
+        ]
+      },
+      "initAsOfDateListFormatted": {
+        "all": {
+          "value": [
+            20261012,
+            20260930,
+            20251231
+          ],
+          "formattedValue": [
+            "12/Oct/2026",
+            "30/Sept/2026",
+            "31/Dec/2025"
+          ]
+        }
+      }
+    }
+  },
+  "IASH": {
+    "source": "https://www.ishares.com/uk/individual/en/products/273192/",
+    "facts": {
+      "baseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "emeaMgt": {
+        "value": 0.4,
+        "display": "0.40%",
+        "as_of": null
+      },
+      "inceptionDate": {
+        "value": 20150408,
+        "display": "08/Apr/2015",
+        "as_of": null
+      },
+      "indexSeriesName": {
+        "value": "MSCI China A Inclusion Index",
+        "display": "MSCI China A Inclusion Index",
+        "as_of": null
+      },
+      "isin": {
+        "value": "IE00BQT3WG13",
+        "display": "IE00BQT3WG13",
+        "as_of": null
+      },
+      "issuingCompany": {
+        "value": "iShares IV plc",
+        "display": "iShares IV plc",
+        "as_of": null
+      },
+      "launchDate": {
+        "value": 20150408,
+        "display": "08/Apr/2015",
+        "as_of": null
+      },
+      "productStructure": {
+        "value": "Physical",
+        "display": "Physical",
+        "as_of": null
+      },
+      "seriesBaseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "ucitsCompliantFlag": {
+        "value": "Yes",
+        "display": "Yes",
+        "as_of": null
+      },
+      "useOfProfitsCode": {
+        "value": "Accumulating",
+        "display": "Accumulating",
+        "as_of": null
+      }
+    },
+    "bond_and_risk_fields": {},
+    "holdings_acquisition": {
+      "componentId": "holdings",
+      "context": {
+        "productId": "273192",
+        "portfolioType": "ISHARES_FUND_DATA",
+        "currencyCode": "USD",
+        "shareClass": " ",
+        "aladdinFundTicker": "ISCNYATTL",
+        "ticker": "CNYA",
+        "appSubType": "ISHARES",
+        "locale": "en_GB",
+        "targetSite": "ishares-uk",
+        "userType": "individual",
+        "slice": "emea"
+      },
+      "tabs": [
+        {
+          "name": "all",
+          "label": "All",
+          "default": true
+        }
+      ],
+      "initSelectedTab": "all",
+      "apiHost": "https://www.blackrock.com/varnish-api/uk-retail01-product-data/product-data/api/v2/get-product-data?",
+      "initAsOfDates": {
+        "all": "20261012"
+      },
+      "initAsOfDateList": {
+        "all": [
+          20261012,
+          20260930,
+          20251231
+        ]
+      },
+      "initAsOfDateListFormatted": {
+        "all": {
+          "value": [
+            20261012,
+            20260930,
+            20251231
+          ],
+          "formattedValue": [
+            "12/Oct/2026",
+            "30/Sept/2026",
+            "31/Dec/2025"
+          ]
+        }
+      }
+    }
+  },
+  "IWDP": {
+    "source": "https://www.ishares.com/uk/individual/en/products/251801/",
+    "facts": {
+      "baseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "emeaMgt": {
+        "value": 0.59,
+        "display": "0.59%",
+        "as_of": null
+      },
+      "inceptionDate": {
+        "value": 20061020,
+        "display": "20/Oct/2006",
+        "as_of": null
+      },
+      "indexSeriesName": {
+        "value": "FTSE EPRA Nareit Developed Dividend+ Net Index in USD",
+        "display": "FTSE EPRA Nareit Developed Dividend+ Net Index in USD",
+        "as_of": null
+      },
+      "isin": {
+        "value": "IE00B1FZS350",
+        "display": "IE00B1FZS350",
+        "as_of": null
+      },
+      "issuingCompany": {
+        "value": "iShares II plc",
+        "display": "iShares II plc",
+        "as_of": null
+      },
+      "launchDate": {
+        "value": 20061020,
+        "display": "20/Oct/2006",
+        "as_of": null
+      },
+      "productStructure": {
+        "value": "Physical",
+        "display": "Physical",
+        "as_of": null
+      },
+      "seriesBaseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "ucitsCompliantFlag": {
+        "value": "Yes",
+        "display": "Yes",
+        "as_of": null
+      },
+      "useOfProfitsCode": {
+        "value": "Distributing",
+        "display": "Distributing",
+        "as_of": null
+      }
+    },
+    "bond_and_risk_fields": {
+      "twelveMonTrlYld": {
+        "value": 3.25343,
+        "display": "3.25%",
+        "as_of": 20261009
+      }
+    },
+    "holdings_acquisition": {
+      "componentId": "holdings",
+      "context": {
+        "productId": "251801",
+        "portfolioType": "ISHARES_FUND_DATA",
+        "currencyCode": "USD",
+        "shareClass": " ",
+        "aladdinFundTicker": "ISGLPRTTL",
+        "ticker": "IWDP",
+        "appSubType": "ISHARES",
+        "locale": "en_GB",
+        "targetSite": "ishares-uk",
+        "userType": "individual",
+        "slice": "emea"
+      },
+      "tabs": [
+        {
+          "name": "all",
+          "label": "All",
+          "default": true
+        }
+      ],
+      "initSelectedTab": "all",
+      "apiHost": "https://www.blackrock.com/varnish-api/uk-retail01-product-data/product-data/api/v2/get-product-data?",
+      "initAsOfDates": {
+        "all": "20261012"
+      },
+      "initAsOfDateList": {
+        "all": [
+          20261012,
+          20260930,
+          20251231
+        ]
+      },
+      "initAsOfDateListFormatted": {
+        "all": {
+          "value": [
+            20261012,
+            20260930,
+            20251231
+          ],
+          "formattedValue": [
+            "12/Oct/2026",
+            "30/Sept/2026",
+            "31/Dec/2025"
+          ]
+        }
+      }
+    }
+  },
+  "IWFV": {
+    "source": "https://www.ishares.com/uk/individual/en/products/270048/",
+    "facts": {
+      "baseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "emeaMgt": {
+        "value": 0.25,
+        "display": "0.25%",
+        "as_of": null
+      },
+      "inceptionDate": {
+        "value": 20141003,
+        "display": "03/Oct/2014",
+        "as_of": null
+      },
+      "indexSeriesName": {
+        "value": "MSCI World Enhanced Value index (Net)",
+        "display": "MSCI World Enhanced Value index (Net)",
+        "as_of": null
+      },
+      "isin": {
+        "value": "IE00BP3QZB59",
+        "display": "IE00BP3QZB59",
+        "as_of": null
+      },
+      "issuingCompany": {
+        "value": "iShares IV plc",
+        "display": "iShares IV plc",
+        "as_of": null
+      },
+      "launchDate": {
+        "value": 20141003,
+        "display": "03/Oct/2014",
+        "as_of": null
+      },
+      "productStructure": {
+        "value": "Physical",
+        "display": "Physical",
+        "as_of": null
+      },
+      "seriesBaseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "ucitsCompliantFlag": {
+        "value": "Yes",
+        "display": "Yes",
+        "as_of": null
+      },
+      "useOfProfitsCode": {
+        "value": "Accumulating",
+        "display": "Accumulating",
+        "as_of": null
+      }
+    },
+    "bond_and_risk_fields": {},
+    "holdings_acquisition": {
+      "componentId": "holdings",
+      "context": {
+        "productId": "270048",
+        "portfolioType": "ISHARES_FUND_DATA",
+        "currencyCode": "USD",
+        "shareClass": " ",
+        "aladdinFundTicker": "ISIWVLTTL",
+        "ticker": "IWVL",
+        "appSubType": "ISHARES",
+        "locale": "en_GB",
+        "targetSite": "ishares-uk",
+        "userType": "individual",
+        "slice": "emea"
+      },
+      "tabs": [
+        {
+          "name": "all",
+          "label": "All",
+          "default": true
+        }
+      ],
+      "initSelectedTab": "all",
+      "apiHost": "https://www.blackrock.com/varnish-api/uk-retail01-product-data/product-data/api/v2/get-product-data?",
+      "initAsOfDates": {
+        "all": "20261012"
+      },
+      "initAsOfDateList": {
+        "all": [
+          20261012,
+          20260930,
+          20251231
+        ]
+      },
+      "initAsOfDateListFormatted": {
+        "all": {
+          "value": [
+            20261012,
+            20260930,
+            20251231
+          ],
+          "formattedValue": [
+            "12/Oct/2026",
+            "30/Sept/2026",
+            "31/Dec/2025"
+          ]
+        }
+      }
+    }
+  },
+  "IWFM": {
+    "source": "https://www.ishares.com/uk/individual/en/products/270051/",
+    "facts": {
+      "baseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "emeaMgt": {
+        "value": 0.25,
+        "display": "0.25%",
+        "as_of": null
+      },
+      "inceptionDate": {
+        "value": 20141003,
+        "display": "03/Oct/2014",
+        "as_of": null
+      },
+      "indexSeriesName": {
+        "value": "MSCI World Momentum index (Net)",
+        "display": "MSCI World Momentum index (Net)",
+        "as_of": null
+      },
+      "isin": {
+        "value": "IE00BP3QZ825",
+        "display": "IE00BP3QZ825",
+        "as_of": null
+      },
+      "issuingCompany": {
+        "value": "iShares IV plc",
+        "display": "iShares IV plc",
+        "as_of": null
+      },
+      "launchDate": {
+        "value": 20141003,
+        "display": "03/Oct/2014",
+        "as_of": null
+      },
+      "productStructure": {
+        "value": "Physical",
+        "display": "Physical",
+        "as_of": null
+      },
+      "seriesBaseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "ucitsCompliantFlag": {
+        "value": "Yes",
+        "display": "Yes",
+        "as_of": null
+      },
+      "useOfProfitsCode": {
+        "value": "Accumulating",
+        "display": "Accumulating",
+        "as_of": null
+      }
+    },
+    "bond_and_risk_fields": {},
+    "holdings_acquisition": {
+      "componentId": "holdings",
+      "context": {
+        "productId": "270051",
+        "portfolioType": "ISHARES_FUND_DATA",
+        "currencyCode": "USD",
+        "shareClass": " ",
+        "aladdinFundTicker": "ISIWMOTTL",
+        "ticker": "IWMO",
+        "appSubType": "ISHARES",
+        "locale": "en_GB",
+        "targetSite": "ishares-uk",
+        "userType": "individual",
+        "slice": "emea"
+      },
+      "tabs": [
+        {
+          "name": "all",
+          "label": "All",
+          "default": true
+        }
+      ],
+      "initSelectedTab": "all",
+      "apiHost": "https://www.blackrock.com/varnish-api/uk-retail01-product-data/product-data/api/v2/get-product-data?",
+      "initAsOfDates": {
+        "all": "20261012"
+      },
+      "initAsOfDateList": {
+        "all": [
+          20261012,
+          20260930,
+          20251231
+        ]
+      },
+      "initAsOfDateListFormatted": {
+        "all": {
+          "value": [
+            20261012,
+            20260930,
+            20251231
+          ],
+          "formattedValue": [
+            "12/Oct/2026",
+            "30/Sept/2026",
+            "31/Dec/2025"
+          ]
+        }
+      }
+    }
+  },
+  "IWFQ": {
+    "source": "https://www.ishares.com/uk/individual/en/products/270054/",
+    "facts": {
+      "baseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "emeaMgt": {
+        "value": 0.25,
+        "display": "0.25%",
+        "as_of": null
+      },
+      "inceptionDate": {
+        "value": 20141003,
+        "display": "03/Oct/2014",
+        "as_of": null
+      },
+      "indexSeriesName": {
+        "value": "MSCI World Sector Neutral Quality Index (Net)",
+        "display": "MSCI World Sector Neutral Quality Index (Net)",
+        "as_of": null
+      },
+      "isin": {
+        "value": "IE00BP3QZ601",
+        "display": "IE00BP3QZ601",
+        "as_of": null
+      },
+      "issuingCompany": {
+        "value": "iShares IV plc",
+        "display": "iShares IV plc",
+        "as_of": null
+      },
+      "launchDate": {
+        "value": 20141003,
+        "display": "03/Oct/2014",
+        "as_of": null
+      },
+      "productStructure": {
+        "value": "Physical",
+        "display": "Physical",
+        "as_of": null
+      },
+      "seriesBaseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "ucitsCompliantFlag": {
+        "value": "Yes",
+        "display": "Yes",
+        "as_of": null
+      },
+      "useOfProfitsCode": {
+        "value": "Accumulating",
+        "display": "Accumulating",
+        "as_of": null
+      }
+    },
+    "bond_and_risk_fields": {},
+    "holdings_acquisition": {
+      "componentId": "holdings",
+      "context": {
+        "productId": "270054",
+        "portfolioType": "ISHARES_FUND_DATA",
+        "currencyCode": "USD",
+        "shareClass": " ",
+        "aladdinFundTicker": "ISIWQUTTL",
+        "ticker": "IWQU",
+        "appSubType": "ISHARES",
+        "locale": "en_GB",
+        "targetSite": "ishares-uk",
+        "userType": "individual",
+        "slice": "emea"
+      },
+      "tabs": [
+        {
+          "name": "all",
+          "label": "All",
+          "default": true
+        }
+      ],
+      "initSelectedTab": "all",
+      "apiHost": "https://www.blackrock.com/varnish-api/uk-retail01-product-data/product-data/api/v2/get-product-data?",
+      "initAsOfDates": {
+        "all": "20261012"
+      },
+      "initAsOfDateList": {
+        "all": [
+          20261012,
+          20260930,
+          20251231
+        ]
+      },
+      "initAsOfDateListFormatted": {
+        "all": {
+          "value": [
+            20261012,
+            20260930,
+            20251231
+          ],
+          "formattedValue": [
+            "12/Oct/2026",
+            "30/Sept/2026",
+            "31/Dec/2025"
+          ]
+        }
+      }
+    }
+  },
+  "MVOL": {
+    "source": "https://www.ishares.com/uk/individual/en/products/251382/",
+    "facts": {
+      "baseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "emeaMgt": {
+        "value": 0.3,
+        "display": "0.30%",
+        "as_of": null
+      },
+      "inceptionDate": {
+        "value": 20121130,
+        "display": "30/Nov/2012",
+        "as_of": null
+      },
+      "indexSeriesName": {
+        "value": "MSCI WORLD MINIMUM VOLATILITY (USD)",
+        "display": "MSCI WORLD MINIMUM VOLATILITY (USD)",
+        "as_of": null
+      },
+      "isin": {
+        "value": "IE00B8FHGS14",
+        "display": "IE00B8FHGS14",
+        "as_of": null
+      },
+      "issuingCompany": {
+        "value": "iShares VI plc",
+        "display": "iShares VI plc",
+        "as_of": null
+      },
+      "launchDate": {
+        "value": 20121130,
+        "display": "30/Nov/2012",
+        "as_of": null
+      },
+      "productStructure": {
+        "value": "Physical",
+        "display": "Physical",
+        "as_of": null
+      },
+      "seriesBaseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "ucitsCompliantFlag": {
+        "value": "Yes",
+        "display": "Yes",
+        "as_of": null
+      },
+      "useOfProfitsCode": {
+        "value": "Accumulating",
+        "display": "Accumulating",
+        "as_of": null
+      }
+    },
+    "bond_and_risk_fields": {},
+    "holdings_acquisition": {
+      "componentId": "holdings",
+      "context": {
+        "productId": "251382",
+        "portfolioType": "ISHARES_FUND_DATA",
+        "currencyCode": "USD",
+        "shareClass": " ",
+        "aladdinFundTicker": "ISMVOLTTL",
+        "ticker": "MVOL",
+        "appSubType": "ISHARES",
+        "locale": "en_GB",
+        "targetSite": "ishares-uk",
+        "userType": "individual",
+        "slice": "emea"
+      },
+      "tabs": [
+        {
+          "name": "all",
+          "label": "All",
+          "default": true
+        }
+      ],
+      "initSelectedTab": "all",
+      "apiHost": "https://www.blackrock.com/varnish-api/uk-retail01-product-data/product-data/api/v2/get-product-data?",
+      "initAsOfDates": {
+        "all": "20261012"
+      },
+      "initAsOfDateList": {
+        "all": [
+          20261012,
+          20260930,
+          20251231
+        ]
+      },
+      "initAsOfDateListFormatted": {
+        "all": {
+          "value": [
+            20261012,
+            20260930,
+            20251231
+          ],
+          "formattedValue": [
+            "12/Oct/2026",
+            "30/Sept/2026",
+            "31/Dec/2025"
+          ]
+        }
+      }
+    }
+  },
+  "IWFS": {
+    "source": "https://www.ishares.com/uk/individual/en/products/270057/",
+    "facts": {
+      "baseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "emeaMgt": {
+        "value": 0.3,
+        "display": "0.30%",
+        "as_of": null
+      },
+      "inceptionDate": {
+        "value": 20141003,
+        "display": "03/Oct/2014",
+        "as_of": null
+      },
+      "indexSeriesName": {
+        "value": "MSCI World Mid Cap Equal Weighted Net Index",
+        "display": "MSCI World Mid Cap Equal Weighted Net Index",
+        "as_of": null
+      },
+      "isin": {
+        "value": "IE00BP3QZD73",
+        "display": "IE00BP3QZD73",
+        "as_of": null
+      },
+      "issuingCompany": {
+        "value": "iShares IV plc",
+        "display": "iShares IV plc",
+        "as_of": null
+      },
+      "launchDate": {
+        "value": 20141003,
+        "display": "03/Oct/2014",
+        "as_of": null
+      },
+      "productStructure": {
+        "value": "Physical",
+        "display": "Physical",
+        "as_of": null
+      },
+      "seriesBaseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "ucitsCompliantFlag": {
+        "value": "Yes",
+        "display": "Yes",
+        "as_of": null
+      },
+      "useOfProfitsCode": {
+        "value": "Accumulating",
+        "display": "Accumulating",
+        "as_of": null
+      }
+    },
+    "bond_and_risk_fields": {},
+    "holdings_acquisition": {
+      "componentId": "holdings",
+      "context": {
+        "productId": "270057",
+        "portfolioType": "ISHARES_FUND_DATA",
+        "currencyCode": "USD",
+        "shareClass": " ",
+        "aladdinFundTicker": "ISIWSZTTL",
+        "ticker": "IWSZ",
+        "appSubType": "ISHARES",
+        "locale": "en_GB",
+        "targetSite": "ishares-uk",
+        "userType": "individual",
+        "slice": "emea"
+      },
+      "tabs": [
+        {
+          "name": "all",
+          "label": "All",
+          "default": true
+        }
+      ],
+      "initSelectedTab": "all",
+      "apiHost": "https://www.blackrock.com/varnish-api/uk-retail01-product-data/product-data/api/v2/get-product-data?",
+      "initAsOfDates": {
+        "all": "20261012"
+      },
+      "initAsOfDateList": {
+        "all": [
+          20261012,
+          20260930,
+          20251231
+        ]
+      },
+      "initAsOfDateListFormatted": {
+        "all": {
+          "value": [
+            20261012,
+            20260930,
+            20251231
+          ],
+          "formattedValue": [
+            "12/Oct/2026",
+            "30/Sept/2026",
+            "31/Dec/2025"
+          ]
+        }
+      }
+    }
+  },
+  "WLDS": {
+    "source": "https://www.ishares.com/uk/individual/en/products/296576/",
+    "facts": {
+      "baseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "emeaMgt": {
+        "value": 0.35,
+        "display": "0.35%",
+        "as_of": null
+      },
+      "inceptionDate": {
+        "value": 20180327,
+        "display": "27/Mar/2018",
+        "as_of": null
+      },
+      "indexSeriesName": {
+        "value": "MSCI World Small Cap Index (Net)",
+        "display": "MSCI World Small Cap Index (Net)",
+        "as_of": null
+      },
+      "isin": {
+        "value": "IE00BF4RFH31",
+        "display": "IE00BF4RFH31",
+        "as_of": null
+      },
+      "issuingCompany": {
+        "value": "iShares III plc",
+        "display": "iShares III plc",
+        "as_of": null
+      },
+      "launchDate": {
+        "value": 20180327,
+        "display": "27/Mar/2018",
+        "as_of": null
+      },
+      "productStructure": {
+        "value": "Physical",
+        "display": "Physical",
+        "as_of": null
+      },
+      "seriesBaseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "ucitsCompliantFlag": {
+        "value": "Yes",
+        "display": "Yes",
+        "as_of": null
+      },
+      "useOfProfitsCode": {
+        "value": "Accumulating",
+        "display": "Accumulating",
+        "as_of": null
+      }
+    },
+    "bond_and_risk_fields": {},
+    "holdings_acquisition": {
+      "componentId": "holdings",
+      "context": {
+        "productId": "296576",
+        "portfolioType": "ISHARES_FUND_DATA",
+        "currencyCode": "USD",
+        "shareClass": " ",
+        "aladdinFundTicker": "ISWSMLTTL",
+        "ticker": "WSML",
+        "appSubType": "ISHARES",
+        "locale": "en_GB",
+        "targetSite": "ishares-uk",
+        "userType": "individual",
+        "slice": "emea"
+      },
+      "tabs": [
+        {
+          "name": "all",
+          "label": "All",
+          "default": true
+        }
+      ],
+      "initSelectedTab": "all",
+      "apiHost": "https://www.blackrock.com/varnish-api/uk-retail01-product-data/product-data/api/v2/get-product-data?",
+      "initAsOfDates": {
+        "all": "20261012"
+      },
+      "initAsOfDateList": {
+        "all": [
+          20261012,
+          20260930,
+          20251231
+        ]
+      },
+      "initAsOfDateListFormatted": {
+        "all": {
+          "value": [
+            20261012,
+            20260930,
+            20251231
+          ],
+          "formattedValue": [
+            "12/Oct/2026",
+            "30/Sept/2026",
+            "31/Dec/2025"
+          ]
+        }
+      }
+    }
+  },
+  "IUVF": {
+    "source": "https://www.ishares.com/uk/individual/en/products/285207/",
+    "facts": {
+      "baseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "emeaMgt": {
+        "value": 0.2,
+        "display": "0.20%",
+        "as_of": null
+      },
+      "inceptionDate": {
+        "value": 20161013,
+        "display": "13/Oct/2016",
+        "as_of": null
+      },
+      "indexSeriesName": {
+        "value": "MSCI USA Enhanced Value Net Index",
+        "display": "MSCI USA Enhanced Value Net Index",
+        "as_of": null
+      },
+      "isin": {
+        "value": "IE00BD1F4M44",
+        "display": "IE00BD1F4M44",
+        "as_of": null
+      },
+      "issuingCompany": {
+        "value": "iShares IV plc",
+        "display": "iShares IV plc",
+        "as_of": null
+      },
+      "launchDate": {
+        "value": 20161013,
+        "display": "13/Oct/2016",
+        "as_of": null
+      },
+      "productStructure": {
+        "value": "Physical",
+        "display": "Physical",
+        "as_of": null
+      },
+      "seriesBaseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "ucitsCompliantFlag": {
+        "value": "Yes",
+        "display": "Yes",
+        "as_of": null
+      },
+      "useOfProfitsCode": {
+        "value": "Accumulating",
+        "display": "Accumulating",
+        "as_of": null
+      }
+    },
+    "bond_and_risk_fields": {},
+    "holdings_acquisition": {
+      "componentId": "holdings",
+      "context": {
+        "productId": "285207",
+        "portfolioType": "ISHARES_FUND_DATA",
+        "currencyCode": "USD",
+        "shareClass": " ",
+        "aladdinFundTicker": "ISIUVLTTL",
+        "ticker": "IUVL",
+        "appSubType": "ISHARES",
+        "locale": "en_GB",
+        "targetSite": "ishares-uk",
+        "userType": "individual",
+        "slice": "emea"
+      },
+      "tabs": [
+        {
+          "name": "all",
+          "label": "All",
+          "default": true
+        }
+      ],
+      "initSelectedTab": "all",
+      "apiHost": "https://www.blackrock.com/varnish-api/uk-retail01-product-data/product-data/api/v2/get-product-data?",
+      "initAsOfDates": {
+        "all": "20261012"
+      },
+      "initAsOfDateList": {
+        "all": [
+          20261012,
+          20260930,
+          20251231
+        ]
+      },
+      "initAsOfDateListFormatted": {
+        "all": {
+          "value": [
+            20261012,
+            20260930,
+            20251231
+          ],
+          "formattedValue": [
+            "12/Oct/2026",
+            "30/Sept/2026",
+            "31/Dec/2025"
+          ]
+        }
+      }
+    }
+  },
+  "IEFV": {
+    "source": "https://www.ishares.com/uk/individual/en/products/272058/",
+    "facts": {
+      "baseCurrencyCode": {
+        "value": "EUR",
+        "display": "EUR",
+        "as_of": null
+      },
+      "emeaMgt": {
+        "value": 0.25,
+        "display": "0.25%",
+        "as_of": null
+      },
+      "inceptionDate": {
+        "value": 20150116,
+        "display": "16/Jan/2015",
+        "as_of": null
+      },
+      "indexSeriesName": {
+        "value": "MSCI Europe Enhanced Value Net EUR Index",
+        "display": "MSCI Europe Enhanced Value Net EUR Index",
+        "as_of": null
+      },
+      "isin": {
+        "value": "IE00BQN1K901",
+        "display": "IE00BQN1K901",
+        "as_of": null
+      },
+      "issuingCompany": {
+        "value": "iShares IV plc",
+        "display": "iShares IV plc",
+        "as_of": null
+      },
+      "launchDate": {
+        "value": 20150116,
+        "display": "16/Jan/2015",
+        "as_of": null
+      },
+      "productStructure": {
+        "value": "Physical",
+        "display": "Physical",
+        "as_of": null
+      },
+      "seriesBaseCurrencyCode": {
+        "value": "EUR",
+        "display": "EUR",
+        "as_of": null
+      },
+      "ucitsCompliantFlag": {
+        "value": "Yes",
+        "display": "Yes",
+        "as_of": null
+      },
+      "useOfProfitsCode": {
+        "value": "Accumulating",
+        "display": "Accumulating",
+        "as_of": null
+      }
+    },
+    "bond_and_risk_fields": {},
+    "holdings_acquisition": {
+      "componentId": "holdings",
+      "context": {
+        "productId": "272058",
+        "portfolioType": "ISHARES_FUND_DATA",
+        "currencyCode": "EUR",
+        "shareClass": " ",
+        "aladdinFundTicker": "ISIEVLTTL",
+        "ticker": "IEVL",
+        "appSubType": "ISHARES",
+        "locale": "en_GB",
+        "targetSite": "ishares-uk",
+        "userType": "individual",
+        "slice": "emea"
+      },
+      "tabs": [
+        {
+          "name": "all",
+          "label": "All",
+          "default": true
+        }
+      ],
+      "initSelectedTab": "all",
+      "apiHost": "https://www.blackrock.com/varnish-api/uk-retail01-product-data/product-data/api/v2/get-product-data?",
+      "initAsOfDates": {
+        "all": "20261012"
+      },
+      "initAsOfDateList": {
+        "all": [
+          20261012,
+          20260930,
+          20251231
+        ]
+      },
+      "initAsOfDateListFormatted": {
+        "all": {
+          "value": [
+            20261012,
+            20260930,
+            20251231
+          ],
+          "formattedValue": [
+            "12/Oct/2026",
+            "30/Sept/2026",
+            "31/Dec/2025"
+          ]
+        }
+      }
+    }
+  },
+  "EMVL": {
+    "source": "https://www.ishares.com/uk/individual/en/products/297452/",
+    "facts": {
+      "baseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "emeaMgt": {
+        "value": 0.4,
+        "display": "0.40%",
+        "as_of": null
+      },
+      "inceptionDate": {
+        "value": 20181206,
+        "display": "06/Dec/2018",
+        "as_of": null
+      },
+      "indexSeriesName": {
+        "value": "MSCI Emerging Markets Select Value Factor Focus NET Index",
+        "display": "MSCI Emerging Markets Select Value Factor Focus NET Index",
+        "as_of": null
+      },
+      "isin": {
+        "value": "IE00BG0SKF03",
+        "display": "IE00BG0SKF03",
+        "as_of": null
+      },
+      "issuingCompany": {
+        "value": "iShares IV plc",
+        "display": "iShares IV plc",
+        "as_of": null
+      },
+      "launchDate": {
+        "value": 20181206,
+        "display": "06/Dec/2018",
+        "as_of": null
+      },
+      "productStructure": {
+        "value": "Physical",
+        "display": "Physical",
+        "as_of": null
+      },
+      "seriesBaseCurrencyCode": {
+        "value": "USD",
+        "display": "USD",
+        "as_of": null
+      },
+      "ucitsCompliantFlag": {
+        "value": "Yes",
+        "display": "Yes",
+        "as_of": null
+      },
+      "useOfProfitsCode": {
+        "value": "Accumulating",
+        "display": "Accumulating",
+        "as_of": null
+      }
+    },
+    "bond_and_risk_fields": {},
+    "holdings_acquisition": {
+      "componentId": "holdings",
+      "context": {
+        "productId": "297452",
+        "portfolioType": "ISHARES_FUND_DATA",
+        "currencyCode": "USD",
+        "shareClass": " ",
+        "aladdinFundTicker": "ISEMVLTTL",
+        "ticker": "EMVL",
+        "appSubType": "ISHARES",
+        "locale": "en_GB",
+        "targetSite": "ishares-uk",
+        "userType": "individual",
+        "slice": "emea"
+      },
+      "tabs": [
+        {
+          "name": "all",
+          "label": "All",
+          "default": true
+        }
+      ],
+      "initSelectedTab": "all",
+      "apiHost": "https://www.blackrock.com/varnish-api/uk-retail01-product-data/product-data/api/v2/get-product-data?",
+      "initAsOfDates": {
+        "all": "20261012"
+      },
+      "initAsOfDateList": {
+        "all": [
+          20261012,
+          20260930,
+          20251231
+        ]
+      },
+      "initAsOfDateListFormatted": {
+        "all": {
+          "value": [
+            20261012,
+            20260930,
+            20251231
+          ],
+          "formattedValue": [
+            "12/Oct/2026",
+            "30/Sept/2026",
+            "31/Dec/2025"
+          ]
+        }
+      }
+    }
+  }
+}

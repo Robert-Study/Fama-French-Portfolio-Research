@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1366" height="794" viewBox="0 0 1366 794" role="img" aria-labelledby="title desc">
+  <title id="title">V7 portfolio research dashboard concept</title>
+  <desc id="desc">A compact dashboard with three views, four headline metrics, an efficient frontier beside allocation, and an exposure summary. All values are placeholders. The curve is schematic and is not an investment result.</desc>
+  <defs>
+    <style>
+      text { font-family: 'DejaVu Sans', sans-serif; fill: #192C35; }
+      .small { font-size: 12px; fill: #61727B; }
+      .body { font-size: 14px; }
+      .muted { fill: #61727B; }
+      .label { font-size: 13px; fill: #61727B; }
+      .heading { font-size: 18px; font-weight: 700; }
+      .metric { font-size: 28px; font-weight: 700; }
+      .rule { stroke: #E5EBED; stroke-width: 1; }
+      .card { fill: #FFFFFF; stroke: #DEE6E8; stroke-width: 1; }
+    </style>
+  </defs>
+  <rect width="1366" height="794" fill="#F4F7F8"/>
+  <rect width="1366" height="66" fill="#FFFFFF"/>
+  <path d="M0 66H1366" class="rule"/>
+  <rect x="32" y="22" width="9" height="23" rx="2" fill="#168779"/>
+  <rect x="45" y="15" width="9" height="30" rx="2" fill="#19343F"/>
+  <text x="66" y="39" font-size="20" font-weight="700">Portfolio research</text>
+  <rect x="282" y="22" width="36" height="24" rx="6" fill="#ECF2F4"/>
+  <text x="300" y="38" text-anchor="middle" class="small">V7</text>
+  <rect x="463" y="14" width="84" height="39" rx="8" fill="#E6F3F0"/>
+  <text x="505" y="39" text-anchor="middle" class="body" style="fill:#137363;font-weight:700">Build</text>
+  <text x="570" y="39" class="body muted">Compare &amp; stress</text>
+  <text x="748" y="39" class="body muted">Data &amp; method</text>
+  <rect x="1190" y="16" width="144" height="35" rx="7" fill="#FFFFFF" stroke="#D4DEE1"/>
+  <text x="1262" y="38" text-anchor="middle" class="body">Save / export ↓</text>
+
+  <text x="32" y="94" class="body muted">GBP · Nominal values · Before personal tax</text>
+  <rect x="1038" y="78" width="296" height="25" rx="12" fill="#FAEFDA"/>
+  <text x="1186" y="95" text-anchor="middle" class="small" style="fill:#806323">DESIGN CONCEPT · NO LIVE DATA</text>
+
+  <rect x="32" y="116" width="219" height="63" rx="8" class="card"/>
+  <text x="48" y="136" class="small">Investment amount</text>
+  <text x="48" y="161" font-size="18" font-weight="700">£10,000</text>
+  <rect x="263" y="116" width="164" height="63" rx="8" class="card"/>
+  <text x="279" y="136" class="small">Horizon</text>
+  <text x="279" y="161" font-size="18" font-weight="700">10 years</text>
+  <path d="m400 151 5 5 5-5" fill="none" stroke="#61727B" stroke-width="1.5"/>
+  <rect x="439" y="116" width="345" height="63" rx="8" class="card"/>
+  <text x="455" y="136" class="small">Compare with</text>
+  <text x="455" y="161" font-size="16">Broad developed-equity fund</text>
+  <path d="m754 151 5 5 5-5" fill="none" stroke="#61727B" stroke-width="1.5"/>
+  <rect x="796" y="116" width="388" height="63" rx="8" class="card"/>
+  <text x="812" y="136" class="small">Universe and constraints</text>
+  <text x="812" y="161" font-size="16">Core assets</text>
+  <text x="1165" y="160" text-anchor="end" class="body" style="fill:#137363">Edit assets &amp; limits →</text>
+  <rect x="1196" y="116" width="138" height="63" rx="8" fill="#167C6E"/>
+  <text x="1265" y="154" text-anchor="middle" font-size="16" font-weight="700" style="fill:#FFFFFF">Apply</text>
+
+  <rect x="32" y="194" width="316" height="88" rx="9" class="card"/>
+  <text x="48" y="218" class="label">Expected return</text>
+  <text x="48" y="250" class="metric">—</text>
+  <text x="48" y="270" class="small">Annualised arithmetic · after fund costs</text>
+  <rect x="361" y="194" width="316" height="88" rx="9" class="card"/>
+  <text x="377" y="218" class="label">Volatility</text>
+  <text x="377" y="250" class="metric">—</text>
+  <text x="377" y="270" class="small">Annualised · GBP total returns</text>
+  <rect x="690" y="194" width="316" height="88" rx="9" class="card"/>
+  <text x="706" y="218" class="label">Selected stress loss</text>
+  <text x="706" y="250" class="metric">—</text>
+  <text x="706" y="270" class="small">Choose a scenario · £ and %</text>
+  <rect x="1019" y="194" width="315" height="88" rx="9" class="card"/>
+  <text x="1035" y="218" class="label">Modelled annual costs</text>
+  <text x="1035" y="250" class="metric">—</text>
+  <text x="1035" y="270" class="small">Fund costs · financing shown separately</text>
+
+  <rect x="32" y="298" width="808" height="346" rx="10" class="card"/>
+  <text x="54" y="328" class="heading">Choose your point on the frontier</text>
+  <text x="54" y="350" class="small">One solved portfolio at each point. Move the slider to see the allocation.</text>
+  <rect x="683" y="314" width="134" height="23" rx="11" fill="#F0F4F5"/>
+  <text x="750" y="330" text-anchor="middle" font-size="10" style="fill:#61727B">SCHEMATIC CURVE</text>
+  <text x="87" y="383" class="small">Expected return</text>
+  <path d="M88 401H803 M88 448H803 M88 495H803" class="rule"/>
+  <path d="M88 395V542H803" fill="none" stroke="#D7E0E3"/>
+  <path d="M124 527 C209 487 309 452 429 429 C569 403 669 390 793 378" fill="none" stroke="#168779" stroke-width="4" stroke-linecap="round"/>
+  <path d="M429 429V542" fill="none" stroke="#9BC7BE" stroke-dasharray="4 5"/>
+  <circle cx="429" cy="429" r="11" fill="#E1F3EE"/>
+  <circle cx="429" cy="429" r="6" fill="#168779" stroke="#FFFFFF" stroke-width="2"/>
+  <rect x="353" y="390" width="138" height="24" rx="6" fill="#E6F3F0"/>
+  <text x="422" y="406" text-anchor="middle" class="small" style="fill:#137363">Selected portfolio</text>
+  <circle cx="553" cy="473" r="5" fill="#FFFFFF" stroke="#7F9098" stroke-width="2"/>
+  <text x="565" y="478" class="small">Benchmark</text>
+  <text x="88" y="560" class="small">Lower risk</text>
+  <text x="441" y="560" text-anchor="middle" class="small">Annualised volatility →</text>
+  <text x="803" y="560" text-anchor="end" class="small">Higher risk</text>
+  <path d="M88 594H803" stroke="#DCE6E7" stroke-width="6" stroke-linecap="round"/>
+  <path d="M88 594H429" stroke="#168779" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="429" cy="594" r="10" fill="#FFFFFF" stroke="#168779" stroke-width="3"/>
+  <text x="88" y="625" class="small">Minimum variance</text>
+  <text x="803" y="625" text-anchor="end" class="small">Maximum feasible return</text>
+
+  <rect x="856" y="298" width="478" height="346" rx="10" class="card"/>
+  <text x="878" y="328" class="heading">Selected portfolio</text>
+  <text x="1312" y="328" text-anchor="end" class="small" style="fill:#137363">Fund details →</text>
+  <text x="878" y="355" class="small">Instrument / asset</text>
+  <text x="1190" y="355" text-anchor="end" class="small">Weight</text>
+  <text x="1312" y="355" text-anchor="end" class="small">Amount</text>
+  <path d="M878 366H1312 M878 415H1312 M878 464H1312 M878 513H1312 M878 562H1312 M878 611H1312" class="rule"/>
+
+  <rect x="878" y="378" width="4" height="25" rx="2" fill="#168779"/>
+  <text x="893" y="390" class="body">Developed-market equity</text>
+  <text x="893" y="405" font-size="10" class="muted">Actual fund / share class to be selected</text>
+  <text x="1190" y="397" text-anchor="end" class="body">—</text>
+  <text x="1312" y="397" text-anchor="end" class="body">—</text>
+
+  <rect x="878" y="427" width="4" height="25" rx="2" fill="#65AA9D"/>
+  <text x="893" y="439" class="body">Factor-tilted equity</text>
+  <text x="893" y="454" font-size="10" class="muted">Equity exposure and concentration checks</text>
+  <text x="1190" y="446" text-anchor="end" class="body">—</text>
+  <text x="1312" y="446" text-anchor="end" class="body">—</text>
+
+  <rect x="878" y="476" width="4" height="25" rx="2" fill="#56748F"/>
+  <text x="893" y="488" class="body">GBP government bonds</text>
+  <text x="893" y="503" font-size="10" class="muted">Yield, duration and rate scenarios</text>
+  <text x="1190" y="495" text-anchor="end" class="body">—</text>
+  <text x="1312" y="495" text-anchor="end" class="body">—</text>
+
+  <rect x="878" y="525" width="4" height="25" rx="2" fill="#BA9256"/>
+  <text x="893" y="537" class="body">Physical gold</text>
+  <text x="893" y="552" font-size="10" class="muted">Commodity price and currency exposure</text>
+  <text x="1190" y="544" text-anchor="end" class="body">—</text>
+  <text x="1312" y="544" text-anchor="end" class="body">—</text>
+
+  <rect x="878" y="574" width="4" height="25" rx="2" fill="#9DABB3"/>
+  <text x="893" y="586" class="body">Instant-access savings</text>
+  <text x="893" y="601" font-size="10" class="muted">Dated quote, terms and balance limits</text>
+  <text x="1190" y="593" text-anchor="end" class="body">—</text>
+  <text x="1312" y="593" text-anchor="end" class="body">—</text>
+  <text x="878" y="631" class="small">Illustrative asset labels · no weights calculated</text>
+
+  <rect x="32" y="660" width="1302" height="68" rx="9" class="card"/>
+  <path d="M357 675V714 M683 675V714 M1008 675V714" class="rule"/>
+  <text x="50" y="684" class="label">Equity market exposure</text>
+  <text x="50" y="708" font-size="18" font-weight="700">—</text>
+  <text x="339" y="708" text-anchor="end" class="small">Factor details →</text>
+  <text x="375" y="684" class="label">Bond duration</text>
+  <text x="375" y="708" font-size="18" font-weight="700">—</text>
+  <text x="665" y="708" text-anchor="end" class="small">Rate sensitivity →</text>
+  <text x="701" y="684" class="label">Accessible cash</text>
+  <text x="701" y="708" font-size="18" font-weight="700">—</text>
+  <text x="990" y="708" text-anchor="end" class="small">Access / protection →</text>
+  <text x="1026" y="684" class="label">Gross underlying exposure</text>
+  <text x="1026" y="708" font-size="18" font-weight="700">—</text>
+  <text x="1316" y="708" text-anchor="end" class="small">Leverage off</text>
+
+  <text x="32" y="754" class="small">Model date —   ·   Holdings date —   ·   Savings quote —</text>
+  <text x="1334" y="754" text-anchor="end" class="small" style="fill:#137363">View assumptions &amp; limitations →</text>
+  <text x="32" y="778" font-size="10" class="muted">Layout proposal only. Amount and horizon are sample inputs; the frontier and all outputs require verified data and completed models.</text>
+</svg>

@@ -1,0 +1,44 @@
+# V7 asset-aware snapshot contract (schema 2)
+
+All invested returns are **monthly simple decimal net total returns**. Missing histories remain missing; no zero fill, invented distributions, backdated prices or pre-inception actual observations are allowed. The original `instruments.csv` schedule retains all 50 identities; `cash-policy.json` applies the later bank-savings override as `GBP_BANK_SAVINGS` outside the Trading 212 account.
+
+## Files and identity
+
+Immutable snapshots live in `data/research/.cache/snapshots/<manifest hash>/`. `current.json` is an atomic last-good pointer. `manifest.json` records schema, source URL/ID, retrieval time, licence/use terms, raw SHA-256, file SHA-256, regional factor vintages and any provisional policy. Source artefacts are content addressed under `.cache/raw`. Loading checks their integrity before calibration.
+
+- `returns.csv`: `Month` and instrument-ID columns; actual fund returns only. Different inception dates produce leading missing values. Interior gaps are blocked. A strict risk panel needs at least 36 common actual months; equity fits need 72 and prefer their own latest 120 compatible months.
+- `factors.csv`: `Month` and region-prefixed columns, e.g. `Developed:Mkt-RF`, `Europe:HML`. Strict snapshots contain GBP-converted factors. Native factors are admitted only under the explicit provisional native-risk policy. RF is preserved in the original French ZIP.
+- `cash_fx.csv`: `Month`, `GBP_RF`, `USD_GBP`. Strict inputs use compounded SONIA and actual GBP-per-USD FX returns. Provisional US RF is labelled as a historical rate-differential proxy; it is never described as observed SONIA. FX-unavailable snapshots never insert zeros into an actual-GBP history.
+- `evidence.json`: instrument-ID objects with exact share class/ISIN evidence, true legal structure, native/normalised currency, GBX handling, inception, hedge, ongoing annual decimal fee, source IDs, total-return convention and reconciliation. Cash has public provider/AER/date/terms/eligibility and the no-bonus/unlimited-withdrawal checks. Unknown fees block admission.
+- `daily.csv`: `Date` and synchronised actual core/native underlying/funding/FX/product columns; required before admitting leverage. Native daily reset precedes FX conversion. Terms declare leverage, cost day basis, embedded funding, other drag, contractual termination and intraday evidence. Actual overlap needs at least 60 daily observations and a declared tracking tolerance.
+- `holdings.csv`: `instrument`, reviewed `company_id`, economic `weight`, `as_of`. Share classes/listings must map to reviewed company IDs. Unknown company exposure stays unmapped. Recursive fund expansion is supported; outer leverage is applied once. Headline diversity needs >=95% mapped equity coverage and dates <=90 days old.
+
+Bonds additionally need dated yield convention, duration/convexity, credit-loss/spread inputs where applicable, inflation for real yield and hedge-cost reconciliation. The refresh prefers dated issuer YTM/effective duration for IGLT. If those fields are unavailable, the user-authorised provisional policy can explicitly substitute a cash-equivalent carry prior with zero term premium; no yield or duration is invented. Funding already embedded in a leveraged index is not multiplied or charged again. After termination, scenarios explicitly rebalance surviving original sleeves and disclose that initial caps can cease to hold. Futures commodities require documented roll/collateral conventions. Intraday barriers remain an admission gate.
+
+## Refresh modes
+
+`python -m portfolio.providers.universe --root data/research` is the integrated refresh. It executes the researched iShares, Vanguard GraphQL, SPDR XLSX, Invesco, WisdomTree POST and DWS requests with cached originals. The older `provisional` CLI delegates to this refresh so saved setup instructions cannot downgrade the universe. `acquisition-audit.json` records successful and failed requests, counts, gaps, units and reconciliation differences. Unreconciled NAV/growth observations remain in ignored source caches; they do not become admitted net-total-return columns.
+
+Actual SONIA uses delayed BoE observations with ACT/365 simple accrual over each business-day interval and ratios of accrued levels at monthly boundaries. If the live HTML endpoint is blocked, the supplied dated actual BoE CSV is retained with its own hash, attribution and failed-refresh reason. It is not US RF relabelled. The latest observed wholesale SONIA is held flat as an explicit scenario, separately from bank AER; no OIS forecast is claimed.
+
+Identity, acquired history, return reconciliation, expected-return model, joint risk, holdings coverage and public broker-listing checks have separate status columns. Known research facts survive a failed history request. Optional company mapping does not invalidate a passing financial frontier. Non-iShares fees currently reference the supplied dated factual research ledger where live adapter metadata lacks a fee; exports identify that basis rather than claiming a fresh issuer quote.
+
+Fixed actual historical references require reconciled GBP histories, not an admitted forward model. Derived realised reference statistics survive portable restoration. VWRP/VAGS 60/40 rebalances monthly. XS2D workbook/chart reconciliation uses a declared 1bp NAV consistency trigger with actual discrepancies retained; this does not certify a complete independent corporate-action audit or its forward leverage mechanics. Current bank AER supplies a conditional forward savings reference, never an invented historical bank-return series.
+
+The old three-issuer pilot builder remains an internal reference; its CLI now uses the integrated universe. Only completed months are used. Accumulating/no-income products use actual NAV, and distributing products require reinvested growth or distributions with documented reconciliation. ECB fixing-time/NAV alignment and source rounding remain limitations. The integrated refresh requires actual FX and SONIA evidence; it does not silently fall back to fabricated observations.
+
+For strict `portfolio.providers.refresh`, a source-pack config has `url`, `id`, `licence`, `redistribution` and optional `evidence_sources` entries (`id`, `url`, `licence`, `redistribution`). The HTTPS ZIP may contain only the tables above except `factors.csv`, which is generated from official French ZIPs. Evidence references must resolve to retained source IDs. This adapter consumes reconciled issuer/BoE exports; it does not make a bulk-provider entitlement appear. Paid EODHD access is not purchased or assumed.
+
+All refresh commands preserve TLS/checksum verification. No credentials are saved in tables, scripts or exports. A candidate snapshot is validated before replacing the last-good pointer. Source licence review is distinct from data-integrity validation.
+
+## Export and reproduction
+
+`model-inputs.json` preserves derived calibrated inputs for fresh checkouts; it carries no raw history. That mode uses labelled IID Gaussian joint-risk scenarios and cannot restore leveraged products without their daily source cache.
+
+ZIPs contain all 50 allocations (excluded IDs have zero weight), solved targets/weights, monthly means/covariance/correlations, betas/premiums/diagnostics, fees/financing, company coverage, horizon quantiles, stresses, assumptions/constraints/source hashes, model version/commit/source-code hash and `reproduce.py`. Running that script checks every solved allocation against exported weights. It reproduces the solve; independently repeating source ingestion/calibration requires original source artefacts and use rights. Full source histories are omitted by default. Empty diagnostics are marked unavailable rather than filled with illustrative figures.
+
+## Model 0.4.0 integration — 15 October 2026
+
+EQQQ uses its own net reinvested growth after exact-ISIN calendar reconciliation across 23 complete years. GLTL reconstructs net total returns from exact-ISIN GBP distributions and ex-date NAV; the failed 2019 comparison excludes all history before January 2020. Published annual and YTD comparisons are retained in the acquisition audit. Neither parser fabricates missing distributions.
+
+Portable matrices now retain available 72/120-month covariance alternatives, with nominal savings appended after risky shrinkage. The current 80-month risk panel supports only the 72-month alternative. Calibration frames preserve float precision. The default screen binds model version, mathematical source, exact inputs, constraints, scenario set, bootstrap draws and CSV checksum; altered constraints or data reject it. A consistent contiguous matrix layout keeps the sensitivity calculation reproducible after portable restoration. Failed removal solves remain explicit incomplete assessments.

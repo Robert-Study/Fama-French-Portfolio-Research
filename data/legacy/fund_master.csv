@@ -1,0 +1,30 @@
+﻿ETF_ID,ISIN,Name,AssetClass,TER,HistoryStatus,CurrencyStatus
+AVCG,IE000RJECXS5,Developed All-Cap Value + Profitability,Equity,0.0022,Inherited V5 splice; source files unavailable,GBP claimed by prior build; not independently reconciled
+IWFV,IE00BP3QZB59,Developed Large-Mid Value,Equity,0.0025,Inherited V5 splice; source files unavailable,GBP claimed by prior build; not independently reconciled
+AVSG,IE0003R87OG3,Developed Small-Cap Value + Profitability,Equity,0.0039,Inherited V5 splice; source files unavailable,GBP claimed by prior build; not independently reconciled
+USSC,IE00BSPLC413,US Small-Cap Value,Equity,0.003,Inherited V5 splice; source files unavailable,GBP claimed by prior build; not independently reconciled
+EMIM,IE00BKM4GZ66,Emerging All-Cap,Equity,0.0018,Inherited V5 splice; source files unavailable,GBP claimed by prior build; not independently reconciled
+IWQU,IE00BP3QZ601,Developed Large-Mid Quality,Equity,0.0025,Inherited V5 splice; source files unavailable,GBP claimed by prior build; not independently reconciled
+IEFV,IE00BQN1K901,Europe Large-Mid Value,Equity,0.0025,Inherited V5 splice; source files unavailable,GBP claimed by prior build; not independently reconciled
+GHYS,IE00B8KQFS66,Global High-Yield Credit,Credit,0.0055,Inherited V5 splice; source files unavailable,GBP claimed by prior build; not independently reconciled
+EMVL,IE00BG0SKF03,Emerging Large-Mid Value,Equity,0.004,Inherited V5 splice; source files unavailable,GBP claimed by prior build; not independently reconciled
+ACWI,IE00B44Z5B48,All-World Large-Mid,Equity,0.0012,Inherited V5 splice; source files unavailable,GBP claimed by prior build; not independently reconciled
+ICHN,IE00BJ5JPG56,China Large-Mid,Equity,0.0028,Inherited V5 splice; source files unavailable,GBP claimed by prior build; not independently reconciled
+VAPX,IE00BK5BQZ41,Developed Asia-Pacific ex-Japan Large-Mid,Equity,0.0015,Inherited V5 splice; source files unavailable,GBP claimed by prior build; not independently reconciled
+VGER,IE00BG143G97,Germany All-Cap,Equity,0.001,Inherited V5 splice; source files unavailable,GBP claimed by prior build; not independently reconciled
+FRIN,IE00BHZRQZ17,India Large-Mid,Equity,0.0019,Inherited V5 splice; source files unavailable,GBP claimed by prior build; not independently reconciled
+LTAM,IE00B27YCK28,Latin America Large-Mid,Equity,0.002,Inherited V5 splice; source files unavailable,GBP claimed by prior build; not independently reconciled
+XDEV,IE00BL25JM42,Developed Large-Mid Value,Equity,0.0025,Inherited V5 splice; source files unavailable,GBP claimed by prior build; not independently reconciled
+WSML,IE00BF4RFH31,Developed Small-Cap,Equity,0.0035,Inherited V5 splice; source files unavailable,GBP claimed by prior build; not independently reconciled
+IFRE,IE00BP3QZJ36,France Large-Mid,Equity,0.0025,Inherited V5 splice; source files unavailable,GBP claimed by prior build; not independently reconciled
+HIDR,IE00B46G8275,Indonesia Large-Mid,Equity,0.005,Inherited V5 splice; source files unavailable,GBP claimed by prior build; not independently reconciled
+NDIA,IE00BZCQB185,India Large-Mid,Equity,0.0065,Inherited V5 splice; source files unavailable,GBP claimed by prior build; not independently reconciled
+HCHA,IE0007P4PBU1,China Large-Mid,Equity,0.0028,Inherited V5 splice; source files unavailable,GBP claimed by prior build; not independently reconciled
+VALL,IE000VAHT5T0,All-World All-Cap,Equity,0.0007,Inherited V5 splice; source files unavailable,GBP claimed by prior build; not independently reconciled
+VSML,IE0007TPRF31,All-World Small-Cap,Equity,0.0022,Inherited V5 splice; source files unavailable,GBP claimed by prior build; not independently reconciled
+IWMO,IE00BP3QZ825,Developed Large-Mid Momentum,Equity,0.0025,Inherited V5 splice; source files unavailable,GBP claimed by prior build; not independently reconciled
+HWWA,IE00BKZGB098,Developed Multi-Factor,Equity,0.0025,Inherited V5 splice; source files unavailable,GBP claimed by prior build; not independently reconciled
+JPGL,IE00BJRCLL96,Developed Research-Enhanced Multi-Factor,Equity,0.002,Inherited V5 splice; source files unavailable,GBP claimed by prior build; not independently reconciled
+IFSW,IE00BZ0PKT83,Developed Multi-Factor,Equity,0.003,Inherited V5 splice; source files unavailable,GBP claimed by prior build; not independently reconciled
+AVEG,IE000K975W13,Emerging All-Cap Value + Profitability,Equity,0.0035,Inherited V5 splice; source files unavailable,GBP claimed by prior build; not independently reconciled
+VHVG,IE00BK5BQV03,Developed Large-Mid,Equity,0.0012,Inherited V5 splice; source files unavailable,GBP claimed by prior build; not independently reconciled
