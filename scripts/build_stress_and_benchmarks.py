@@ -97,7 +97,7 @@ def build_catalogue(fixtures):
                 require(match.iloc[0].listing_status != "verified_listing",
                         f"Conflicting verified quote units: {ticker}")
                 # Dated verified universe takes precedence over an unverified
-                # alias (currently XDEV: universe GBx, alias USD). Report below.
+                # alias. Preserve any conflict in the build report below.
                 unit = row["quote_unit"]
             if row["asset_class"] == "Commodities":
                 sleeve = 5
@@ -246,6 +246,10 @@ def build_release(fixtures, inputs, output):
     fixtures, inputs, output = map(Path, (fixtures, inputs, output))
     report = dict(release_id=RELEASE_ID, status="partial", written={}, blocked={}, provenance={})
     catalogue = build_catalogue(fixtures)
+    calibration_path = fixtures / "06_stress_calibration.json"
+    if calibration_path.is_file():
+        calibration = read_json(calibration_path)
+        report["provenance"]["stress"] = {k: calibration[k] for k in ("source_url", "source_section", "evidence_status")}
     sources = [fixtures / name for name in (
         "01_verified_universe.csv", "01_listings.csv", "02_assumptions.yaml",
         "02_product_contracts.json", "06_stress_calibration.json")]
@@ -260,7 +264,7 @@ def build_release(fixtures, inputs, output):
         ["canonical_id", "display_ticker", "quote_unit_universe", "quote_unit_listing", "listing_status_listing"],
     ].to_dict("records")
     report["notes"] = [
-        "Verified universe quote units override weaker alias records; XDEV GBx/USD conflict needs upstream reconciliation.",
+        "Verified universe quote units override weaker aliases; any discrepancies are listed in quote_conflicts.",
         "Catalogue uses fixture row order and display tickers; quote units refer to preferred listings.",
         "Sleeves follow current UI / model-specification scheme C; VAGS in credit, leveraged equity and property in thematic.",
         "Cash interest is retained (Accumulating). USD/EUR quote currencies are preserved.",
@@ -333,7 +337,3 @@ def main():
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
-
-
-

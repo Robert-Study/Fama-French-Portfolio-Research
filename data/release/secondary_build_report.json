@@ -1,0 +1,90 @@
+{
+  "release_id": "V8.0-2026-10-18",
+  "status": "partial",
+  "written": {
+    "fund_catalogue.parquet": {
+      "rows": 68,
+      "sha256": "37d8cc894f9d5db71be84c14b79826dfd5de46612f8e33d08c1b7b28c80b4d0b"
+    },
+    "stress_vectors.parquet": {
+      "rows": 408,
+      "sha256": "6532fefff2fefa901e012c7213842f7290868ffc0e3cd8b485011edb946a9148"
+    }
+  },
+  "blocked": {
+    "benchmark_vall.parquet": {
+      "reason": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\home\\\\Documents\\\\AI-Disk-Access\\\\Gemini-Efficient-Frontier\\\\data\\\\release_inputs\\\\secondary_sources.json'",
+      "required": "Need company-aggregated VALL constituents in benchmark_vall.csv and benchmark provenance in secondary_sources.json.",
+      "existing_file_retained": false
+    },
+    "historical_results.parquet": {
+      "reason": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\home\\\\Documents\\\\AI-Disk-Access\\\\Gemini-Efficient-Frontier\\\\data\\\\release_inputs\\\\secondary_sources.json'",
+      "required": "Need reference_monthly_returns.csv (six references, both methods, Feb 2014-Sep 2026) and history provenance in secondary_sources.json.",
+      "existing_file_retained": false
+    }
+  },
+  "provenance": {
+    "stress": {
+      "source_url": "https://docs.google.com/document/d/1n5cV3rYJW77EJE9t190gempT-aJKQ3843zVGs3ldNJw/edit",
+      "source_section": "Stage06_Frontier_Stress_Result, section 3.3",
+      "evidence_status": "Research calibration from approved Stage 06 handover; underlying observations not independently verified. Cash uses current-rate scenarios. Both model methods use the same external shocks."
+    }
+  },
+  "listing_warnings": [
+    {
+      "canonical_id": "IE00BSPLC413",
+      "ticker": "ZPRV",
+      "listing_status": "issuer_confirmed_alias",
+      "notes": "Issuer product source uses ZPRV GY but venue currency needs explicit check"
+    },
+    {
+      "canonical_id": "FR0010342592",
+      "ticker": "LQQ",
+      "listing_status": "stale_listing",
+      "notes": "Issuer old KIID only; exchange-status refresh required"
+    },
+    {
+      "canonical_id": "IE00BL25JM42",
+      "ticker": "XDEV",
+      "listing_status": "issuer_confirmed_alias",
+      "notes": "XDEV LN reference; quote unit from underlying listing needs independent check"
+    },
+    {
+      "canonical_id": "IE00BKZGB098",
+      "ticker": "HWWA",
+      "listing_status": "stale_listing",
+      "notes": "2022 issuer range; needs current trading line check"
+    },
+    {
+      "canonical_id": "IE00BG0SKF03",
+      "ticker": "EMVL",
+      "listing_status": "no_LSE_GBP_listing_confirmed",
+      "notes": "TER 0.40%. No active LSE GBP line; trades in USD as EMVL on LSE."
+    },
+    {
+      "canonical_id": "IE00BJ5JPG56",
+      "ticker": "ICHN",
+      "listing_status": "no_LSE_GBP_listing_confirmed",
+      "notes": "TER 0.28%. Amsterdam EUR/USD listing confirmed; no active LSE GBP line."
+    }
+  ],
+  "input_sha256": {
+    "C:\\Users\\home\\Documents\\AI-Disk-Access\\Gemini-Efficient-Frontier\\tests\\fixtures\\01_verified_universe.csv": "011132906ff8914bdb5f65447095da7a4e7f3f65199d2905d1c034f2f64507e9",
+    "C:\\Users\\home\\Documents\\AI-Disk-Access\\Gemini-Efficient-Frontier\\tests\\fixtures\\01_listings.csv": "073bc8a1f7b9348a29392b322cbec1afbc693fe35b9e8398db22bb3562d14198",
+    "C:\\Users\\home\\Documents\\AI-Disk-Access\\Gemini-Efficient-Frontier\\tests\\fixtures\\02_assumptions.yaml": "2b19f7aad37a2e52b96389d95f0a874676342099973923cf4e6343ca39489ad6",
+    "C:\\Users\\home\\Documents\\AI-Disk-Access\\Gemini-Efficient-Frontier\\tests\\fixtures\\02_product_contracts.json": "56df59be7a117637e32de2db901f047b931ddc3dcd6291cc4c5cf7c67ca0b01f",
+    "C:\\Users\\home\\Documents\\AI-Disk-Access\\Gemini-Efficient-Frontier\\tests\\fixtures\\06_stress_calibration.json": "ea11fc4376720c84fc617ad501baa1ef4de6de975ba9ca63d06f97c5a772d595"
+  },
+  "quote_conflicts": [],
+  "notes": [
+    "Verified universe quote units override weaker aliases; any discrepancies are listed in quote_conflicts.",
+    "Catalogue uses fixture row order and display tickers; quote units refer to preferred listings.",
+    "Sleeves follow current UI / model-specification scheme C; VAGS in credit, leveraged equity and property in thematic.",
+    "Cash interest is retained (Accumulating). USD/EUR quote currencies are preserved.",
+    "Stress comes from Stage06 audit section 3.3, not product_mechanics.md (which has no stress table).",
+    "Stress is research calibration, not independently verified historical observations; 2022 runs through December.",
+    "VALL is FTSE Global All Cap. Top 100 company weights are renormalised; no legacy assumed-proxy fallback.",
+    "History baseline is January 2014; 152 subsequent monthly net investor-wealth returns are required per reference/method.",
+    "This secondary report does not certify or update the main release manifest or its hashes."
+  ]
+}
