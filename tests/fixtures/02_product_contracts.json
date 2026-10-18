@@ -326,7 +326,8 @@
         "GLOBAL_AGG_BLENDED_CREDIT_LOSS_0.05_PCT",
         "REFERENCE_BOND_SLEEVE"
       ],
-      "quote_unit": "GBP"
+      "quote_unit": "GBP",
+      "hedge_inclusion_status": "excluded_native_basket_yield_only"
     },
     "IE00B14X4S71": {
       "canonical_id": "IE00B14X4S71",
@@ -463,7 +464,7 @@
       ],
       "published_ytm_pct": 7.46,
       "effective_duration_years": 3.12,
-      "hedge_inclusion_status": "not_explicitly_documented",
+      "hedge_inclusion_status": "excluded_native_basket_yield_only",
       "quote_unit": "GBP"
     },
     "IE00BZ163L38": {
