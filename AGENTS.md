@@ -11,7 +11,7 @@ The system operates across three strictly segregated roots. Never cross-contamin
 
 | Tier | Root Path | Role & Contents | Permitted Operations |
 | :--- | :--- | :--- | :--- |
-| **1. Code Execution (Local)** | `C:\Users\home\Documents\AI-Disk-Access\Gemini-Efficient-Frontier` | Python 3.14 virtual environment (`.venv`), Git repository (`main`), `pytest` test harness, Streamlit application code. | Code editing, running `pytest`, Git staging/commits. **Never store non-code assets or documents here.** |
+| **1. Code Execution (Local)** | `C:\Users\home\Documents\AI-Disk-Access` | Local project repositories, Python virtual environments, Git repositories, worktrees, and test harnesses. | Code editing, running tests, Git staging/commits. **Never store non-code assets or documents here.** |
 | **2. Active Hub (Cloud)** | `G:\My Drive\AI-File-Exchange` (synced via Google Drive Desktop) | **Active working files only.** Mathematical specifications, verified universe CSVs, candidate master CVs, handovers, and current status dashboard. | Reading specifications, updating active files, writing deliverables. **Never store `.git`, `.venv`, or internal `Archive/` folders here.** |
 | **3. External Archive (Cold Storage)** | `G:\My Drive\AI Archive & Backups` (external top-level folder) | Major milestone backups, superseded repo baselines, and permanent project snapshots. | Read-only cold storage. **Kept outside `AI-File-Exchange` to eliminate semantic search collisions for cloud agents.** |
 

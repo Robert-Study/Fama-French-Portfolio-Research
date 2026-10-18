@@ -1,191 +1,163 @@
-"""Private V7 research app. Public-data refresh is an explicit offline job."""
+"""Portfolio Construction Lab V8.0 — four-page, immutable release app shell.
+
+Dashboard and ui.v8_shared from Stage 08 Phase 1 are retained. The three
+Phase 2 pages run lazily on navigation, never as startup precomputation.
+"""
+from __future__ import annotations
+
+from hashlib import sha256
 from pathlib import Path
-import platform
-import logging
-
-import streamlit as st
-from portfolio.deployment import missing_dependencies
-
-st.set_page_config(page_title='Fama–French Portfolio Research', page_icon='📊', layout='wide')
-missing = missing_dependencies()
-if missing:
-    st.error('Incomplete Python environment: ' + ', '.join(missing))
-    st.caption(f'Python {platform.python_version()}; deployment target Python 3.14.8. Rebuild the pinned requirements.')
-    st.stop()
-
+import json
 import numpy as np
-from portfolio import __version__
-from portfolio.snapshot import load_snapshot, snapshot_fingerprint
-from portfolio.research import prepare_model, solve_run
-from portfolio.research_export import research_zip
-from portfolio.scenarios import monthly_scenarios, matrix_scenarios, leveraged_horizon_scenarios, convergence
-from portfolio.validation import CATEGORIES
-from portfolio.sensitivity import useful_universe, load_screen_cache
-from ui import pages
+import streamlit as st
+from ui.v8_shared import (TOTAL, checked_weights, copy, release_manifest,
+                          require_release_path)
+from ui import dashboard, holdings, analysis, methods
 
-ROOT = Path(__file__).resolve().parent
-
-
-@st.cache_data(show_spinner=False, max_entries=3)
-def inputs(key, version):
-    return load_snapshot(ROOT / 'data/research')
+st.set_page_config(page_title="Portfolio Construction Lab", page_icon="📈",
+                   layout="wide", initial_sidebar_state="collapsed")
+PAGES = ("dashboard", "underlying", "analysis", "methods")
+READABLE_PARQUETS = frozenset({"fund_catalogue.parquet", "company_holdings.parquet",
+    "benchmark_vall.parquet", "fund_links.parquet", "stress_vectors.parquet",
+    "stress_results.parquet", "historical_results.parquet"})
 
 
-@st.cache_data(show_spinner=False, max_entries=3)
-def fit(key, version, _snapshot):
-    return prepare_model(_snapshot)
+def _check_digest(path: Path, expected: str | None) -> None:
+    # A SHA-256 is required when declared; reject stale or mixed releases.
+    if expected:
+        current = sha256(path.read_bytes()).hexdigest()
+        if current.lower() != str(expected).lower():
+            raise ValueError(f"Release integrity verification failed for {path.name}")
 
 
-@st.cache_data(show_spinner=False, max_entries=10)
-def solve(key, version, constraints, _model):
-    return solve_run(_model, constraints)
+def _sha(manifest: dict, path: str) -> str | None:
+    hashes = manifest.get("sha256", {})
+    return hashes.get(path) if isinstance(hashes, dict) else None
 
 
-@st.cache_data(show_spinner=False, max_entries=6)
-def screening(run_id, version, _run):
-    saved=load_screen_cache(_run,ROOT/'data/research')
-    return useful_universe(_run) if saved is None else saved
+@st.cache_resource(show_spinner=False, max_entries=4)
+def load_model(release_id: str, method: str):
+    """Deserialize only trusted locally-built release artefacts (never user ZIPs)."""
+    if method not in ("holdings", "etf"):
+        raise ValueError("Unrecognised model family")
+    import joblib
+    from portfolio.model import PreparedModel
+    manifest = release_manifest()
+    if release_id != manifest["release_id"]:
+        raise ValueError("Model release changed")
+    relative = f"prepared_{method}.joblib"
+    path = require_release_path(relative)
+    _check_digest(path, _sha(manifest, relative))
+    model = joblib.load(path)
+    if not isinstance(model, PreparedModel):
+        raise TypeError("Model artefact is not a PreparedModel")
+    if getattr(getattr(model, "metadata", None), "method", None) != method:
+        raise ValueError("Prepared model family mismatch")
+    return model
 
 
-@st.cache_data(show_spinner=False, max_entries=8)
-def scenarios(run_id, years, a, b, paths, version, _run):
-    model = _run.model
-    if model.ids == ['GBP_BANK_SAVINGS']:
-        raise ValueError('Future savings rates are unestimated; horizon ranges unavailable. The cash endpoint is conditional on the dated current rate.')
-    weights = None
-    if a >= 0:
-        weights = [ _run.frontier.weights[a], _run.frontier.weights[b] ]
-        weights += [r['weights'] for r in _run.benchmarks.values() if r['available']]
-    if model.daily_months is not None:
-        return leveraged_horizon_scenarios(model, years, paths=paths, selected_weights=weights,
-                                           frontier_weights=_run.frontier.weights)
-    if model.history.empty:
-        return matrix_scenarios(model.mean, model.covariance, years, paths=paths,
-                                mean_draws=model.mean_draws, selected_weights=weights)
-    else:
-        history = model.history.to_numpy()
-    return monthly_scenarios(history, model.mean, years, paths=paths,
-                             mean_draws=model.mean_draws, selected_weights=None if weights is None else np.array(weights))
+@st.cache_data(show_spinner=False, max_entries=16)
+def load_frame(release_id: str, filename: str):
+    if filename not in READABLE_PARQUETS:
+        raise ValueError("Unexpected release dataset")
+    import pandas as pd
+    manifest = release_manifest()
+    if manifest["release_id"] != release_id:
+        raise ValueError("Data release changed")
+    path = require_release_path(filename)
+    _check_digest(path, _sha(manifest, filename))
+    return pd.read_parquet(path)
 
 
-st.markdown('### Fama–French Portfolio Research')
-nav, export_col = st.columns([5, 1])
-with nav:
-    page = st.radio('Pages', ['Dashboard', 'Holdings', 'Compare', 'Methods'], horizontal=True, label_visibility='collapsed', key='page')
-with export_col:
-    export_requested = st.button('Export ZIP')
-controls = st.columns([1, 1, 3])
-with controls[0]:
-    years = st.selectbox('Horizon (years)', [1, 5, 10, 20, 30], index=3)
-with controls[1]:
-    with st.popover('Constraints'):
-        with st.form('constraints'):
-            allow_cash = st.checkbox('Allow savings/cash', True)
-            allow_commodities = st.checkbox('Allow commodities', True)
-            allow_leverage = st.checkbox('Allow leverage', False)
-            leverage_cap = st.number_input('Combined leverage cap (%)', 0.0, 100.0, 25.0) / 100
-            gross_cap = st.number_input('Gross risky notional cap (%)', 0.0, 500.0, 150.0) / 100
-            fund_cap = st.number_input('Individual fund cap (%)', 1.0, 100.0, 100.0) / 100
-            category_caps = {}
-            with st.expander('Category caps'):
-                for category in CATEGORIES:
-                    category_caps[category] = st.number_input(category + ' cap (%)', 0.0, 100.0, 100.0) / 100
-            apply = st.form_submit_button('Apply')
-requested = dict(allow_cash=allow_cash, allow_commodities=allow_commodities, allow_leverage=allow_leverage,
-                 leverage_cap=leverage_cap, gross_cap=gross_cap, fund_cap=fund_cap, category_caps={c:cap for c,cap in category_caps.items() if cap<1})
-root = ROOT / 'data/research'
-pointer = root / '.cache/current.json'
-key = (pointer.read_text() if pointer.exists() else 'no-snapshot') + snapshot_fingerprint(root)
-try:
-    snapshot = inputs(key, __version__)
-except (OSError, ValueError) as exc:
-    st.error('Snapshot validation failed: ' + str(exc))
-    st.stop()
-with controls[2]:
-    st.caption(f'V7 · model {__version__} · snapshot {snapshot.fingerprint[:12]} · ' + snapshot.manifest.get('status', 'Dated evidence snapshot'))
-run = st.session_state.get('active_run_v7')
-if snapshot.manifest.get('provisional_policy'):
-    policy = snapshot.manifest['provisional_policy']
-    currency_note = 'Actual ECB GBP conversion.' if policy['actual_gbp_history'] else 'FX risk suppressed by assumption.'
-    bond_note = 'Gilt carry uses a cash-based prior.' if policy.get('bond_carry_assumed', True) else 'Dated issuer gilt carry/duration.'
-    if policy.get('historical_sonia_actual'):
-        st.caption('Actual SONIA and GBP histories; forward SONIA held flat by assumption. Details and remaining exclusions on Methods.')
-    else:
-        st.warning('Provisional calibration: US RF proxies SONIA. ' + bond_note + ' ' + currency_note + ' Details on Methods.')
-if apply or run is None or run.model.snapshot.fingerprint != snapshot.fingerprint:
-    stage = 'loading calibrated model inputs'
+@st.cache_data(show_spinner=False, max_entries=128)
+def load_frontier(release_id: str, method: str, engine_mask: int):
+    if method not in ("holdings", "etf") or not 0 <= engine_mask <= 63:
+        raise ValueError("Invalid requested frontier")
+    manifest = release_manifest()
+    if manifest["release_id"] != release_id:
+        raise ValueError("Frontier release changed")
+    relative = f"frontiers/{method}/{engine_mask:02d}.npz"
+    path = require_release_path(relative)
+    _check_digest(path, _sha(manifest, relative))
+    with np.load(path, allow_pickle=False) as npz:
+        data = {key: npz[key].copy() for key in npz.files}
+    required = {"q_bps", "certified", "gap"}
+    if not required.issubset(data):
+        raise ValueError("Frontier quality fields absent")
+    q = data["q_bps"]
+    if q.ndim != 2 or q.shape[0] != 1001 or not np.issubdtype(q.dtype, np.integer):
+        raise ValueError("Frontier must have 1,001 integer-weight points")
+    if (q.sum(axis=1, dtype=np.int64) != TOTAL).any() or (
+        ((q > 0) & (q < 10)).any()):
+        raise ValueError("Frontier fails integer-basis-point validation")
+    if len(data["certified"]) != 1001 or len(data["gap"]) != 1001:
+        raise ValueError("Frontier lacks pointwise certification")
+    return data
+
+
+def _init_state(release: dict, model) -> list[str]:
+    tickers = release.get("tickers")
+    if not isinstance(tickers, list) or not tickers or len(set(tickers)) != len(tickers):
+        raise ValueError("Release instrument identities are missing/duplicated")
+    if len(tickers) != len(model.asset_ids):
+        raise ValueError("Model and release dimensions disagree")
+    state = st.session_state
+    state.setdefault("v8_page", "dashboard")
+    state.setdefault("v8_method", "holdings")
+    state.setdefault("v8_method_pending", state["v8_method"])
+    state.setdefault("v8_theme", "dark")
+    # Dashboard owns its category multiselect at key v8_filters; retain across routes.
+    if "v8_q_bps" not in state:
+        cash_index = getattr(model.metadata, "cash_index", None)
+        if cash_index is None or not (0 <= int(cash_index) < len(tickers)):
+            raise ValueError("No verified default cash instrument for initial allocation")
+        q = np.zeros(len(tickers), dtype=np.uint16)
+        q[int(cash_index)] = TOTAL
+        state["v8_q_bps"] = list(map(int, q))
+    # Never silently reset or re-normalise a user's existing allocation.
+    if len(state["v8_q_bps"]) != len(tickers):
+        raise ValueError("Saved portfolio length differs from active universe")
+    checked_weights(state["v8_q_bps"])
+    if state["v8_page"] not in PAGES:
+        state["v8_page"] = "dashboard"
+    if state["v8_method"] not in ("holdings", "etf"):
+        raise ValueError("Invalid active model setting")
+    return tickers
+
+
+def main() -> None:
+    state = st.session_state
+    state.setdefault("v8_method", "holdings")
     try:
-        model = fit(snapshot.fingerprint, __version__, snapshot)
-        stage = 'solving the constrained frontier'
-        new_run = solve(snapshot.fingerprint, __version__, requested, model)
-        st.session_state.active_run_v7 = new_run
-        st.session_state.pop('v7_error', None)
-        run = new_run
-    except (ValueError, KeyError) as exc:
-        st.session_state.v7_error = str(exc)
+        release = release_manifest()
+        if not release.get("release_id") or not release.get("as_of"):
+            raise ValueError("No dated immutable release manifest")
+        with st.spinner(copy("app.status.loading")):
+            model = load_model(release["release_id"], state["v8_method"])
+        tickers = _init_state(release, model)
+    except (FileNotFoundError, OSError, ValueError, TypeError, KeyError, ImportError) as exc:
+        st.error(copy("app.error.missing_release")); st.code(str(exc)); st.stop()
+    heading, menu, date = st.columns([3, 7, 2], vertical_alignment="center")
+    heading.markdown(f"### {copy('app.title')}")
+    menu.segmented_control(copy("app.title"), options=PAGES,
+        format_func=lambda p: copy("app.nav." + p),
+        key="v8_page", label_visibility="collapsed")
+    date.caption(copy("app.release.date", date=release["as_of"]))
+    # Streamlit's global theme cannot reliably be changed by this control;
+    # refrain from advertising a nonfunctional switch.
+    date.button(copy("app.theme.to_light"), disabled=True,
+                help=copy("app.theme.unavailable"))
+    context = {"release": release, "model": model, "tickers": tickers,
+               "load_model": load_model, "load_frame": load_frame,
+               "load_frontier": load_frontier}
+    render = {"dashboard": dashboard.render, "underlying": holdings.render,
+              "analysis": analysis.render, "methods": methods.render}
+    try:
+        render[state["v8_page"]](context)
     except Exception as exc:
-        logging.exception('V7 calculation failed')
-        retained = ' Prior result retained.' if run is not None else ' No portfolio has been calculated.'
-        st.session_state.v7_error = f'Failed while {stage}: {type(exc).__name__}: {exc}.' + retained
-if st.session_state.get('v7_error'):
-    st.error(st.session_state.v7_error)
-    if run is not None:
-        st.warning(f'Retained prior run {run.run_id}, with its prior settings: {run.constraints}')
-if run is None:
-    if page == 'Methods':
-        pages.methods(ROOT, snapshot)
-    else:
-        st.info('No verified production estimates are available. The selected universe remains visible below; legacy demonstration inputs are not substituted.')
-        for column, label in zip(st.columns(4), ['Expected return, net (% p.a.)', 'Annual volatility (%)', 'Ongoing product fees (% p.a.)', 'Effective companies']):
-            column.metric(label, 'Unavailable')
-        st.dataframe(snapshot.status, width='stretch')
-        pages.show_benchmark_status()
-        pages.position_control('unavailable', single=True)
-    if export_requested:
-        st.info('Research ZIP unavailable until at least one instrument has an admitted model and verified solve.')
-    st.stop()
-# A changed dataset must not present old results as its estimates.
-snapshot = run.model.snapshot
-single = len(run.frontier.weights) == 1
-prefix = run.run_id + '_A'
-if 'pending_curve_position' in st.session_state:
-    selected = st.session_state.pop('pending_curve_position')
-    for suffix in ('_position', '_slider', '_numeric'):
-        st.session_state[prefix + suffix] = selected
-if page == 'Dashboard':
-    point = st.session_state.setdefault(prefix + '_position', 0 if single else 50)
-else:
-    point = pages.position_control(prefix, single)
-other = st.session_state.get(run.run_id + '_B_position', 50 if not single else 0)
-if page == 'Compare':
-    st.caption('Portfolio B · same run, constraints and assumptions')
-    other = pages.position_control(run.run_id + '_B', single)
-scenario = None
-check = None
-if page in ('Dashboard', 'Compare') or export_requested:
-    try:
-        # Dashboard summaries share draws across every point; moving its slider
-        # does not regenerate scenarios. Compound only selected portfolios on demand.
-        a, b = (point, other) if page == 'Compare' or export_requested else (-1, -1)
-        scenario = scenarios(run.run_id, years, a, b, 2000, __version__, run)
-        # Required convergence check uses the same policy and independent sample size.
-        second = scenarios(run.run_id, years, -1, -1, 5000, __version__, run)
-        check = convergence(scenario, second, run.frontier.weights)
-        if not check['passed']:
-            st.warning('Scenario interval precision is insufficient at 2,000 versus 5,000 paths; range endpoints are provisional.')
-        st.caption(scenario.estimation)
-    except ValueError as exc:
-        st.warning(str(exc))
-if page == 'Dashboard':
-    pages.dashboard(run, point, scenario, years)
-elif page == 'Holdings':
-    pages.holdings(run, point)
-elif page == 'Compare':
-    pages.compare(run, point, other, scenario, years)
-else:
-    pages.methods(ROOT, snapshot, run)
-if export_requested:
-    with st.spinner('Preparing reproducible calculations and predefined universe sensitivities…'):
-        usefulness = screening(run.run_id, __version__, run)
-        content = research_zip(run, point, other, years, scenario, check, usefulness)
-    st.download_button('Download research ZIP', content, file_name=f'portfolio_{run.run_id}_{point}_{years}y.zip', mime='application/zip')
+        # Fail closed, preserve all session allocations and the last good model.
+        st.error(copy("app.error.unexpected")); st.exception(exc)
+
+
+if __name__ == "__main__":
+    main()

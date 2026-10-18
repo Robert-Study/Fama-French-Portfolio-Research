@@ -16,6 +16,8 @@ In every chat session, you operate in exactly **ONE** of two distinct operationa
   3. **Local Code & Compilation:** Execute `pytest`, run Tectonic LaTeX builds, check PDF page invariants, and commit to Git.
   4. **Single Source of Truth Maintenance:** Update `CURRENT_STATUS.md` and `Master_Evidence_Matrix.yaml` after every milestone.
   5. **File Parity:** Maintain exact synchronization between local `tests/fixtures/` and Google Drive `V8.0 - Portfolio Construction Lab/`.
+  6. **Deep Planning Invocation Protocol:** Gemini 3.8 Flash operates strictly as the Delegator and QA Runner, NOT a solitary deep planner. When deep architectural planning or mathematical derivation is required, Gemini 3.8 Flash invokes the Planning Triad: (1) GPT-6 Astra / Sol (ChatGPT Desktop Work Mode / Codex) and (2) Claude Opus 5.5 (Antigravity) generate proposals; (3) Gemini 4 Argon (Antigravity / App) acts as Senior Arbiter to decide on the final authorized plan. Flash High then decomposes the approved plan into subagent task manifests.
+  7. **Concurrent Orchestrators Collision Avoidance:** Two orchestrator instances or tabs may run simultaneously on separate streams (e.g., Portfolio Lab vs Graduate Applications). Always namespace task manifests (`05 Subagents/Tasks/Task_<Stream>_<Descriptor>.md`) and output deliverables (`05 Subagents/Outputs/Task_<Stream>_<Descriptor>_Result.md`). Only modify rows for your assigned stream in `TODO_PIPELINE.md` and `CURRENT_STATUS.md`.
 
 ### Mode B: Dedicated Subagent (Focused Execution Mode)
 * **Trigger:** Active when a session begins with `"You are Subagent N"`, `"You are Stream X"`, or is assigned a single bounded technical deliverable (e.g. implementing a data adapter, writing a specific algorithm component, or formatting a LaTeX block).
@@ -46,8 +48,8 @@ Never treat models as interchangeable. Route tasks strictly according to core co
 ## 3. Deep Research & Delivery Protocol: Gemini App vs Antigravity
 
 1. **Gemini App Deep Research Delivery Protocol (Solving the Browser Crash Bug):**  
-   * **Direct-to-Drive Export (Primary):** When invoking Deep Research in the Gemini App, explicitly instruct the model to write/export the final deliverable directly to Google Drive (e.g. `00 Specifications/...` or `05 Subagents/Outputs/...`) using `@Google Drive`. This prevents the client-side UI crash that occurs when opening deep research documents within the Gemini web app.
-   * **Direct File Download (Backup):** If direct Drive export fails or is unavailable, use the backup method: download the complete research report as a file (`.md` or text) directly from Gemini and save/paste it into the appropriate location in `AI-File-Exchange` on disk.
+   * **Root Drive Landing Invariant (Deep Research Mode Only):** When invoking Deep Research mode in the Gemini App, do NOT instruct the model to target a specific subfolder path. Gemini App Deep Research exports by default to the root of Google Drive (`G:\My Drive\`) regardless of path instructions. Antigravity Lead Orchestrator will autonomously detect and move root-landed Google Docs into `G:\My Drive\AI-File-Exchange\05 Subagents\Outputs\`.
+   * **Direct File Download (Backup):** If Drive export fails, download the complete research report as a file (`.md` or text) directly from Gemini and paste/save it to `05 Subagents/Outputs/`.
    * **Domain Constraint Guardrails:** Deep research must be given explicit primary-source constraints (e.g. Bloomberg methodology PDFs, issuer factsheets, DMO/BoE gazettes) to prevent reliance on third-party aggregators that confuse GBx pence with GBP pounds or report stale TERs.
 2. **Antigravity Deep Research Alternative:**  
    * When autonomous multi-source web intelligence is executed inside **Antigravity**, use research subagents and IDE web tools.
@@ -110,4 +112,14 @@ Every prompt presented to the user must explicitly declare:
 ### 2. Mandatory 2–6 Word Chat Title Tag in Copy-and-Paste Block:
 - The first line inside the fenced copy-and-paste block MUST begin with a descriptive, bracketed title tag containing 2 to 6 human-readable words (e.g. `[ETF Research - Residual Quote Units Audit]`, `[Deloitte CV Tailoring - Commercial Strategy]`, `[CV Multi-Option Squeeze - Quant Risk & Dev]`).
 - **Why Required:** ChatGPT and Gemini automatically parse the opening words of the first message to name the chat thread in the sidebar. This ensures Robert can immediately identify and navigate across multiple open tabs without clicking into each conversation.
+
+### 3. Editable Markdown Prompt File & Clickable Chat Link:
+- Every external dispatch prompt MUST be written to an editable `.md` file in `G:\My Drive\AI-File-Exchange\05 Subagents\Tasks\`.
+- The chat response MUST provide a clickable `file:///` markdown link to that editable file directly above the copy-and-paste block so Robert can review and modify it before submission.
+
+### 4. Prompt Divergence Awareness Invariant:
+- The orchestrator must NEVER assume the subagent ran the exact text originally drafted.
+- Robert may modify parameters, constraints, or objectives in the `.md` prompt file prior to submission.
+- When auditing returned deliverables, the orchestrator verifies the delivered content against core mathematical contracts and schema invariants (`tests/test_v8_contracts.py`), not against rigid prompt wording.
+
 

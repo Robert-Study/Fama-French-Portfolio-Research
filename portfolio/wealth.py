@@ -371,9 +371,15 @@ def find_band_intersection_time(
     return None
 
 
+# Convenience aliases for Stage 08 UI and precomputation pipeline
+buy_and_hold_moments = accumulating_wealth_moments
+wealth_quantiles = lognormal_wealth_quantiles
+
 __all__ = [
     "accumulating_wealth_moments",
     "distributing_state_space_propagation",
     "lognormal_wealth_quantiles",
     "find_band_intersection_time",
+    "buy_and_hold_moments",
+    "wealth_quantiles",
 ]
