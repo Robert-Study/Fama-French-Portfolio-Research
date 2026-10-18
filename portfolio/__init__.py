@@ -8,6 +8,12 @@ from portfolio.holdings_model import (
     benchmark_neutral_centering,
     reconcile_net_return,
 )
+from portfolio.wealth import (
+    accumulating_wealth_moments,
+    distributing_state_space_propagation,
+    lognormal_wealth_quantiles,
+    find_band_intersection_time,
+)
 
 __all__ = [
     "__version__",
@@ -19,4 +25,8 @@ __all__ = [
     "three_tier_shrinkage_cascade",
     "benchmark_neutral_centering",
     "reconcile_net_return",
+    "accumulating_wealth_moments",
+    "distributing_state_space_propagation",
+    "lognormal_wealth_quantiles",
+    "find_band_intersection_time",
 ]
