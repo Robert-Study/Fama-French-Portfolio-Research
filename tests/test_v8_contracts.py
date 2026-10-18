@@ -202,6 +202,7 @@ def test_stage01_verified_universe_and_listings_schema() -> None:
     expected_gbx = (
         "SWDA", "EQQQ", "SGLN", "SSLN", "CMOP", "COPB",
         "AGAP", "CRUP", "IBTL", "3LUS", "3QQQ", "IWFV",
+        "IWDP", "ISFR",
     )
     for t in expected_gbp:
         assert by_ticker[t]["quote_unit"] == "GBP", f"Expected GBP quote unit for {t}"
@@ -212,7 +213,7 @@ def test_stage01_verified_universe_and_listings_schema() -> None:
         listings = list(csv.DictReader(f))
     assert len(listings) == 84, f"Expected 84 listing rows, got {len(listings)}"
     for lrow in listings:
-        assert lrow["quote_unit"] in {"GBP", "GBx", "USD", "EUR", "unverified"}
+        assert lrow["quote_unit"] in {"GBP", "GBx", "USD", "EUR"}
 
 
 def test_stage02_product_contracts_and_assumptions() -> None:
@@ -245,6 +246,8 @@ def test_stage02_product_contracts_and_assumptions() -> None:
     assert contracts["IE00BSKRJZ44"]["quote_unit"] == "GBx"  # IBTL
     assert abs(contracts["IE00B8KQFS66"]["published_ytm_pct"] - 7.46) < 1e-9  # GHYS
     assert abs(contracts["cash:T212_GBP_CASH"]["observed_oct_2026_aer_pct"] - 3.80) < 1e-9
+    assert contracts["IE00B8KQFS66"]["hedge_inclusion_status"] == "excluded_native_basket_yield_only"
+    assert contracts["IE00BG47K971"]["hedge_inclusion_status"] == "excluded_native_basket_yield_only"
 
     assumptions = _load_assumptions_yaml(FIXTURES_DIR / "02_assumptions.yaml")
     assert assumptions["schema_version"] == "V8.0.0"
