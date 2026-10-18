@@ -45,6 +45,12 @@ The system operates across three strictly segregated roots. Never cross-contamin
      `Next Do This: [Exact next action, command, or prompt to execute]`
      `Questions for Author: [Crucial clarifying questions / blockers, or "None"]`
    * **Subagent Work Delegation:** Every delegated task must be treated as independent subagent work with strict input contracts, file destinations, and exit criteria. If 4 subagents are insufficient, create additional specialized subagents.
+4. **Cloud Prompt Dispatch & Chat Naming Standard:**
+   * **Mandatory Execution Parameters:** When presenting prompts for external cloud execution, specify:
+     - **ChatGPT:** App (`ChatGPT Web` vs `ChatGPT Desktop App`), Project (`Rob - Cloud` [Chat Mode] vs `Rob - Local` [Work Mode / Codex CLI strictly; NO Chat Mode]), and Mode (`Chat Mode` vs `Work Mode`).
+     - **Gemini App:** Gem (`Gem ON` vs `Gem OFF`), Reasoning (`High` vs `OFF`), and explicit `@Google Drive` trigger line.
+     - **Antigravity:** Native local IDE execution; no cloud toggles apply.
+   * **Descriptive Title Tag for Tab Naming:** The first line inside every copy-and-paste prompt block MUST begin with a 2–6 word bracketed title (e.g. `[ETF Research - Residual Quote Units Audit]`) so the browser tab is immediately named and distinguishable.
 
 ---
 
@@ -53,7 +59,7 @@ The system operates across three strictly segregated roots. Never cross-contamin
 | Model Tier | Platform / Model | Quota Structure | Core Responsibilities |
 | :--- | :--- | :--- | :--- |
 | **Orchestrator / Coder** | **Claude Opus 5.5** (Antigravity) / **Codex CLI** | 5-Hour & 1-Week Rolling Caps | Central integration gate, Python 3.14 code, red-to-green `pytest`, LaTeX compilation. |
-| **Deep Reasoner / Auditor** | **Gemini 4 Argon** (App / Antigravity) / **GPT-6 Astra / Sol** | 5-Hour & 1-Week Rolling Caps | Deep primary research, single-document tabular ETF audits, complex MIQP mathematical derivations. |
+| **Deep Reasoner / Auditor** | **Gemini 4 Argon** (App / Antigravity) / **GPT-6 Astra / Sol** | 5-Hour & 1-Week Rolling Caps | Deep primary research (export to Google Drive or download file), tabular ETF audits, complex MIQP derivations. |
 | **High-Volume Workhorse** | **ChatGPT 6 (Chat Mode)** | **UNLIMITED** | High-volume reading, 4-Stage candidate mapping, company research, iterative document drafting. |
 | **Fast QA Runner** | **Gemini 3.8 Flash** (Antigravity) | High Throughput | Fast `pytest` execution, syntax validation, linting, and rapid text formatting. |
 | **Offline Privacy / Scrubbing** | **Qwen 2.5 32B Abliterated** (Ollama / Chatbox) | **UNMETERED / LOCAL** | PII and credential redaction, safety-filter bypass for sensitive data, offline contingency. |

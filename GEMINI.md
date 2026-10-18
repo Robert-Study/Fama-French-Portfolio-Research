@@ -84,3 +84,30 @@ Never treat models as interchangeable. Route tasks strictly according to core co
   `Next Do This: [Exact next action, command, or prompt to execute]`
   `Questions for Author: [Crucial clarifying questions / blockers, or "None"]`
 * **SUBAGENT WORK DELEGATION:** Every delegated task is an independent subagent work item with strict input contracts, file destinations, and exit criteria. If 4 subagents are insufficient, create additional specialized subagents.
+
+---
+
+## 7. Cloud Prompt Dispatch Protocol & Chat Naming Standard
+
+Whenever providing prompts for the user to execute across external platforms, the prompt metadata and copy-and-paste block MUST follow this strict standard:
+
+### 1. Mandatory Metadata Header:
+Every prompt presented to the user must explicitly declare:
+- **For ChatGPT:**
+  - **App / Interface:** `ChatGPT Web` (Cloud) vs `ChatGPT Desktop App` (Local) vs `Codex CLI`.
+  - **Project:** `Rob - Cloud` (Web only) vs `Rob - Local` (Desktop App only; **strictly NO Chat Mode** in `Rob - Local`, only Work Mode / Codex CLI).
+  - **Mode:** `Chat Mode` (Unlimited, cloud only) vs `Work Mode` (Quota-Capped / Local).
+- **For Gemini App:**
+  - **App:** `Gemini Web / App` (`gemini.google.com`).
+  - **Gem Setting:** `Gem ON ("Portfolio Lab & Systems Auditor")` vs `Gem OFF (Standard Chat)`.
+  - **Reasoning:** `Deep Reasoning ON (High)` vs `Deep Reasoning OFF`.
+  - **Drive Connector:** Must explicitly prepend `@Google Drive` in the prompt text so Gemini App links to Drive files.
+- **For Antigravity (Local IDE):**
+  - **Platform:** `Antigravity IDE (Local)`.
+  - **Connection:** Direct physical access to local repository (`.venv`, `pytest`, terminal, Git).
+  - **Settings:** None of the cloud toggles (Gems, Drive connectors, Chat/Work modes) apply.
+
+### 2. Mandatory 2–6 Word Chat Title Tag in Copy-and-Paste Block:
+- The first line inside the fenced copy-and-paste block MUST begin with a descriptive, bracketed title tag containing 2 to 6 human-readable words (e.g. `[ETF Research - Residual Quote Units Audit]`, `[Deloitte CV Tailoring - Commercial Strategy]`, `[CV Multi-Option Squeeze - Quant Risk & Dev]`).
+- **Why Required:** ChatGPT and Gemini automatically parse the opening words of the first message to name the chat thread in the sidebar. This ensures Robert can immediately identify and navigate across multiple open tabs without clicking into each conversation.
+

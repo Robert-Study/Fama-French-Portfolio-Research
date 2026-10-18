@@ -87,23 +87,65 @@ def cmd_dispatch(task_name: str) -> None:
             print(f"[!] Task file not found: {task_path}")
             return
 
+    # Canonical title tag mappings for automated chat tab naming (1-5 words)
+    TASK_METADATA = {
+        "task_gemini_residual_audit": {
+            "title": "[ETF Research - Residual Quote Units Audit]",
+            "platform": "Gemini Web / App (gemini.google.com)",
+            "gem": 'Gem ON ("Portfolio Lab & Systems Auditor")',
+            "reasoning": "High Reasoning Effort",
+            "notes": "Prepend @Google Drive explicitly so Gemini connects to Drive files.",
+        },
+        "task_astra_cv_editorial_squeeze": {
+            "title": "[CV Multi-Option Squeeze - Quant Risk & Dev]",
+            "platform": "ChatGPT Web or ChatGPT Desktop App",
+            "project": "Rob - Cloud (Chat Mode on Web) OR Rob - Local (Work Mode on Desktop App)",
+            "mode": "Chat Mode (Unlimited in Rob - Cloud) vs Work Mode (Rob - Local strictly has NO Chat Mode)",
+            "notes": "Drive connector active automatically.",
+        },
+        "task_v8_engine_architecture": {
+            "title": "[V8 Engine Implementation Architecture]",
+            "platform": "ChatGPT Desktop App (Work Mode) OR Gemini Web/App (Gem ON, High Reasoning)",
+            "notes": "Architectural blueprints only. Coding execution is strictly performed in Antigravity (Local IDE).",
+        },
+    }
+
+    meta = TASK_METADATA.get(task_path.stem.lower(), {
+        "title": f"[{task_path.stem.replace('_', ' ')}]",
+        "platform": "Cloud LLM (ChatGPT / Gemini)",
+        "notes": "Drive connector active.",
+    })
+
     # Derive canonical target output path
     out_name = f"{task_path.stem}_Result.md"
     one_liner = (
-        f'@Google Drive Please read and execute "05 Subagents/Tasks/{task_name}" '
+        f'{meta["title"]} @Google Drive Please read and execute "05 Subagents/Tasks/{task_name}" '
         f'and write your substantive deliverable directly to "05 Subagents/Outputs/{out_name}". '
         f'Do not dump voluminous text into chat.'
     )
 
-    print("\n" + "=" * 70)
+    print("\n" + "=" * 75)
     print(f"DISPATCH TRIGGER FOR: {task_name}")
-    print("=" * 70)
+    print("=" * 75)
+    print(f"Chat Title Tag : {meta['title']}")
+    print(f"Target Platform: {meta.get('platform')}")
+    if "project" in meta:
+        print(f"Project Scope  : {meta.get('project')}")
+    if "mode" in meta:
+        print(f"Execution Mode : {meta.get('mode')}")
+    if "gem" in meta:
+        print(f"Gem Setting    : {meta.get('gem')}")
+    if "reasoning" in meta:
+        print(f"Reasoning Mode : {meta.get('reasoning')}")
+    print(f"Notes          : {meta.get('notes')}")
+    print("-" * 75)
+    print("COPY-AND-PASTE TRIGGER LINE:")
     print(one_liner)
-    print("=" * 70)
+    print("=" * 75)
 
     if copy_to_clipboard(one_liner):
-        print("[OK] Copied 1-line trigger directly to Windows Clipboard!")
-        print("     Paste (Ctrl+V) into ChatGPT Web or Gemini App to launch subagent.")
+        print("[OK] Copied title-tagged trigger line directly to Windows Clipboard!")
+        print("     Paste (Ctrl+V) into target chat to automatically set the chat title.")
     else:
         print("[!] Could not auto-copy to clipboard. Please copy the line above manually.")
 
