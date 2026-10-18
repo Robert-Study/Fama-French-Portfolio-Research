@@ -14,6 +14,14 @@ from portfolio.wealth import (
     lognormal_wealth_quantiles,
     find_band_intersection_time,
 )
+from portfolio.optimise_miqp import (
+    MIQPResult,
+    MIQPFrontier,
+    check_position_feasibility,
+    project_candidate_to_miqp,
+    solve_miqp_point,
+    compute_miqp_frontier,
+)
 
 __all__ = [
     "__version__",
@@ -29,4 +37,12 @@ __all__ = [
     "distributing_state_space_propagation",
     "lognormal_wealth_quantiles",
     "find_band_intersection_time",
+    "MIQPResult",
+    "MIQPFrontier",
+    "check_position_feasibility",
+    "project_candidate_to_miqp",
+    "solve_miqp_point",
+    "compute_miqp_frontier",
 ]
+
+
