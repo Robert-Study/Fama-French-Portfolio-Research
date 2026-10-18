@@ -1,0 +1,770 @@
+{
+  "release_id": "V8.0-2026-10-18",
+  "source_url": "https://docs.google.com/document/d/1n5cV3rYJW77EJE9t190gempT-aJKQ3843zVGs3ldNJw/edit",
+  "source_section": "Stage06_Frontier_Stress_Result, section 3.3",
+  "evidence_status": "Research calibration from approved Stage 06 handover; underlying observations not independently verified. Cash uses current-rate scenarios. Both model methods use the same external shocks.",
+  "scenarios": {
+    "2008": {
+      "start": "2007-10",
+      "end": "2009-03"
+    },
+    "2020": {
+      "start": "2020-02",
+      "end": "2020-03"
+    },
+    "2022": {
+      "start": "2022-01",
+      "end": "2022-12"
+    }
+  },
+  "funds": [
+    {
+      "fund_index": 0,
+      "fund_id": "cash:T212_GBP_CASH",
+      "ticker": "T212_GBP_CASH",
+      "shocks": {
+        "2008": 0.038,
+        "2020": 0.0032,
+        "2022": 0.038
+      },
+      "lineage": "DETERMINISTIC_CASH_RATE (3.80% AER annualized / 0.32% 1-month; historical realized +5.40% 2008, +0.06% 2020, +1.85% 2022)."
+    },
+    {
+      "fund_index": 1,
+      "fund_id": "IE00B4ND3602",
+      "ticker": "SGLN",
+      "shocks": {
+        "2008": 0.685,
+        "2020": 0.064,
+        "2022": 0.116
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 LBMA Gold PM in GBP less 0.12% TER); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 2,
+      "fund_id": "IE00B4NCWG09",
+      "ticker": "SSLN",
+      "shocks": {
+        "2008": 0.242,
+        "2020": -0.225,
+        "2022": 0.148
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 LBMA Silver in GBP less 0.20% TER); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 3,
+      "fund_id": "IE00BD6FTQ80",
+      "ticker": "CMOP",
+      "shocks": {
+        "2008": -0.36,
+        "2020": -0.142,
+        "2022": 0.284
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 BCOMTR in GBP less 0.34% total drag); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 4,
+      "fund_id": "GB00B15KXQ89",
+      "ticker": "COPA",
+      "shocks": {
+        "2008": -0.44,
+        "2020": -0.158,
+        "2022": -0.024
+      },
+      "lineage": "OBSERVED_NAV (Launched Sep 2006; Bloomberg Copper Subindex TR in GBP net of 0.94% drag)."
+    },
+    {
+      "fund_index": 5,
+      "fund_id": "GB00B15KYH63",
+      "ticker": "AIGA",
+      "shocks": {
+        "2008": -0.285,
+        "2020": -0.068,
+        "2022": 0.262
+      },
+      "lineage": "OBSERVED_NAV (WisdomTree Agriculture ETC in GBP net of 0.94% drag)."
+    },
+    {
+      "fund_index": 6,
+      "fund_id": "GB00B15KXV33",
+      "ticker": "CRUD",
+      "shocks": {
+        "2008": -0.625,
+        "2020": -0.61,
+        "2022": 0.385
+      },
+      "lineage": "OBSERVED_NAV (WisdomTree WTI Crude Oil ETC in GBP; reflects severe negative roll yield in 2008/2020 contango and positive backwardation in 2022)."
+    },
+    {
+      "fund_index": 7,
+      "fund_id": "IE00B4WXJK79",
+      "ticker": "IGLS",
+      "shocks": {
+        "2008": 0.098,
+        "2020": 0.011,
+        "2022": -0.078
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 FTSE Gilts 0-5y); OBSERVED_NAV (2020, 2022; Dur 2.14y)."
+    },
+    {
+      "fund_index": 8,
+      "fund_id": "IE00B1FZSB30",
+      "ticker": "IGLT",
+      "shocks": {
+        "2008": 0.164,
+        "2020": 0.032,
+        "2022": -0.24
+      },
+      "lineage": "OBSERVED_NAV (iShares Core UK Gilts All Stocks; Dur 7.01y)."
+    },
+    {
+      "fund_index": 9,
+      "fund_id": "IE00B6YX5L24",
+      "ticker": "GLTL",
+      "shocks": {
+        "2008": 0.215,
+        "2020": 0.068,
+        "2022": -0.402
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 Bloomberg UK Gilt 15+y); OBSERVED_NAV (2020, 2022; Dur 15.01y)."
+    },
+    {
+      "fund_index": 10,
+      "fund_id": "IE00B1FZSD53",
+      "ticker": "INXG",
+      "shocks": {
+        "2008": 0.082,
+        "2020": -0.024,
+        "2022": -0.345
+      },
+      "lineage": "OBSERVED_NAV (iShares GBP Index-Linked Gilts; Dur 12.65y; real yield spike in 2022 LDI crisis)."
+    },
+    {
+      "fund_index": 11,
+      "fund_id": "IE00B5L65R35",
+      "ticker": "IS15",
+      "shocks": {
+        "2008": -0.024,
+        "2020": -0.048,
+        "2022": -0.082
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 iBoxx GBP Corp 0-5y); OBSERVED_NAV (2020, 2022; Dur 2.39y)."
+    },
+    {
+      "fund_index": 12,
+      "fund_id": "IE00B00FV011",
+      "ticker": "SLXX",
+      "shocks": {
+        "2008": -0.118,
+        "2020": -0.075,
+        "2022": -0.178
+      },
+      "lineage": "OBSERVED_NAV (iShares Core GBP Corp Bond; Dur 5.42y; IG spread widening in 2008/2020 + duration loss in 2022)."
+    },
+    {
+      "fund_index": 13,
+      "fund_id": "IE00BG47K971",
+      "ticker": "VAGS",
+      "shocks": {
+        "2008": 0.052,
+        "2020": -0.014,
+        "2022": -0.138
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 Bloomberg Global Agg GBP Hedged); OBSERVED_NAV (2020, 2022; Dur 6.00y)."
+    },
+    {
+      "fund_index": 14,
+      "fund_id": "IE00B14X4S71",
+      "ticker": "IBTS",
+      "shocks": {
+        "2008": 0.482,
+        "2020": 0.124,
+        "2022": 0.072
+      },
+      "lineage": "OBSERVED_NAV (iShares USD Treasury 1-3y unhedged in GBP; combines short UST stability with USD/GBP appreciation in all 3 regimes)."
+    },
+    {
+      "fund_index": 15,
+      "fund_id": "IE00B1FZS798",
+      "ticker": "IBTM",
+      "shocks": {
+        "2008": 0.584,
+        "2020": 0.168,
+        "2022": -0.048
+      },
+      "lineage": "OBSERVED_NAV (iShares USD Treasury 7-10y unhedged in GBP; Dur 6.85y)."
+    },
+    {
+      "fund_index": 16,
+      "fund_id": "IE00BSKRJZ44",
+      "ticker": "IBTL",
+      "shocks": {
+        "2008": 0.742,
+        "2020": 0.284,
+        "2022": -0.215
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 ICE US Treasury 20+y in GBP); OBSERVED_NAV (2020, 2022; Dur 14.83y)."
+    },
+    {
+      "fund_index": 17,
+      "fund_id": "IE00BDZVH859",
+      "ticker": "ITPG",
+      "shocks": {
+        "2008": -0.042,
+        "2020": -0.021,
+        "2022": -0.126
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 Bloomberg US TIPS GBP Hedged); OBSERVED_NAV (2020, 2022; Dur 6.40y)."
+    },
+    {
+      "fund_index": 18,
+      "fund_id": "IE00B8KQFS66",
+      "ticker": "GHYS",
+      "shocks": {
+        "2008": -0.264,
+        "2020": -0.185,
+        "2022": -0.114
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 iBoxx Global Dev HY GBP Hedged); OBSERVED_NAV (2020, 2022; Dur 3.12y)."
+    },
+    {
+      "fund_index": 19,
+      "fund_id": "IE00BZ163L38",
+      "ticker": "VEMT",
+      "shocks": {
+        "2008": 0.125,
+        "2020": -0.084,
+        "2022": -0.076
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008, 2020 Bloomberg EM USD Sovereign in GBP; -18.0% USD loss in 2008 offset by +43.7% USD/GBP); OBSERVED_NAV (2022)."
+    },
+    {
+      "fund_index": 20,
+      "fund_id": "IE00BK5BQT80",
+      "ticker": "VWRP",
+      "shocks": {
+        "2008": -0.385,
+        "2020": -0.258,
+        "2022": -0.078
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 FTSE All-World TR in GBP less 0.14% OCF); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 21,
+      "fund_id": "IE00B4L5Y983",
+      "ticker": "SWDA",
+      "shocks": {
+        "2008": -0.378,
+        "2020": -0.254,
+        "2022": -0.076
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 MSCI World Net TR in GBP); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 22,
+      "fund_id": "IE00B3XXRP09",
+      "ticker": "VUSA",
+      "shocks": {
+        "2008": -0.362,
+        "2020": -0.245,
+        "2022": -0.074
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 S&P 500 Net TR in GBP); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 23,
+      "fund_id": "IE0032077012",
+      "ticker": "EQQQ",
+      "shocks": {
+        "2008": -0.338,
+        "2020": -0.192,
+        "2022": -0.238
+      },
+      "lineage": "OBSERVED_NAV (Invesco EQQQ Nasdaq-100 in GBP; resilient in 2020 lockdown, severe drawdown in 2022 rate hike)."
+    },
+    {
+      "fund_index": 24,
+      "fund_id": "IE00B810Q511",
+      "ticker": "VUKE",
+      "shocks": {
+        "2008": -0.43,
+        "2020": -0.342,
+        "2022": 0.046
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 FTSE 100 TR in GBP); OBSERVED_NAV (2020, 2022; commodity/value overweight gained in 2022)."
+    },
+    {
+      "fund_index": 25,
+      "fund_id": "IE00BKX55Q28",
+      "ticker": "VMID",
+      "shocks": {
+        "2008": -0.495,
+        "2020": -0.415,
+        "2022": -0.174
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 FTSE 250 TR in GBP); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 26,
+      "fund_id": "IE00BKX55S42",
+      "ticker": "VERX",
+      "shocks": {
+        "2008": -0.428,
+        "2020": -0.276,
+        "2022": -0.072
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 FTSE Dev Europe ex UK in GBP); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 27,
+      "fund_id": "IE00B95PGT31",
+      "ticker": "VJPN",
+      "shocks": {
+        "2008": -0.264,
+        "2020": -0.188,
+        "2022": -0.045
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 FTSE Japan in GBP; JPY safe-haven surge cushioned 2008 GBP drawdown); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 28,
+      "fund_id": "IE00B9F5YL18",
+      "ticker": "VAPX",
+      "shocks": {
+        "2008": -0.442,
+        "2020": -0.305,
+        "2022": -0.058
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 FTSE Dev Asia Pac ex Japan in GBP); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 29,
+      "fund_id": "IE00BKM4GZ66",
+      "ticker": "EMIM",
+      "shocks": {
+        "2008": -0.456,
+        "2020": -0.264,
+        "2022": -0.098
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 MSCI EM IMI Net TR in GBP); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 30,
+      "fund_id": "IE00BZCQB185",
+      "ticker": "IIND",
+      "shocks": {
+        "2008": -0.512,
+        "2020": -0.328,
+        "2022": 0.028
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 MSCI India Net TR in GBP less 0.65% TER); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 31,
+      "fund_id": "IE00BQT3WG13",
+      "ticker": "IASH",
+      "shocks": {
+        "2008": -0.548,
+        "2020": -0.114,
+        "2022": -0.168
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 MSCI China A in GBP); OBSERVED_NAV (2020, 2022; onshore China A outperformed during Feb-Mar 2020)."
+    },
+    {
+      "fund_index": 32,
+      "fund_id": "IE00B1FZS350",
+      "ticker": "IWDP",
+      "shocks": {
+        "2008": -0.582,
+        "2020": -0.365,
+        "2022": -0.154
+      },
+      "lineage": "OBSERVED_NAV (iShares Dev Markets Property Yield in GBP; severe real-estate leverage hit in 2008, lockdown hit in 2020, rate hit in 2022)."
+    },
+    {
+      "fund_index": 33,
+      "fund_id": "IE00BP3QZB59",
+      "ticker": "IWFV",
+      "shocks": {
+        "2008": -0.435,
+        "2020": -0.318,
+        "2022": 0.018
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 MSCI World Enhanced Value in GBP); OBSERVED_NAV (2020, 2022; positive return in 2022 rate shock)."
+    },
+    {
+      "fund_index": 34,
+      "fund_id": "IE00BP3QZ825",
+      "ticker": "IWFM",
+      "shocks": {
+        "2008": -0.392,
+        "2020": -0.224,
+        "2022": -0.158
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 MSCI World Momentum in GBP); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 35,
+      "fund_id": "IE00BP3QZ601",
+      "ticker": "IWFQ",
+      "shocks": {
+        "2008": -0.314,
+        "2020": -0.228,
+        "2022": -0.142
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 MSCI World Sector Neutral Quality in GBP); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 36,
+      "fund_id": "IE00B8FHGS14",
+      "ticker": "MVOL",
+      "shocks": {
+        "2008": -0.258,
+        "2020": -0.212,
+        "2022": 0.006
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 MSCI World Min Vol in GBP); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 37,
+      "fund_id": "IE00BP3QZD73",
+      "ticker": "IWSZ",
+      "shocks": {
+        "2008": -0.418,
+        "2020": -0.324,
+        "2022": -0.089
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (MSCI World Mid-Cap Equal Weight in GBP less 0.30% TER)."
+    },
+    {
+      "fund_index": 38,
+      "fund_id": "IE00BF4RFH31",
+      "ticker": "WLDS",
+      "shocks": {
+        "2008": -0.426,
+        "2020": -0.336,
+        "2022": -0.084
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 MSCI World Small Cap in GBP); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 39,
+      "fund_id": "IE00BSPLC413",
+      "ticker": "USSC",
+      "shocks": {
+        "2008": -0.448,
+        "2020": -0.389,
+        "2022": 0.032
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 MSCI USA Small Cap Value Weighted in GBP); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 40,
+      "fund_id": "IE00BSPLC298",
+      "ticker": "ZPRX",
+      "shocks": {
+        "2008": -0.482,
+        "2020": -0.368,
+        "2022": -0.064
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 MSCI Europe Small Cap Value Weighted in GBP); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 41,
+      "fund_id": "IE00BD1F4M44",
+      "ticker": "IUVF",
+      "shocks": {
+        "2008": -0.412,
+        "2020": -0.315,
+        "2022": 0.054
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 MSCI USA Enhanced Value in GBP); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 42,
+      "fund_id": "IE00BQN1K901",
+      "ticker": "IEFV",
+      "shocks": {
+        "2008": -0.465,
+        "2020": -0.332,
+        "2022": -0.012
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 MSCI Europe Enhanced Value in GBP); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 43,
+      "fund_id": "IE00BG0SKF03",
+      "ticker": "EMVL",
+      "shocks": {
+        "2008": -0.44,
+        "2020": -0.289,
+        "2022": -0.038
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 MSCI EM Enhanced Value in GBP); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 44,
+      "fund_id": "IE00BJRCLL96",
+      "ticker": "JPGL",
+      "shocks": {
+        "2008": -0.368,
+        "2020": -0.262,
+        "2022": -0.024
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 JPMorgan Global Region Aware Multi-Factor Index in GBP); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 45,
+      "fund_id": "IE00BZ56SW52",
+      "ticker": "GGRG",
+      "shocks": {
+        "2008": -0.325,
+        "2020": -0.234,
+        "2022": -0.062
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 WisdomTree Global Dev Quality Div Growth in GBP); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 46,
+      "fund_id": "LU0411078552",
+      "ticker": "XS2D",
+      "shocks": {
+        "2008": -0.784,
+        "2020": -0.518,
+        "2022": -0.345
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 S&P 500 2x Daily Leveraged Index in GBP); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 47,
+      "fund_id": "FR0010342592",
+      "ticker": "LQQ",
+      "shocks": {
+        "2008": -0.752,
+        "2020": -0.426,
+        "2022": -0.568
+      },
+      "lineage": "OBSERVED_NAV (Launched Jun 2006; Amundi Nasdaq-100 2x Daily Leveraged in GBP)."
+    },
+    {
+      "fund_index": 48,
+      "fund_id": "IE00B7Y34M31",
+      "ticker": "3LUS",
+      "shocks": {
+        "2008": -0.942,
+        "2020": -0.728,
+        "2022": -0.495
+      },
+      "lineage": "DAILY_LEVERAGE_CONTRACT_PROXY (2008 3x daily S&P 500 path + single GBP FX conversion); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 49,
+      "fund_id": "XS2472197065",
+      "ticker": "3QQQ",
+      "shocks": {
+        "2008": -0.928,
+        "2020": -0.645,
+        "2022": -0.774
+      },
+      "lineage": "DAILY_LEVERAGE_CONTRACT_PROXY (2008 3x daily QQQ path + single GBP FX conversion); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 50,
+      "fund_id": "IE000RJECXS5",
+      "ticker": "AVCG",
+      "shocks": {
+        "2008": -0.394,
+        "2020": -0.278,
+        "2022": -0.032
+      },
+      "lineage": "FACTOR_COUNTERFACTUAL_PROXY (Launched Sep 2024; MSCI World IMI + +0.30 HML + +0.25 RMW realized factor path net of 0.22% TER)."
+    },
+    {
+      "fund_index": 51,
+      "fund_id": "IE0003R87OG3",
+      "ticker": "AVSG",
+      "shocks": {
+        "2008": -0.452,
+        "2020": -0.364,
+        "2022": 0.014
+      },
+      "lineage": "FACTOR_COUNTERFACTUAL_PROXY (Launched Sep 2024; MSCI World Small Cap Value + RMW realized factor path net of 0.39% TER)."
+    },
+    {
+      "fund_index": 52,
+      "fund_id": "IE00B44Z5B48",
+      "ticker": "ACWI",
+      "shocks": {
+        "2008": -0.384,
+        "2020": -0.257,
+        "2022": -0.077
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 MSCI ACWI Net TR in GBP); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 53,
+      "fund_id": "IE00BJ5JPG56",
+      "ticker": "ICHN",
+      "shocks": {
+        "2008": -0.485,
+        "2020": -0.142,
+        "2022": -0.124
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 MSCI China Net TR in GBP); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 54,
+      "fund_id": "IE00BK5BQZ41",
+      "ticker": "VDPG",
+      "shocks": {
+        "2008": -0.442,
+        "2020": -0.305,
+        "2022": -0.058
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 FTSE Dev Asia Pac ex Japan in GBP); OBSERVED_NAV (2020, 2022; accumulating twin of VAPX)."
+    },
+    {
+      "fund_index": 55,
+      "fund_id": "IE00BG143G97",
+      "ticker": "VGER",
+      "shocks": {
+        "2008": -0.446,
+        "2020": -0.298,
+        "2022": -0.112
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 FTSE Germany All Cap in GBP); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 56,
+      "fund_id": "IE00BHZRQZ17",
+      "ticker": "FRIN",
+      "shocks": {
+        "2008": -0.508,
+        "2020": -0.325,
+        "2022": 0.032
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 FTSE India 30/18 Capped in GBP); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 57,
+      "fund_id": "IE00B27YCK28",
+      "ticker": "LTAM",
+      "shocks": {
+        "2008": -0.468,
+        "2020": -0.426,
+        "2022": 0.214
+      },
+      "lineage": "OBSERVED_NAV (iShares MSCI EM Latin America in GBP; commodity exporter surge in 2022)."
+    },
+    {
+      "fund_index": 58,
+      "fund_id": "IE00BL25JM42",
+      "ticker": "XDEV",
+      "shocks": {
+        "2008": -0.435,
+        "2020": -0.318,
+        "2022": 0.018
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 MSCI World Enhanced Value in GBP); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 59,
+      "fund_id": "IE00BP3QZJ36",
+      "ticker": "ISFR",
+      "shocks": {
+        "2008": -0.415,
+        "2020": -0.284,
+        "2022": -0.048
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 MSCI France in GBP); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 60,
+      "fund_id": "IE00B46G8275",
+      "ticker": "HIDR",
+      "shocks": {
+        "2008": -0.472,
+        "2020": -0.358,
+        "2022": 0.156
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 MSCI Indonesia in GBP); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 61,
+      "fund_id": "IE0007P4PBU1",
+      "ticker": "HCHA",
+      "shocks": {
+        "2008": -0.485,
+        "2020": -0.142,
+        "2022": -0.124
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008, 2020 MSCI China Net TR in GBP); OBSERVED_NAV (2022)."
+    },
+    {
+      "fund_index": 62,
+      "fund_id": "IE000VAHT5T0",
+      "ticker": "VALL",
+      "shocks": {
+        "2008": -0.389,
+        "2020": -0.264,
+        "2022": -0.079
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (Launched Aug 2026; FTSE Global All Cap Index Net TR in GBP less 0.07% OCF)."
+    },
+    {
+      "fund_index": 63,
+      "fund_id": "IE0007TPRF31",
+      "ticker": "VSML",
+      "shocks": {
+        "2008": -0.432,
+        "2020": -0.338,
+        "2022": -0.086
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (Launched Aug 2026; FTSE Global Small Cap Index Net TR in GBP less 0.22% OCF)."
+    },
+    {
+      "fund_index": 64,
+      "fund_id": "IE00BKZGB098",
+      "ticker": "HWWA",
+      "shocks": {
+        "2008": -0.374,
+        "2020": -0.268,
+        "2022": -0.054
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 MSCI World Diversified Multiple-Factor in GBP); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 65,
+      "fund_id": "IE00BZ0PKT83",
+      "ticker": "IFSW",
+      "shocks": {
+        "2008": -0.376,
+        "2020": -0.271,
+        "2022": -0.058
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 STOXX Dev World Equity Factor Screened in GBP); OBSERVED_NAV (2020, 2022)."
+    },
+    {
+      "fund_index": 66,
+      "fund_id": "IE000K975W13",
+      "ticker": "AVEG",
+      "shocks": {
+        "2008": -0.448,
+        "2020": -0.279,
+        "2022": -0.046
+      },
+      "lineage": "FACTOR_COUNTERFACTUAL_PROXY (Launched Dec 2024; MSCI EM IMI + Value/Profitability realized factor path net of 0.35% TER)."
+    },
+    {
+      "fund_index": 67,
+      "fund_id": "IE00BK5BQV03",
+      "ticker": "VHVG",
+      "shocks": {
+        "2008": -0.377,
+        "2020": -0.253,
+        "2022": -0.075
+      },
+      "lineage": "BENCHMARK_INDEX_NET_FEE (2008 FTSE Developed Index Net TR in GBP less 0.12% OCF); OBSERVED_NAV (2020, 2022)."
+    }
+  ]
+}
