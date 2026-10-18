@@ -37,20 +37,22 @@ Never treat models as interchangeable. Route tasks strictly according to core co
 | **Antigravity (Claude Opus 5.5)** | Local / IDE | **Strategic Planner & Systems Architect:** Python 3.14 code engine, Git commits, local test harnesses, infrastructure builds. | Full terminal, `.venv`, Tectonic | Rolling quota windows. Avoid dumping high-volume text reading here. |
 | **ChatGPT 6 (Chat Mode)** | **ChatGPT Web** (Cloud) | **High-Volume Workhorse & LaTeX CV Design:** Unlimited reading, 4-Stage CV tailoring, bullet crafting, continuous drafts. | Cloud Drive Connector, **UNLIMITED** | Do not run local Python code here; always use Chat Mode rather than Work Mode for CVs. |
 | **ChatGPT 6 Astra / Sol** | **ChatGPT Desktop App** (Local) | **Strategic Co-Planner & Local Work Mode:** GitHub actions, deep code architecture alongside local terminal. | Local Work Mode / Codex CLI | Quota-capped (5-hr & 1-wk rolling limits). Reserve for heavy code planning. |
-| **Gemini 4 Argon** | **Gemini Web / App** | **Maths, Algorithms & Financial Engineering:** MIQP derivations, covariance shrinkage, intraday airbag restrikes. | **Gemini Gem ON** (`Portfolio Lab`), **High Reasoning** | **DO NOT USE DEEP RESEARCH IN GEMINI APP** (causes client crash when opening research docs). |
+| **Gemini 4 Argon** | **Gemini Web / App** | **Maths, Algorithms & Financial Engineering:** MIQP derivations, covariance shrinkage, intraday airbag restrikes. | **Gemini Gem ON** (`Portfolio Lab`), **High Reasoning** | When using Deep Research, export directly to Google Drive or download file (never open large research doc inside Gemini UI). |
 | **Antigravity Deep Research** | Local / IDE | **Deep Autonomous Web Research:** Multi-source employer intelligence, macro market surveys, regulatory analysis. | Subagents / Web tools (**NO GEMS in Antigravity**) | Because Antigravity has no Gems, all domain locks must be explicit in the prompt text. |
 | **Qwen 2.5 32B Abliterated** | Local (Chatbox / Ollama) | **Confidential & Uncensored Computing:** PII and credential redaction, safety-filter bypass, 100% offline contingency. | Offline, Unmetered | Slower token throughput than cloud; lacks live web access. |
 
 ---
 
-## 3. Deep Research Rules: Antigravity vs Gemini App
+## 3. Deep Research & Delivery Protocol: Gemini App vs Antigravity
 
-1. **NEVER Use Deep Research in the Gemini App:**  
-   The Gemini App encounters client-side crashes when opening deep research documents, corrupting or locking outputs. Furthermore, Deep Research crawls third-party aggregator sites (JustETF, Morningstar, Yahoo Finance) that confuse GBx pence with GBP pounds and report stale TERs.
-2. **Execute Deep Research in Antigravity:**  
-   When deep multi-source research is needed, execute it inside **Antigravity** using its research subagents and web tools.
-3. **No Gems in Antigravity:**  
-   Antigravity does **not** have access to Gemini Gems. Any prompt running deep research in Antigravity must explicitly include the necessary financial and factual constraints in the prompt body.
+1. **Gemini App Deep Research Delivery Protocol (Solving the Browser Crash Bug):**  
+   * **Direct-to-Drive Export (Primary):** When invoking Deep Research in the Gemini App, explicitly instruct the model to write/export the final deliverable directly to Google Drive (e.g. `00 Specifications/...` or `05 Subagents/Outputs/...`) using `@Google Drive`. This prevents the client-side UI crash that occurs when opening deep research documents within the Gemini web app.
+   * **Direct File Download (Backup):** If direct Drive export fails or is unavailable, use the backup method: download the complete research report as a file (`.md` or text) directly from Gemini and save/paste it into the appropriate location in `AI-File-Exchange` on disk.
+   * **Domain Constraint Guardrails:** Deep research must be given explicit primary-source constraints (e.g. Bloomberg methodology PDFs, issuer factsheets, DMO/BoE gazettes) to prevent reliance on third-party aggregators that confuse GBx pence with GBP pounds or report stale TERs.
+2. **Antigravity Deep Research Alternative:**  
+   * When autonomous multi-source web intelligence is executed inside **Antigravity**, use research subagents and IDE web tools.
+   * Because Antigravity has no Gems, all domain constraints, quote unit rules (GBx vs GBP), and accounting boundaries must be explicitly stated in the prompt text.
+
 
 ---
 
