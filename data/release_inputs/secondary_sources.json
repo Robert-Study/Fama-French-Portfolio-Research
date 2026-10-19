@@ -1,6 +1,6 @@
 {
   "benchmark": {
-    "source": "Vanguard FTSE Global All Cap Index Fund Factsheet & Annual Report",
+    "source": "FTSE Russell FTSE Global All Cap Index Official Factsheet (30 September 2026) & Vanguard Fund Holdings",
     "benchmark": "FTSE Global All Cap",
     "weight_basis": "company_cap_weight",
     "as_of": "2026-10-18"

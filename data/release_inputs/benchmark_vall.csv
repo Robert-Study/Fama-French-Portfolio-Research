@@ -1,17 +1,17 @@
 company_id,company,ticker,country,sector,cap_bucket,benchmark_weight
-US67066G1040,NVIDIA Corporation,NVDA,USA,Information Technology,Mega,0.039900
-US0378331005,Apple Inc.,AAPL,USA,Information Technology,Mega,0.035700
-US02079K3059,Alphabet Inc.,GOOGL,USA,Communication Services,Mega,0.032100
-US5949181045,Microsoft Corporation,MSFT,USA,Information Technology,Mega,0.023700
-US0231351067,Amazon.com Inc.,AMZN,USA,Consumer Discretionary,Mega,0.019700
-TW0002330008,Taiwan Semiconductor Manufacturing Company Limited,2330,TWN,Information Technology,Mega,0.016400
-US11135F1012,Broadcom Inc.,AVGO,USA,Information Technology,Mega,0.015000
-US5951121038,Micron Technology Inc.,MU,USA,Information Technology,Mega,0.011100
-US30303M1027,Meta Platforms Inc.,META,USA,Communication Services,Mega,0.010600
+US67066G1040,NVIDIA Corporation,NVDA,USA,Information Technology,Mega,0.045800
+US0378331005,Apple Inc.,AAPL,USA,Information Technology,Mega,0.041400
+US02079K3059,Alphabet Inc.,GOOGL,USA,Communication Services,Mega,0.034100
+US5949181045,Microsoft Corporation,MSFT,USA,Information Technology,Mega,0.032800
+US0231351067,Amazon.com Inc.,AMZN,USA,Consumer Discretionary,Mega,0.022100
+US11135F1012,Broadcom Inc.,AVGO,USA,Information Technology,Mega,0.017600
+TW0002330008,Taiwan Semiconductor Manufacturing Company Limited,2330,TWN,Information Technology,Mega,0.015600
+US30303M1027,Meta Platforms Inc.,META,USA,Communication Services,Mega,0.011800
 US88160R1014,Tesla Inc.,TSLA,USA,Consumer Discretionary,Mega,0.010500
+US5324571083,Eli Lilly and Company,LLY,USA,Health Care,Mega,0.009500
+US5951121038,Micron Technology Inc.,MU,USA,Information Technology,Mega,0.009100
 KR7005930003,Samsung Electronics Co. Ltd.,005930,KOR,Information Technology,Mega,0.008800
 KR7000660001,SK hynix Inc.,000660,KOR,Information Technology,Mega,0.008400
-US5324571083,Eli Lilly and Company,LLY,USA,Health Care,Mega,0.008200
 US0079031078,Advanced Micro Devices Inc.,AMD,USA,Information Technology,Mega,0.008100
 US0846707026,Berkshire Hathaway Inc.,BRK.B,USA,Financials,Mega,0.007000
 US46625H1005,JPMorgan Chase & Co.,JPM,USA,Financials,Mega,0.006900
