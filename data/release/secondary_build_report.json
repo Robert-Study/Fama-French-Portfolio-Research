@@ -9,16 +9,19 @@
     "stress_vectors.parquet": {
       "rows": 408,
       "sha256": "6532fefff2fefa901e012c7213842f7290868ffc0e3cd8b485011edb946a9148"
+    },
+    "benchmark_vall.parquet": {
+      "rows": 100,
+      "sha256": "58ac3853f4d4ebe0f6ecb72a7a836e156f51939a67bbbbe192cee04a7b18a20a"
+    },
+    "benchmark_vall.csv": {
+      "rows": 100,
+      "sha256": "66f7af8f9bb0d98176355fb17c995e3a7cd355d6247c6ec0cdc0a6e0dfa34521"
     }
   },
   "blocked": {
-    "benchmark_vall.parquet": {
-      "reason": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\home\\\\Documents\\\\AI-Disk-Access\\\\Gemini-Efficient-Frontier\\\\data\\\\release_inputs\\\\secondary_sources.json'",
-      "required": "Need company-aggregated VALL constituents in benchmark_vall.csv and benchmark provenance in secondary_sources.json.",
-      "existing_file_retained": false
-    },
     "historical_results.parquet": {
-      "reason": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\home\\\\Documents\\\\AI-Disk-Access\\\\Gemini-Efficient-Frontier\\\\data\\\\release_inputs\\\\secondary_sources.json'",
+      "reason": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\home\\\\Documents\\\\AI-Disk-Access\\\\Gemini-Efficient-Frontier\\\\data\\\\release_inputs\\\\reference_monthly_returns.csv'",
       "required": "Need reference_monthly_returns.csv (six references, both methods, Feb 2014-Sep 2026) and history provenance in secondary_sources.json.",
       "existing_file_retained": false
     },
@@ -43,6 +46,18 @@
       "source_url": "https://docs.google.com/document/d/1n5cV3rYJW77EJE9t190gempT-aJKQ3843zVGs3ldNJw/edit",
       "source_section": "Stage06_Frontier_Stress_Result, section 3.3",
       "evidence_status": "Research calibration from approved Stage 06 handover; underlying observations not independently verified. Cash uses current-rate scenarios. Both model methods use the same external shocks."
+    },
+    "benchmark": {
+      "source": "Vanguard FTSE Global All Cap Index Fund Factsheet & Annual Report",
+      "benchmark": "FTSE Global All Cap",
+      "weight_basis": "company_cap_weight",
+      "as_of": "2026-10-18"
+    },
+    "history": {
+      "source": "Verified Historical Net Investor-Wealth Return Series (152 Months, Feb 2014 - Sep 2026)",
+      "currency": "GBP",
+      "return_basis": "net_investor_wealth",
+      "accounting": "fixed_units_with_distribution_cash"
     }
   },
   "listing_warnings": [
@@ -88,7 +103,9 @@
     "C:\\Users\\home\\Documents\\AI-Disk-Access\\Gemini-Efficient-Frontier\\tests\\fixtures\\01_listings.csv": "073bc8a1f7b9348a29392b322cbec1afbc693fe35b9e8398db22bb3562d14198",
     "C:\\Users\\home\\Documents\\AI-Disk-Access\\Gemini-Efficient-Frontier\\tests\\fixtures\\02_assumptions.yaml": "2b19f7aad37a2e52b96389d95f0a874676342099973923cf4e6343ca39489ad6",
     "C:\\Users\\home\\Documents\\AI-Disk-Access\\Gemini-Efficient-Frontier\\tests\\fixtures\\02_product_contracts.json": "56df59be7a117637e32de2db901f047b931ddc3dcd6291cc4c5cf7c67ca0b01f",
-    "C:\\Users\\home\\Documents\\AI-Disk-Access\\Gemini-Efficient-Frontier\\tests\\fixtures\\06_stress_calibration.json": "ea11fc4376720c84fc617ad501baa1ef4de6de975ba9ca63d06f97c5a772d595"
+    "C:\\Users\\home\\Documents\\AI-Disk-Access\\Gemini-Efficient-Frontier\\tests\\fixtures\\06_stress_calibration.json": "ea11fc4376720c84fc617ad501baa1ef4de6de975ba9ca63d06f97c5a772d595",
+    "C:\\Users\\home\\Documents\\AI-Disk-Access\\Gemini-Efficient-Frontier\\data\\release_inputs\\benchmark_vall.csv": "fe363905035a50ac16c1ed9a3bab7c933738b44ce95818af6a786eef16cd86ab",
+    "C:\\Users\\home\\Documents\\AI-Disk-Access\\Gemini-Efficient-Frontier\\data\\release_inputs\\secondary_sources.json": "557d837fc7fff1e5e5ad7e0adc1cad29be967b35630f658d9065ba4b92945b6c"
   },
   "quote_conflicts": [],
   "notes": [
