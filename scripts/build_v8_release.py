@@ -303,6 +303,7 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--masks", default="all", help="Production: all; smoke: comma-separated IDs, e.g. 0,1,63")
     parser.add_argument("--n-points", type=int, default=DEFAULT_N_POINTS)
     parser.add_argument("--horizons", default="1-40", help="Production: 1-40; smoke: comma-separated years")
+    parser.add_argument("--force", action="store_true", help="Overwrite existing release artifacts in --out")
     return parser.parse_args(argv)
 
 
@@ -318,8 +319,8 @@ def main(argv: list[str] | None = None) -> int:
     out = args.out.resolve()
     if not production and out == (ROOT / "data/release").resolve():
         raise ReleaseContractError("Partial/smoke builds must specify --out outside data/release")
-    if out.exists():
-        raise ReleaseContractError(f"Refusing to overwrite existing release directory: {out}")
+    if (out / "manifest.json").exists() and not getattr(args, "force", False):
+        raise ReleaseContractError(f"Refusing to overwrite existing release manifest: {out / 'manifest.json'}")
     for path in (args.snapshot, args.references):
         if not path.is_file():
             raise ReleaseContractError(f"Missing trusted release input: {path}")
@@ -391,9 +392,19 @@ def main(argv: list[str] | None = None) -> int:
         for relative, digest in artifacts.items():
             if _sha256(staging / relative) != digest:
                 raise ReleaseContractError(f"Hash mismatch before publish: {relative}")
-        if out.exists():
-            raise ReleaseContractError(f"Output appeared during build: {out}")
-        staging.rename(out)
+        if (out / "manifest.json").exists() and not getattr(args, "force", False):
+            raise ReleaseContractError(f"Release manifest appeared during build: {out / 'manifest.json'}")
+        out.mkdir(parents=True, exist_ok=True)
+        for item in staging.iterdir():
+            dest = out / item.name
+            if item.is_dir():
+                if dest.exists():
+                    shutil.rmtree(dest)
+                shutil.move(str(item), str(dest))
+            else:
+                if dest.exists():
+                    dest.unlink()
+                shutil.move(str(item), str(dest))
         print(f"Release built: {out} [{len(artifacts)} hashed artifacts; {release_id}]", flush=True)
         return 0
     finally:
