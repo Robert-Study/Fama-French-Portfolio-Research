@@ -1,0 +1,16 @@
+security_id,company_id,company,ticker,country,sector,cap_bucket,weight
+TW0002330008,TW0002330008,Taiwan Semiconductor Manufacturing Company Limited,2330,TWN,Information Technology,Mega,0.085
+KYG875721634,KYG875721634,Tencent Holdings Limited,700,CHN,Communication Services,Large,0.052
+KR7005930003,KR7005930003,Samsung Electronics Co. Ltd.,005930,KOR,Information Technology,Mega,0.048
+KR7000660001,KR7000660001,SK hynix Inc.,000660,KOR,Information Technology,Mega,0.022
+INE002A01018,INE002A01018,Reliance Industries Limited,RELIANCE,IND,Energy,Large,0.018
+INE040A01034,INE040A01034,HDFC Bank Limited,HDFCBANK,IND,Financials,Large,0.016
+US7223041028,US7223041028,PDD Holdings Inc.,PDD,CHN,Consumer Discretionary,Large,0.015
+INE090A01021,INE090A01021,ICICI Bank Limited,ICICIBANK,IND,Financials,Large,0.014
+KYG593841467,KYG593841467,Meituan,3690,CHN,Consumer Discretionary,Large,0.013
+TW0002317005,TW0002317005,Hon Hai Precision Industry Co. Ltd.,2317,TWN,Information Technology,Large,0.012
+CNE1000002H1,CNE1000002H1,China Construction Bank Corporation,939,CHN,Financials,Large,0.011
+BRVALEACNOR0,BRVALEACNOR0,Vale S.A.,VALE3,BRA,Materials,Large,0.01
+BRPETRACNOR9,BRPETRACNOR9,Petroleo Brasileiro S.A. - Petrobras,PETR4,BRA,Energy,Large,0.009
+BRITUBACNPR1,BRITUBACNPR1,Itau Unibanco Holding S.A.,ITUB4,BRA,Financials,Large,0.008
+MXP810081010,MXP810081010,Wal-Mart de Mexico S.A.B. de C.V.,WALMEX,MEX,Consumer Staples,Large,0.007

@@ -1,0 +1,11 @@
+security_id,company_id,company,ticker,country,sector,cap_bucket,weight
+CNE0000018R8,CNE0000018R8,Kweichow Moutai Co. Ltd.,600519,CHN,Consumer Staples,Large,0.06
+CNE100003662,CNE100003662,Contemporary Amperex Technology Co. Limited,300750,CHN,Industrials,Large,0.05
+CNE000001B33,CNE000001B33,China Merchants Bank Co. Ltd.,600036,CHN,Financials,Large,0.03
+CNE000001G87,CNE000001G87,China Yangtze Power Co. Ltd.,600900,CHN,Utilities,Large,0.025
+CNE000000VR8,CNE000000VR8,Wuliangye Yibin Co. Ltd.,000858,CHN,Consumer Staples,Large,0.025
+CNE000001R84,CNE000001R84,Ping An Insurance (Group) Company of China Ltd. A,601318,CHN,Financials,Large,0.025
+CNE0000016L9,CNE0000016L9,BYD Company Limited A,002594,CHN,Consumer Discretionary,Large,0.02
+CNE100001QQ5,CNE100001QQ5,Midea Group Co. Ltd.,000333,CHN,Consumer Discretionary,Large,0.02
+CNE100000507,CNE100000507,Zijin Mining Group Co. Ltd.,601899,CHN,Materials,Large,0.018
+CNE100000TY6,CNE100000TY6,Luxshare Precision Industry Co. Ltd.,002475,CHN,Information Technology,Large,0.015

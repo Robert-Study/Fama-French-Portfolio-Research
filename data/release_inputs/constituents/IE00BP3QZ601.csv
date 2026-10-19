@@ -1,0 +1,11 @@
+security_id,company_id,company,ticker,country,sector,cap_bucket,weight
+US5949181045,US5949181045,Microsoft Corporation,MSFT,USA,Information Technology,Mega,0.055
+US0378331005,US0378331005,Apple Inc.,AAPL,USA,Information Technology,Mega,0.052
+US67066G1040,US67066G1040,NVIDIA Corporation,NVDA,USA,Information Technology,Mega,0.048
+US02079K3059,US02079K3059,Alphabet Inc.,GOOGL,USA,Communication Services,Mega,0.042
+US30303M1027,US30303M1027,Meta Platforms Inc.,META,USA,Communication Services,Mega,0.038
+US11135F1012,US11135F1012,Broadcom Inc.,AVGO,USA,Information Technology,Mega,0.035
+US92826C8394,US92826C8394,Visa Inc.,V,USA,Financials,Large,0.03
+US57636Q1040,US57636Q1040,Mastercard Incorporated,MA,USA,Financials,Large,0.028
+DK0062498333,DK0062498333,Novo Nordisk A/S,NOVO.B,DNK,Health Care,Mega,0.025
+NL0010273215,NL0010273215,ASML Holding N.V.,ASML,NLD,Information Technology,Mega,0.025

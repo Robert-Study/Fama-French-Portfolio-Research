@@ -1,0 +1,101 @@
+security_id,company_id,company,ticker,country,sector,cap_bucket,weight
+US67066G1040,US67066G1040,NVIDIA Corporation,NVDA,USA,Information Technology,Mega,0.044884
+US0378331005,US0378331005,Apple Inc.,AAPL,USA,Information Technology,Mega,0.040572
+US02079K3059,US02079K3059,Alphabet Inc.,GOOGL,USA,Communication Services,Mega,0.033418
+US5949181045,US5949181045,Microsoft Corporation,MSFT,USA,Information Technology,Mega,0.032144
+US0231351067,US0231351067,Amazon.com Inc.,AMZN,USA,Consumer Discretionary,Mega,0.021658
+US11135F1012,US11135F1012,Broadcom Inc.,AVGO,USA,Information Technology,Mega,0.017248
+TW0002330008,TW0002330008,Taiwan Semiconductor Manufacturing Company Limited,2330,TWN,Information Technology,Mega,0.015288
+US30303M1027,US30303M1027,Meta Platforms Inc.,META,USA,Communication Services,Mega,0.011564
+US88160R1014,US88160R1014,Tesla Inc.,TSLA,USA,Consumer Discretionary,Mega,0.01029
+US5324571083,US5324571083,Eli Lilly and Company,LLY,USA,Health Care,Mega,0.00931
+US5951121038,US5951121038,Micron Technology Inc.,MU,USA,Information Technology,Mega,0.008918
+KR7005930003,KR7005930003,Samsung Electronics Co. Ltd.,005930,KOR,Information Technology,Mega,0.008624
+KR7000660001,KR7000660001,SK hynix Inc.,000660,KOR,Information Technology,Mega,0.008232
+US0079031078,US0079031078,Advanced Micro Devices Inc.,AMD,USA,Information Technology,Mega,0.007938
+US0846707026,US0846707026,Berkshire Hathaway Inc.,BRK.B,USA,Financials,Mega,0.00686
+US46625H1005,US46625H1005,JPMorgan Chase & Co.,JPM,USA,Financials,Mega,0.006762
+NL0010273215,NL0010273215,ASML Holding N.V.,ASML,NLD,Information Technology,Mega,0.00637
+US4581401001,US4581401001,Intel Corporation,INTC,USA,Information Technology,Mega,0.005096
+US4781601046,US4781601046,Johnson & Johnson,JNJ,USA,Health Care,Mega,0.005096
+US0382221051,US0382221051,Applied Materials Inc.,AMAT,USA,Information Technology,Large,0.004802
+US30231G1022,US30231G1022,Exxon Mobil Corporation,XOM,USA,Energy,Large,0.004802
+US92826C8394,US92826C8394,Visa Inc.,V,USA,Financials,Large,0.004704
+US5128073062,US5128073062,Lam Research Corporation,LRCX,USA,Information Technology,Large,0.004508
+US9311421039,US9311421039,Walmart Inc.,WMT,USA,Consumer Staples,Large,0.004116
+US1491231015,US1491231015,Caterpillar Inc.,CAT,USA,Industrials,Large,0.004018
+US17275R1023,US17275R1023,Cisco Systems Inc.,CSCO,USA,Information Technology,Large,0.00392
+US00287Y1091,US00287Y1091,AbbVie Inc.,ABBV,USA,Health Care,Large,0.003724
+US22160K1051,US22160K1051,Costco Wholesale Corporation,COST,USA,Consumer Staples,Large,0.00343
+US57636Q1040,US57636Q1040,Mastercard Incorporated,MA,USA,Financials,Large,0.00343
+US4824801009,US4824801009,KLA Corporation,KLAC,USA,Information Technology,Large,0.003332
+US3696043013,US3696043013,GE Aerospace,GE,USA,Industrials,Large,0.003234
+US91324P1021,US91324P1021,UnitedHealth Group Incorporated,UNH,USA,Health Care,Large,0.003136
+US0605051046,US0605051046,Bank of America Corporation,BAC,USA,Financials,Large,0.003136
+US4370761029,US4370761029,The Home Depot Inc.,HD,USA,Consumer Discretionary,Large,0.00294
+KYG875721634,KYG875721634,Tencent Holdings Limited,700,CHN,Communication Services,Large,0.002842
+US7427181091,US7427181091,The Procter & Gamble Company,PG,USA,Consumer Staples,Large,0.002842
+US80004C2008,US80004C2008,Sandisk Corporation,SNDK,USA,Information Technology,Large,0.002744
+GB0005405286,GB0005405286,HSBC Holdings plc,HSBA,GBR,Financials,Large,0.002744
+US58933Y1055,US58933Y1055,Merck & Co. Inc.,MRK,USA,Health Care,Large,0.002646
+US36828A1016,US36828A1016,GE Vernova Inc.,GEV,USA,Industrials,Large,0.002646
+US1912161007,US1912161007,The Coca-Cola Company,KO,USA,Consumer Staples,Large,0.002646
+US1667641005,US1667641005,Chevron Corporation,CVX,USA,Energy,Large,0.002548
+US64110L1061,US64110L1061,Netflix Inc.,NFLX,USA,Communication Services,Large,0.002548
+CH0012005267,CH0012005267,Novartis AG,NOVN,CHE,Health Care,Large,0.00245
+CA7800871021,CA7800871021,Royal Bank of Canada,RY,CAN,Financials,Large,0.00245
+US7181721090,US7181721090,Philip Morris International Inc.,PM,USA,Consumer Staples,Large,0.002352
+GB0009895292,GB0009895292,AstraZeneca PLC,AZN,GBR,Health Care,Large,0.002352
+US38141G1040,US38141G1040,The Goldman Sachs Group Inc.,GS,USA,Financials,Large,0.002352
+US6974351057,US6974351057,Palo Alto Networks Inc.,PANW,USA,Information Technology,Large,0.002254
+US8825081040,US8825081040,Texas Instruments Incorporated,TXN,USA,Information Technology,Large,0.002254
+US4592001014,US4592001014,International Business Machines Corporation,IBM,USA,Information Technology,Large,0.002254
+CH0038863350,CH0038863350,Nestlé S.A.,NESN,CHE,Consumer Staples,Large,0.002254
+CH1499059983,CH1499059983,Roche Holding AG,ROG,CHE,Health Care,Large,0.002156
+US5738741041,US5738741041,Marvell Technology Inc.,MRVL,USA,Information Technology,Large,0.002156
+US69608A1088,US69608A1088,Palantir Technologies Inc.,PLTR,USA,Information Technology,Large,0.002156
+US75513E1010,US75513E1010,RTX Corporation,RTX,USA,Industrials,Large,0.002156
+US9497461015,US9497461015,Wells Fargo & Company,WFC,USA,Financials,Large,0.002156
+US68389X1054,US68389X1054,Oracle Corporation,ORCL,USA,Information Technology,Large,0.002058
+IE000S9YS762,IE000S9YS762,Linde plc,LIN,IRL,Materials,Large,0.00196
+DE0007236101,DE0007236101,Siemens Aktiengesellschaft,SIE,DEU,Industrials,Large,0.00196
+US6174464486,US6174464486,Morgan Stanley,MS,USA,Financials,Large,0.00196
+US1729674242,US1729674242,Citigroup Inc.,C,USA,Financials,Large,0.00196
+KYG017191142,KYG017191142,Alibaba Group Holding Limited,9988,CHN,Consumer Discretionary,Large,0.001862
+GB00BP6MXD84,GB00BP6MXD84,Shell plc,SHEL,GBR,Energy,Large,0.001862
+JP3902900004,JP3902900004,Mitsubishi UFJ Financial Group Inc.,8306,JPN,Financials,Large,0.001862
+IE00BKVD2N49,IE00BKVD2N49,Seagate Technology Holdings plc,STX,IRL,Information Technology,Large,0.001764
+US9581021055,US9581021055,Western Digital Corporation,WDC,USA,Information Technology,Large,0.001764
+US0320951017,US0320951017,Amphenol Corporation,APH,USA,Information Technology,Large,0.001764
+JP3571400005,JP3571400005,Tokyo Electron Limited,8035,JPN,Information Technology,Large,0.001764
+AU000000BHP4,AU000000BHP4,BHP Group Limited,BHP,AUS,Materials,Large,0.001764
+US2193501051,US2193501051,Corning Incorporated,GLW,USA,Information Technology,Large,0.001666
+CA8911605092,CA8911605092,The Toronto-Dominion Bank,TD,CAN,Financials,Large,0.001666
+ES0113900J37,ES0113900J37,Banco Santander S.A.,SAN,ESP,Financials,Large,0.001666
+TW0002454006,TW0002454006,MediaTek Inc.,2454,TWN,Information Technology,Large,0.001666
+JP3236330001,JP3236330001,Kioxia Holdings Corporation,285A,JPN,Information Technology,Large,0.001666
+US7475251036,US7475251036,QUALCOMM Incorporated,QCOM,USA,Information Technology,Large,0.001666
+US0311621009,US0311621009,Amgen Inc.,AMGN,USA,Health Care,Large,0.001666
+US0326541051,US0326541051,Analog Devices Inc.,ADI,USA,Information Technology,Large,0.001666
+US5801351017,US5801351017,McDonald's Corporation,MCD,USA,Consumer Discretionary,Large,0.001568
+US22788C1053,US22788C1053,CrowdStrike Holdings Inc.,CRWD,USA,Information Technology,Large,0.001568
+AU000000CBA7,AU000000CBA7,Commonwealth Bank of Australia,CBA,AUS,Financials,Large,0.001568
+US8835561023,US8835561023,Thermo Fisher Scientific Inc.,TMO,USA,Health Care,Large,0.001568
+US7134481081,US7134481081,PepsiCo Inc.,PEP,USA,Consumer Staples,Large,0.001568
+US65339F1012,US65339F1012,NextEra Energy Inc.,NEE,USA,Utilities,Large,0.001568
+US0258161092,US0258161092,American Express Company,AXP,USA,Financials,Large,0.00147
+DE0008404005,DE0008404005,Allianz SE,ALV,DEU,Financials,Large,0.00147
+JP3633400001,JP3633400001,Toyota Motor Corporation,7203,JPN,Consumer Discretionary,Large,0.00147
+FR0000121972,FR0000121972,Schneider Electric SE,SU,FRA,Industrials,Large,0.00147
+US92343V1044,US92343V1044,Verizon Communications Inc.,VZ,USA,Communication Services,Large,0.00147
+US0404132054,US0404132054,Arista Networks Inc.,ANET,USA,Information Technology,Large,0.00147
+US2546871060,US2546871060,The Walt Disney Company,DIS,USA,Communication Services,Large,0.00147
+CH0012221716,CH0012221716,ABB Ltd,ABBN,CHE,Industrials,Large,0.001372
+US8725401090,US8725401090,The TJX Companies Inc.,TJX,USA,Consumer Discretionary,Large,0.001372
+IE00B8KQN827,IE00B8KQN827,Eaton Corporation plc,ETN,IRL,Industrials,Large,0.001372
+ES0144580Y14,ES0144580Y14,Iberdrola S.A.,IBE,ESP,Utilities,Large,0.001372
+US0970231058,US0970231058,The Boeing Company,BA,USA,Industrials,Large,0.001372
+US9078181081,US9078181081,Union Pacific Corporation,UNP,USA,Industrials,Large,0.001372
+GB00B63H8491,GB00B63H8491,Rolls-Royce Holdings plc,RR.,GBR,Industrials,Large,0.001372
+US95040Q1040,US95040Q1040,Welltower Inc.,WELL,USA,Real Estate,Large,0.001372
+DE0007164600,DE0007164600,SAP SE,SAP,DEU,Information Technology,Large,0.001372

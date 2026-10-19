@@ -1,0 +1,16 @@
+security_id,company_id,company,ticker,country,sector,cap_bucket,weight
+INE002A01018,INE002A01018,Reliance Industries Limited,RELIANCE,IND,Energy,Large,0.085
+INE040A01034,INE040A01034,HDFC Bank Limited,HDFCBANK,IND,Financials,Large,0.08
+INE090A01021,INE090A01021,ICICI Bank Limited,ICICIBANK,IND,Financials,Large,0.075
+INE009A01021,INE009A01021,Infosys Limited,INFY,IND,Information Technology,Large,0.058
+INE467B01029,INE467B01029,Tata Consultancy Services Limited,TCS,IND,Information Technology,Large,0.045
+INE397D01024,INE397D01024,Bharti Airtel Limited,BHARTIARTL,IND,Communication Services,Large,0.042
+INE018A01030,INE018A01030,Larsen & Toubro Limited,LT,IND,Industrials,Large,0.038
+INE238A01034,INE238A01034,Axis Bank Limited,AXISBANK,IND,Financials,Large,0.032
+INE062A01020,INE062A01020,State Bank of India,SBIN,IND,Financials,Large,0.03
+INE237A01028,INE237A01028,Kotak Mahindra Bank Limited,KOTAKBANK,IND,Financials,Large,0.028
+INE030A01027,INE030A01027,Hindustan Unilever Limited,HINDUNILVR,IND,Consumer Staples,Large,0.025
+INE154A01025,INE154A01025,ITC Limited,ITC,IND,Consumer Staples,Large,0.024
+INE101A01026,INE101A01026,Mahindra & Mahindra Limited,M&M,IND,Consumer Discretionary,Large,0.022
+INE044A01036,INE044A01036,Sun Pharmaceutical Industries Limited,SUNPHARMA,IND,Health Care,Large,0.02
+INE155A01022,INE155A01022,Tata Motors Limited,TATAMOTORS,IND,Consumer Discretionary,Large,0.018

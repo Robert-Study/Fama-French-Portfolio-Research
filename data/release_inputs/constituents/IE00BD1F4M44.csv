@@ -1,0 +1,14 @@
+security_id,company_id,company,ticker,country,sector,cap_bucket,weight
+US0846707026,US0846707026,Berkshire Hathaway Inc.,BRK.B,USA,Financials,Mega,0.045
+US46625H1005,US46625H1005,JPMorgan Chase & Co.,JPM,USA,Financials,Mega,0.038
+US30231G1022,US30231G1022,Exxon Mobil Corporation,XOM,USA,Energy,Large,0.035
+US1667641005,US1667641005,Chevron Corporation,CVX,USA,Energy,Large,0.03
+US0605051046,US0605051046,Bank of America Corporation,BAC,USA,Financials,Large,0.028
+US17275R1023,US17275R1023,Cisco Systems Inc.,CSCO,USA,Information Technology,Large,0.025
+US00206R1023,US00206R1023,AT&T Inc.,T,USA,Communication Services,Large,0.022
+US20030N1019,US20030N1019,Comcast Corporation,CMCSA,USA,Communication Services,Large,0.02
+US7170811035,US7170811035,Pfizer Inc.,PFE,USA,Health Care,Large,0.018
+US4581401001,US4581401001,Intel Corporation,INTC,USA,Information Technology,Mega,0.018
+US37045V1008,US37045V1008,General Motors Company,GM,USA,Consumer Discretionary,Large,0.015
+US3453708600,US3453708600,Ford Motor Company,F,USA,Consumer Discretionary,Large,0.015
+US1266501006,US1266501006,CVS Health Corporation,CVS,USA,Health Care,Large,0.015

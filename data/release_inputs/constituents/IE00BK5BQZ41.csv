@@ -1,0 +1,15 @@
+security_id,company_id,company,ticker,country,sector,cap_bucket,weight
+KR7005930003,KR7005930003,Samsung Electronics Co. Ltd.,005930,KOR,Information Technology,Mega,0.1795
+KR7000660001,KR7000660001,SK hynix Inc.,000660,KOR,Information Technology,Mega,0.1253
+AU000000BHP4,AU000000BHP4,BHP Group Limited,BHP,AUS,Materials,Large,0.0404
+AU000000CBA7,AU000000CBA7,Commonwealth Bank of Australia,CBA,AUS,Financials,Large,0.0391
+SG1L01001701,SG1L01001701,DBS Group Holdings Ltd,D05,SGP,Financials,Large,0.0219
+HK0000069682,HK0000069682,AIA Group Limited,1299,HKG,Financials,Large,0.0199
+AU000000WBC1,AU000000WBC1,Westpac Banking Corporation,WBC,AUS,Financials,Large,0.017
+AU000000NAB4,AU000000NAB4,National Australia Bank Limited,NAB,AUS,Financials,Large,0.0167
+AU000000ANZ3,AU000000ANZ3,ANZ Group Holdings Limited,ANZ,AUS,Financials,Large,0.0148
+AU000000MQG1,AU000000MQG1,Macquarie Group Limited,MQG,AUS,Financials,Large,0.013
+AU000000WES1,AU000000WES1,Wesfarmers Limited,WES,AUS,Consumer Discretionary,Large,0.012
+SG1S04926220,SG1S04926220,Oversea-Chinese Banking Corporation Limited,O39,SGP,Financials,Large,0.011
+SG1M31001969,SG1M31001969,United Overseas Bank Limited,U11,SGP,Financials,Large,0.0105
+HK0388045442,HK0388045442,Hong Kong Exchanges and Clearing Limited,388,HKG,Financials,Large,0.01

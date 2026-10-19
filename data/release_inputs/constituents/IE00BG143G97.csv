@@ -1,0 +1,19 @@
+security_id,company_id,company,ticker,country,sector,cap_bucket,weight
+DE0007236101,DE0007236101,Siemens Aktiengesellschaft,SIE,DEU,Industrials,Large,0.1136
+DE0008404005,DE0008404005,Allianz SE,ALV,DEU,Financials,Large,0.0902
+DE0007164600,DE0007164600,SAP SE,SAP,DEU,Information Technology,Large,0.0889
+DE000ENER6Y0,DE000ENER6Y0,Siemens Energy AG,ENR,DEU,Industrials,Large,0.061
+DE0005557508,DE0005557508,Deutsche Telekom AG,DTE,DEU,Communication Services,Large,0.0503
+DE0006231004,DE0006231004,Infineon Technologies AG,IFX,DEU,Information Technology,Large,0.0441
+DE0008430026,DE0008430026,Muenchener Rueckversicherungs-Gesellschaft AG,MUV2,DEU,Financials,Large,0.0367
+DE0005140008,DE0005140008,Deutsche Bank AG,DBK,DEU,Financials,Large,0.03
+DE0005552004,DE0005552004,DHL Group,DHL,DEU,Industrials,Large,0.0292
+DE0007030009,DE0007030009,Rheinmetall AG,RHM,DEU,Industrials,Large,0.0286
+DE0007100000,DE0007100000,Mercedes-Benz Group AG,MBG,DEU,Consumer Discretionary,Large,0.025
+DE000BASF111,DE000BASF111,BASF SE,BAS,DEU,Materials,Large,0.022
+DE0005190003,DE0005190003,Bayerische Motoren Werke AG,BMW,DEU,Consumer Discretionary,Large,0.02
+DE000BAY0017,DE000BAY0017,Bayer AG,BAYN,DEU,Health Care,Large,0.018
+DE000ENAG999,DE000ENAG999,E.ON SE,EOAN,DEU,Utilities,Large,0.015
+DE0005200000,DE0005200000,Beiersdorf AG,BEI,DEU,Consumer Staples,Large,0.012
+DE000A1EWWW0,DE000A1EWWW0,adidas AG,ADS,DEU,Consumer Discretionary,Large,0.012
+DE000A1ML7J1,DE000A1ML7J1,Vonovia SE,VNA,DEU,Real Estate,Large,0.01

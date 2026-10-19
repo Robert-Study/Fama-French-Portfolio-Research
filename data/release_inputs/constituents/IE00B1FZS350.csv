@@ -1,0 +1,14 @@
+security_id,company_id,company,ticker,country,sector,cap_bucket,weight
+US74340W1036,US74340W1036,Prologis Inc.,PLD,USA,Real Estate,Large,0.075
+US29444U7000,US29444U7000,Equinix Inc.,EQIX,USA,Real Estate,Large,0.055
+US8288061091,US8288061091,Simon Property Group Inc.,SPG,USA,Real Estate,Large,0.045
+US74460D1090,US74460D1090,Public Storage,PSA,USA,Real Estate,Large,0.035
+AU000000GMG2,AU000000GMG2,Goodman Group,GMG,AUS,Real Estate,Large,0.035
+US7561091049,US7561091049,Realty Income Corporation,O,USA,Real Estate,Large,0.032
+US2538681030,US2538681030,Digital Realty Trust Inc.,DLR,USA,Real Estate,Large,0.03
+US30225T1025,US30225T1025,Extra Space Storage Inc.,EXR,USA,Real Estate,Large,0.025
+US9256521090,US9256521090,VICI Properties Inc.,VICI,USA,Real Estate,Large,0.025
+US0534841012,US0534841012,AvalonBay Communities Inc.,AVB,USA,Real Estate,Large,0.022
+JP3893200001,JP3893200001,Mitsui Fudosan Co. Ltd.,8801,JPN,Real Estate,Large,0.02
+JP3899600005,JP3899600005,Mitsubishi Estate Co. Ltd.,8802,JPN,Real Estate,Large,0.018
+GB00B5ZN1N88,GB00B5ZN1N88,SEGRO plc,SGRO,GBR,Real Estate,Large,0.015

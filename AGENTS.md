@@ -46,23 +46,27 @@ The system operates across three strictly segregated roots. Never cross-contamin
      `Questions for Author: [Crucial clarifying questions / blockers, or "None"]`
    * **Subagent Work Delegation:** Every delegated task must be treated as independent subagent work with strict input contracts, file destinations, and exit criteria. If 4 subagents are insufficient, create additional specialized subagents.
 4. **Cloud Prompt Dispatch & Chat Naming Standard:**
-   * **Mandatory Execution Parameters:** When presenting prompts for external cloud execution, specify:
-     - **ChatGPT:** App (`ChatGPT Web` vs `ChatGPT Desktop App`), Project (`Rob - Cloud` [Chat Mode] vs `Rob - Local` [Work Mode / Codex CLI strictly; NO Chat Mode]), and Mode (`Chat Mode` vs `Work Mode`).
-     - **Gemini App:** Gem (`Gem ON` vs `Gem OFF`), Reasoning (`High` vs `OFF`), and explicit `@Google Drive` trigger line.
-     - **Antigravity:** Native local IDE execution; no cloud toggles apply.
+   * **Mandatory Execution Parameters:** When presenting prompts for external execution, specify strictly ONE discrete platform and mode. **Never combine or slash-conflate modes (e.g. prohibited: `Work Mode / Codex CLI` or `ChatGPT Desktop App / Codex CLI`):**
+     - **For Chat Mode:** App: `ChatGPT Web` (or `ChatGPT Desktop App`), Project: `Rob - Cloud`, Mode: `Chat Mode`, Model: `ChatGPT 6` (or other), Reasoning Effort: `None / Standard`.
+     - **For Work Mode:** App: `ChatGPT Desktop App`, Project: `Rob - Local`, Mode: `Work Mode`, Model: `GPT-6 Astra` (or `GPT-6.1 Sol`), Reasoning Effort: `High` (or `Medium`).
+     - **For Codex CLI:** App: `Codex CLI` (Terminal), Target Repo: `C:\Users\home\Documents\AI-Disk-Access\Gemini-Efficient-Frontier`, Mode: `Codex CLI`, Model: `GPT-6 Astra` (or `GPT-6.1 Sol`), Reasoning Effort: `High` (or `Medium`).
+     - **For Gemini App:** App: `Gemini Web / App`, Gem: `Gem ON` vs `Gem OFF`, Model: `Gemini 4 Argon`, Reasoning Effort: `High` vs `OFF`, and explicit `@Google Drive` trigger line.
+     - **For Antigravity:** Platform: `Antigravity IDE (Local)`, Model: `Claude Opus 5.5` or `Gemini 3.8 Flash`.
    * **Descriptive Title Tag for Tab Naming:** The first line inside every copy-and-paste prompt block MUST begin with a 2–6 word bracketed title (e.g. `[ETF Research - Residual Quote Units Audit]`) so the browser tab is immediately named and distinguishable.
 
 ---
 
 ## 4. Multi-Model Platform Stack & Routing
 
-| Model Tier | Platform / Model | Quota Structure | Core Responsibilities |
-| :--- | :--- | :--- | :--- |
-| **Orchestrator / Coder** | **Claude Opus 5.5** (Antigravity) / **Codex CLI** | 5-Hour & 1-Week Rolling Caps | Central integration gate, Python 3.14 code, red-to-green `pytest`, LaTeX compilation. |
-| **Deep Reasoner / Auditor** | **Gemini 4 Argon** (App / Antigravity) / **GPT-6 Astra / Sol** | 5-Hour & 1-Week Rolling Caps | Deep primary research (export to Google Drive or download file), tabular ETF audits, complex MIQP derivations. |
-| **High-Volume Workhorse** | **ChatGPT 6 (Chat Mode)** | **UNLIMITED** | High-volume reading, 4-Stage candidate mapping, company research, iterative document drafting. |
-| **Fast QA Runner** | **Gemini 3.8 Flash** (Antigravity) | High Throughput | Fast `pytest` execution, syntax validation, linting, and rapid text formatting. |
-| **Offline Privacy / Scrubbing** | **Qwen 2.5 32B Abliterated** (Ollama / Chatbox) | **UNMETERED / LOCAL** | PII and credential redaction, safety-filter bypass for sensitive data, offline contingency. |
+| Model Tier | Platform / Exact Model | Reasoning Effort | Quota Structure | Quantitative Strengths & Core Responsibilities |
+| :--- | :--- | :--- | :--- | :--- |
+| **Orchestrator / Coder** | **Claude Opus 5.5** (Antigravity) | Native Reasoning | 5-Hour & 1-Week Rolling Caps | Central integration gate, Python 3.14 code, red-to-green `pytest`, LaTeX compilation. |
+| **Deep Planner & Code Architect** | **GPT-6 Astra** (Desktop Work Mode / Codex) | **High** | 5-Hour & 1-Week Rolling Caps | Complex algorithmic derivation, multi-file code architectures, mathematical test harnesses. |
+| **Fast Quantitative Coder** | **GPT-6.1 Sol** (Desktop Work Mode / Codex) | **Medium** | High Throughput | Data transformations, fast script writing, CSV/JSON manifest generation, local test runner. |
+| **Deep Reasoner & Financial Auditor**| **Gemini 4 Argon** (App Gem ON / Antigravity) | **High** | Unlimited / High Rolling Cap | Primary research to Drive, tabular ETF audits, complex MIQP derivations, covariance shrinkage. |
+| **High-Volume Workhorse** | **ChatGPT 6** (ChatGPT Web) | **None / Standard** | **UNLIMITED** | High-volume reading, 4-Stage candidate mapping, company research, iterative document drafting. |
+| **Fast QA Runner & Subagent Engine** | **Gemini 3.8 Flash** (Antigravity) | Low / Fast / High | High Throughput / High Limit | Native background subagents (`invoke_subagent`), fast `pytest` execution, schema/contract validation (`<0.3s`), linting, and structured transforms. *Note:* Weaker than GPT-6 Chat Mode at nuanced prose/CV editorial cadence; weaker than Argon/Opus at abstract math derivations and solitary architecture. |
+| **Offline Privacy / Scrubbing** | **Qwen 2.5 32B Abliterated** (Ollama / Chatbox) | Native Local | **UNMETERED / LOCAL** | PII and credential redaction, safety-filter bypass for sensitive data, offline contingency. |
 
 ---
 

@@ -33,15 +33,16 @@ In every chat session, you operate in exactly **ONE** of two distinct operationa
 
 Never treat models as interchangeable. Route tasks strictly according to core cognitive strengths, platform environments, and known failure modes:
 
-| Platform & Model | Environment | Role & Core Strength | Addons / Modes | Known Weaknesses & Failure Modes |
-| :--- | :--- | :--- | :--- | :--- |
-| **Antigravity (Gemini 3.8 Flash)** | Local / IDE | **The Delegator & QA Runner:** Fast schema validation, quick contract checks (`<0.3s`), linting, file dispatch. | Native IDE tools | Do not use for deep mathematical derivations or complex multi-page planning. |
-| **Antigravity (Claude Opus 5.5)** | Local / IDE | **Strategic Planner & Systems Architect:** Python 3.14 code engine, Git commits, local test harnesses, infrastructure builds. | Full terminal, `.venv`, Tectonic | Rolling quota windows. Avoid dumping high-volume text reading here. |
-| **ChatGPT 6 (Chat Mode)** | **ChatGPT Web** (Cloud) | **High-Volume Workhorse & LaTeX CV Design:** Unlimited reading, 4-Stage CV tailoring, bullet crafting, continuous drafts. | Cloud Drive Connector, **UNLIMITED** | Do not run local Python code here; always use Chat Mode rather than Work Mode for CVs. |
-| **ChatGPT 6 Astra / Sol** | **ChatGPT Desktop App** (Local) | **Strategic Co-Planner & Local Work Mode:** GitHub actions, deep code architecture alongside local terminal. | Local Work Mode / Codex CLI | Quota-capped (5-hr & 1-wk rolling limits). Reserve for heavy code planning. |
-| **Gemini 4 Argon** | **Gemini Web / App** | **Maths, Algorithms & Financial Engineering:** MIQP derivations, covariance shrinkage, intraday airbag restrikes. | **Gemini Gem ON** (`Portfolio Lab`), **High Reasoning** | When using Deep Research, export directly to Google Drive or download file (never open large research doc inside Gemini UI). |
-| **Antigravity Deep Research** | Local / IDE | **Deep Autonomous Web Research:** Multi-source employer intelligence, macro market surveys, regulatory analysis. | Subagents / Web tools (**NO GEMS in Antigravity**) | Because Antigravity has no Gems, all domain locks must be explicit in the prompt text. |
-| **Qwen 2.5 32B Abliterated** | Local (Chatbox / Ollama) | **Confidential & Uncensored Computing:** PII and credential redaction, safety-filter bypass, 100% offline contingency. | Offline, Unmetered | Slower token throughput than cloud; lacks live web access. |
+| Platform & Model | Exact Model Name | Reasoning Effort | Environment | Role & Core Strength | Addons / Modes |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Antigravity (Claude Opus 5.5)** | Claude Opus 5.5 | Native Reasoning | Local / IDE | **Strategic Planner & Systems Architect:** Python 3.14 code engine, Git commits, local test harnesses, infrastructure builds. | Full terminal, `.venv`, Tectonic |
+| **Antigravity (Gemini 3.8 Flash)** | Gemini 3.8 Flash | Low / Fast / High | Local / IDE | **Delegator, QA Runner & Native Subagent Engine:** High throughput / generous limits. Spawns automated background subagents (`invoke_subagent`), executes fast `pytest`, schema validation (`<0.3s`), linting, and bounded data transformations. Weaker than GPT-6 Chat Mode at nuanced prose/CV editorial cadence; weaker than Argon/Opus at abstract math derivations. | Native IDE tools, Subagents |
+| **ChatGPT Desktop App / Codex CLI** | GPT-6 Astra | **High** | Local Work Mode / Codex CLI | **Strategic Co-Planner & Local Work Mode:** GitHub actions, deep code architecture, mathematical test harnesses. | Local Work Mode / Codex CLI |
+| **ChatGPT Desktop App / Codex CLI** | GPT-6.1 Sol | **Medium** | Local Work Mode / Codex CLI | **Fast Quantitative Coder:** Rapid script writing, CSV/JSON manifest generation, local test runner. | Local Work Mode / Codex CLI |
+| **ChatGPT Web** | ChatGPT 6 | **None / Standard** | Cloud Browser | **High-Volume Workhorse & LaTeX CV Design:** Unlimited reading, 4-Stage CV tailoring, bullet crafting, continuous drafts. | Cloud Drive Connector, **UNLIMITED** |
+| **Gemini Web / App** | Gemini 4 Argon | **High** | Cloud Browser | **Maths, Algorithms & Financial Engineering:** MIQP derivations, covariance shrinkage, intraday airbag restrikes. | **Gemini Gem ON** (`Portfolio Lab`), **High Reasoning** |
+| **Antigravity Deep Research** | Gemini 4 Argon / Subagents | **High** | Local / IDE | **Deep Autonomous Web Research:** Multi-source employer intelligence, macro market surveys, regulatory analysis. | Subagents / Web tools (**NO GEMS in Antigravity**) |
+| **Qwen 2.5 32B Abliterated** | Qwen 2.5 32B | Native Local | Local (Chatbox / Ollama) | **Confidential & Uncensored Computing:** PII and credential redaction, safety-filter bypass, 100% offline contingency. | Offline, Unmetered |
 
 ---
 
@@ -94,19 +95,35 @@ Never treat models as interchangeable. Route tasks strictly according to core co
 Whenever providing prompts for the user to execute across external platforms, the prompt metadata and copy-and-paste block MUST follow this strict standard:
 
 ### 1. Mandatory Metadata Header:
-Every prompt presented to the user must explicitly declare:
-- **For ChatGPT:**
-  - **App / Interface:** `ChatGPT Web` (Cloud) vs `ChatGPT Desktop App` (Local) vs `Codex CLI`.
-  - **Project:** `Rob - Cloud` (Web only) vs `Rob - Local` (Desktop App only; **strictly NO Chat Mode** in `Rob - Local`, only Work Mode / Codex CLI).
-  - **Mode:** `Chat Mode` (Unlimited, cloud only) vs `Work Mode` (Quota-Capped / Local).
-- **For Gemini App:**
-  - **App:** `Gemini Web / App` (`gemini.google.com`).
-  - **Gem Setting:** `Gem ON ("Portfolio Lab & Systems Auditor")` vs `Gem OFF (Standard Chat)`.
-  - **Reasoning:** `Deep Reasoning ON (High)` vs `Deep Reasoning OFF`.
-  - **Drive Connector:** Must explicitly prepend `@Google Drive` in the prompt text so Gemini App links to Drive files.
-- **For Antigravity (Local IDE):**
-  - **Platform:** `Antigravity IDE (Local)`.
-  - **Connection:** Direct physical access to local repository (`.venv`, `pytest`, terminal, Git).
+Every prompt presented to the user must explicitly declare strictly **ONE** discrete execution environment and mode. **Never combine or slash-conflate modes (e.g. prohibited: `Work Mode / Codex CLI` or `ChatGPT Desktop App / Codex CLI`):**
+- **Option A: Chat Mode (Cloud)**
+  - **App / Interface:** `ChatGPT Web` (or `ChatGPT Desktop App`)
+  - **Project:** `Rob - Cloud`
+  - **Mode:** `Chat Mode`
+  - **Model:** `ChatGPT 6`
+  - **Reasoning Effort Level:** `None / Standard`
+- **Option B: Work Mode (Local Desktop App)**
+  - **App / Interface:** `ChatGPT Desktop App`
+  - **Project:** `Rob - Local`
+  - **Mode:** `Work Mode`
+  - **Model:** `GPT-6 Astra` (or `GPT-6.1 Sol`)
+  - **Reasoning Effort Level:** `High` (or `Medium`)
+- **Option C: Codex CLI (Standalone Terminal CLI)**
+  - **App / Interface:** `Codex CLI`
+  - **Target Repository:** `C:\Users\home\Documents\AI-Disk-Access\Gemini-Efficient-Frontier`
+  - **Mode:** `Codex CLI`
+  - **Model:** `GPT-6 Astra` (or `GPT-6.1 Sol`)
+  - **Reasoning Effort Level:** `High` (or `Medium`)
+- **Option D: Gemini App (Cloud Browser)**
+  - **App / Interface:** `Gemini Web / App` (`gemini.google.com`)
+  - **Gem Setting:** `Gem ON ("Portfolio Lab & Systems Auditor")` vs `Gem OFF (Standard Chat)`
+  - **Model:** `Gemini 4 Argon`
+  - **Reasoning Effort Level:** `Deep Reasoning ON (High)` vs `Deep Reasoning OFF`
+  - **Drive Connector:** Must explicitly prepend `@Google Drive` in prompt text.
+- **Option E: Antigravity (Local IDE)**
+  - **Platform:** `Antigravity IDE (Local)`
+  - **Model:** `Claude Opus 5.5` or `Gemini 3.8 Flash`
+  - **Reasoning Effort Level:** Native IDE / Fast
   - **Settings:** None of the cloud toggles (Gems, Drive connectors, Chat/Work modes) apply.
 
 ### 2. Mandatory 2–6 Word Chat Title Tag in Copy-and-Paste Block:

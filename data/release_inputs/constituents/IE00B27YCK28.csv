@@ -1,0 +1,16 @@
+security_id,company_id,company,ticker,country,sector,cap_bucket,weight
+BRVALEACNOR0,BRVALEACNOR0,Vale S.A.,VALE3,BRA,Materials,Large,0.12
+BRPETRACNOR9,BRPETRACNOR9,Petroleo Brasileiro S.A. - Petrobras,PETR4,BRA,Energy,Large,0.11
+BRITUBACNPR1,BRITUBACNPR1,Itau Unibanco Holding S.A.,ITUB4,BRA,Financials,Large,0.08
+BRBBDCACNPR8,BRBBDCACNPR8,Banco Bradesco S.A.,BBDC4,BRA,Financials,Large,0.05
+MXP810081010,MXP810081010,Wal-Mart de Mexico S.A.B. de C.V.,WALMEX,MEX,Consumer Staples,Large,0.05
+MXP001691213,MXP001691213,America Movil S.A.B. de C.V.,AMXB,MEX,Communication Services,Large,0.05
+MXP320321310,MXP320321310,Fomento Economico Mexicano S.A.B. de C.V.,FEMSAUBD,MEX,Consumer Staples,Large,0.045
+MXP370711014,MXP370711014,Grupo Financiero Banorte S.A.B. de C.V.,GFNORTEO,MEX,Financials,Large,0.04
+BRB3SAACNOR6,BRB3SAACNOR6,"B3 S.A. - Brasil, Bolsa, Balcao",B3SA3,BRA,Financials,Large,0.03
+BRWEGEACNOR0,BRWEGEACNOR0,WEG S.A.,WEGE3,BRA,Industrials,Large,0.03
+CL0000003035,CL0000003035,Sociedad Quimica y Minera de Chile S.A.,SQM_B,CHL,Materials,Large,0.03
+BRBBASACNOR3,BRBBASACNOR3,Banco do Brasil S.A.,BBAS3,BRA,Financials,Large,0.025
+MXP370841019,MXP370841019,Grupo Mexico S.A.B. de C.V.,GMEXICOB,MEX,Materials,Large,0.025
+BRELETACNOR6,BRELETACNOR6,Centrais Eletricas Brasileiras S.A. - Eletrobras,ELET3,BRA,Utilities,Large,0.02
+BRITSAACNPR7,BRITSAACNPR7,Itausa S.A.,ITSA4,BRA,Financials,Large,0.015

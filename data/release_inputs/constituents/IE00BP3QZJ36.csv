@@ -1,0 +1,15 @@
+security_id,company_id,company,ticker,country,sector,cap_bucket,weight
+FR0000121014,FR0000121014,LVMH Moet Hennessy Louis Vuitton SE,MC,FRA,Consumer Discretionary,Large,0.12
+FR0000120271,FR0000120271,TotalEnergies SE,TTE,FRA,Energy,Large,0.095
+FR0000120578,FR0000120578,Sanofi SA,SAN,FRA,Health Care,Large,0.075
+FR0000120321,FR0000120321,L'Oreal SA,OR,FRA,Consumer Staples,Large,0.065
+FR0000121972,FR0000121972,Schneider Electric SE,SU,FRA,Industrials,Large,0.06
+FR0000120073,FR0000120073,L'Air Liquide SA,AI,FRA,Materials,Large,0.055
+FR0000131104,FR0000131104,BNP Paribas SA,BNP,FRA,Financials,Large,0.05
+NL0000235190,NL0000235190,Airbus SE,AIR,FRA,Industrials,Large,0.045
+FR0000073272,FR0000073272,Safran SA,SAF,FRA,Industrials,Large,0.04
+FR0000120628,FR0000120628,AXA SA,CS,FRA,Financials,Large,0.035
+FR0000121667,FR0000121667,EssilorLuxottica SA,EL,FRA,Health Care,Large,0.03
+FR0000125486,FR0000125486,Vinci SA,DG,FRA,Industrials,Large,0.03
+FR0000120644,FR0000120644,Danone SA,BN,FRA,Consumer Staples,Large,0.025
+FR0000125007,FR0000125007,Compagnie de Saint-Gobain SA,SGO,FRA,Industrials,Large,0.025

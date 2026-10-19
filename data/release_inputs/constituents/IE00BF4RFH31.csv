@@ -1,0 +1,16 @@
+security_id,company_id,company,ticker,country,sector,cap_bucket,weight
+US78709Y1055,US78709Y1055,Saia Inc.,SAIA,USA,Industrials,Small,0.035
+US1999081045,US1999081045,Comfort Systems USA Inc.,FIX,USA,Industrials,Small,0.032
+US29084Q1004,US29084Q1004,EMCOR Group Inc.,EME,USA,Industrials,Small,0.03
+US03820C1053,US03820C1053,Applied Industrial Technologies Inc.,AIT,USA,Industrials,Small,0.028
+US8290731053,US8290731053,Simpson Manufacturing Co. Inc.,SSD,USA,Industrials,Small,0.025
+US9427491025,US9427491025,Watts Water Technologies Inc.,WTS,USA,Industrials,Small,0.025
+US0974631073,US0974631073,Boise Cascade Company,BCC,USA,Industrials,Small,0.022
+US59001A1025,US59001A1025,Meritage Homes Corporation,MTH,USA,Consumer Discretionary,Small,0.02
+US48666K1097,US48666K1097,KB Home,KBH,USA,Consumer Discretionary,Small,0.02
+US8894781033,US8894781033,Toll Brothers Inc.,TOL,USA,Consumer Discretionary,Mid,0.018
+US9741551033,US9741551033,Wingstop Inc.,WING,USA,Consumer Discretionary,Small,0.018
+US8190471016,US8190471016,Shake Shack Inc.,SHAK,USA,Consumer Discretionary,Small,0.015
+US8826811098,US8826811098,Texas Roadhouse Inc.,TXRH,USA,Consumer Discretionary,Small,0.015
+IT0001347308,IT0001347308,Buzzi S.p.A.,BZU,ITA,Materials,Small,0.015
+FR0010451203,FR0010451203,Rexel SA,RXL,FRA,Industrials,Small,0.015
