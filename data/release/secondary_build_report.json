@@ -1,6 +1,6 @@
 {
   "release_id": "V8.0-2026-10-18",
-  "status": "partial",
+  "status": "complete",
   "written": {
     "fund_catalogue.parquet": {
       "rows": 68,
@@ -18,6 +18,10 @@
       "rows": 100,
       "sha256": "f31045df0f95be71949c77679dd1de8d6a47344b54c01f0f76ae91de13b1cca9"
     },
+    "historical_results.parquet": {
+      "rows": 1836,
+      "sha256": "86d202f3280210f3e9962db8454c693ea315edccd127d3e5b2edab61edfaadc5"
+    },
     "company_holdings.parquet": {
       "rows": 5230,
       "sha256": "02cca7b7e480d9665d536022ec9f09a7708f8bbc2ff69cc0390a11de24dbf3e7"
@@ -31,13 +35,7 @@
       "sha256": "0a1fbd4d62cf7d7c39cb3ba09ea4d797d5bd21ceef7d497c1d475b51d9eb517e"
     }
   },
-  "blocked": {
-    "historical_results.parquet": {
-      "reason": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\home\\\\Documents\\\\AI-Disk-Access\\\\Gemini-Efficient-Frontier\\\\data\\\\release_inputs\\\\reference_monthly_returns.csv'",
-      "required": "Need reference_monthly_returns.csv (six references, both methods, Feb 2014-Sep 2026) and history provenance in secondary_sources.json.",
-      "existing_file_retained": false
-    }
-  },
+  "blocked": {},
   "provenance": {
     "stress": {
       "source_url": "https://docs.google.com/document/d/1n5cV3rYJW77EJE9t190gempT-aJKQ3843zVGs3ldNJw/edit",
@@ -309,6 +307,7 @@
     "C:\\Users\\home\\Documents\\AI-Disk-Access\\Gemini-Efficient-Frontier\\data\\release_inputs\\constituents\\IE000K975W13.csv": "48b171f814a343b91efc7314db293ef8c9e73fadb65866e210e7a977c2f0799f",
     "C:\\Users\\home\\Documents\\AI-Disk-Access\\Gemini-Efficient-Frontier\\data\\release_inputs\\constituents\\IE00BK5BQV03.csv": "38777a769ac2e26071d08854d7765cf665d1123b8d05932db892674127fe1789",
     "C:\\Users\\home\\Documents\\AI-Disk-Access\\Gemini-Efficient-Frontier\\data\\release_inputs\\benchmark_vall.csv": "0e1ab59ee6ee24052d4491cc80507189dd3457386215c0e910de5903128fad33",
+    "C:\\Users\\home\\Documents\\AI-Disk-Access\\Gemini-Efficient-Frontier\\data\\release_inputs\\reference_monthly_returns.csv": "174cc59f67214fd6f760057d553291b97976936fe5e611f3a9f4797119de5b9b",
     "C:\\Users\\home\\Documents\\AI-Disk-Access\\Gemini-Efficient-Frontier\\data\\release_inputs\\secondary_sources.json": "25ffa897fdb12f8f8fdb78ccd336909f62cdf5ddca8fd1a3f6923f8c194e578c",
     "C:\\Users\\home\\Documents\\AI-Disk-Access\\Gemini-Efficient-Frontier\\data\\release_inputs\\constituent_sources.json": "ab23ce779bf2ec432f54c85975efdba8ed2add326f266953a37b4a475ddc27fb"
   },

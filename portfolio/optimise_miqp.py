@@ -192,7 +192,7 @@ def _solve_continuous_qp(
     cons = [cp.sum(w) == 1.0, w >= min_weight, w <= max_weight, w @ mu_sub >= target_ret]
     prob = cp.Problem(obj, cons)
 
-    for solver in (cp.OSQP, cp.CLARABEL):
+    for solver in (cp.CLARABEL, cp.OSQP):
         try:
             prob.solve(solver=solver, verbose=False)
             if prob.status in ("optimal", "optimal_inaccurate") and w.value is not None:
@@ -643,12 +643,16 @@ def solve_miqp_point(
             for comb in itertools.combinations(active_indices, r):
                 candidate_supports.append(list(comb))
     else:
-        # Branch on micro-weight assets
-        for r in range(len(supp_micro) + 1):
-            for comb in itertools.combinations(supp_micro, r):
+        # Branch on micro-weight assets: prioritize highest weights first
+        supp_micro_sorted = sorted(supp_micro, key=lambda idx: w_full[idx], reverse=True)
+        top_micro = supp_micro_sorted[:4]
+        for r in range(len(top_micro) + 1):
+            for comb in itertools.combinations(top_micro, r):
                 comb_supp = list(set(supp_min) | set(comb))
                 if comb_supp:
                     candidate_supports.append(comb_supp)
+        for k in range(5, min(len(supp_micro_sorted) + 1, 12)):
+            candidate_supports.append(list(set(supp_min) | set(supp_micro_sorted[:k])))
 
         # Also add single asset supports for any asset meeting target return
         for i in active_indices:
@@ -665,6 +669,7 @@ def solve_miqp_point(
             unique_supports.append(s)
 
     # Evaluate each candidate support
+    lb_vol = float(np.sqrt(12.0 * max(lb_var, 0.0)))
     for supp in unique_supports:
         supp_arr = np.array(supp, dtype=np.int64)
         k_s = len(supp_arr)
@@ -681,6 +686,9 @@ def solve_miqp_point(
                 if v_cand < best_var:
                     best_var = v_cand
                     best_q = q_cand
+                    cand_ann_vol = float(np.sqrt(12.0 * v_cand))
+                    if cand_ann_vol - lb_vol <= target_vol_gap + 1e-12:
+                        break
             continue
 
         w_sub, _ = _solve_continuous_qp(
@@ -697,6 +705,9 @@ def solve_miqp_point(
             if v_cand < best_var:
                 best_var = v_cand
                 best_q = q_cand
+                cand_ann_vol = float(np.sqrt(12.0 * v_cand))
+                if cand_ann_vol - lb_vol <= target_vol_gap + 1e-12:
+                    break
 
     if best_q is None:
         zero_bps = np.zeros(m_count, dtype=np.int64)

@@ -126,7 +126,7 @@ def _extract_frontier(raw: Any, m: int, n_points: int, *, method: str, mask: int
     try:
         q_raw = _get(raw, "q_bps")
         cert_raw = _get(raw, "certified", "certified_optimal")
-        gap_raw = _get(raw, "gap", "annualized_volatility_gap")
+        gap_raw = _get(raw, "gap", "annualized_volatility_gap", "volatility_gap")
         q = np.asarray(q_raw)
         cert = np.asarray(cert_raw)
         gap = np.asarray(gap_raw)
@@ -136,7 +136,7 @@ def _extract_frontier(raw: Any, m: int, n_points: int, *, method: str, mask: int
             raise ReleaseContractError(f"{method}/{mask:02d}: empty frontier result")
         q = np.asarray([_get(p, "q_bps") for p in points])
         cert = np.asarray([_get(p, "certified", "certified_optimal") for p in points])
-        gap = np.asarray([_get(p, "gap", "annualized_volatility_gap") for p in points])
+        gap = np.asarray([_get(p, "gap", "annualized_volatility_gap", "volatility_gap") for p in points])
 
     # A genuinely single-feasible-point frontier may be broadcast to the slider grid.
     if q.shape == (1, m) and cert.shape == (1,) and gap.shape == (1,):
@@ -165,7 +165,7 @@ def _solve_frontier(fn: Any, model: Any, mask_id: int, n_points: int, *, method:
         return (np.zeros((n_points, m), dtype=np.int64), np.zeros(n_points, bool),
                 np.full(n_points, np.nan), "infeasible_empty")
     sig = inspect.signature(fn)
-    mask_params = ("mask", "mask_id", "category_mask", "sleeve_mask", "active_mask", "eligible_mask")
+    mask_params = ("mask", "mask_id", "mask_idx", "category_mask", "sleeve_mask", "active_mask", "eligible_mask")
     which = next((name for name in mask_params if name in sig.parameters), None)
     if which is None:
         raise ReleaseContractError(f"compute_miqp_frontier does not expose an explicit mask selector; "
@@ -174,7 +174,7 @@ def _solve_frontier(fn: Any, model: Any, mask_id: int, n_points: int, *, method:
     bindings: dict[str, Any] = {
         "model": model, "prepared_model": model, "n_points": n_points,
         "points": n_points, "num_points": n_points,
-        "mask": mask_id, "mask_id": mask_id, "category_mask": mask_id,
+        "mask": mask_id, "mask_id": mask_id, "mask_idx": mask_id, "category_mask": mask_id,
         "sleeve_mask": mask_id, "active_mask": active, "eligible_mask": active,
     }
     try:
@@ -219,6 +219,7 @@ def _reference_weights(ref_path: Path, tickers: tuple[str, ...]) -> dict[str, np
 def _wealth_one(w: np.ndarray, model: Any, horizon: int, moment_fn: Any, quantile_fn: Any) -> np.ndarray:
     """Compute annual buy-and-hold moments and moment-matched bands via engine APIs."""
     mu = np.asarray(_get(model, "mu_log_ann"), dtype=np.float64)
+    mu_arith = np.asarray(_get(model, "mu_arith_ann"), dtype=np.float64)
     cov = np.asarray(_get(model, "cov_ann"), dtype=np.float64)
     c_mat, u_mat = _get(model, "param_uncertainty")
     c = float(w @ np.asarray(c_mat) @ w)
@@ -226,8 +227,9 @@ def _wealth_one(w: np.ndarray, model: Any, horizon: int, moment_fn: Any, quantil
     kwargs = {
         "weights": w, "w": w, "w0": w, "q_bps": np.rint(w * 10000).astype(np.int64),
         "model": model, "prepared_model": model,
+        "mu_arith": mu_arith, "mu_arith_ann": mu_arith, "arith_means": mu_arith,
         "mu_log": mu, "mu_log_ann": mu, "log_means": mu,
-        "cov_log": cov, "cov_log_ann": cov, "cov_ann": cov, "covariance": cov,
+        "cov_ann": cov, "cov_log": cov, "cov_log_ann": cov, "covariance": cov,
         "n": horizon, "n_periods": horizon, "horizon": horizon,
         "horizon_years": horizon, "years": horizon, "H": horizon,
     }
@@ -241,9 +243,10 @@ def _wealth_one(w: np.ndarray, model: Any, horizon: int, moment_fn: Any, quantil
         raise ReleaseContractError(f"Invalid buy-and-hold moments H={horizon}: {mean=}, {var=}")
     var = max(0.0, var)
     qkwargs = {
-        "mean": mean, "mean_normalized": mean, "mean_wealth": mean,
-        "variance": var, "var": var, "var_normalized": var, "variance_wealth": var,
-        "horizon": horizon, "n": horizon, "years": horizon, "horizon_years": horizon,
+        "mean_ratio": mean, "mean": mean, "mean_normalized": mean, "mean_wealth": mean,
+        "var_ratio": var, "variance": var, "var": var, "var_normalized": var, "variance_wealth": var,
+        "horizon": horizon, "n": horizon, "years": horizon, "horizon_years": float(horizon),
+        "param_uncertainty": (c, u),
         "c": c, "c_param": c, "c_uncertainty": c, "C": c,
         "u": u, "u_param": u, "u_uncertainty": u, "U": u,
         "param_uncertainty_c": c, "param_uncertainty_u": u,
@@ -255,9 +258,15 @@ def _wealth_one(w: np.ndarray, model: Any, horizon: int, moment_fn: Any, quantil
     }
     qr = _make_call(quantile_fn, qkwargs, what="lognormal_wealth_quantiles")
     if isinstance(qr, Mapping):
-        low = _get(qr, "p20", "q_p20", "q20", "0.2")
-        med = _get(qr, "p50", "q_p50", "q50", "0.5")
-        high = _get(qr, "p84_135", "q_p84_135", "q84135", "0.84135")
+        low = qr.get(0.2, qr.get("0.2", None))
+        if low is None:
+            low = _get(qr, "p20", "q_p20", "q20", "0.2")
+        med = qr.get(0.5, qr.get("0.5", None))
+        if med is None:
+            med = _get(qr, "p50", "q_p50", "q50", "0.5")
+        high = qr.get(0.84135, qr.get("0.84135", None))
+        if high is None:
+            high = _get(qr, "p84_135", "q_p84_135", "q84135", "0.84135")
     elif isinstance(qr, (tuple, list, np.ndarray)):
         if len(qr) != 3:
             raise ReleaseContractError("Quantile engine must return exactly 3 ordered quantiles")
@@ -389,7 +398,7 @@ def main(argv: list[str] | None = None) -> int:
         return 0
     finally:
         if staging.exists():
-            shutil.rmtree(staging)
+            shutil.rmtree(staging, ignore_errors=True)
 
 
 def _path_key(path: Path) -> str:
