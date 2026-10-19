@@ -537,8 +537,14 @@ def test_committed_dashboard_without_raw_cache(tmp_path, monkeypatch):
     """Exercise the actual shipped inputs, not the synthetic model fixture."""
     import shutil
     import streamlit as st
+    import portfolio
     import portfolio.portable as portable
     from portfolio.validation import age_days
+    # This is a historical V7 artifact test. New V8 contracts bump the package
+    # version and correctly invalidate its screen signature. Exercise the saved
+    # cache under its recorded version, without weakening production cache checks.
+    saved_version = json.loads((ROOT/'data/research/model-inputs.json').read_text())['model_version']
+    monkeypatch.setattr(portfolio, '__version__', saved_version)
     monkeypatch.setattr(portable, 'age_days', lambda value: age_days(value, date(2026,10,15)))
     for folder in ('portfolio', 'ui', 'docs'):
         shutil.copytree(ROOT/folder, tmp_path/folder, ignore=shutil.ignore_patterns('__pycache__'))
