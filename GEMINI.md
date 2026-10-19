@@ -94,6 +94,11 @@ Never treat models as interchangeable. Route tasks strictly according to core co
   `Next Do This: [Exact next action, command, or prompt to execute]`
   `Questions for Author: [Crucial clarifying questions / blockers, or "None"]`
 * **SUBAGENT WORK DELEGATION:** Every delegated task is an independent subagent work item with strict input contracts, file destinations, and exit criteria. If 4 subagents are insufficient, create additional specialized subagents.
+* **SUBAGENT MODEL TIER SELECTION PROTOCOL (`Pro` vs `Flash`):**
+  - **`Model: "flash"` (Default):** Use for fast unit tests (`pytest`), schema gates (`test_v8_contracts.py`), linting, quote unit checks, and parallel swarms (2–4 concurrent workers). Consumes minimal rolling quota.
+  - **`Model: "pro"`:** Use for high-cognitive tasks: (1) complex mathematical derivations (MIQP, shrinkage proofs), (2) multi-file architectural refactoring, (3) deep technical synthesis, and (4) weekly scheduled automations. **Rule:** Run `Pro` subagents strictly single-threaded (1 at a time) to prevent rapid rolling quota exhaustion.
+  - **`Model: "flash_lite"`:** Use for basic regex string replacements, directory scans, and simple text scraping.
+
 
 ---
 

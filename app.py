@@ -11,7 +11,7 @@ import json
 import numpy as np
 import streamlit as st
 from ui.v8_shared import (TOTAL, checked_weights, copy, release_manifest,
-                          require_release_path)
+                          require_release_path, _meta_get)
 from ui import dashboard, holdings, analysis, methods
 
 st.set_page_config(page_title="Portfolio Construction Lab", page_icon="📈",
@@ -51,9 +51,10 @@ def load_model(release_id: str, method: str):
     model = joblib.load(path)
     if not isinstance(model, PreparedModel):
         raise TypeError("Model artefact is not a PreparedModel")
-    if getattr(getattr(model, "metadata", None), "method", None) != method:
+    if _meta_get(getattr(model, "metadata", None), "method", None) != method:
         raise ValueError("Prepared model family mismatch")
     return model
+
 
 
 @st.cache_data(show_spinner=False, max_entries=16)
@@ -95,6 +96,21 @@ def load_frontier(release_id: str, method: str, engine_mask: int):
     return data
 
 
+@st.cache_data(show_spinner=False, max_entries=128)
+def load_wealth(release_id: str, method: str, engine_mask: int):
+    if method not in ("holdings", "etf") or not 0 <= engine_mask <= 63:
+        raise ValueError("Invalid requested wealth data")
+    manifest = release_manifest()
+    if manifest["release_id"] != release_id:
+        raise ValueError("Wealth release changed")
+    relative = f"wealth/{method}/{engine_mask:02d}.npz"
+    path = require_release_path(relative)
+    _check_digest(path, _sha(manifest, relative))
+    with np.load(path, allow_pickle=False) as npz:
+        data = {key: npz[key].copy() for key in npz.files}
+    return data
+
+
 def _init_state(release: dict, model) -> list[str]:
     tickers = release.get("tickers")
     if not isinstance(tickers, list) or not tickers or len(set(tickers)) != len(tickers):
@@ -108,7 +124,7 @@ def _init_state(release: dict, model) -> list[str]:
     state.setdefault("v8_theme", "dark")
     # Dashboard owns its category multiselect at key v8_filters; retain across routes.
     if "v8_q_bps" not in state:
-        cash_index = getattr(model.metadata, "cash_index", None)
+        cash_index = _meta_get(getattr(model, "metadata", None), "cash_index", None)
         if cash_index is None or not (0 <= int(cash_index) < len(tickers)):
             raise ValueError("No verified default cash instrument for initial allocation")
         q = np.zeros(len(tickers), dtype=np.uint16)
@@ -149,7 +165,7 @@ def main() -> None:
                 help=copy("app.theme.unavailable"))
     context = {"release": release, "model": model, "tickers": tickers,
                "load_model": load_model, "load_frame": load_frame,
-               "load_frontier": load_frontier}
+               "load_frontier": load_frontier, "load_wealth": load_wealth}
     render = {"dashboard": dashboard.render, "underlying": holdings.render,
               "analysis": analysis.render, "methods": methods.render}
     try:
@@ -161,3 +177,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

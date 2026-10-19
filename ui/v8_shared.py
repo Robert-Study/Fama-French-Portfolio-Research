@@ -169,3 +169,27 @@ def require_release_path(relative: str) -> Path:
         return target_data
     # Return release path even if not yet built so callers get clean FileNotFoundError
     return target
+
+
+def _meta_get(meta: Any, key: str, default: Any = None) -> Any:
+    """Retrieve metadata attribute supporting dict, SimpleNamespace, and dataclasses."""
+    if isinstance(meta, dict):
+        return meta.get(key, default)
+    return getattr(meta, key, default)
+
+
+def _get_reference_weights(ref_val: Any) -> list[int] | None:
+    """Extract integer basis point weights from dict, list, or ndarray reference."""
+    if ref_val is None:
+        return None
+    if isinstance(ref_val, dict):
+        if not ref_val.get("available", True):
+            return None
+        q = ref_val.get("q_bps")
+        if q is not None:
+            return [int(x) for x in q]
+        return None
+    if isinstance(ref_val, (list, tuple, np.ndarray)):
+        return [int(x) for x in ref_val]
+    return None
+

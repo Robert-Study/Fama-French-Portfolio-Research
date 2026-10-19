@@ -19,7 +19,7 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 from scipy import sparse
-from ui.v8_shared import as_weights, checked_weights, copy
+from ui.v8_shared import as_weights, checked_weights, copy, require_release_path, _meta_get
 
 COLS = ("company_id", "company", "ticker", "country", "sector", "cap_bucket")
 
@@ -32,6 +32,20 @@ def _require(df: pd.DataFrame, columns: tuple[str, ...], label: str) -> None:
 
 def _validated_csr(model: Any, m: int) -> sparse.csr_matrix:
     raw = getattr(model, "holdings_csr", None)
+    if raw is None:
+        csr_path = require_release_path("holdings_csr.npz")
+        if csr_path.is_file():
+            try:
+                raw = sparse.load_npz(csr_path)
+                try:
+                    object.__setattr__(model, "holdings_csr", raw)
+                except Exception:
+                    try:
+                        setattr(model, "holdings_csr", raw)
+                    except Exception:
+                        pass
+            except Exception:
+                raw = None
     if raw is None or not sparse.issparse(raw):
         raise ValueError("PreparedModel.holdings_csr is unavailable")
     matrix = raw.tocsr(copy=False)
@@ -150,7 +164,7 @@ def calculate(context: dict, q_bps: np.ndarray | list[int] | None = None) -> Loo
 
 
 def _reconcile(context: dict, result: Lookthrough) -> None:
-    constituent_basis = context["model"].metadata.get("holdings_weight_basis") == "underlying_constituent_weight"
+    constituent_basis = _meta_get(getattr(context["model"], "metadata", None), "holdings_weight_basis", None) == "underlying_constituent_weight"
     st.subheader(copy("underlying.reconciliation.title"),
                  help=copy("underlying.reconciliation.help"))
     c = st.columns(4)
@@ -248,7 +262,7 @@ def _expand(context: dict) -> None:
                                 key="v8_expander_fund")
         index = tickers.index(selected)
         company_rows = _constituent_rows(matrix, meta, index)
-        if context["model"].metadata.get("holdings_weight_basis") == "underlying_constituent_weight":
+        if _meta_get(getattr(context["model"], "metadata", None), "holdings_weight_basis", None) == "underlying_constituent_weight":
             company_rows = company_rows.rename(columns={"Exposure / fund NAV (%)": "Constituent weight (%)"})
         if company_rows.empty:
             st.info(copy("underlying.empty.missing_source"))
@@ -283,9 +297,33 @@ def _comparison(data: pd.DataFrame, group: str) -> None:
 
 def render(context: dict) -> None:
     st.title(copy("underlying.title")); st.write(copy("underlying.subtitle"))
-    if context["model"].metadata.get("holdings_weight_basis") == "underlying_constituent_weight":
+    model = context["model"]
+    basis = _meta_get(getattr(model, "metadata", None), "holdings_weight_basis", None)
+    if basis == "underlying_constituent_weight":
         st.info("This dataset shows constituent weights before leverage. For leveraged funds, "
                 "these weights do not measure economic exposure per pound invested.")
+
+    # Check CSR availability before running calculations
+    if getattr(model, "holdings_csr", None) is None:
+        csr_path = require_release_path("holdings_csr.npz")
+        if csr_path.is_file():
+            try:
+                csr = sparse.load_npz(csr_path)
+                try:
+                    object.__setattr__(model, "holdings_csr", csr)
+                except Exception:
+                    try:
+                        setattr(model, "holdings_csr", csr)
+                    except Exception:
+                        pass
+            except Exception:
+                pass
+
+    if getattr(model, "holdings_csr", None) is None:
+        st.warning("Underlying holdings lookthrough CSR data is unavailable for this release. "
+                   "Provenance: data/release/holdings_csr.npz could not be loaded.")
+        return
+
     try:
         with st.spinner(copy("underlying.loading.title")):
             state = calculate(context)
@@ -355,8 +393,8 @@ def render(context: dict) -> None:
     with zipfile.ZipFile(archive, "w", zipfile.ZIP_DEFLATED) as z:
         z.writestr("underlying_complete.csv", state.rows.to_csv(index=False))
         z.writestr("exposure_reconciliation.json",
-                   __import__("json").dumps({("mapped_constituent_weight" if context["model"].metadata.get(
-                       "holdings_weight_basis") == "underlying_constituent_weight" else "mapped_equity_nav"): state.mapped_exposure,
+                   __import__("json").dumps({("mapped_constituent_weight" if _meta_get(getattr(
+                       context["model"], "metadata", None), "holdings_weight_basis", None) == "underlying_constituent_weight" else "mapped_equity_nav"): state.mapped_exposure,
                                              "hhi": state.hhi, "top10": state.top10}, indent=2))
     st.download_button(copy("underlying.action.export_zip"),
                        data=archive.getvalue(),

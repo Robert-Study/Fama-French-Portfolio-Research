@@ -13,7 +13,7 @@ try:
     import yaml
 except ImportError:
     yaml = None
-from ui.v8_shared import SPEC, RES, copy, source_hash
+from ui.v8_shared import SPEC, RES, copy, source_hash, _meta_get
 
 DOC = SPEC / "07_methods.md"
 ASSUMPTIONS = RES / "02_assumptions.yaml"
@@ -138,7 +138,7 @@ def _switch(context: dict) -> None:
         try:
             # Preflight alternate model; never set selector if artefact absent.
             alternative = context["load_model"](context["release"]["release_id"], selected)
-            if getattr(getattr(alternative, "metadata", None), "method", None) != selected:
+            if _meta_get(getattr(alternative, "metadata", None), "method", None) != selected:
                 raise ValueError("Alternate release model-family mismatch")
             if len(alternative.asset_ids) != len(context["tickers"]):
                 raise ValueError("Alternate universe has incompatible asset mapping")
@@ -172,7 +172,7 @@ def _diagnostics(context: dict) -> None:
     records = []
     for key, value in pairs.items():
         records.append({"Field": copy("methods.diagnostics." + key),
-                        "Result": value if value is not None
+                        "Result": str(value) if value is not None
                         else copy("methods.diagnostics.missing")})
     st.dataframe(pd.DataFrame(records), use_container_width=True, hide_index=True)
     with st.expander(copy("methods.sources.release")):

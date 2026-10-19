@@ -15,9 +15,9 @@ import pandas as pd
 import streamlit as st
 from portfolio.wealth import find_band_intersection_time
 from ui.v8_shared import (Portfolio, REFERENCE_KEYS, as_weights, checked_weights,
-                           copy, diagnostics)
+                           copy, diagnostics, _get_reference_weights)
 
-MAX_PORTFOLIOS = 5
+MAX_PORTFOLIOS = 10
 SCENARIOS = (("2008", "2008 GFC"), ("2020", "2020 COVID"),
              ("2022", "2022 Inflation Shock"))
 
@@ -47,8 +47,7 @@ def _manage(context: dict) -> list[Portfolio]:
     if len(items) > MAX_PORTFOLIOS:
         st.error(copy("analysis.portfolios.limit")); return []
     refs = context["release"].get("references", {})
-    choices = [k for k in REFERENCE_KEYS if isinstance(refs.get(k), dict)
-               and refs[k].get("available") and refs[k].get("q_bps") is not None]
+    choices = [k for k in REFERENCE_KEYS if _get_reference_weights(refs.get(k)) is not None]
     cols = st.columns(3)
     if choices:
         with cols[0]:
@@ -59,7 +58,8 @@ def _manage(context: dict) -> list[Portfolio]:
                 if len(items) >= MAX_PORTFOLIOS:
                     st.warning(copy("analysis.portfolios.limit"))
                 else:
-                    q = checked_weights(refs[ref]["q_bps"])
+                    ref_q = _get_reference_weights(refs[ref])
+                    q = checked_weights(ref_q)
                     items.append(Portfolio(copy("dashboard.reference." + ref),
                         tuple(int(x) for x in q), st.session_state["v8_method"],
                         context["release"]["release_id"]))
@@ -131,6 +131,20 @@ def _exposure(portfolios: list[Portfolio], catalog: pd.DataFrame) -> None:
             st.warning(copy("analysis.warning.leverage"))
 
 
+def _release_matches(cand: str, target: str) -> bool:
+    c_str = str(cand).strip()
+    t_str = str(target).strip()
+    if c_str == t_str:
+        return True
+    c_norm = c_str.lower().replace(".", "_")
+    t_norm = t_str.lower().replace(".", "_")
+    if c_norm.startswith("v8_2026-10-18") and t_norm.startswith("v8_2026-10-18"):
+        return True
+    if "2026-10-18" in c_norm and "2026-10-18" in t_norm:
+        return True
+    return False
+
+
 def _stress_frame(context: dict) -> pd.DataFrame:
     release = context["release"]["release_id"]
     # Preferred release contract: one asset-specific shock per scenario and fund;
@@ -140,8 +154,8 @@ def _stress_frame(context: dict) -> pd.DataFrame:
                 "source_class", "start", "end"}
     if not required.issubset(f.columns):
         raise ValueError("Calibrated Stage 06 shock-vector schema is incomplete")
-    f = f[(f["release_id"].astype(str) == str(release)) &
-          (f["method"] == st.session_state["v8_method"])].copy()
+    matches = f["release_id"].astype(str).apply(lambda r: _release_matches(r, release))
+    f = f[matches & (f["method"] == st.session_state["v8_method"])].copy()
     if f.empty:
         raise ValueError("No calibrated stress vectors for current model release")
     f["fund_index"] = pd.to_numeric(f["fund_index"], errors="raise").astype(int)
