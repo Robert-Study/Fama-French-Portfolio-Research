@@ -26,17 +26,17 @@
       "existing_file_retained": false
     },
     "company_holdings.parquet": {
-      "reason": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\home\\\\Documents\\\\AI-Disk-Access\\\\Gemini-Efficient-Frontier\\\\data\\\\release_inputs\\\\constituent_sources.json'",
+      "reason": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\home\\\\Documents\\\\AI-Disk-Access\\\\Gemini-Efficient-Frontier\\\\data\\\\release_inputs\\\\constituents\\\\IE00BK5BQT80.csv'",
       "required": "Need constituent_sources.json and identity-mapped equity snapshots for all 48 equity funds.",
       "existing_file_retained": false
     },
     "fund_links.parquet": {
-      "reason": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\home\\\\Documents\\\\AI-Disk-Access\\\\Gemini-Efficient-Frontier\\\\data\\\\release_inputs\\\\constituent_sources.json'",
+      "reason": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\home\\\\Documents\\\\AI-Disk-Access\\\\Gemini-Efficient-Frontier\\\\data\\\\release_inputs\\\\constituents\\\\IE00BK5BQT80.csv'",
       "required": "Need constituent_sources.json and identity-mapped equity snapshots for all 48 equity funds.",
       "existing_file_retained": false
     },
     "holdings_csr.npz": {
-      "reason": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\home\\\\Documents\\\\AI-Disk-Access\\\\Gemini-Efficient-Frontier\\\\data\\\\release_inputs\\\\constituent_sources.json'",
+      "reason": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\home\\\\Documents\\\\AI-Disk-Access\\\\Gemini-Efficient-Frontier\\\\data\\\\release_inputs\\\\constituents\\\\IE00BK5BQT80.csv'",
       "required": "Need constituent_sources.json and identity-mapped equity snapshots for all 48 equity funds.",
       "existing_file_retained": false
     }
@@ -105,7 +105,8 @@
     "C:\\Users\\home\\Documents\\AI-Disk-Access\\Gemini-Efficient-Frontier\\tests\\fixtures\\02_product_contracts.json": "56df59be7a117637e32de2db901f047b931ddc3dcd6291cc4c5cf7c67ca0b01f",
     "C:\\Users\\home\\Documents\\AI-Disk-Access\\Gemini-Efficient-Frontier\\tests\\fixtures\\06_stress_calibration.json": "ea11fc4376720c84fc617ad501baa1ef4de6de975ba9ca63d06f97c5a772d595",
     "C:\\Users\\home\\Documents\\AI-Disk-Access\\Gemini-Efficient-Frontier\\data\\release_inputs\\benchmark_vall.csv": "0e1ab59ee6ee24052d4491cc80507189dd3457386215c0e910de5903128fad33",
-    "C:\\Users\\home\\Documents\\AI-Disk-Access\\Gemini-Efficient-Frontier\\data\\release_inputs\\secondary_sources.json": "25ffa897fdb12f8f8fdb78ccd336909f62cdf5ddca8fd1a3f6923f8c194e578c"
+    "C:\\Users\\home\\Documents\\AI-Disk-Access\\Gemini-Efficient-Frontier\\data\\release_inputs\\secondary_sources.json": "25ffa897fdb12f8f8fdb78ccd336909f62cdf5ddca8fd1a3f6923f8c194e578c",
+    "C:\\Users\\home\\Documents\\AI-Disk-Access\\Gemini-Efficient-Frontier\\data\\release_inputs\\constituent_sources.json": "7c00fa9de154b1c197982e467f1e3650c67763bb7a1e7ac30daceffce35b8abc"
   },
   "quote_conflicts": [],
   "notes": [

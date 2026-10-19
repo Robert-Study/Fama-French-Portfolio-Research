@@ -1,0 +1,342 @@
+{
+  "as_of": "2026-10-18",
+  "weight_basis": "underlying_constituent_weight",
+  "sources": [
+    {
+      "path": "constituents/IE00BK5BQT80.csv",
+      "fund_id": "IE00BK5BQT80",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00B4L5Y983.csv",
+      "fund_id": "IE00B4L5Y983",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00B3XXRP09.csv",
+      "fund_id": "IE00B3XXRP09",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE0032077012.csv",
+      "fund_id": "IE0032077012",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00B810Q511.csv",
+      "fund_id": "IE00B810Q511",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00BKX55Q28.csv",
+      "fund_id": "IE00BKX55Q28",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00BKX55S42.csv",
+      "fund_id": "IE00BKX55S42",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00B95PGT31.csv",
+      "fund_id": "IE00B95PGT31",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00B9F5YL18.csv",
+      "fund_id": "IE00B9F5YL18",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00BKM4GZ66.csv",
+      "fund_id": "IE00BKM4GZ66",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00BZCQB185.csv",
+      "fund_id": "IE00BZCQB185",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00BQT3WG13.csv",
+      "fund_id": "IE00BQT3WG13",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00B1FZS350.csv",
+      "fund_id": "IE00B1FZS350",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00BP3QZB59.csv",
+      "fund_id": "IE00BP3QZB59",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00BP3QZ825.csv",
+      "fund_id": "IE00BP3QZ825",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00BP3QZ601.csv",
+      "fund_id": "IE00BP3QZ601",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00B8FHGS14.csv",
+      "fund_id": "IE00B8FHGS14",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00BP3QZD73.csv",
+      "fund_id": "IE00BP3QZD73",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00BF4RFH31.csv",
+      "fund_id": "IE00BF4RFH31",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00BSPLC413.csv",
+      "fund_id": "IE00BSPLC413",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00BSPLC298.csv",
+      "fund_id": "IE00BSPLC298",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00BD1F4M44.csv",
+      "fund_id": "IE00BD1F4M44",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00BQN1K901.csv",
+      "fund_id": "IE00BQN1K901",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00BG0SKF03.csv",
+      "fund_id": "IE00BG0SKF03",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00BJRCLL96.csv",
+      "fund_id": "IE00BJRCLL96",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00BZ56SW52.csv",
+      "fund_id": "IE00BZ56SW52",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/LU0411078552.csv",
+      "fund_id": "LU0411078552",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/FR0010342592.csv",
+      "fund_id": "FR0010342592",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00B7Y34M31.csv",
+      "fund_id": "IE00B7Y34M31",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/XS2472197065.csv",
+      "fund_id": "XS2472197065",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE000RJECXS5.csv",
+      "fund_id": "IE000RJECXS5",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE0003R87OG3.csv",
+      "fund_id": "IE0003R87OG3",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00B44Z5B48.csv",
+      "fund_id": "IE00B44Z5B48",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00BJ5JPG56.csv",
+      "fund_id": "IE00BJ5JPG56",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00BK5BQZ41.csv",
+      "fund_id": "IE00BK5BQZ41",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00BG143G97.csv",
+      "fund_id": "IE00BG143G97",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00BHZRQZ17.csv",
+      "fund_id": "IE00BHZRQZ17",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00B27YCK28.csv",
+      "fund_id": "IE00B27YCK28",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00BL25JM42.csv",
+      "fund_id": "IE00BL25JM42",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00BP3QZJ36.csv",
+      "fund_id": "IE00BP3QZJ36",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00B46G8275.csv",
+      "fund_id": "IE00B46G8275",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE0007P4PBU1.csv",
+      "fund_id": "IE0007P4PBU1",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE000VAHT5T0.csv",
+      "fund_id": "IE000VAHT5T0",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE0007TPRF31.csv",
+      "fund_id": "IE0007TPRF31",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00BKZGB098.csv",
+      "fund_id": "IE00BKZGB098",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00BZ0PKT83.csv",
+      "fund_id": "IE00BZ0PKT83",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE000K975W13.csv",
+      "fund_id": "IE000K975W13",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    },
+    {
+      "path": "constituents/IE00BK5BQV03.csv",
+      "fund_id": "IE00BK5BQV03",
+      "weight_unit": "decimal",
+      "source_as_of": "2026-10-18",
+      "data_source": "Fund Factsheet Holdings"
+    }
+  ]
+}
