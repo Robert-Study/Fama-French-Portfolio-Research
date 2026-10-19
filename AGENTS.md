@@ -53,6 +53,13 @@ The system operates across three strictly segregated roots. Never cross-contamin
      - **For Gemini App:** App: `Gemini Web / App`, Gem: `Gem ON` vs `Gem OFF`, Model: `Gemini 4 Argon`, Reasoning Effort: `High` vs `OFF`, and explicit `@Google Drive` trigger line.
      - **For Antigravity:** Platform: `Antigravity IDE (Local)`, Model: `Claude Opus 5.5` or `Gemini 3.8 Flash`.
    * **Descriptive Title Tag for Tab Naming:** The first line inside every copy-and-paste prompt block MUST begin with a 2–6 word bracketed title (e.g. `[ETF Research - Residual Quote Units Audit]`) so the browser tab is immediately named and distinguishable.
+5. **Terminology Lock: Agents vs. Subagents:**
+   * **Agents (External):** Standalone external platforms (ChatGPT 6 Web, Gemini 4 Argon App, Local Qwen). Require user involvement to dispatch prompts and monitor tabs. Deploy when a task is significant or requires unique platform advantages (e.g. unlimited tokens, Gem ON financial reasoning).
+   * **Subagents (Native Internal):** Autonomous background workers spawned directly inside the Antigravity tab (`invoke_subagent`). Require zero user involvement. Deploy for local code, test runs, Google Drive file management, schema verification, and deliverable integration. Multiple Subagents run concurrently in the Orchestrator session.
+6. **Minimal Orchestrator Thinking & Fast-Track Pipeline Protocol:**
+   * **Minimal Orchestrator Thinking:** The Lead Orchestrator operates strictly as a high-speed traffic controller, dispatcher, and delegator. It must never perform deep multi-minute reading or heavy file parsing inside the main chat turn.
+   * **Zero-Wait Prompt Dispatch:** When the user reports an external Agent finished Task N, the Orchestrator immediately outputs the copy-and-paste prompt for Task N+1 so the user keeps the external Agent running without waiting.
+   * **Background Subagent Integration:** Concurrently with prompt dispatch, the Orchestrator spawns an internal native Subagent (`invoke_subagent`) to audit the deliverable in `05 Subagents/Outputs/`, verify schema/contract parity, move integrated files out of staging to permanent Google Drive paths, and update status registers silently.
 
 ---
 
