@@ -11,12 +11,18 @@ from hashlib import sha256
 import json
 from pathlib import Path
 import re
+import sys
 import tempfile
 
 import numpy as np
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from portfolio.ingestion import build_benchmark, build_holdings, read_constituents, write_holdings
+
 RELEASE_ID = "V8.0-2026-10-18"
 METHODS = ("holdings", "etf")
 REFERENCES = ("sp500", "all_cap", "global_6040", "bonds", "value", "size")
@@ -169,30 +175,6 @@ def build_stress(path, catalogue):
     return result
 
 
-def build_benchmark(frame):
-    text_columns(frame, BENCHMARK_COLUMNS[:-1])
-    columns(frame, ["benchmark_weight"])
-    require(frame.company_id.is_unique, "Benchmark must already aggregate share classes to unique companies")
-    f = frame[BENCHMARK_COLUMNS].copy()
-    f["benchmark_weight"] = pd.to_numeric(f.benchmark_weight, errors="raise").astype(float)
-    require(np.isfinite(f.benchmark_weight).all() and (f.benchmark_weight > 0).all(),
-            "Benchmark weights must be finite and positive")
-    require(len(f) >= 100, "Need at least 100 source companies")
-    f = f.sort_values(["benchmark_weight", "company_id"], ascending=[False, True]).head(100).reset_index(drop=True)
-    total = float(f.benchmark_weight.sum())
-    require(np.isfinite(total) and total > 0, "Invalid benchmark total")
-    f["benchmark_weight"] /= total
-    # This is the top-100 sleeve reweighted to 100%, not the full-index weights.
-    # Compensate binary floating-point summation error in the largest component.
-    for _ in range(8):
-        delta = 1.0 - float(f.benchmark_weight.sum())
-        if delta == 0:
-            break
-        f.loc[0, "benchmark_weight"] += delta
-    require(float(f.benchmark_weight.sum()) == 1.0, "Benchmark sum is not exactly 1.0")
-    return f
-
-
 def build_history(frame):
     text_columns(frame, ["portfolio_id", "date", "method"])
     columns(frame, ["monthly_return"])
@@ -277,7 +259,8 @@ def build_release(fixtures, inputs, output):
 
     def benchmark():
         report["provenance"]["benchmark"] = provenance(inputs, "benchmark")
-        return build_benchmark(pd.read_csv(inputs / "benchmark_vall.csv", keep_default_na=False))
+        return build_benchmark(pd.read_csv(inputs / "benchmark_vall.csv", keep_default_na=False,
+                                           float_precision="round_trip"))
 
     def history():
         report["provenance"]["history"] = provenance(inputs, "history")
@@ -301,12 +284,48 @@ def build_release(fixtures, inputs, output):
                 pd.testing.assert_frame_equal(pd.read_parquet(path), frame)
             atomic_write(output / name, write_and_check)
             report["written"][name] = dict(rows=len(frame), sha256=sha256((output / name).read_bytes()).hexdigest())
+            if name == "benchmark_vall.parquet":
+                def write_csv(path):
+                    frame.to_csv(path, index=False, float_format="%.17g")
+                    restored = pd.read_csv(path, keep_default_na=False, float_precision="round_trip")
+                    pd.testing.assert_frame_equal(frame, restored, check_exact=True)
+                    require(restored.benchmark_weight.sum() == 1.0, "CSV benchmark sum mismatch")
+                atomic_write(output / "benchmark_vall.csv", write_csv)
+                report["written"]["benchmark_vall.csv"] = dict(
+                    rows=len(frame), sha256=sha256((output / "benchmark_vall.csv").read_bytes()).hexdigest())
         except (OSError, ValueError, KeyError, TypeError) as exc:
             report["blocked"][name] = dict(
                 reason=str(exc), required=requirements.get(name, "Repair source contract."),
                 existing_file_retained=(output / name).exists(),
             )
-    for name in ("benchmark_vall.csv", "reference_monthly_returns.csv", "secondary_sources.json"):
+    holdings_names = ("company_holdings.parquet", "fund_links.parquet", "holdings_csr.npz")
+    try:
+        constituents = read_constituents(inputs)
+        dataset = build_holdings(universe, constituents)
+        write_holdings(dataset, output)
+        report["provenance"]["holdings"] = dict(
+            weight_basis="underlying_constituent_weight", as_of="2026-10-18",
+            source_dates=sorted(constituents.source_as_of.unique().tolist()),
+            sources=sorted(constituents.data_source.unique().tolist()),
+            fund_ids=list(dataset.fund_ids), tickers=list(dataset.tickers),
+        )
+        for name, rows in zip(holdings_names, [len(dataset.company_holdings), len(dataset.fund_links), 68]):
+            report["written"][name] = dict(rows=rows, sha256=sha256((output / name).read_bytes()).hexdigest())
+        manifest = read_json(inputs / "constituent_sources.json")
+        for source in manifest["sources"]:
+            path = inputs / source["path"]
+            report["input_sha256"][str(path)] = sha256(path.read_bytes()).hexdigest()
+    except (OSError, ValueError, KeyError, TypeError) as exc:
+        for name in holdings_names:
+            report["blocked"][name] = dict(
+                reason=str(exc), required="Need constituent_sources.json and identity-mapped equity snapshots for all 48 equity funds.",
+                existing_file_retained=(output / name).exists(),
+            )
+    report["notes"].append(
+        "Holdings H uses unlevered constituent weights <= 1 per fund, including leveraged products. "
+        "Use portfolio.ingestion.attach_holdings with canonical_tickers to attach H to a PreparedModel. "
+        "This builder does not overwrite model binaries or certify the main release manifest.")
+    for name in ("benchmark_vall.csv", "reference_monthly_returns.csv", "secondary_sources.json", "constituent_sources.json"):
         p = inputs / name
         if p.is_file():
             report["input_sha256"][str(p)] = sha256(p.read_bytes()).hexdigest()

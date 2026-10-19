@@ -49,7 +49,7 @@ def _company_metadata(context: dict, k: int) -> pd.DataFrame:
     # Exactly one company row per CSR column; repeated fund holdings are NOT
     # summed again, as the CSR matrix already encodes economic exposures.
     meta = data[list(("company_index",) + COLS + tuple(c for c in
-              ("as_of", "data_source", "characteristic_origin", "security_count")
+              ("as_of", "source_as_of", "data_source", "characteristic_origin", "security_count")
               if c in data))].drop_duplicates("company_index")
     idx = pd.to_numeric(meta["company_index"], errors="raise").to_numpy()
     if not np.array_equal(np.sort(idx), np.arange(k)) or len(meta) != k:
@@ -142,19 +142,21 @@ def calculate(context: dict, q_bps: np.ndarray | list[int] | None = None) -> Loo
         top10 = float(np.sort(p)[-10:].sum())
     else:
         hhi = effective = top10 = None
-    dates = tuple(sorted(str(x) for x in result.get("as_of", pd.Series(dtype=str))
-                         .dropna().unique()))
+    date_column = "source_as_of" if "source_as_of" in result else "as_of"
+    dates = tuple(sorted({part.strip() for value in result.get(date_column, pd.Series(dtype=str))
+                          .dropna().unique() for part in str(value).split("|")}))
     return Lookthrough(result, mapped, int(np.count_nonzero(exposure)), hhi,
                        effective, top10, dates)
 
 
 def _reconcile(context: dict, result: Lookthrough) -> None:
+    constituent_basis = context["model"].metadata.get("holdings_weight_basis") == "underlying_constituent_weight"
     st.subheader(copy("underlying.reconciliation.title"),
                  help=copy("underlying.reconciliation.help"))
     c = st.columns(4)
     c[0].metric(copy("underlying.metric.companies"), f"{result.mapped_count:,}",
                 help=copy("underlying.metric.companies_help"))
-    c[1].metric(copy("underlying.metric.gross_equity"),
+    c[1].metric("Mapped constituent weight" if constituent_basis else copy("underlying.metric.gross_equity"),
                 f"{result.mapped_exposure:.2%}",
                 help=copy("underlying.metric.gross_equity_help"))
     c[2].metric(copy("underlying.metric.effective"),
@@ -171,7 +173,7 @@ def _reconcile(context: dict, result: Lookthrough) -> None:
     for key in fields:
         raw = result.mapped_exposure if key == "mapped" else info.get(key)
         entries.append({"Type": copy("underlying.reconciliation." + key),
-                        "Exposure / NAV": (f"{100*raw:.2f}%" if isinstance(raw, (int, float))
+                        ("Weight before leverage" if constituent_basis else "Exposure / NAV"): (f"{100*raw:.2f}%" if isinstance(raw, (int, float))
                                            and math.isfinite(raw) else "N/A")})
     st.dataframe(pd.DataFrame(entries), hide_index=True, use_container_width=True)
     if result.mapped_exposure > 1 + 1e-8:
@@ -197,6 +199,10 @@ def _fund_links(context: dict) -> dict[int, list[tuple[int, float]]]:
         df = context["load_frame"](context["release"]["release_id"],
                                    "fund_links.parquet")
     except (FileNotFoundError, OSError):
+        return {}
+    if {"fund_id", "ticker", "company_id", "weight"}.issubset(df.columns):
+        # V8 ingestion company links duplicate CSR edges for audit/export.
+        # They contain no nested-fund graph and must not be applied twice.
         return {}
     _require(df, ("parent_fund_index", "child_fund_index", "fraction"),
              "Nested-fund relationship graph")
@@ -242,6 +248,8 @@ def _expand(context: dict) -> None:
                                 key="v8_expander_fund")
         index = tickers.index(selected)
         company_rows = _constituent_rows(matrix, meta, index)
+        if context["model"].metadata.get("holdings_weight_basis") == "underlying_constituent_weight":
+            company_rows = company_rows.rename(columns={"Exposure / fund NAV (%)": "Constituent weight (%)"})
         if company_rows.empty:
             st.info(copy("underlying.empty.missing_source"))
         else:
@@ -275,6 +283,9 @@ def _comparison(data: pd.DataFrame, group: str) -> None:
 
 def render(context: dict) -> None:
     st.title(copy("underlying.title")); st.write(copy("underlying.subtitle"))
+    if context["model"].metadata.get("holdings_weight_basis") == "underlying_constituent_weight":
+        st.info("This dataset shows constituent weights before leverage. For leveraged funds, "
+                "these weights do not measure economic exposure per pound invested.")
     try:
         with st.spinner(copy("underlying.loading.title")):
             state = calculate(context)
@@ -344,7 +355,8 @@ def render(context: dict) -> None:
     with zipfile.ZipFile(archive, "w", zipfile.ZIP_DEFLATED) as z:
         z.writestr("underlying_complete.csv", state.rows.to_csv(index=False))
         z.writestr("exposure_reconciliation.json",
-                   __import__("json").dumps({"mapped_equity_nav": state.mapped_exposure,
+                   __import__("json").dumps({("mapped_constituent_weight" if context["model"].metadata.get(
+                       "holdings_weight_basis") == "underlying_constituent_weight" else "mapped_equity_nav"): state.mapped_exposure,
                                              "hhi": state.hhi, "top10": state.top10}, indent=2))
     st.download_button(copy("underlying.action.export_zip"),
                        data=archive.getvalue(),

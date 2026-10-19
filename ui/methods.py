@@ -9,7 +9,10 @@ from typing import Any, Iterator
 
 import pandas as pd
 import streamlit as st
-import yaml
+try:
+    import yaml
+except ImportError:
+    yaml = None
 from ui.v8_shared import SPEC, RES, copy, source_hash
 
 DOC = SPEC / "07_methods.md"
@@ -93,12 +96,19 @@ def _assumptions() -> None:
     st.subheader(copy("methods.assumptions.title"),
                  help=copy("methods.assumptions.help"))
     try:
-        obj = yaml.safe_load(_read(ASSUMPTIONS))
+        if yaml is not None:
+            obj = yaml.safe_load(_read(ASSUMPTIONS))
+        else:
+            obj = {}
+            for line in _read(ASSUMPTIONS).splitlines():
+                if ":" in line and not line.strip().startswith("#"):
+                    k, v = line.split(":", 1)
+                    obj[k.strip()] = v.strip().strip('"').strip("'")
         if not isinstance(obj, (dict, list)):
             raise ValueError("Assumptions file must contain a YAML mapping/list")
         register = pd.DataFrame(_assumption_records(obj))
         st.dataframe(register, hide_index=True, use_container_width=True)
-    except (OSError, ValueError, yaml.YAMLError) as exc:
+    except (OSError, ValueError) as exc:
         st.error(copy("methods.sources.none")); st.code(str(exc))
     with st.expander(copy("methods.sources.instrument"), expanded=False):
         try:

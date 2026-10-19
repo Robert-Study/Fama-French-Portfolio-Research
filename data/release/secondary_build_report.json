@@ -21,6 +21,21 @@
       "reason": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\home\\\\Documents\\\\AI-Disk-Access\\\\Gemini-Efficient-Frontier\\\\data\\\\release_inputs\\\\secondary_sources.json'",
       "required": "Need reference_monthly_returns.csv (six references, both methods, Feb 2014-Sep 2026) and history provenance in secondary_sources.json.",
       "existing_file_retained": false
+    },
+    "company_holdings.parquet": {
+      "reason": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\home\\\\Documents\\\\AI-Disk-Access\\\\Gemini-Efficient-Frontier\\\\data\\\\release_inputs\\\\constituent_sources.json'",
+      "required": "Need constituent_sources.json and identity-mapped equity snapshots for all 48 equity funds.",
+      "existing_file_retained": false
+    },
+    "fund_links.parquet": {
+      "reason": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\home\\\\Documents\\\\AI-Disk-Access\\\\Gemini-Efficient-Frontier\\\\data\\\\release_inputs\\\\constituent_sources.json'",
+      "required": "Need constituent_sources.json and identity-mapped equity snapshots for all 48 equity funds.",
+      "existing_file_retained": false
+    },
+    "holdings_csr.npz": {
+      "reason": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\home\\\\Documents\\\\AI-Disk-Access\\\\Gemini-Efficient-Frontier\\\\data\\\\release_inputs\\\\constituent_sources.json'",
+      "required": "Need constituent_sources.json and identity-mapped equity snapshots for all 48 equity funds.",
+      "existing_file_retained": false
     }
   },
   "provenance": {
@@ -85,6 +100,7 @@
     "Stress is research calibration, not independently verified historical observations; 2022 runs through December.",
     "VALL is FTSE Global All Cap. Top 100 company weights are renormalised; no legacy assumed-proxy fallback.",
     "History baseline is January 2014; 152 subsequent monthly net investor-wealth returns are required per reference/method.",
-    "This secondary report does not certify or update the main release manifest or its hashes."
+    "This secondary report does not certify or update the main release manifest or its hashes.",
+    "Holdings H uses unlevered constituent weights <= 1 per fund, including leveraged products. Use portfolio.ingestion.attach_holdings with canonical_tickers to attach H to a PreparedModel. This builder does not overwrite model binaries or certify the main release manifest."
   ]
 }

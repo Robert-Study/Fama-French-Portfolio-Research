@@ -119,7 +119,7 @@ def test_partial_build_reports_missing_sources_without_fake_tables(tmp_path):
     report = build_release(FIXTURES, tmp_path / "inputs", tmp_path / "release")
     assert report["status"] == "partial"
     assert set(report["written"]) == {"fund_catalogue.parquet", "stress_vectors.parquet"}
-    assert len(report["blocked"]) == 2
+    assert len(report["blocked"]) == 5
     assert not (tmp_path / "release" / "benchmark_vall.parquet").exists()
     assert not (tmp_path / "release" / "historical_results.parquet").exists()
     assert pd.read_parquet(tmp_path / "release" / "stress_vectors.parquet").shape[0] == 408
@@ -130,6 +130,19 @@ def test_complete_build_roundtrip_with_explicit_synthetic_inputs(tmp_path):
     inputs.mkdir()
     benchmark_input().to_csv(inputs / "benchmark_vall.csv", index=False)
     history_input().to_csv(inputs / "reference_monthly_returns.csv", index=False)
+    universe = pd.read_csv(FIXTURES / "01_verified_universe.csv", keep_default_na=False)
+    sources = []
+    for fund in universe.itertuples(index=False):
+        if fund.asset_class in {"Cash", "Bonds", "Commodities"}:
+            continue
+        name = f"{fund.display_ticker}.csv"
+        pd.DataFrame([dict(security_id="US0000000000", company_id="US0000000000",
+                           company="Synthetic company", ticker="TEST", country="TEST",
+                           sector="TEST", cap_bucket="Large", weight=0.9)]).to_csv(inputs / name, index=False)
+        sources.append(dict(path=name, fund_id=fund.canonical_id, weight_unit="decimal",
+                            source_as_of="2026-10-16", data_source="SYNTHETIC TEST ONLY"))
+    (inputs / "constituent_sources.json").write_text(json.dumps(dict(
+        as_of="2026-10-18", weight_basis="underlying_constituent_weight", sources=sources)), encoding="utf-8")
     (inputs / "secondary_sources.json").write_text(json.dumps({
         "benchmark": {"source": "SYNTHETIC TEST ONLY", "as_of": "2026-09-30",
                       "benchmark": "FTSE Global All Cap", "weight_basis": "company_cap_weight"},
@@ -139,6 +152,10 @@ def test_complete_build_roundtrip_with_explicit_synthetic_inputs(tmp_path):
     }), encoding="utf-8")
     report = build_release(FIXTURES, inputs, tmp_path / "release")
     assert report["status"] == "complete"
-    assert len(report["written"]) == 4
+    assert len(report["written"]) == 8
     assert pd.read_parquet(tmp_path / "release" / "benchmark_vall.parquet").benchmark_weight.sum() == 1.0
+    csv = pd.read_csv(tmp_path / "release" / "benchmark_vall.csv", float_precision="round_trip")
+    assert csv.benchmark_weight.sum() == 1.0
+    pd.testing.assert_frame_equal(csv, pd.read_parquet(tmp_path / "release" / "benchmark_vall.parquet"), check_exact=True)
+    assert pd.read_parquet(tmp_path / "release" / "company_holdings.parquet").shape[0] == 1
 

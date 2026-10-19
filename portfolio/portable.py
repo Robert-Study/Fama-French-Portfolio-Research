@@ -47,7 +47,7 @@ def save_derived_model(model, root):
 def load_derived_model(snapshot):
     from portfolio.research import Model
     value=snapshot.manifest['derived_model_inputs']
-    if value['schema_version']!=2 or value['model_version']!=__version__:
+    if value['schema_version'] != 2 or value['model_version'] not in (__version__, '0.4.0', '0.4.1'):
         raise ValueError('Derived model schema/version differs; refresh required.')
     ids=value['ids']
     if len(ids)!=len(set(ids)) or not set(ids).issubset(snapshot.instruments.index) or not ids:
