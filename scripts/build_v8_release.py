@@ -339,7 +339,8 @@ def main(argv: list[str] | None = None) -> int:
     release_id = f"v8_{as_of}_{hashlib.sha256((source_sha[_path_key(args.snapshot)] + source_sha[_path_key(args.references)]).encode()).hexdigest()[:12]}"
 
     out.parent.mkdir(parents=True, exist_ok=True)
-    staging = Path(tempfile.mkdtemp(prefix=".v8-release-build-", dir=out.parent))
+    staging = out.parent / ".v8-release-staging" if production else Path(tempfile.mkdtemp(prefix=".v8-release-build-", dir=out.parent))
+    staging.mkdir(parents=True, exist_ok=True)
     artifacts: dict[str, str] = {}
     mask_status: dict[str, dict[str, str]] = {}
     try:
@@ -357,9 +358,18 @@ def main(argv: list[str] | None = None) -> int:
                        moments=_moments_batch(all_refs, model, horizons,
                                               accumulating_wealth_moments, lognormal_wealth_quantiles))
             for mask in masks:
+                frontier_file = staging / f"frontiers/{method}/{mask:02d}.npz"
+                wealth_file = staging / f"wealth/{method}/{mask:02d}.npz"
+                if frontier_file.exists() and wealth_file.exists():
+                    with np.load(frontier_file) as d:
+                        status = str(d["status"])
+                    mask_status[method][f"{mask:02d}"] = status
+                    print(f"  mask={mask:02d}: {status} (cached)", flush=True)
+                    continue
+
                 q, cert, gap, status = _solve_frontier(compute_miqp_frontier, model, mask, args.n_points,
                                                        method=method, m=m)
-                _write_npz(staging / f"frontiers/{method}/{mask:02d}.npz",
+                _write_npz(frontier_file,
                            q_bps=q, certified=cert, gap=gap, status=np.asarray(status))
                 mask_status[method][f"{mask:02d}"] = status
                 if status == "certified":
@@ -367,7 +377,7 @@ def main(argv: list[str] | None = None) -> int:
                                             accumulating_wealth_moments, lognormal_wealth_quantiles)
                 else:
                     values = np.full((args.n_points, len(horizons), 5), np.nan, dtype=np.float64)
-                _write_npz(staging / f"wealth/{method}/{mask:02d}.npz",
+                _write_npz(wealth_file,
                            horizons=np.asarray(horizons, dtype=np.int16),
                            metrics=np.asarray(("mean", "variance", "p20", "p50", "p84_135")),
                            moments=values)
@@ -405,10 +415,12 @@ def main(argv: list[str] | None = None) -> int:
                 if dest.exists():
                     dest.unlink()
                 shutil.move(str(item), str(dest))
+        if staging.exists():
+            shutil.rmtree(staging, ignore_errors=True)
         print(f"Release built: {out} [{len(artifacts)} hashed artifacts; {release_id}]", flush=True)
         return 0
     finally:
-        if staging.exists():
+        if not production and staging.exists():
             shutil.rmtree(staging, ignore_errors=True)
 
 
