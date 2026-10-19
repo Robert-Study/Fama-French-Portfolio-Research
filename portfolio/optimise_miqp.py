@@ -800,18 +800,27 @@ def compute_miqp_frontier(
     mu_max = float(np.max(mu_mo[active_indices]))
 
     # Calculate mu_min from the global minimum-variance continuous portfolio on active assets
-    w_gmv, _ = _solve_continuous_qp(
-        mu_sub=mu_mo[active_indices],
-        cov_sub=cov_mo[np.ix_(active_indices, active_indices)],
-        target_ret=float(np.min(mu_mo[active_indices])),
-        min_weight=0.0,
-        max_weight=1.0,
-    )
-
-    if w_gmv is not None:
-        mu_min = float(w_gmv @ mu_mo[active_indices])
+    meta = getattr(prepared_model, "metadata", None)
+    cash_idx = meta.get("cash_index") if isinstance(meta, dict) else getattr(meta, "cash_index", None)
+    if cash_idx is not None and cash_idx in active_indices and np.allclose(cov_mo[cash_idx, active_indices], 0.0, atol=1e-12):
+        mu_min = float(mu_mo[cash_idx])
     else:
-        mu_min = float(np.min(mu_mo[active_indices]))
+        w_gmv, _ = _solve_continuous_qp(
+            mu_sub=mu_mo[active_indices],
+            cov_sub=cov_mo[np.ix_(active_indices, active_indices)],
+            target_ret=float(np.min(mu_mo[active_indices])),
+            min_weight=0.0,
+            max_weight=1.0,
+        )
+        if w_gmv is not None:
+            w_clean = np.where(w_gmv < 1e-5, 0.0, w_gmv)
+            if np.sum(w_clean) > 0:
+                w_clean /= np.sum(w_clean)
+                mu_min = float(w_clean @ mu_mo[active_indices])
+            else:
+                mu_min = float(w_gmv @ mu_mo[active_indices])
+        else:
+            mu_min = float(np.min(mu_mo[active_indices]))
 
     mu_min = min(mu_min, mu_max)
 
