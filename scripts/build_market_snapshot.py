@@ -1,4 +1,4 @@
-"""Serialize a complete, source-backed V8 calibration into a MarketSnapshot.
+"""Serialize a complete, provenance-bearing V8 calibration into a MarketSnapshot.
 
 Run .venv/Scripts/python.exe scripts/build_market_snapshot.py from the repo.
 Default input: data/release_inputs/market_calibration.json. Exit 2 means blocked.
@@ -13,7 +13,8 @@ only annualizes monthly arithmetic moments by 12 and derives log drift.
 
 Universe identities and product assumptions cannot supply missing covariances,
 equity premia or parameter uncertainty. No synthetic defaults are supplied.
-The snapshot records its calibration route; it does not calibrate a second route.
+The snapshot records its calibration route and assumption status; it does not
+calibrate a second route or certify the quality of upstream market estimates.
 """
 from __future__ import annotations
 
@@ -80,6 +81,8 @@ def build_snapshot(fixtures: Path, calibration: Path) -> MarketSnapshot:
                            np.asarray(data["U_mat"], dtype=np.float64)),
         sleeve_masks=masks,
         metadata={"calibration_method": data["method"], "source": data["source"],
+                  "calibration_status": data.get("calibration_status", "unspecified"),
+                  "calibration_details": data.get("calibration_details", {}),
                   "source_as_of": data["source_as_of"], "calibration_sha256": sha256(raw).hexdigest(),
                   "fixture_sha256": {
                       name: sha256((Path(fixtures) / name).read_bytes()).hexdigest()

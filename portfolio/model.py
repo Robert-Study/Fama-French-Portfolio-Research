@@ -7,9 +7,12 @@ Provides immutable PreparedModel dataclass, ModelSpecificationError, and prepare
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from copy import deepcopy
 from typing import Any, Sequence
 import numpy as np
 import scipy.sparse as sp
+
+from portfolio.contracts import MarketSnapshot
 
 
 class ModelSpecificationError(ValueError):
@@ -362,7 +365,9 @@ def prepare_model(
 
 
 def _prepare_holdings_route(snapshot: Any, config: dict[str, Any] | None = None) -> PreparedModel:
-    """Route stub for Company-Characteristics bottom-up calibration."""
+    """Prepare supplied moments for the holdings consumer route."""
+    if isinstance(snapshot, MarketSnapshot):
+        return _prepare_market_snapshot(snapshot, "holdings", config)
     if isinstance(snapshot, PreparedModel):
         return snapshot
     if isinstance(snapshot, dict) and "asset_ids" in snapshot:
@@ -373,13 +378,47 @@ def _prepare_holdings_route(snapshot: Any, config: dict[str, Any] | None = None)
 
 
 def _prepare_etf_route(snapshot: Any, config: dict[str, Any] | None = None) -> PreparedModel:
-    """Route stub for ETF-Return top-down calibration."""
+    """Prepare supplied moments for the ETF consumer route."""
+    if isinstance(snapshot, MarketSnapshot):
+        return _prepare_market_snapshot(snapshot, "etf", config)
     if isinstance(snapshot, PreparedModel):
         return snapshot
     if isinstance(snapshot, dict) and "asset_ids" in snapshot:
         return PreparedModel(**snapshot)
     raise NotImplementedError(
         "ETF-Return Route (method='etf') is scheduled for implementation in portfolio.model"
+    )
+
+
+def _prepare_market_snapshot(
+    snapshot: MarketSnapshot, method: str, config: dict[str, Any] | None,
+) -> PreparedModel:
+    """Adapt calibrated moments without claiming a second independent fit.
+
+MarketSnapshot contains total-return moments but no payout yields or company
+holdings. Use reinvested total returns unless an explicit dist_policy is supplied.
+Keep calibration_method distinct from the requested consumer method.
+"""
+    # Revalidate deserialized snapshots without modifying the caller's instance.
+    from dataclasses import replace
+    snapshot = replace(snapshot)
+    config = {} if config is None else config
+    m = len(snapshot.tickers)
+    metadata = deepcopy(snapshot.metadata)
+    metadata.update(canonical_tickers=snapshot.tickers, method=method,
+                    cash_index=snapshot.cash_index, as_of_date=snapshot.as_of_date,
+                    preparation="supplied_snapshot_moments",
+                    distribution_basis="explicit_payout_policy" if "dist_policy" in config
+                    else "reinvested_total_returns")
+    return PreparedModel(
+        asset_ids=np.arange(m, dtype=np.uint16), quote_currency=["GBP"] * m,
+        mu_arith_ann=snapshot.mu_arith_ann, mu_log_ann=snapshot.mu_log_ann,
+        cov_ann=snapshot.cov_ann, cov_monthly=snapshot.cov_ann / 12.0,
+        param_uncertainty=snapshot.param_uncertainty,
+        dist_policy=config.get("dist_policy", (np.zeros(m, dtype=bool),
+                                                np.zeros(m, dtype=np.float64))),
+        sleeve_masks=snapshot.sleeve_masks, cash_idx=snapshot.cash_index,
+        metadata=metadata,
     )
 
 
