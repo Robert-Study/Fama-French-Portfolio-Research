@@ -18,6 +18,12 @@ from ui.v8_shared import (
     require_release_path,
 )
 import plotly.express as px
+from ui.components import (
+    render_kpi_strip,
+    create_frontier_figure,
+    create_wealth_cone_figure,
+    create_allocation_sunburst,
+)
 from portfolio.wealth import buy_and_hold_moments, wealth_quantiles
 
 SLEEVES = (
@@ -170,13 +176,9 @@ def render(context: dict) -> None:
 
     diag = diagnostics(model, curr_q, leverage)
 
-    m1, m2, m3, m4 = st.columns(4)
-    m1.metric(copy("dashboard.metric.expected_return"), f"{diag['mu']:.2%}", help=copy("dashboard.metric.expected_return_help"))
-    m2.metric(copy("dashboard.metric.volatility"), f"{diag['sigma']:.2%}", help=copy("dashboard.metric.volatility_help"))
     cash_rate = 0.038  # 3.80% AER cash anchor
     sharpe = (diag["mu"] - cash_rate) / diag["sigma"] if diag["sigma"] > 1e-6 else 0.0
-    m3.metric("Net Sharpe Ratio", f"{sharpe:.2f}", help="Excess return over 3.80% cash divided by annual volatility.")
-    m4.metric(copy("dashboard.metric.gross_exposure"), f"{diag['gross']:.2f}×", help=copy("dashboard.metric.gross_exposure_help"))
+    render_kpi_strip(mu=diag["mu"], sigma=diag["sigma"], sharpe=sharpe, gross=diag["gross"])
 
     st.divider()
 
@@ -201,13 +203,13 @@ def render(context: dict) -> None:
                 "Expected Return": f_mu,
             }).sort_values("Annual Volatility")
 
-            fig = px.line(
+            fig = create_frontier_figure(
                 chart_df,
-                x="Annual Volatility",
-                y="Expected Return",
-                title=f"MIQP Efficient Frontier ({len(f_q):,} Certified Points)",
+                active_vol=diag["sigma"],
+                active_return=diag["mu"],
+                cash_rate=cash_rate,
+                title=f"MIQP Efficient Frontier & CAL ({len(f_q):,} Certified Points)",
             )
-            fig.update_layout(xaxis_tickformat=".1%", yaxis_tickformat=".1%", margin=dict(t=30, b=10))
             st.plotly_chart(fig, use_container_width=True)
 
             point_idx = st.slider(
@@ -297,20 +299,14 @@ def render(context: dict) -> None:
         else:
             cone_df = _compute_wealth_cone(model, curr_q, max_years=horizon_years)
 
-        scaled_cone = cone_df.copy()
-        scaled_cone["P20 (£)"] = scaled_cone["P20 (Downside)"] * 10000.0
-        scaled_cone["P50 (£)"] = scaled_cone["P50 (Median)"] * 10000.0
-        scaled_cone["P84 (£)"] = scaled_cone["P84 (Upside)"] * 10000.0
-
-        fig_cone = px.line(
-            scaled_cone,
-            x="Year",
-            y=["P20 (£)", "P50 (£)", "P84 (£)"],
-            labels={"value": "Projected Wealth (£)", "variable": "Quantile"},
-            title=f"Cumulative Wealth Projection Cone (1..{horizon_years} Years, Initial £10,000)",
-        )
-        fig_cone.update_layout(yaxis_tickformat="£,.0f", margin=dict(t=30, b=10))
+        fig_cone = create_wealth_cone_figure(cone_df, horizon_years, initial_wealth=10000.0)
         st.plotly_chart(fig_cone, use_container_width=True)
+
+        scaled_cone = cone_df.copy()
+        if scaled_cone["P50 (Median)"].max() < 100.0:
+            scaled_cone["P20 (£)"] = scaled_cone["P20 (Downside)"] * 10000.0
+            scaled_cone["P50 (£)"] = scaled_cone["P50 (Median)"] * 10000.0
+            scaled_cone["P84 (£)"] = scaled_cone["P84 (Upside)"] * 10000.0
 
         st.dataframe(
             scaled_cone.style.format({
@@ -326,6 +322,10 @@ def render(context: dict) -> None:
         )
 
     with tab_alloc:
+        st.markdown("#### Dynamic Sleeve & Asset Allocation Sunburst")
+        fig_sunburst = create_allocation_sunburst(tickers, curr_q)
+        st.plotly_chart(fig_sunburst, use_container_width=True)
+
         st.markdown("#### Portfolio Position Ledger (Integer Basis Points)")
         rows = []
         for i, t in enumerate(tickers):

@@ -16,6 +16,8 @@ from ui import dashboard, holdings, analysis, methods
 
 st.set_page_config(page_title="Portfolio Construction Lab", page_icon="📈",
                    layout="wide", initial_sidebar_state="collapsed")
+from ui.theme import inject_custom_css
+inject_custom_css()
 PAGES = ("dashboard", "underlying", "analysis", "methods")
 READABLE_PARQUETS = frozenset({"fund_catalogue.parquet", "company_holdings.parquet",
     "benchmark_vall.parquet", "fund_links.parquet", "stress_vectors.parquet",
