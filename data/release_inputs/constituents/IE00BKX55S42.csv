@@ -1,0 +1,31 @@
+security_id,company_id,company,ticker,country,sector,cap_bucket,weight
+DK0062498333,DK0062498333,Novo Nordisk A/S,NOVO.B,DNK,Health Care,Mega,0.048
+NL0010273215,NL0010273215,ASML Holding N.V.,ASML,NLD,Information Technology,Mega,0.042
+CH0038863350,CH0038863350,Nestlé S.A.,NESN,CHE,Consumer Staples,Large,0.038
+FR0000121014,FR0000121014,LVMH Moet Hennessy Louis Vuitton SE,MC,FRA,Consumer Discretionary,Large,0.032
+DE0007164600,DE0007164600,SAP SE,SAP,DEU,Information Technology,Large,0.03
+CH0012032048,CH0012032048,Roche Holding AG,ROG,CHE,Health Care,Large,0.028
+CH0012005267,CH0012005267,Novartis AG,NOVN,CHE,Health Care,Large,0.028
+FR0000120271,FR0000120271,TotalEnergies SE,TTE,FRA,Energy,Large,0.024
+FR0000120578,FR0000120578,Sanofi SA,SAN,FRA,Health Care,Large,0.022
+DE0007236101,DE0007236101,Siemens Aktiengesellschaft,SIE,DEU,Industrials,Large,0.022
+FR0000121972,FR0000121972,Schneider Electric SE,SU,FRA,Industrials,Large,0.02
+FR0000120073,FR0000120073,L'Air Liquide SA,AI,FRA,Materials,Large,0.018
+FR0000120321,FR0000120321,L'Oreal SA,OR,FRA,Consumer Staples,Large,0.018
+FR0000131104,FR0000131104,BNP Paribas SA,BNP,FRA,Financials,Large,0.016
+NL0000235190,NL0000235190,Airbus SE,AIR,FRA,Industrials,Large,0.016
+FR0000073272,FR0000073272,Safran SA,SAF,FRA,Industrials,Large,0.015
+FR0000120628,FR0000120628,AXA SA,CS,FRA,Financials,Large,0.014
+FR0000121667,FR0000121667,EssilorLuxottica SA,EL,FRA,Health Care,Large,0.014
+FR0000125486,FR0000125486,Vinci SA,DG,FRA,Industrials,Large,0.013
+FR0000120644,FR0000120644,Danone SA,BN,FRA,Consumer Staples,Large,0.012
+FR0000125007,FR0000125007,Compagnie de Saint-Gobain SA,SGO,FRA,Industrials,Large,0.012
+NL00150001Q9,NL00150001Q9,Stellantis N.V.,STLAM,NLD,Consumer Discretionary,Large,0.011
+DE000ENER6Y0,DE000ENER6Y0,Siemens Energy AG,ENR,DEU,Industrials,Large,0.01
+DE0005557508,DE0005557508,Deutsche Telekom AG,DTE,DEU,Communication Services,Large,0.01
+DE0008430026,DE0008430026,Muenchener Rueckversicherungs-Gesellschaft AG,MUV2,DEU,Financials,Large,0.01
+DE0008404005,DE0008404005,Allianz SE,ALV,DEU,Financials,Large,0.01
+DE0007100000,DE0007100000,Mercedes-Benz Group AG,MBG,DEU,Consumer Discretionary,Large,0.01
+DE000BASF111,DE000BASF111,BASF SE,BAS,DEU,Materials,Large,0.01
+DE0005190003,DE0005190003,Bayerische Motoren Werke AG,BMW,DEU,Consumer Discretionary,Large,0.009
+DE0006231004,DE0006231004,Infineon Technologies AG,IFX,DEU,Information Technology,Large,0.009

@@ -1,0 +1,16 @@
+security_id,company_id,company,ticker,country,sector,cap_bucket,weight
+GB0004220025,GB0004220025,Polar Capital Technology Trust plc,PCT,GBR,Information Technology,Mid,0.025
+GB00B8SC6K54,GB00B8SC6K54,Greencoat UK Wind plc,UKW,GBR,Utilities,Mid,0.022
+GB00B12FGH02,GB00B12FGH02,Alliance Trust PLC,ATST,GBR,Financials,Mid,0.02
+JE00BF5F9N27,JE00BF5F9N27,3i Infrastructure plc,3IN,GBR,Financials,Mid,0.019
+GB00BJLP1Y05,GB00BJLP1Y05,HICL Infrastructure PLC,HICL,GBR,Financials,Mid,0.018
+GB0003718474,GB0003718474,Games Workshop Group PLC,GAW,GBR,Consumer Discretionary,Mid,0.017
+GB0002700930,GB0002700930,Diploma PLC,DPLM,GBR,Industrials,Mid,0.016
+GB00BYT1DJ53,GB00BYT1DJ53,Intermediate Capital Group plc,ICG,GBR,Financials,Mid,0.015
+GB0000904982,GB0000904982,Bellway p.l.c.,BWY,GBR,Consumer Discretionary,Mid,0.014
+GB0008754144,GB0008754144,Tate & Lyle PLC,TATE,GBR,Consumer Staples,Mid,0.013
+GB0001859296,GB0001859296,Vistry Group PLC,VTY,GBR,Consumer Discretionary,Mid,0.013
+GB00BVFD6Q58,GB00BVFD6Q58,Rotork plc,ROR,GBR,Industrials,Mid,0.012
+GB0003308607,GB0003308607,Spectris plc,SXS,GBR,Industrials,Mid,0.012
+GB00B0WMWD03,GB00B0WMWD03,QinetiQ Group plc,QQ.,GBR,Industrials,Mid,0.011
+GB00BG13J936,GB00BG13J936,Redrow plc,RDW,GBR,Consumer Discretionary,Mid,0.011

@@ -1,0 +1,14 @@
+{
+  "benchmark": {
+    "source": "FTSE Russell FTSE Global All Cap Index Official Factsheet (30 September 2026) & Vanguard Fund Holdings",
+    "benchmark": "FTSE Global All Cap",
+    "weight_basis": "company_cap_weight",
+    "as_of": "2026-10-18"
+  },
+  "history": {
+    "source": "Verified Historical Net Investor-Wealth Return Series (152 Months, Feb 2014 - Sep 2026)",
+    "currency": "GBP",
+    "return_basis": "net_investor_wealth",
+    "accounting": "fixed_units_with_distribution_cash"
+  }
+}

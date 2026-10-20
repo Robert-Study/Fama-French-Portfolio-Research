@@ -1,0 +1,16 @@
+security_id,company_id,company,ticker,country,sector,cap_bucket,weight
+US5950171042,US5950171042,Microchip Technology Incorporated,MCHP,USA,Information Technology,Mid,0.06333333
+US6098391054,US6098391054,Monolithic Power Systems Inc.,MPWR,USA,Information Technology,Mid,0.06333333
+US83088M1027,US83088M1027,Skyworks Solutions Inc.,SWKS,USA,Information Technology,Mid,0.06333333
+US8807701029,US8807701029,Teradyne Inc.,TER,USA,Information Technology,Mid,0.06333333
+US74736K1016,US74736K1016,Qorvo Inc.,QRVO,USA,Information Technology,Mid,0.06333333
+US29362U1043,US29362U1043,Entegris Inc.,ENTG,USA,Information Technology,Mid,0.06333333
+US69370C1009,US69370C1009,PTC Inc.,PTC,USA,Information Technology,Mid,0.06333333
+US9892071054,US9892071054,Zebra Technologies Corporation,ZBRA,USA,Information Technology,Mid,0.06333333
+US8962391004,US8962391004,Trimble Inc.,TRMB,USA,Information Technology,Mid,0.06333333
+US9022521022,US9022521022,Tyler Technologies Inc.,TYL,USA,Information Technology,Mid,0.06333333
+US00971T1016,US00971T1016,Akamai Technologies Inc.,AKAM,USA,Information Technology,Mid,0.06333333
+US3156161024,US3156161024,F5 Inc.,FFIV,USA,Information Technology,Mid,0.06333333
+IL0010824113,IL0010824113,Check Point Software Technologies Ltd.,CHKP,USA,Information Technology,Mid,0.06333333
+NL0000334118,NL0000334118,ASM International N.V.,ASM,NLD,Information Technology,Mid,0.06333333
+US1924221039,US1924221039,Cognex Corporation,CGNX,USA,Information Technology,Mid,0.06333333

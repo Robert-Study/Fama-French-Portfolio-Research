@@ -1,0 +1,120 @@
+schema_version: "V8.0.0"
+as_of_date: "2026-10-18"
+reporting_currency: "GBP"
+short_rates_and_financing:
+  benchmarks:
+    USD_SOFR_OVERNIGHT:
+      rate_pct: 4.82
+      day_count: "ACT/360"
+      source: "Federal Reserve Bank of New York SOFR"
+      source_as_of: "2026-10-16"
+      sensitivity_deltas_pct: [-2.00, -1.00, 0.00, 1.00, 2.00]
+    USD_FED_FUNDS_EFFECTIVE:
+      rate_pct: 4.83
+      day_count: "ACT/360"
+      source: "Federal Reserve H.15 Effective Federal Funds Rate"
+      source_as_of: "2026-10-16"
+      sensitivity_deltas_pct: [-2.00, -1.00, 0.00, 1.00, 2.00]
+    EUR_ESTR_OVERNIGHT:
+      rate_pct: 3.16
+      day_count: "ACT/360"
+      source: "European Central Bank Euro Short-Term Rate (€STR)"
+      source_as_of: "2026-10-16"
+      sensitivity_deltas_pct: [-2.00, -1.00, 0.00, 1.00, 2.00]
+    GBP_SONIA_OVERNIGHT:
+      rate_pct: 4.70
+      day_count: "ACT/365"
+      source: "Bank of England SONIA"
+      source_as_of: "2026-10-16"
+      sensitivity_deltas_pct: [-2.00, -1.00, 0.00, 1.00, 2.00]
+  # Pass B audit anchors are annual simple decimal rates, not rate_pct.
+  foreign_rate_anchors_decimal:
+    EUR_ESTR: "0.0315"
+    JPY_TONA: "0.0025"
+    USD_UST_4W_DISCOUNT: "0.0462"
+    USD_UST_13W_HIGH: "0.0467"
+  unverified_financing_spread_fallback:
+    default_pct_on_borrowed_notional: 2.00
+    sensitivity_grid_pct: [1.00, 2.00, 3.00]
+    applies_when: "Contractual swap or margin spread is not explicitly published by issuer"
+  verified_issuer_spreads:
+    IE00B7Y34M31_3LUS:
+      spread_pct: 1.0020
+      effective_date: "2026-10-01"
+      source: "WisdomTree Notice 30 September 2026"
+    XS2472197065_3QQQ:
+      spread_pct: 2.0000
+      benchmark: "USD_FED_FUNDS_EFFECTIVE"
+      source: "Leverage Shares 3x Long Nasdaq 100 ETP Factsheet October 2026"
+cash_and_savings:
+  canonical_id: "cash:T212_GBP_CASH"
+  display_ticker: "N/A"
+  planning_reference_scenario_aer_pct: 4.25
+  observed_t212_gbp_cash_aer_pct: 3.80
+  default_active_rate_aer_pct: 4.25
+  sensitivity_deltas_pct: [-2.00, -1.00, 0.00, 1.00, 2.00]
+  volatility_pct: 0.00
+  diversification_score_convention: 100.0
+inflation_assumptions:
+  developed_market_long_run_inflation:
+    default_pct: 2.00
+    sensitivity_grid_pct: [1.00, 2.00, 3.00, 4.00]
+    applies_to: ["IE00B1FZSD53", "IE00BDZVH859", "IE00B4ND3602", "IE00B4NCWG09"]
+bond_credit_and_hedging_priors:
+  expected_annual_credit_loss_pct:
+    SOVEREIGN_DM:
+      default_pct: 0.00
+      sensitivity_multipliers: [0.5, 1.0, 2.0]
+    GLOBAL_AGG_IG:
+      default_pct: 0.05
+      sensitivity_multipliers: [0.5, 1.0, 2.0]
+      sensitivity_grid_pct: [0.025, 0.05, 0.10]
+    IG_CORP:
+      default_pct: 0.20
+      sensitivity_multipliers: [0.5, 1.0, 2.0]
+      sensitivity_grid_pct: [0.10, 0.20, 0.40]
+    EM_SOVEREIGN:
+      default_pct: 0.75
+      sensitivity_multipliers: [0.5, 1.0, 2.0]
+      sensitivity_grid_pct: [0.375, 0.75, 1.50]
+    HY_CORP:
+      default_pct: 2.00
+      sensitivity_multipliers: [0.5, 1.0, 2.0]
+      sensitivity_grid_pct: [1.00, 2.00, 4.00]
+  currency_hedge_implementation_spread:
+    default_pct: 0.10
+    sensitivity_grid_pct: [0.00, 0.10, 0.20, 0.30]
+commodity_priors:
+  physical_precious_metals:
+    expected_real_return_pct: 0.00
+    silver_expected_real_return_pct: 0.25
+    collateral_yield_earned: false
+    nominal_growth_sensitivity_grid_pct: [-3.00, 0.00, 2.00, 7.00]
+  collateralised_futures:
+    expected_futures_excess_return_pct: 0.00
+    collateral_yield_earned: true
+    allow_spot_price_substitution: false
+equity_characteristic_and_coverage_rules:
+  cross_sectional_clipping_percentiles: [1.0, 99.0]
+  minimum_peer_group_companies: 30
+  missing_data_hierarchy:
+    - "verified_company_characteristic"
+    - "same_region_sector_size_peer_group_min_30"
+    - "broad_regional_market_prior"
+  shipping_coverage_gates:
+    min_mapped_equity_exposure_pct: 95.0
+    min_direct_characteristic_coverage_unqualified_pct: 80.0
+  sleeve_construction_tolerances:
+    value_target_z_score_above_baseline: 0.50
+    style_z_score_tolerance: 0.10
+    region_cap_weight_tolerance_pct: 2.00
+    max_relaxed_region_cap_weight_tolerance_pct: 5.00
+optimisation_and_precision_gates:
+  weight_basis_points_total: 10000
+  min_nonzero_position_bps: 10
+  frontier_target_points: 1001
+  max_certified_annual_volatility_gap: 0.0001
+  mixed_precision_error_budgets_vs_float64:
+    aggregate_exposure_abs_max: 1.0e-7
+    annual_return_volatility_abs_max: 1.0e-5
+    long_horizon_wealth_quantile_rel_max: 1.0e-4

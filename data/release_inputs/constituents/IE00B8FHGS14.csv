@@ -1,0 +1,11 @@
+security_id,company_id,company,ticker,country,sector,cap_bucket,weight
+US4781601046,US4781601046,Johnson & Johnson,JNJ,USA,Health Care,Mega,0.045
+US7427181091,US7427181091,The Procter & Gamble Company,PG,USA,Consumer Staples,Large,0.042
+US58933Y1055,US58933Y1055,Merck & Co. Inc.,MRK,USA,Health Care,Large,0.04
+US1912161007,US1912161007,The Coca-Cola Company,KO,USA,Consumer Staples,Large,0.038
+US7181721090,US7181721090,Philip Morris International Inc.,PM,USA,Consumer Staples,Large,0.035
+US94106L1098,US94106L1098,Waste Management Inc.,WM,USA,Industrials,Large,0.03
+US7607591002,US7607591002,Republic Services Inc.,RSG,USA,Industrials,Large,0.028
+CH0012032048,CH0012032048,Roche Holding AG,ROG,CHE,Health Care,Large,0.025
+CH0012005267,CH0012005267,Novartis AG,NOVN,CHE,Health Care,Large,0.025
+CH0038863350,CH0038863350,Nestlé S.A.,NESN,CHE,Consumer Staples,Large,0.025

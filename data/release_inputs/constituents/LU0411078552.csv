@@ -1,0 +1,69 @@
+security_id,company_id,company,ticker,country,sector,cap_bucket,weight
+US67066G1040,US67066G1040,NVIDIA Corporation,NVDA,USA,Information Technology,Mega,0.11304413
+US0378331005,US0378331005,Apple Inc.,AAPL,USA,Information Technology,Mega,0.10218399
+US02079K3059,US02079K3059,Alphabet Inc.,GOOGL,USA,Communication Services,Mega,0.08416604
+US5949181045,US5949181045,Microsoft Corporation,MSFT,USA,Information Technology,Mega,0.08095737
+US0231351067,US0231351067,Amazon.com Inc.,AMZN,USA,Consumer Discretionary,Mega,0.05454749
+US11135F1012,US11135F1012,Broadcom Inc.,AVGO,USA,Information Technology,Mega,0.04344054
+US30303M1027,US30303M1027,Meta Platforms Inc.,META,USA,Communication Services,Mega,0.02912491
+US88160R1014,US88160R1014,Tesla Inc.,TSLA,USA,Consumer Discretionary,Mega,0.02591623
+US5324571083,US5324571083,Eli Lilly and Company,LLY,USA,Health Care,Mega,0.02344802
+US5951121038,US5951121038,Micron Technology Inc.,MU,USA,Information Technology,Mega,0.02246073
+US0079031078,US0079031078,Advanced Micro Devices Inc.,AMD,USA,Information Technology,Mega,0.01999252
+US0846707026,US0846707026,Berkshire Hathaway Inc.,BRK.B,USA,Financials,Mega,0.01727749
+US46625H1005,US46625H1005,JPMorgan Chase & Co.,JPM,USA,Financials,Mega,0.01703067
+US4581401001,US4581401001,Intel Corporation,INTC,USA,Information Technology,Mega,0.0128347
+US4781601046,US4781601046,Johnson & Johnson,JNJ,USA,Health Care,Mega,0.0128347
+US0382221051,US0382221051,Applied Materials Inc.,AMAT,USA,Information Technology,Large,0.01209424
+US30231G1022,US30231G1022,Exxon Mobil Corporation,XOM,USA,Energy,Large,0.01209424
+US92826C8394,US92826C8394,Visa Inc.,V,USA,Financials,Large,0.01184742
+US5128073062,US5128073062,Lam Research Corporation,LRCX,USA,Information Technology,Large,0.01135378
+US9311421039,US9311421039,Walmart Inc.,WMT,USA,Consumer Staples,Large,0.01036649
+US1491231015,US1491231015,Caterpillar Inc.,CAT,USA,Industrials,Large,0.01011967
+US17275R1023,US17275R1023,Cisco Systems Inc.,CSCO,USA,Information Technology,Large,0.00987285
+US00287Y1091,US00287Y1091,AbbVie Inc.,ABBV,USA,Health Care,Large,0.00937921
+US22160K1051,US22160K1051,Costco Wholesale Corporation,COST,USA,Consumer Staples,Large,0.00863874
+US57636Q1040,US57636Q1040,Mastercard Incorporated,MA,USA,Financials,Large,0.00863874
+US4824801009,US4824801009,KLA Corporation,KLAC,USA,Information Technology,Large,0.00839192
+US3696043013,US3696043013,GE Aerospace,GE,USA,Industrials,Large,0.0081451
+US91324P1021,US91324P1021,UnitedHealth Group Incorporated,UNH,USA,Health Care,Large,0.00789828
+US0605051046,US0605051046,Bank of America Corporation,BAC,USA,Financials,Large,0.00789828
+US4370761029,US4370761029,The Home Depot Inc.,HD,USA,Consumer Discretionary,Large,0.00740464
+US7427181091,US7427181091,The Procter & Gamble Company,PG,USA,Consumer Staples,Large,0.00715782
+US80004C2008,US80004C2008,Sandisk Corporation,SNDK,USA,Information Technology,Large,0.00691099
+US58933Y1055,US58933Y1055,Merck & Co. Inc.,MRK,USA,Health Care,Large,0.00666417
+US36828A1016,US36828A1016,GE Vernova Inc.,GEV,USA,Industrials,Large,0.00666417
+US1912161007,US1912161007,The Coca-Cola Company,KO,USA,Consumer Staples,Large,0.00666417
+US1667641005,US1667641005,Chevron Corporation,CVX,USA,Energy,Large,0.00641735
+US64110L1061,US64110L1061,Netflix Inc.,NFLX,USA,Communication Services,Large,0.00641735
+US7181721090,US7181721090,Philip Morris International Inc.,PM,USA,Consumer Staples,Large,0.00592371
+US38141G1040,US38141G1040,The Goldman Sachs Group Inc.,GS,USA,Financials,Large,0.00592371
+US6974351057,US6974351057,Palo Alto Networks Inc.,PANW,USA,Information Technology,Large,0.00567689
+US8825081040,US8825081040,Texas Instruments Incorporated,TXN,USA,Information Technology,Large,0.00567689
+US4592001014,US4592001014,International Business Machines Corporation,IBM,USA,Information Technology,Large,0.00567689
+US5738741041,US5738741041,Marvell Technology Inc.,MRVL,USA,Information Technology,Large,0.00543007
+US69608A1088,US69608A1088,Palantir Technologies Inc.,PLTR,USA,Information Technology,Large,0.00543007
+US75513E1010,US75513E1010,RTX Corporation,RTX,USA,Industrials,Large,0.00543007
+US9497461015,US9497461015,Wells Fargo & Company,WFC,USA,Financials,Large,0.00543007
+US68389X1054,US68389X1054,Oracle Corporation,ORCL,USA,Information Technology,Large,0.00518325
+US6174464486,US6174464486,Morgan Stanley,MS,USA,Financials,Large,0.00493642
+US1729674242,US1729674242,Citigroup Inc.,C,USA,Financials,Large,0.00493642
+US9581021055,US9581021055,Western Digital Corporation,WDC,USA,Information Technology,Large,0.00444278
+US0320951017,US0320951017,Amphenol Corporation,APH,USA,Information Technology,Large,0.00444278
+US2193501051,US2193501051,Corning Incorporated,GLW,USA,Information Technology,Large,0.00419596
+US7475251036,US7475251036,QUALCOMM Incorporated,QCOM,USA,Information Technology,Large,0.00419596
+US0311621009,US0311621009,Amgen Inc.,AMGN,USA,Health Care,Large,0.00419596
+US0326541051,US0326541051,Analog Devices Inc.,ADI,USA,Information Technology,Large,0.00419596
+US5801351017,US5801351017,McDonald's Corporation,MCD,USA,Consumer Discretionary,Large,0.00394914
+US22788C1053,US22788C1053,CrowdStrike Holdings Inc.,CRWD,USA,Information Technology,Large,0.00394914
+US8835561023,US8835561023,Thermo Fisher Scientific Inc.,TMO,USA,Health Care,Large,0.00394914
+US7134481081,US7134481081,PepsiCo Inc.,PEP,USA,Consumer Staples,Large,0.00394914
+US65339F1012,US65339F1012,NextEra Energy Inc.,NEE,USA,Utilities,Large,0.00394914
+US0258161092,US0258161092,American Express Company,AXP,USA,Financials,Large,0.00370232
+US92343V1044,US92343V1044,Verizon Communications Inc.,VZ,USA,Communication Services,Large,0.00370232
+US0404132054,US0404132054,Arista Networks Inc.,ANET,USA,Information Technology,Large,0.00370232
+US2546871060,US2546871060,The Walt Disney Company,DIS,USA,Communication Services,Large,0.00370232
+US8725401090,US8725401090,The TJX Companies Inc.,TJX,USA,Consumer Discretionary,Large,0.0034555
+US0970231058,US0970231058,The Boeing Company,BA,USA,Industrials,Large,0.0034555
+US9078181081,US9078181081,Union Pacific Corporation,UNP,USA,Industrials,Large,0.0034555
+US95040Q1040,US95040Q1040,Welltower Inc.,WELL,USA,Real Estate,Large,0.0034555

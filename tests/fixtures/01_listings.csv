@@ -1,0 +1,85 @@
+canonical_id,isin,exchange,ticker,trading_currency,quote_unit,preferred_display,source_id,listing_status,notes
+IE000VAHT5T0,IE000VAHT5T0,London Stock Exchange,VALL,GBP,GBP,true,S001,verified_listing,
+IE000VAHT5T0,IE000VAHT5T0,London Stock Exchange,VALU,USD,USD,false,S001,verified_listing,
+IE00B9F5YL18,IE00B9F5YL18,London Stock Exchange,VAPX,GBP,GBP,true,S003,verified_listing,
+IE00B9F5YL18,IE00B9F5YL18,London Stock Exchange,VDPX,USD,USD,false,S003,verified_listing,
+IE00BK5BQZ41,IE00BK5BQZ41,London Stock Exchange,VDPG,GBP,GBP,true,S004,verified_listing,
+IE00BK5BQZ41,IE00BK5BQZ41,London Stock Exchange,VAPU,USD,USD,false,S004,verified_listing,
+IE00BK5BQT80,IE00BK5BQT80,London Stock Exchange,VWRP,GBP,GBP,true,S005,verified_listing,
+IE00BK5BQT80,IE00BK5BQT80,London Stock Exchange,VWRA,USD,USD,false,S005,verified_listing,
+IE00BK5BQV03,IE00BK5BQV03,London Stock Exchange,VHVG,GBP,GBP,true,S006,verified_listing,
+IE00BK5BQV03,IE00BK5BQV03,London Stock Exchange,VHVE,USD,USD,false,S006,verified_listing,
+IE00B810Q511,IE00B810Q511,London Stock Exchange,VUKE,GBP,GBP,true,S007,verified_listing,
+IE00BKX55S42,IE00BKX55S42,London Stock Exchange,VERX,GBP,GBP,true,S008,verified_listing,
+IE00BP3QZB59,IE00BP3QZB59,London Stock Exchange,IWFV,GBP,GBx,true,S009,verified_listing,
+IE00BP3QZB59,IE00BP3QZB59,London Stock Exchange,IWVL,USD,USD,false,S009,verified_listing,
+IE00BP3QZD73,IE00BP3QZD73,London Stock Exchange,IWSZ,USD,USD,true,S013,verified_listing,
+IE00BZ0PKT83,IE00BZ0PKT83,London Stock Exchange,IFSW,USD,USD,false,S012,verified_listing,
+IE00BZ0PKT83,IE00BZ0PKT83,London Stock Exchange,FSWD,GBP,GBx,true,S012,verified_listing,
+IE00BZ56SW52,IE00BZ56SW52,London Stock Exchange,GGRG,GBP,GBx,true,S017,verified_listing,
+IE00BZ56SW52,IE00BZ56SW52,London Stock Exchange,GGRA,USD,USD,false,S017,verified_listing,
+IE00BD6FTQ80,IE00BD6FTQ80,London Stock Exchange,CMOP,GBP,GBx,true,S024,verified_listing,
+IE00B7Y34M31,IE00B7Y34M31,London Stock Exchange,3LUS,GBP,GBx,true,S021,verified_listing,
+IE00B7Y34M31,IE00B7Y34M31,London Stock Exchange,3USL,USD,USD,false,S021,verified_listing,
+XS2472197065,XS2472197065,London Stock Exchange,3QQQ,GBP,GBx,true,S022,verified_listing,
+XS2472197065,XS2472197065,London Stock Exchange,QQL3,USD,USD,false,S022,verified_listing,
+IE0003R87OG3,IE0003R87OG3,London Stock Exchange,AVSG,GBP,GBP,true,S028,verified_listing,
+IE0003R87OG3,IE0003R87OG3,London Stock Exchange,AVGS,USD,USD,false,S028,verified_listing,
+IE000K975W13,IE000K975W13,London Stock Exchange,AVEG,GBP,GBP,true,S029,verified_listing,
+IE000K975W13,IE000K975W13,London Stock Exchange,AVEM,USD,USD,false,S029,verified_listing,
+LU0411078552,LU0411078552,London Stock Exchange,XS2D,USD,USD,true,S019,verified_listing,
+IE00BP3QZ825,IE00BP3QZ825,London Stock Exchange,IWMO,USD,USD,false,S011,verified_listing,
+IE00BP3QZ601,IE00BP3QZ601,London Stock Exchange,IWQU,USD,USD,false,S010,verified_listing,
+IE00B8FHGS14,IE00B8FHGS14,London Stock Exchange,MVOL,USD,USD,true,S014,verified_listing,
+IE00B8KQFS66,IE00B8KQFS66,London Stock Exchange,GHYS,GBP,GBP,true,S015,verified_listing,"TER 0.55%. Weighted Avg YTM 7.46% (native basket yield excluding FX forward carry), Eff Dur 3.12y as of 2026-10-15. Quoted in decimal GBP (SEDOL B8KQFS6)."
+IE00BSPLC413,IE00BSPLC413,London Stock Exchange,USSC,USD,USD,true,S016,verified_listing,
+IE00BSPLC413,IE00BSPLC413,Xetra,ZPRV,EUR,EUR,false,S016,issuer_confirmed_alias,Issuer product source uses ZPRV GY but venue currency needs explicit check
+FR0010342592,FR0010342592,Euronext Paris,LQQ,EUR,EUR,true,S020,stale_listing,Issuer old KIID only; exchange-status refresh required
+IE00BL25JM42,IE00BL25JM42,London Stock Exchange,XDEV,USD,USD,true,S018,issuer_confirmed_alias,XDEV LN reference; quote unit from underlying listing needs independent check
+IE00BKZGB098,IE00BKZGB098,London Stock Exchange,HWWA,GBP,GBx,true,S030,stale_listing,2022 issuer range; needs current trading line check
+IE00B4ND3602,IE00B4ND3602,London Stock Exchange,SGLN,GBP,GBx,true,STREAM_ABC_2026_10_18,verified_listing,TER 0.12%. Quoted in GBx (pence) on LSE; divide by 100.
+IE00B4NCWG09,IE00B4NCWG09,London Stock Exchange,SSLN,GBP,GBx,true,STREAM_ABC_2026_10_18,verified_listing,TER 0.20%. Quoted in GBx (pence) on LSE; divide by 100.
+GB00B15KXQ89,GB00B15KXQ89,London Stock Exchange,COPB,GBP,GBx,true,S025,verified_listing,MER 0.49% + 0.45% swap. COPB is GBP line in GBx; COPA is USD line.
+GB00B15KYH63,GB00B15KYH63,London Stock Exchange,AGAP,GBP,GBx,true,STREAM_ABC_2026_10_18,verified_listing,MER 0.49% + 0.45% swap. AGAP is GBP line in GBx; AIGA is USD line.
+GB00B15KXV33,GB00B15KXV33,London Stock Exchange,CRUP,GBP,GBx,true,STREAM_ABC_2026_10_18,verified_listing,MER 0.49% + 0.45% swap. CRUP is GBP line in GBx; CRUD is USD line.
+IE00B4WXJK79,IE00B4WXJK79,London Stock Exchange,IGLS,GBP,GBP,true,STREAM_ABC_2026_10_18,verified_listing,"TER 0.07%. YTM 4.62%, Eff Dur 2.14y as of 2026-10-15. Quoted in decimal GBP."
+IE00B1FZSB30,IE00B1FZSB30,London Stock Exchange,IGLT,GBP,GBP,true,STREAM_ABC_2026_10_18,verified_listing,"TER 0.07%. YTM 5.13%, Eff Dur 7.01y as of 2026-10-15. Quoted in decimal GBP."
+IE00B6YX5L24,IE00B6YX5L24,London Stock Exchange,GLTL,GBP,GBP,true,STREAM_ABC_2026_10_18,verified_listing,"TER 0.15%. YTM 5.77%, Eff Dur 15.01y as of 2026-10-15. Quoted in decimal GBP."
+IE00B1FZSD53,IE00B1FZSD53,London Stock Exchange,INXG,GBP,GBP,true,STREAM_ABC_2026_10_18,verified_listing,"TER 0.10%. Real Yield 1.87% (YTM 5.42%), Eff Dur 12.65y as of 2026-10-15. Quoted in decimal GBP."
+IE00B5L65R35,IE00B5L65R35,London Stock Exchange,IS15,GBP,GBP,true,STREAM_ABC_2026_10_18,verified_listing,"TER 0.20%. YTM 5.58%, Eff Dur 2.39y as of 2026-10-15. Quoted in decimal GBP."
+IE00B00FV011,IE00B00FV011,London Stock Exchange,SLXX,GBP,GBP,true,STREAM_ABC_2026_10_18,verified_listing,"TER 0.20%. YTM 6.11%, Eff Dur 5.42y as of 2026-10-15. Quoted in decimal GBP."
+IE00BG47K971,IE00BG47K971,London Stock Exchange,VAGS,GBP,GBP,true,STREAM_ABC_2026_10_18,verified_listing,"OCF 0.08%. YTW 4.83% (based on local currencies of underlying holdings excluding FX forward carry), Avg Dur 6.0y as of 2026-09-30. Quoted in decimal GBP (SEDOL BJLBN27)."
+IE00B14X4S71,IE00B14X4S71,London Stock Exchange,IBTS,GBP,GBP,true,STREAM_ABC_2026_10_18,verified_listing,"TER 0.07%. YTM 4.75%, Eff Dur 1.81y as of 2026-10-15. Quoted in decimal GBP."
+IE00B1FZS798,IE00B1FZS798,London Stock Exchange,IBTM,GBP,GBP,true,STREAM_ABC_2026_10_18,verified_listing,"TER 0.07%. YTM 5.07%, Eff Dur 6.85y as of 2026-10-15. Quoted in decimal GBP."
+IE00BSKRJZ44,IE00BSKRJZ44,London Stock Exchange,IBTL,GBP,GBx,true,STREAM_ABC_2026_10_18,verified_listing,"TER 0.07%. YTM 5.48%, Eff Dur 14.83y as of 2026-10-15. Quoted in GBx (pence) on LSE; divide by 100."
+IE00BDZVH859,IE00BDZVH859,London Stock Exchange,ITPG,GBP,GBP,true,STREAM_ABC_2026_10_18,verified_listing,"TER 0.12%. Real Yield 2.81% (YTM 4.97%), Eff Dur 6.40y as of 2026-10-15. Quoted in decimal GBP."
+IE00BZ163L38,IE00BZ163L38,London Stock Exchange,VEMT,GBP,GBP,true,STREAM_ABC_2026_10_18,verified_listing,"OCF 0.23%. YTM 6.8%, Avg Dur 5.9y as of 2026-09-30. Quoted in decimal GBP."
+IE00B4L5Y983,IE00B4L5Y983,London Stock Exchange,SWDA,GBP,GBx,true,STREAM_ABC_2026_10_18,verified_listing,OCF 0.20%. Quoted in GBx (pence) on LSE; divide by 100.
+IE00B3XXRP09,IE00B3XXRP09,London Stock Exchange,VUSA,GBP,GBP,true,STREAM_ABC_2026_10_18,verified_listing,OCF 0.07%. Quoted in decimal GBP.
+IE0032077012,IE0032077012,London Stock Exchange,EQQQ,GBP,GBx,true,STREAM_ABC_2026_10_18,verified_listing,OCF 0.30%. Quoted in GBx (pence) on LSE; divide by 100.
+IE00BKX55Q28,IE00BKX55Q28,London Stock Exchange,VMID,GBP,GBP,true,STREAM_ABC_2026_10_18,verified_listing,OCF 0.10%. Quoted in decimal GBP.
+IE00B95PGT31,IE00B95PGT31,London Stock Exchange,VJPN,GBP,GBP,true,STREAM_ABC_2026_10_18,verified_listing,OCF 0.10%. Quoted in decimal GBP.
+IE00BKM4GZ66,IE00BKM4GZ66,London Stock Exchange,EMIM,GBP,GBx,true,STREAM_ABC_2026_10_18,verified_listing,OCF 0.18%. Quoted in GBx (pence) on LSE; divide by 100.
+IE00BZCQB185,IE00BZCQB185,London Stock Exchange,IIND,GBP,GBP,true,STREAM_ABC_2026_10_18,verified_listing,OCF 0.65%. Quoted in decimal GBP.
+IE00BQT3WG13,IE00BQT3WG13,London Stock Exchange,IASH,GBP,GBx,true,STREAM_ABC_2026_10_18,verified_listing,OCF 0.40%. Quoted in GBx (pence) on LSE; divide by 100.
+IE00B1FZS350,IE00B1FZS350,London Stock Exchange,IWDP,GBP,GBx,true,STREAM_ABC_2026_10_18,verified_listing,"OCF 0.59%. Quoted in GBx (pence, ~1,809.8p vs $23.96 USD NAV) on LSE (SEDOL B1G5362); divide by 100. IDWP is LSE USD line (SEDOL B1S5CN0)."
+IE00BP3QZ825,IE00BP3QZ825,London Stock Exchange,IWFM,GBP,GBx,true,S011,verified_listing,TER 0.25% (reduced from 0.30%). Quoted in GBx (pence) on LSE; IWMO is USD alias.
+IE00BP3QZ601,IE00BP3QZ601,London Stock Exchange,IWFQ,GBP,GBx,true,S010,verified_listing,TER 0.25% (reduced from 0.30%). Quoted in GBx (pence) on LSE; IWQU is USD alias.
+IE00B8FHGS14,IE00B8FHGS14,London Stock Exchange,MINV,GBP,GBx,true,S014,verified_listing,TER 0.30%. LSE GBP line is MINV in GBx; MVOL is LSE USD line.
+IE00BP3QZD73,IE00BP3QZD73,London Stock Exchange,IWFS,GBP,GBx,true,S013,verified_listing,TER 0.30%. Renamed iShares MSCI World Mid-Cap Equal Weight UCITS ETF. LSE GBP line IWFS in GBx; IWSZ is USD line.
+IE00BF4RFH31,IE00BF4RFH31,London Stock Exchange,WLDS,GBP,GBP,true,STREAM_ABC_2026_10_18,verified_listing,TER 0.35%. Quoted in decimal GBP (£7.70).
+IE00BSPLC298,IE00BSPLC298,London Stock Exchange,EUSV,GBP,GBx,true,STREAM_ABC_2026_10_18,verified_listing,TER 0.30%. LSE GBP line EUSV in GBx; ZPRX is primary liquid Xetra EUR line.
+IE00BD1F4M44,IE00BD1F4M44,London Stock Exchange,IUVF,GBP,GBx,true,STREAM_ABC_2026_10_18,verified_listing,"TER 0.20%. Quoted in GBx (pence) on LSE (~1,440p); divide by 100."
+IE00BQN1K901,IE00BQN1K901,London Stock Exchange,IEFV,GBP,GBx,true,STREAM_ABC_2026_10_18,verified_listing,"TER 0.25%. Quoted in GBx (pence) on LSE (~1,142p); divide by 100."
+IE00BG0SKF03,IE00BG0SKF03,London Stock Exchange,EMVL,USD,USD,true,STREAM_ABC_2026_10_18,no_LSE_GBP_listing_confirmed,TER 0.40%. No active LSE GBP line; trades in USD as EMVL on LSE.
+IE00BJRCLL96,IE00BJRCLL96,London Stock Exchange,JPMG,GBP,GBx,true,STREAM_ABC_2026_10_18,verified_listing,"TER 0.19%. Transitioned to Region Aware Index in 2021. Quoted in GBx (pence) on LSE (~3,880p)."
+IE000RJECXS5,IE000RJECXS5,London Stock Exchange,AVCG,GBP,GBP,true,S026,verified_listing,TER 0.22%. Active systematic value/profitability tilt. Quoted in decimal GBP on LSE; AVGC is USD line.
+IE00B44Z5B48,IE00B44Z5B48,London Stock Exchange,ACWI,GBP,GBP,true,STREAM_ABC_2026_10_18,verified_listing,TER 0.12%. Quoted in decimal GBP.
+IE00BJ5JPG56,IE00BJ5JPG56,Euronext Amsterdam,ICHN,USD,USD,true,STREAM_ABC_2026_10_18,no_LSE_GBP_listing_confirmed,TER 0.28%. Amsterdam EUR/USD listing confirmed; no active LSE GBP line.
+IE00BG143G97,IE00BG143G97,London Stock Exchange,VGER,GBP,GBP,true,STREAM_ABC_2026_10_18,verified_listing,OCF 0.07%. Quoted in decimal GBP.
+IE00BHZRQZ17,IE00BHZRQZ17,London Stock Exchange,FRIN,GBP,GBP,true,STREAM_ABC_2026_10_18,verified_listing,TER 0.19%. Quoted in decimal GBP.
+IE00B27YCK28,IE00B27YCK28,London Stock Exchange,LTAM,GBP,GBx,true,STREAM_ABC_2026_10_18,verified_listing,TER 0.20%. Quoted in GBx (pence) on LSE; divide by 100.
+IE00BP3QZJ36,IE00BP3QZJ36,London Stock Exchange,ISFR,GBP,GBx,true,STREAM_ABC_2026_10_18,verified_listing,"TER 0.25%. iShares MSCI France UCITS ETF EUR (Acc). Quoted in GBx (pence, ~5,285p vs EUR 61.78 / GBP 52.59 NAV) on LSE; divide by 100. IFRE is LSE EUR line."
+IE00B46G8275,IE00B46G8275,London Stock Exchange,HIDR,GBP,GBx,true,STREAM_ABC_2026_10_18,verified_listing,"TER 0.50%. Quoted in GBx (pence) on LSE (~2,759p); divide by 100."
+IE0007P4PBU1,IE0007P4PBU1,London Stock Exchange,HCHS,GBP,GBP,true,STREAM_ABC_2026_10_18,verified_listing,TER 0.28%. Quoted in decimal GBP (£6.13) on LSE. HCHA is USD line.
+IE0007TPRF31,IE0007TPRF31,London Stock Exchange,VSML,GBP,GBP,true,S002,verified_listing,OCF 0.22%. Quoted in decimal GBP (£3.57) on LSE. Launched 18 Aug 2026.

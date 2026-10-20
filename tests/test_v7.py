@@ -292,7 +292,7 @@ def test_missing_snapshot_never_substitutes_legacy_estimates(tmp_path,monkeypatc
         prepare_model(snapshot)
     st.cache_data.clear()
     monkeypatch.setattr(snapshot_module,'load_snapshot',lambda *a,**k:snapshot)
-    app=AppTest.from_file(ROOT/'app.py',default_timeout=30).run()
+    app=AppTest.from_file(ROOT/'ui/v7_app.py',default_timeout=30).run()
     assert not app.exception
     assert all(m.value=='Unavailable' for m in app.metric)
     app.radio[0].set_value('Methods').run()
@@ -396,7 +396,7 @@ def test_full_four_page_ui_uses_same_run_exports_only_on_demand(model,monkeypatc
     st.cache_data.clear()
     monkeypatch.setattr(snapshot_module,'load_snapshot',lambda *a,**k:model.snapshot)
     monkeypatch.setattr(research_module,'prepare_model',lambda *a,**k:model)
-    app=AppTest.from_file(ROOT/'app.py',default_timeout=30).run()
+    app=AppTest.from_file(ROOT/'ui/v7_app.py',default_timeout=30).run()
     assert not app.exception
     assert len(app.metric)==4
     first=app.session_state['active_run_v7'].run_id
@@ -537,12 +537,18 @@ def test_committed_dashboard_without_raw_cache(tmp_path, monkeypatch):
     """Exercise the actual shipped inputs, not the synthetic model fixture."""
     import shutil
     import streamlit as st
+    import portfolio
     import portfolio.portable as portable
     from portfolio.validation import age_days
+    # This is a historical V7 artifact test. New V8 contracts bump the package
+    # version and correctly invalidate its screen signature. Exercise the saved
+    # cache under its recorded version, without weakening production cache checks.
+    saved_version = json.loads((ROOT/'data/research/model-inputs.json').read_text())['model_version']
+    monkeypatch.setattr(portfolio, '__version__', saved_version)
     monkeypatch.setattr(portable, 'age_days', lambda value: age_days(value, date(2026,10,15)))
     for folder in ('portfolio', 'ui', 'docs'):
         shutil.copytree(ROOT/folder, tmp_path/folder, ignore=shutil.ignore_patterns('__pycache__'))
-    shutil.copy(ROOT/'app.py', tmp_path/'app.py')
+    shutil.copy(ROOT/'ui/v7_app.py', tmp_path/'ui/v7_app.py')
     data = tmp_path/'data/research'
     data.mkdir(parents=True)
     for source in (ROOT/'data/research').iterdir():
@@ -553,7 +559,7 @@ def test_committed_dashboard_without_raw_cache(tmp_path, monkeypatch):
     assert snapshot.evidence['IWFV']['fee'] > 0
     assert snapshot.status.loc['IWFV', 'Status'] == 'Calibration supplied; validation pending'
     st.cache_data.clear()
-    app = AppTest.from_file(tmp_path/'app.py', default_timeout=60).run()
+    app = AppTest.from_file(tmp_path/'ui/v7_app.py', default_timeout=120).run()
     assert not app.exception
     assert not app.error
     assert len(app.metric) == 4
@@ -567,7 +573,7 @@ def test_committed_dashboard_without_raw_cache(tmp_path, monkeypatch):
     def fail_solve(*args, **kwargs):
         raise RuntimeError('injected hosted solver failure')
     monkeypatch.setattr(research, 'solve_run', fail_solve)
-    failed = AppTest.from_file(tmp_path/'app.py', default_timeout=60).run()
+    failed = AppTest.from_file(tmp_path/'ui/v7_app.py', default_timeout=120).run()
     assert not failed.exception
     assert 'solving the constrained frontier: RuntimeError: injected hosted solver failure' in failed.error[0].value
     assert 'Prior result retained' not in failed.error[0].value

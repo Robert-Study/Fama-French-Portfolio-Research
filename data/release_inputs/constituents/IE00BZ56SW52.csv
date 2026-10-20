@@ -1,0 +1,15 @@
+security_id,company_id,company,ticker,country,sector,cap_bucket,weight
+US5949181045,US5949181045,Microsoft Corporation,MSFT,USA,Information Technology,Mega,0.055
+US0378331005,US0378331005,Apple Inc.,AAPL,USA,Information Technology,Mega,0.052
+US11135F1012,US11135F1012,Broadcom Inc.,AVGO,USA,Information Technology,Mega,0.048
+US4781601046,US4781601046,Johnson & Johnson,JNJ,USA,Health Care,Mega,0.042
+US7427181091,US7427181091,The Procter & Gamble Company,PG,USA,Consumer Staples,Large,0.038
+US4370761029,US4370761029,The Home Depot Inc.,HD,USA,Consumer Discretionary,Large,0.035
+US00287Y1091,US00287Y1091,AbbVie Inc.,ABBV,USA,Health Care,Large,0.032
+US1912161007,US1912161007,The Coca-Cola Company,KO,USA,Consumer Staples,Large,0.03
+US58933Y1055,US58933Y1055,Merck & Co. Inc.,MRK,USA,Health Care,Large,0.028
+DK0062498333,DK0062498333,Novo Nordisk A/S,NOVO.B,DNK,Health Care,Mega,0.025
+CH0038863350,CH0038863350,Nestlé S.A.,NESN,CHE,Consumer Staples,Large,0.025
+FR0000121014,FR0000121014,LVMH Moet Hennessy Louis Vuitton SE,MC,FRA,Consumer Discretionary,Large,0.022
+GB0009895292,GB0009895292,AstraZeneca PLC,AZN,GBR,Health Care,Large,0.02
+CH0012032048,CH0012032048,Roche Holding AG,ROG,CHE,Health Care,Large,0.02

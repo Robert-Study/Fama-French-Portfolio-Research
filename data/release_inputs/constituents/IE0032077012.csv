@@ -1,0 +1,36 @@
+security_id,company_id,company,ticker,country,sector,cap_bucket,weight
+US67066G1040,US67066G1040,NVIDIA Corporation,NVDA,USA,Information Technology,Mega,0.15370169
+US0378331005,US0378331005,Apple Inc.,AAPL,USA,Information Technology,Mega,0.13893559
+US02079K3059,US02079K3059,Alphabet Inc.,GOOGL,USA,Communication Services,Mega,0.11443729
+US5949181045,US5949181045,Microsoft Corporation,MSFT,USA,Information Technology,Mega,0.11007458
+US0231351067,US0231351067,Amazon.com Inc.,AMZN,USA,Consumer Discretionary,Mega,0.0741661
+US11135F1012,US11135F1012,Broadcom Inc.,AVGO,USA,Information Technology,Mega,0.05906441
+US30303M1027,US30303M1027,Meta Platforms Inc.,META,USA,Communication Services,Mega,0.0396
+US88160R1014,US88160R1014,Tesla Inc.,TSLA,USA,Consumer Discretionary,Mega,0.03523729
+US5951121038,US5951121038,Micron Technology Inc.,MU,USA,Information Technology,Mega,0.03053898
+US0079031078,US0079031078,Advanced Micro Devices Inc.,AMD,USA,Information Technology,Mega,0.02718305
+US4581401001,US4581401001,Intel Corporation,INTC,USA,Information Technology,Mega,0.01745085
+US0382221051,US0382221051,Applied Materials Inc.,AMAT,USA,Information Technology,Large,0.01644407
+US5128073062,US5128073062,Lam Research Corporation,LRCX,USA,Information Technology,Large,0.01543729
+US17275R1023,US17275R1023,Cisco Systems Inc.,CSCO,USA,Information Technology,Large,0.01342373
+US4824801009,US4824801009,KLA Corporation,KLAC,USA,Information Technology,Large,0.01141017
+US4370761029,US4370761029,The Home Depot Inc.,HD,USA,Consumer Discretionary,Large,0.0100678
+US80004C2008,US80004C2008,Sandisk Corporation,SNDK,USA,Information Technology,Large,0.00939661
+US64110L1061,US64110L1061,Netflix Inc.,NFLX,USA,Communication Services,Large,0.00872542
+US6974351057,US6974351057,Palo Alto Networks Inc.,PANW,USA,Information Technology,Large,0.00771864
+US8825081040,US8825081040,Texas Instruments Incorporated,TXN,USA,Information Technology,Large,0.00771864
+US4592001014,US4592001014,International Business Machines Corporation,IBM,USA,Information Technology,Large,0.00771864
+US5738741041,US5738741041,Marvell Technology Inc.,MRVL,USA,Information Technology,Large,0.00738305
+US69608A1088,US69608A1088,Palantir Technologies Inc.,PLTR,USA,Information Technology,Large,0.00738305
+US68389X1054,US68389X1054,Oracle Corporation,ORCL,USA,Information Technology,Large,0.00704746
+US9581021055,US9581021055,Western Digital Corporation,WDC,USA,Information Technology,Large,0.00604068
+US0320951017,US0320951017,Amphenol Corporation,APH,USA,Information Technology,Large,0.00604068
+US2193501051,US2193501051,Corning Incorporated,GLW,USA,Information Technology,Large,0.00570508
+US7475251036,US7475251036,QUALCOMM Incorporated,QCOM,USA,Information Technology,Large,0.00570508
+US0326541051,US0326541051,Analog Devices Inc.,ADI,USA,Information Technology,Large,0.00570508
+US5801351017,US5801351017,McDonald's Corporation,MCD,USA,Consumer Discretionary,Large,0.00536949
+US22788C1053,US22788C1053,CrowdStrike Holdings Inc.,CRWD,USA,Information Technology,Large,0.00536949
+US92343V1044,US92343V1044,Verizon Communications Inc.,VZ,USA,Communication Services,Large,0.0050339
+US0404132054,US0404132054,Arista Networks Inc.,ANET,USA,Information Technology,Large,0.0050339
+US2546871060,US2546871060,The Walt Disney Company,DIS,USA,Communication Services,Large,0.0050339
+US8725401090,US8725401090,The TJX Companies Inc.,TJX,USA,Consumer Discretionary,Large,0.00469831

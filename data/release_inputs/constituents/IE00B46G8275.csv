@@ -1,0 +1,12 @@
+security_id,company_id,company,ticker,country,sector,cap_bucket,weight
+ID1000109507,ID1000109507,PT Bank Central Asia Tbk,BBCA,IDN,Financials,Large,0.28
+ID1000118201,ID1000118201,PT Bank Rakyat Indonesia (Persero) Tbk,BBRI,IDN,Financials,Large,0.18
+ID1000095003,ID1000095003,PT Bank Mandiri (Persero) Tbk,BMRI,IDN,Financials,Large,0.14
+ID1000129000,ID1000129000,PT Telkom Indonesia (Persero) Tbk,TLKM,IDN,Communication Services,Large,0.09
+ID1000122807,ID1000122807,PT Astra International Tbk,ASII,IDN,Consumer Discretionary,Large,0.07
+ID1000096605,ID1000096605,PT Bank Negara Indonesia (Persero) Tbk,BBNI,IDN,Financials,Large,0.05
+ID1000127509,ID1000127509,PT Sumber Alfaria Trijaya Tbk,AMRT,IDN,Consumer Staples,Large,0.04
+ID1000200801,ID1000200801,PT Barito Renewables Energy Tbk,BREN,IDN,Utilities,Large,0.03
+ID1000196801,ID1000196801,PT Amman Mineral Internasional Tbk,AMMN,IDN,Materials,Large,0.03
+ID1000112402,ID1000112402,PT Charoen Pokphand Indonesia Tbk,CPIN,IDN,Consumer Staples,Large,0.02
+ID1000116700,ID1000116700,PT Indofood CBP Sukses Makmur Tbk,ICBP,IDN,Consumer Staples,Large,0.02

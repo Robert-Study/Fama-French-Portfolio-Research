@@ -1,0 +1,13 @@
+security_id,company_id,company,ticker,country,sector,cap_bucket,weight
+KYG875721634,KYG875721634,Tencent Holdings Limited,700,CHN,Communication Services,Large,0.14
+KYG593841467,KYG593841467,Meituan,3690,CHN,Consumer Discretionary,Large,0.055
+US7223041028,US7223041028,PDD Holdings Inc.,PDD,CHN,Consumer Discretionary,Large,0.045
+CNE1000002H1,CNE1000002H1,China Construction Bank Corporation,939,CHN,Financials,Large,0.04
+CNE1000003X6,CNE1000003X6,Ping An Insurance (Group) Company of China Ltd. H,2318,CHN,Financials,Large,0.035
+CNE1000003G1,CNE1000003G1,Industrial and Commercial Bank of China Limited,1398,CHN,Financials,Large,0.03
+CNE1000001Z5,CNE1000001Z5,Bank of China Limited,3988,CHN,Financials,Large,0.025
+KYG070341048,KYG070341048,Baidu Inc.,9888,CHN,Communication Services,Large,0.02
+KYG6427A1022,KYG6427A1022,NetEase Inc.,9999,CHN,Communication Services,Large,0.02
+KYG8208B1014,KYG8208B1014,JD.com Inc.,9618,CHN,Consumer Discretionary,Large,0.02
+KYG9830T1067,KYG9830T1067,Xiaomi Corporation,1810,CHN,Information Technology,Large,0.02
+CNE100000296,CNE100000296,BYD Company Limited H,1211,CHN,Consumer Discretionary,Large,0.02

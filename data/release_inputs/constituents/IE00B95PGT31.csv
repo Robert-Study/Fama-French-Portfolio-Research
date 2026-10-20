@@ -1,0 +1,16 @@
+security_id,company_id,company,ticker,country,sector,cap_bucket,weight
+JP3633400001,JP3633400001,Toyota Motor Corporation,7203,JPN,Consumer Discretionary,Large,0.055
+JP3435000009,JP3435000009,Sony Group Corporation,6758,JPN,Consumer Discretionary,Large,0.038
+JP3236200006,JP3236200006,Keyence Corporation,6861,JPN,Information Technology,Large,0.032
+JP3902900004,JP3902900004,Mitsubishi UFJ Financial Group Inc.,8306,JPN,Financials,Large,0.03
+JP3571400005,JP3571400005,Tokyo Electron Limited,8035,JPN,Information Technology,Large,0.028
+JP3788600009,JP3788600009,Hitachi Ltd.,6501,JPN,Industrials,Large,0.025
+JP3890350006,JP3890350006,Sumitomo Mitsui Financial Group Inc.,8316,JPN,Financials,Large,0.024
+JP3371200001,JP3371200001,Shin-Etsu Chemical Co. Ltd.,4063,JPN,Materials,Large,0.022
+JP3970300004,JP3970300004,Recruit Holdings Co. Ltd.,6098,JPN,Industrials,Large,0.02
+JP3802300008,JP3802300008,Fast Retailing Co. Ltd.,9983,JPN,Consumer Discretionary,Large,0.02
+JP3756600007,JP3756600007,Nintendo Co. Ltd.,7974,JPN,Communication Services,Large,0.018
+JP3436100006,JP3436100006,SoftBank Group Corp.,9984,JPN,Communication Services,Large,0.018
+JP3910660004,JP3910660004,Tokio Marine Holdings Inc.,8766,JPN,Financials,Large,0.016
+JP3481800005,JP3481800005,Daikin Industries Ltd.,6367,JPN,Industrials,Large,0.015
+JP3854600008,JP3854600008,Honda Motor Co. Ltd.,7267,JPN,Consumer Discretionary,Large,0.014
