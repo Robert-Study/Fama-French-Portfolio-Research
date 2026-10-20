@@ -74,7 +74,7 @@ def _assumption(text: str, *path: str) -> float:
             stack.pop()
         stack.append((indent, key))
         if tuple(k for _, k in stack) == path:
-            values.append(float(value))
+            values.append(float(value.strip().strip('"').strip("'")))
     if len(values) != 1 or not np.isfinite(values[0]):
         raise ValueError(f'Expected one finite numeric assumption: {path}')
     return values[0]
@@ -87,11 +87,14 @@ def build_calibration(fixtures: Path = DEFAULT_FIXTURES) -> dict:
         rows = list(csv.DictReader(f))
     contracts = json.loads((fixtures / '02_product_contracts.json').read_text(encoding='utf-8-sig'))['contracts']
     assumptions = (fixtures / '02_assumptions.yaml').read_text(encoding='utf-8-sig')
-    tickers = [r['display_ticker'] for r in rows]
-    if tickers != catalogue.ticker.tolist() or tickers[0] != 'T212_GBP_CASH':
+    legacy_tickers = [r['display_ticker'] for r in rows]
+    tickers = [r['preferred_listing_ticker'] or r['display_ticker'] for r in rows]
+    if legacy_tickers != catalogue.ticker.tolist() or tickers[0] != 'T212_GBP_CASH':
         raise ValueError('Expected canonical fixture order with cash at index zero')
     def rate(name):
         return _assumption(assumptions, 'short_rates_and_financing', 'benchmarks', name, 'rate_pct') / 100
+    def anchor(name):
+        return _assumption(assumptions, 'short_rates_and_financing', 'foreign_rate_anchors_decimal', name)
     inflation = _assumption(assumptions, 'inflation_assumptions', 'developed_market_long_run_inflation', 'default_pct') / 100
     cash_aer = .038  # User override of the fixture's 4.25% planning regime.
     risk_free = 12 * np.expm1(np.log1p(cash_aer) / 12)
@@ -143,11 +146,26 @@ def build_calibration(fixtures: Path = DEFAULT_FIXTURES) -> dict:
                 ytm = real_yield + inflation
             loss = float(contract['expected_credit_loss_pct']) / 100
             hedge = 0.0
+            fx_drift = 0.0
+            wedge = .002 if ticker == 'INXG' and AS_OF_DATE < '2030-02-01' else 0.0
+            basket_weights = None
+            foreign_rate = None
             if contract['currency_hedging'] == 'GBP_HEDGED':
-                # Basket currency weights are absent. SOFR is an explicit proxy
-                # for foreign short rates in VAGS/GHYS, not a verified basket rate.
-                hedge = rate('GBP_SONIA_OVERNIGHT') - rate('USD_SOFR_OVERNIGHT') - float(contract['funding_spread_pct']) / 100
-            mu[i] = ytm - loss + hedge - ocf - swap
+                foreign_rate = rate('USD_SOFR_OVERNIGHT')
+                if ticker in ('VAGS', 'GHYS'):
+                    # Audit supplies target carry, not observed holdings weights.
+                    # Planning weights reproduce those targets at pinned rates.
+                    # Freeze weights so rate shocks flow through the basket.
+                    basket_weights = ({'USD': .5269461077844311, 'EUR': .3730538922155689, 'JPY': .1}
+                                      if ticker == 'VAGS' else
+                                      {'USD': .6946107784431138, 'EUR': .3053892215568862, 'JPY': 0.0})
+                    foreign_rate = sum(basket_weights[c] * r for c, r in
+                                       [('USD', rate('USD_SOFR_OVERNIGHT')),
+                                        ('EUR', anchor('EUR_ESTR')), ('JPY', anchor('JPY_TONA'))])
+                hedge = rate('GBP_SONIA_OVERNIGHT') - foreign_rate - float(contract['funding_spread_pct']) / 100
+            if ticker in ('IBTS', 'IBTM', 'IBTL', 'VEMT') and contract['currency_hedging'] == 'UNHEDGED':
+                fx_drift = rate('GBP_SONIA_OVERNIGHT') - rate('USD_SOFR_OVERNIGHT')
+            mu[i] = ytm - loss + hedge + wedge + fx_drift - ocf - swap
             set_loading(i, 'rates', duration * .01)
             credit_risk = {'SOVEREIGN_DM': 0., 'GLOBAL_AGG_IG': .01, 'IG_CORP': .025,
                            'EM_SOVEREIGN': .07, 'HY_CORP': .07}[contract['credit_loss_bucket']]
@@ -158,14 +176,14 @@ def build_calibration(fixtures: Path = DEFAULT_FIXTURES) -> dict:
             residual[i] = .01
             components.update(yield_before_costs_ann=ytm, real_yield_ann=real_yield,
                               duration_years=duration, credit_loss_ann=loss, hedge_carry_ann=hedge,
-                              roll_down_ann=0.0)
+                              roll_down_ann=0.0, inflation_wedge_ann=wedge, fx_drift_ann=fx_drift,
+                              foreign_rate_ann=foreign_rate, foreign_currency_weights=basket_weights)
         elif category == 'Commodities':
             physical = ticker in ('SGLN', 'SSLN')
-            spot = inflation + _assumption(assumptions, 'commodity_priors', 'physical_precious_metals', 'expected_real_return_pct') / 100 if physical else 0.0
+            spot = inflation + _assumption(assumptions, 'commodity_priors', 'physical_precious_metals', 'silver_expected_real_return_pct' if ticker == 'SSLN' else 'expected_real_return_pct') / 100 if physical else 0.0
             roll = 0.0 if physical else _assumption(assumptions, 'commodity_priors', 'collateralised_futures', 'expected_futures_excess_return_pct') / 100
-            # No forward curve or T-bill quote exists locally. Zero spot+roll
-            # excess return and SOFR collateral proxy are explicit priors.
-            collateral = 0.0 if physical else rate('USD_SOFR_OVERNIGHT')
+            # Audit-pinned contractual collateral anchors; no live curve fit.
+            collateral = 0.0 if physical else anchor('USD_UST_13W_HIGH' if ticker == 'CMOP' else 'USD_UST_4W_DISCOUNT')
             mu[i] = spot + roll + collateral - ocf - swap
             systematic, residual[i] = COMMODITY_RISK[ticker]
             set_loading(i, 'commodity', systematic)
@@ -176,8 +194,7 @@ def build_calibration(fixtures: Path = DEFAULT_FIXTURES) -> dict:
             leverage = float(contract['leverage_factor'])
             borrowed = float(contract['borrowed_notional_multiple'])
             spread = float(contract.get('provisional_funding_spread_fallback_pct', contract['funding_spread_pct'])) / 100
-            # Respect the residual audit's ACT/365 correction for WisdomTree.
-            basis = 365 if ticker == '3LUS' else int(contract['day_count'].split('/')[1])
+            basis = int(contract['day_count'].split('/')[1])
             funding = borrowed * (rate(contract['funding_benchmark']) + spread) * 365 / basis
             embedded = leverage * float(contract['embedded_underlying_fee_pct']) / 100
             mu[i] = leverage * gross - funding - ocf - swap - embedded
@@ -194,7 +211,7 @@ def build_calibration(fixtures: Path = DEFAULT_FIXTURES) -> dict:
         else:
             raise ValueError(f'Unsupported instrument: {ticker} ({category})')
         components['net_arith_ann'] = float(mu[i])
-        audit[ticker] = components
+        audit[tickers[i]] = components
 
     # Independent residual priors are disclosed; there is no invented empirical
     # residual matrix or overlap surcharge. Shared factors supply cross-covariance.
@@ -208,7 +225,7 @@ def build_calibration(fixtures: Path = DEFAULT_FIXTURES) -> dict:
         'source': 'Pinned 2026-10-18 universe, product contracts and assumptions; explicit planning priors in scripts/build_market_calibration.py. Not an empirical or independently fitted holdings calibration.',
         'tickers': tickers, 'mu_monthly': (mu / 12).tolist(),
         'cov_monthly': (cov_ann / 12).tolist(), 'C_mat': (cov_ann / 60).tolist(),
-        'U_mat': (1e-4 * np.diag(np.diag(cov_ann))).tolist(),
+        'U_mat': (1e-4 * cov_ann).tolist(),
         'calibration_details': {
             'equity_erp_ann': equity_erp, 'equity_risk_free_ann': float(risk_free),
             'factor_premia_ann': STYLE_PREMIA, 'factor_names': FACTORS,
@@ -216,12 +233,12 @@ def build_calibration(fixtures: Path = DEFAULT_FIXTURES) -> dict:
             'instruments': audit,
             'limitations': [
                 'Factor exposures, volatilities and premia are planning priors; no return history was fitted.',
-                'Zero FX drift, bond roll-down and inflation wedge; no return premium for country concentration.',
-                'SOFR proxies unavailable T-bill collateral and foreign basket short rates.',
+                'Zero bond roll-down; USD bond UIP drift and pre-2030 INXG wedge follow the Pass B audit.',
+                'VAGS/GHYS currency weights are planning assumptions fitted to audit carry targets, not verified holdings weights.',
                 'Physical metals earn no collateral; futures spot+roll is the zero excess-return prior.',
                 'Daily leverage is a diffusion approximation, not pathwise reset or default simulation.',
                 'Distribution yields are unavailable; snapshot preparation defaults to reinvested total returns.',
-                'C=cov_ann/60 and U=1e-4*diag(diag(cov_ann)) are requested uncertainty conventions.',
+                'C=cov_ann/60 and U=1e-4*cov_ann are requested uncertainty conventions.',
                 'Cash uses 3.80% AER, overriding the 4.25% fixture planning default.',
             ],
             'fixture_sha256': {name: sha256((fixtures / name).read_bytes()).hexdigest()
@@ -234,9 +251,10 @@ def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--fixtures', type=Path, default=DEFAULT_FIXTURES)
     parser.add_argument('--out', type=Path, default=ROOT / 'data/release_inputs/market_calibration.json')
+    parser.add_argument('--force', action='store_true', help='Replace the validated output atomically')
     args = parser.parse_args(argv)
     try:
-        if args.out.exists():
+        if args.out.exists() and not args.force:
             raise ValueError(f'Refusing to overwrite existing calibration: {args.out}')
         payload = build_calibration(args.fixtures)
         args.out.parent.mkdir(parents=True, exist_ok=True)
@@ -244,7 +262,7 @@ def main(argv=None) -> int:
             path = Path(staging) / 'market_calibration.json'
             path.write_text(json.dumps(payload, indent=2, allow_nan=False) + '\n', encoding='utf-8')
             build_snapshot(args.fixtures, path)  # Validate the consumer contract before publishing.
-            path.rename(args.out)
+            path.replace(args.out) if args.force else path.rename(args.out)
     except (ValueError, KeyError, TypeError, OSError) as exc:
         print(f'Market calibration blocked: {exc}', file=sys.stderr)
         return 2

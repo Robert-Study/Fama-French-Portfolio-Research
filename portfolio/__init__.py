@@ -1,4 +1,4 @@
-__version__ = "0.4.4"
+__version__ = "0.4.5"
 
 from portfolio.model import ModelSpecificationError, PreparedModel, prepare_model
 from portfolio.holdings_model import (

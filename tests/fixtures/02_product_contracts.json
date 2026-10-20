@@ -22,8 +22,7 @@
       "day_count": "ACT/360",
       "weekend_accrual_days": 3,
       "funding_benchmark": "USD_SOFR_OVERNIGHT",
-      "funding_spread_pct": 0.0,
-      "provisional_funding_spread_fallback_pct": 2.0,
+      "funding_spread_pct": 0.3,
       "wrapper_fee_pct": 0.6,
       "additional_swap_fee_pct": 0.0,
       "embedded_underlying_fee_pct": 0.0,
@@ -33,7 +32,7 @@
       "source_as_of": "2026-09-30",
       "assumption_flags": [
         "INDEX_EMBEDDED_SOFR_FINANCING",
-        "UNVERIFIED_OTC_SWAP_SPREAD_SENSITIVITY_1_TO_3_PCT"
+        "AUDIT_VERIFIED_UCITS_OTC_SPREAD_0_30_PCT"
       ]
     },
     "FR0010342592": {
@@ -56,8 +55,7 @@
       "weekend_accrual_days": 3,
       "funding_benchmark": "USD_SOFR_OVERNIGHT",
       "alternate_eur_nav_funding_benchmark": "EUR_ESTR_OVERNIGHT",
-      "funding_spread_pct": 0.0,
-      "provisional_funding_spread_fallback_pct": 2.0,
+      "funding_spread_pct": 0.3,
       "wrapper_fee_pct": 0.6,
       "additional_swap_fee_pct": 0.0,
       "embedded_underlying_fee_pct": 0.0,
@@ -68,7 +66,7 @@
       "assumption_flags": [
         "HTML_PORTAL_VERIFIED_PDF_404",
         "USD_UNDERLYING_TO_GBP_SINGLE_FX_CONVERSION",
-        "UNVERIFIED_OTC_SWAP_SPREAD_SENSITIVITY_1_TO_3_PCT"
+        "AUDIT_VERIFIED_UCITS_OTC_SPREAD_0_30_PCT"
       ]
     },
     "IE00B7Y34M31": {
@@ -90,7 +88,7 @@
       "income_treatment": "ACCUMULATING",
       "leverage_factor": 3.0,
       "borrowed_notional_multiple": 2.0,
-      "day_count": "ACT/360",
+      "day_count": "ACT/365",
       "weekend_accrual_days": 3,
       "funding_benchmark": "USD_FED_FUNDS_EFFECTIVE",
       "funding_spread_pct": 1.002,
@@ -225,7 +223,7 @@
       "canonical_id": "IE00B1FZSD53",
       "display_ticker": "INXG",
       "isin": "IE00B1FZSD53",
-      "legal_name": "iShares \u00a3 Index-Linked Gilts UCITS ETF GBP (Dist)",
+      "legal_name": "iShares £ Index-Linked Gilts UCITS ETF GBP (Dist)",
       "asset_class": "Bonds",
       "leverage_factor": 1.0,
       "borrowed_notional_multiple": 0.0,
@@ -253,7 +251,7 @@
       "canonical_id": "IE00B5L65R35",
       "display_ticker": "IS15",
       "isin": "IE00B5L65R35",
-      "legal_name": "iShares \u00a3 Corp Bond 0-5yr UCITS ETF GBP (Dist)",
+      "legal_name": "iShares £ Corp Bond 0-5yr UCITS ETF GBP (Dist)",
       "asset_class": "Bonds",
       "leverage_factor": 1.0,
       "borrowed_notional_multiple": 0.0,
@@ -279,7 +277,7 @@
       "canonical_id": "IE00B00FV011",
       "display_ticker": "SLXX",
       "isin": "IE00B00FV011",
-      "legal_name": "iShares Core \u00a3 Corp Bond UCITS ETF GBP (Dist)",
+      "legal_name": "iShares Core £ Corp Bond UCITS ETF GBP (Dist)",
       "asset_class": "Bonds",
       "leverage_factor": 1.0,
       "borrowed_notional_multiple": 0.0,

@@ -27,6 +27,12 @@ short_rates_and_financing:
       source: "Bank of England SONIA"
       source_as_of: "2026-10-16"
       sensitivity_deltas_pct: [-2.00, -1.00, 0.00, 1.00, 2.00]
+  # Pass B audit anchors are annual simple decimal rates, not rate_pct.
+  foreign_rate_anchors_decimal:
+    EUR_ESTR: "0.0315"
+    JPY_TONA: "0.0025"
+    USD_UST_4W_DISCOUNT: "0.0462"
+    USD_UST_13W_HIGH: "0.0467"
   unverified_financing_spread_fallback:
     default_pct_on_borrowed_notional: 2.00
     sensitivity_grid_pct: [1.00, 2.00, 3.00]
@@ -81,6 +87,7 @@ bond_credit_and_hedging_priors:
 commodity_priors:
   physical_precious_metals:
     expected_real_return_pct: 0.00
+    silver_expected_real_return_pct: 0.25
     collateral_yield_earned: false
     nominal_growth_sensitivity_grid_pct: [-3.00, 0.00, 2.00, 7.00]
   collateralised_futures:

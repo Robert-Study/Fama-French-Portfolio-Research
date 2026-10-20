@@ -5,7 +5,7 @@ Default input: data/release_inputs/market_calibration.json. Exit 2 means blocked
 
 The JSON contract requires as_of_date, source_as_of, source, method (etf or
 holdings), reporting_currency=GBP, return_basis=net_total_return,
-moment_basis=monthly_simple_decimal, tickers (68 fixture display tickers in
+moment_basis=monthly_simple_decimal, tickers (68 fixture display or preferred listing tickers in
 order), mu_monthly (68), cov_monthly (68x68), and C_mat/U_mat (68x68 annual
 log-wealth uncertainty coefficients). These are calibrated outputs, not prices.
 The upstream calibration must apply product costs exactly once. This serializer
@@ -19,6 +19,7 @@ calibrate a second route or certify the quality of upstream market estimates.
 from __future__ import annotations
 
 import argparse
+import csv
 from datetime import date
 from hashlib import sha256
 import json
@@ -62,8 +63,13 @@ def build_snapshot(fixtures: Path, calibration: Path) -> MarketSnapshot:
     if date.fromisoformat(data["source_as_of"]) > date.fromisoformat(AS_OF_DATE):
         raise ValueError("source_as_of exceeds the snapshot cut-off")
     tickers = tuple(catalogue.ticker)
-    if tuple(data.get("tickers", ())) != tickers:
+    preferred = tuple(row["preferred_listing_ticker"] or row["display_ticker"]
+                      for row in csv.DictReader(
+                          (Path(fixtures) / '01_verified_universe.csv').read_text(encoding='utf-8-sig').splitlines()))
+    supplied = tuple(data.get("tickers", ()))
+    if supplied not in (tickers, preferred):
         raise ValueError("Calibration must contain all 68 tickers in exact canonical order")
+    tickers = supplied
     cash_indices = np.flatnonzero(catalogue.fund_id.eq(CASH_ID))
     if len(cash_indices) != 1:
         raise ValueError("Expected exactly one cash:T212_GBP_CASH")
@@ -100,10 +106,11 @@ def main(argv=None) -> int:
                         default=ROOT / "data/release_inputs/market_calibration.json")
     parser.add_argument("--out", type=Path,
                         default=ROOT / "data/release_inputs/market_snapshot.joblib")
+    parser.add_argument("--force", action="store_true", help="Replace the validated output atomically")
     args = parser.parse_args(argv)
     try:
         snapshot = build_snapshot(args.fixtures, args.calibration)
-        if args.out.exists():
+        if args.out.exists() and not args.force:
             raise ValueError(f"Refusing to overwrite existing snapshot: {args.out}")
         args.out.parent.mkdir(parents=True, exist_ok=True)
         # Validate before publication. Windows rename refuses an existing target.
@@ -112,7 +119,7 @@ def main(argv=None) -> int:
             joblib.dump(snapshot, staged, compress=3)
             loaded = joblib.load(staged)
             loaded.__post_init__()
-            staged.rename(args.out)
+            staged.replace(args.out) if args.force else staged.rename(args.out)
     except (ValueError, KeyError, TypeError, OSError) as exc:
         print(f"Market snapshot blocked: {exc}", file=sys.stderr)
         return 2
