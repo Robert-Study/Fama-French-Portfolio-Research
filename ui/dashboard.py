@@ -41,7 +41,6 @@ def _compute_wealth_cone(model: Any, q_bps: np.ndarray, max_years: int = 30) -> 
     w = as_weights(q_bps)
     mu_arith = getattr(model, "mu_arith_ann", np.zeros_like(w))
     cov_ann = getattr(model, "cov_ann", np.eye(len(w)) * 0.04)
-    param_uncertainty = getattr(model, "param_uncertainty", None)
 
     records = []
     for y in range(1, max_years + 1):
@@ -52,7 +51,6 @@ def _compute_wealth_cone(model: Any, q_bps: np.ndarray, max_years: int = 30) -> 
             q50 = q_dict[0.50]
             q84 = q_dict[0.84135]
         except Exception:
-            # Fallback simple lognormal if full state-space moments fail
             annual_mu = float(w @ getattr(model, "mu_arith_ann", np.zeros_like(w)))
             annual_var = float(w @ getattr(model, "cov_ann", np.zeros((len(w), len(w)))) @ w)
             annual_sd = np.sqrt(max(annual_var, 0.0))
@@ -73,38 +71,23 @@ def _compute_wealth_cone(model: Any, q_bps: np.ndarray, max_years: int = 30) -> 
 
 
 def render(context: dict) -> None:
-    """Render the primary interactive portfolio construction dashboard."""
+    """Render the primary interactive portfolio construction dashboard (Two-Panel Responsive Layout)."""
     release = context["release"]
     model = context["model"]
     tickers = context["tickers"]
     load_frontier = context.get("load_frontier")
 
-    st.subheader(copy("dashboard.title"))
-    st.caption(copy("dashboard.subtitle"))
+    # Header Row: Title and Quick Presets
+    top_col_info, top_col_presets = st.columns([6, 6], vertical_alignment="center")
+    with top_col_info:
+        st.subheader(copy("dashboard.title"))
+        st.caption(copy("dashboard.subtitle"))
 
     state = st.session_state
     state.setdefault("v8_filters", [name for _, name in SLEEVES])
 
-    # Category Mask Multiselect
-    col_filters, col_presets = st.columns([7, 5])
-    with col_filters:
-        selected_sleeves = st.multiselect(
-            "Active Asset Category Sleeves",
-            options=[name for _, name in SLEEVES],
-            default=state["v8_filters"],
-            help="Select which asset sleeves participate in portfolio construction.",
-            key="v8_sleeve_multiselect",
-        )
-        state["v8_filters"] = selected_sleeves
-
-    # Compute 6-bit engine mask
-    engine_mask = 0
-    for bit, name in SLEEVES:
-        if name in selected_sleeves:
-            engine_mask |= bit
-
-    with col_presets:
-        st.markdown("**Quick Preset Allocations**")
+    with top_col_presets:
+        st.markdown("**Quick Preset Portfolios**")
         pcols = st.columns(4)
         refs = release.get("references", {})
         if pcols[0].button("100% Cash"):
@@ -133,6 +116,13 @@ def render(context: dict) -> None:
                 state["_preset_active"] = True
                 st.rerun()
 
+    # Category Mask Evaluation
+    selected_sleeves = state["v8_filters"]
+    engine_mask = 0
+    for bit, name in SLEEVES:
+        if name in selected_sleeves:
+            engine_mask |= bit
+
     # Pre-load frontier for mask if available
     frontier_data = None
     if load_frontier and engine_mask > 0:
@@ -158,15 +148,13 @@ def render(context: dict) -> None:
         if 0 <= pt < len(frontier_data["q_bps"]):
             state["v8_q_bps"] = [int(x) for x in frontier_data["q_bps"][pt]]
 
-    # Current Portfolio Metrics
+    # Current Portfolio Metrics & Telemetry
     curr_q = np.array(state["v8_q_bps"], dtype=np.int64)
-    # Check weights validation
     try:
         curr_q = checked_weights(curr_q)
     except Exception as exc:
         st.warning(f"Allocation adjustment needed: {exc}")
 
-    # Leverage calculation
     leverage = np.ones(len(tickers), dtype=np.float64)
     if "3QQQ" in tickers:
         leverage[tickers.index("3QQQ")] = 3.0
@@ -175,21 +163,38 @@ def render(context: dict) -> None:
             leverage[tickers.index(t)] = 3.0
 
     diag = diagnostics(model, curr_q, leverage)
-
     cash_rate = 0.038  # 3.80% AER cash anchor
     sharpe = (diag["mu"] - cash_rate) / diag["sigma"] if diag["sigma"] > 1e-6 else 0.0
+
+    # Hero KPI Telemetry Strip
     render_kpi_strip(mu=diag["mu"], sigma=diag["sigma"], sharpe=sharpe, gross=diag["gross"])
 
     st.divider()
 
-    # Efficient Frontier Chart & Wealth Cone in tabs
-    tab_frontier, tab_cone, tab_alloc = st.tabs([
-        "📈 " + copy("dashboard.frontier.title"),
-        "⏳ Wealth Projection Cone",
-        "📝 Allocation Editor"
-    ])
+    # -------------------------------------------------------------------------
+    # Two Balanced Portrait Panels (Side-by-Side on Desktop, Stacked on Mobile)
+    # -------------------------------------------------------------------------
+    col_left, col_right = st.columns([1, 1], gap="large")
 
-    with tab_frontier:
+    # =========================================================================
+    # LEFT PANEL: Efficient Frontier Navigator & Mathematical Engine
+    # =========================================================================
+    with col_left:
+        st.markdown("### 📈 MIQP Efficient Frontier & Engine")
+        
+        # Asset Sleeve Multi-Select
+        selected_sleeves_input = st.multiselect(
+            "Active Asset Category Sleeves",
+            options=[name for _, name in SLEEVES],
+            default=state["v8_filters"],
+            help="Select which asset sleeves participate in MIQP portfolio optimization.",
+            key="v8_sleeve_multiselect",
+        )
+        if selected_sleeves_input != state["v8_filters"]:
+            state["v8_filters"] = selected_sleeves_input
+            st.rerun()
+
+        # Frontier Plot
         if is_frontier_certified:
             f_q = frontier_data["q_bps"]
             w_mat = f_q.astype(np.float64) / float(TOTAL)
@@ -203,14 +208,14 @@ def render(context: dict) -> None:
                 "Expected Return": f_mu,
             }).sort_values("Annual Volatility")
 
-            fig = create_frontier_figure(
+            fig_frontier = create_frontier_figure(
                 chart_df,
                 active_vol=diag["sigma"],
                 active_return=diag["mu"],
                 cash_rate=cash_rate,
-                title=f"MIQP Efficient Frontier & CAL ({len(f_q):,} Certified Points)",
+                title=f"MIQP Efficient Frontier & CAL ({len(f_q):,} Points)",
             )
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig_frontier, use_container_width=True)
 
             point_idx = st.slider(
                 "Frontier Point (0 = Min Vol / GMV, 1000 = Max Return)",
@@ -226,14 +231,14 @@ def render(context: dict) -> None:
                 st.rerun()
 
             st.caption(
-                f"MIQP Frontier ({len(f_q)} points). Category Mask: {engine_mask:02d}. "
-                f"Selected Point #{point_idx}: Volatility {diag['sigma']:.2%}, Return {diag['mu']:.2%}."
+                f"Certified MIQP Frontier ({len(f_q)} points). Sleeve Mask: {engine_mask:02d}. "
+                f"Selected Point #{point_idx}: Volatility {diag['sigma']:.2%}, Return {diag['mu']:.2%}, Sharpe {sharpe:.2f}."
             )
         else:
             if engine_mask == 0:
-                st.info("No active asset sleeves selected (category mask 00 is infeasible/empty). Select at least one sleeve to construct a portfolio.")
+                st.info("No active asset sleeves selected (category mask 00 is infeasible). Select at least one sleeve.")
             else:
-                st.info(f"Precomputed 1,001-point frontier will display once release artifacts are generated for category mask {engine_mask:02d}.")
+                st.info(f"Frontier precomputation for sleeve mask {engine_mask:02d} is being indexed.")
 
             single_mu = getattr(model, "mu_arith_ann", np.zeros(len(tickers)))
             single_cov = getattr(model, "cov_ann", np.eye(len(tickers)))
@@ -243,25 +248,32 @@ def render(context: dict) -> None:
                 "Annual Volatility": single_sigma,
                 "Expected Return": single_mu,
             })
-            fig = px.scatter(
+            fig_scatter = px.scatter(
                 asset_df,
                 x="Annual Volatility",
                 y="Expected Return",
                 color="Ticker",
                 title="Asset Universe Volatility vs Return",
             )
-            fig.update_layout(xaxis_tickformat=".1%", yaxis_tickformat=".1%", margin=dict(t=30, b=10))
-            st.plotly_chart(fig, use_container_width=True)
+            fig_scatter.update_layout(xaxis_tickformat=".1%", yaxis_tickformat=".1%", height=460, margin=dict(t=30, b=10))
+            st.plotly_chart(fig_scatter, use_container_width=True)
 
-    with tab_cone:
-        st.markdown("#### Cumulative Wealth Growth Distribution (Initial £10,000)")
+        # Wealth Horizon Control
         horizon_years = st.slider(
             "Wealth Projection Horizon (Years)",
             min_value=1,
             max_value=40,
-            value=30,
+            value=int(state.get("v8_wealth_horizon", 30)),
             key="v8_wealth_horizon",
         )
+
+    # =========================================================================
+    # RIGHT PANEL: Wealth Distribution & Allocation Dynamics
+    # =========================================================================
+    with col_right:
+        st.markdown("### ⏳ Wealth Projection & Allocation")
+
+        # Wealth Moments Data Resolution
         load_wealth = context.get("load_wealth")
         method = state.get("v8_method", "holdings")
         wealth_data = None
@@ -299,47 +311,27 @@ def render(context: dict) -> None:
         else:
             cone_df = _compute_wealth_cone(model, curr_q, max_years=horizon_years)
 
+        # Plotly Shaded Wealth Fan Chart
         fig_cone = create_wealth_cone_figure(cone_df, horizon_years, initial_wealth=10000.0)
         st.plotly_chart(fig_cone, use_container_width=True)
 
-        scaled_cone = cone_df.copy()
-        if scaled_cone["P50 (Median)"].max() < 100.0:
-            scaled_cone["P20 (£)"] = scaled_cone["P20 (Downside)"] * 10000.0
-            scaled_cone["P50 (£)"] = scaled_cone["P50 (Median)"] * 10000.0
-            scaled_cone["P84 (£)"] = scaled_cone["P84 (Upside)"] * 10000.0
-
-        st.dataframe(
-            scaled_cone.style.format({
-                "P20 (Downside)": "{:.2f}x",
-                "P50 (Median)": "{:.2f}x",
-                "P84 (Upside)": "{:.2f}x",
-                "P20 (£)": "£{:,.0f}",
-                "P50 (£)": "£{:,.0f}",
-                "P84 (£)": "£{:,.0f}",
-            }),
-            hide_index=True,
-            use_container_width=True,
-        )
-
-    with tab_alloc:
-        st.markdown("#### Dynamic Sleeve & Asset Allocation Sunburst")
+        # Dynamic Sleeve & Asset Allocation Sunburst Donut
         fig_sunburst = create_allocation_sunburst(tickers, curr_q)
         st.plotly_chart(fig_sunburst, use_container_width=True)
 
-        st.markdown("#### Portfolio Position Ledger (Integer Basis Points)")
-        rows = []
-        for i, t in enumerate(tickers):
-            rows.append({
-                "Index": i,
-                "Ticker": t,
-                "Weight (bps)": int(curr_q[i]),
-                "Weight (%)": f"{curr_q[i] / 100.0:.2f}%",
-            })
-        alloc_df = pd.DataFrame(rows)
-        # Show only active positions or all
-        show_all = st.checkbox("Show all 68 universe instruments", value=False)
-        if not show_all:
-            alloc_df = alloc_df[alloc_df["Weight (bps)"] > 0]
-
-        st.dataframe(alloc_df, hide_index=True, use_container_width=True)
-        st.caption(f"Total Allocation: {int(curr_q.sum())} / {TOTAL} basis points.")
+        # Position Ledger (Accordion / Expander)
+        with st.expander("📋 Position Ledger (Integer Basis Points)", expanded=False):
+            rows = []
+            for i, t in enumerate(tickers):
+                rows.append({
+                    "Index": i,
+                    "Ticker": t,
+                    "Weight (bps)": int(curr_q[i]),
+                    "Weight (%)": f"{curr_q[i] / 100.0:.2f}%",
+                })
+            alloc_df = pd.DataFrame(rows)
+            show_all = st.checkbox("Show all 68 universe instruments", value=False, key="v8_show_all_instruments")
+            if not show_all:
+                alloc_df = alloc_df[alloc_df["Weight (bps)"] > 0]
+            st.dataframe(alloc_df, hide_index=True, use_container_width=True)
+            st.caption(f"Total Portfolio Allocation: {int(curr_q.sum())} / {TOTAL} basis points.")

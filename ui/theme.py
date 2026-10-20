@@ -50,6 +50,32 @@ def get_custom_css() -> str:
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     }
 
+    /* Responsive Centered Layout Container — eliminates awkward zoomed-out stretch */
+    .block-container {
+        max-width: 1440px !important;
+        padding-top: 1.25rem !important;
+        padding-bottom: 2.5rem !important;
+        padding-left: 1.75rem !important;
+        padding-right: 1.75rem !important;
+        margin: 0 auto !important;
+    }
+
+    html, body, [class*="css"] {
+        font-size: 15px !important;
+    }
+
+    /* Balanced Portrait Panel Container */
+    .portrait-panel {
+        background: rgba(22, 31, 48, 0.50);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 14px;
+        padding: 18px 20px;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+    }
+
     header[data-testid="stHeader"] {
         background-color: rgba(10, 14, 23, 0.85) !important;
         backdrop-filter: blur(12px) !important;

@@ -19,7 +19,7 @@ from typing import Any
 
 FIXTURES_DIR = Path(__file__).resolve().parent / "fixtures"
 DRIVE_V8_ROOT = Path(
-    r"G:\My Drive\AI-File-Exchange\03 Investment Portfolio\V8.0 - Portfolio Construction Lab"
+    r"G:\My Drive\AI-File-Exchange\03 Portfolio Deliverables\V8.0 - Portfolio Construction Lab"
 )
 
 FORBIDDEN_ESCAPE_PATTERNS = (
